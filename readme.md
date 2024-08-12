@@ -72,10 +72,10 @@ Example of a branch name: `feat/jewell-landing_page`
      git add <filename>
      ```
 
-2. Commit your changes with a descriptive message:
+2. Commit your changes with prefixed with a type and a descriptive message. Refer to [Link1](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13) & [Link2](https://www.conventionalcommits.org/en/v1.0.0/):
 
    ```bash
-   git commit -m "{Describe your proposed changes}"
+   git commit -m "<Type>: <Describe your proposed changes>"
    ```
 
 3. Push your changes to your branch:
