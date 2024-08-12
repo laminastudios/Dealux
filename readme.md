@@ -44,15 +44,15 @@ The Online Shopping Comparison Platform is a web application designed to enhance
 
 #### Branch Name Guide
 
-- `<new-branch-name>` format is `[dev-name]-[branch-type]-[task-desc]`
-- `[dev-name]`: Your nickname
+- `<new-branch-name>` format is `[branch-type]/[dev-name]-[task-desc]`
 - `[branch-type]`: Type of task (feat, fix, refactor)
   - `feat`: New feature
   - `fix`: Bug fix
   - `refactor`: Code change that doesn't fix a bug or add a feature
+- `[dev-name]`: Your nickname
 - `[task-desc]`: Brief description of your task (2-3 words, connected by underscores '\_')
 
-Example of a branch name: `jewell-feat-landing_page`
+Example of a branch name: `feat/jewell-landing_page`
 
 2. Check if you are on your working branch:
    ```bash
