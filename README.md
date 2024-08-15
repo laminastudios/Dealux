@@ -38,26 +38,23 @@ This repository follows a structured branching strategy to manage development an
 ```
 
 2. Install Dependencies:
-#### Frontend Setup
 ```bash
-   cd frontend
    npm install
-```
-
-#### Backend Setup
-```bash
-   cd backend
    composer install
 ```
 
-## Run the Project
-### Frontend 
+3. Pull the .env vault:
 ```bash
-   cd frontend
-   npm run dev
+   npx dotenv-vault pull
 ```
-### Backend 
+
+4. Run Database Migration:
 ```bash
-   cd backend
+   php artisan migrate
+```
+
+5. Run the Project
+```bash
+   npm run dev
    php artisan serve 
 ```
