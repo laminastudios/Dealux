@@ -50,7 +50,6 @@ This repository follows a structured branching strategy to manage development an
 
 4. Run Database Migration:
 ```bash
-   php artisan migrate:rollback --step=1
    php artisan migrate
 ```
 
