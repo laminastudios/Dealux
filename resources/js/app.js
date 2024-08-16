@@ -1,26 +1,26 @@
 // Importing Vue
 import { createApp } from "vue";
 
-// Importing components
-import LandingPage from "./components/LandingPage.vue";
-import SignUpPage from "./components/SignUpPage.vue";
-import SignInPage from "./components/SignInPage.vue";
-import CartPage from "./components/CartPage.vue";
-import PurchasePage from "./components/PurchasePage.vue";
-import ComparePage from "./components/ComparePage.vue";
-import AccountPage from "./components/AccountPage.vue";
-import ActiveOrderPage from "./components/ActiveOrderPage.vue";
-import PurchaseHistoryPage from "./components/PurchaseHistoryPage.vue";
-import SupportPage from "./components/SupportPage.vue";
-import SubscriptionPage from "./components/SubscriptionPage.vue";
-import ProfilePage from "./components/ProfilePage.vue";
-import SettingsPage from "./components/SettingsPage.vue";
-import CheckoutPage from "./components/CheckoutPage.vue";
+// Importing pages
+import LandingPage from "./pages/LandingPage.vue";
+import SignUpPage from "./pages/SignUpPage.vue";
+import SignInPage from "./pages/SignInPage.vue";
+import CartPage from "./pages/CartPage.vue";
+import PurchasePage from "./pages/PurchasePage.vue";
+import ComparePage from "./pages/ComparePage.vue";
+import AccountPage from "./pages/AccountPage.vue";
+import ActiveOrderPage from "./pages/ActiveOrderPage.vue";
+import PurchaseHistoryPage from "./pages/PurchaseHistoryPage.vue";
+import SupportPage from "./pages/SupportPage.vue";
+import SubscriptionPage from "./pages/SubscriptionPage.vue";
+import ProfilePage from "./pages/ProfilePage.vue";
+import SettingsPage from "./pages/SettingsPage.vue";
+import CheckoutPage from "./pages/CheckoutPage.vue";
 
 // Creating a new Vue application instance
 const app = createApp({});
 
-// Registering components globally
+// Registering pages globally
 app.component("landing-page", LandingPage); // Registers LandingPage component
 
 app.component("signup-page", SignUpPage); // Registers SignUpPage component
