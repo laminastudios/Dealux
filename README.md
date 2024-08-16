@@ -42,10 +42,10 @@ This repository follows a structured branching strategy to manage development an
    npm install
    composer install
 ```
-
-3. Pull the .env vault:
+3. Prepare the Environment Variables:
+- Rename the provided env file to .env:
 ```bash
-   npx dotenv-vault pull
+   mv env .env
 ```
 
 4. Run Database Migration:
