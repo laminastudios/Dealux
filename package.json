@@ -19,7 +19,6 @@
         "vue": "^3.2.37"
     },
     "dependencies": {
-        "dotenv-vault-core": "^0.7.1",
         "vue-router": "^4.4.3"
     }
 }
