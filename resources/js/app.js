@@ -1,6 +1,9 @@
 // Importing Vue
 import { createApp } from "vue";
 
+// Importing the Vue-router
+import router from"./router"; 
+
 // Importing pages
 import LandingPage from "./pages/LandingPage.vue";
 import SignUpPage from "./pages/SignUpPage.vue";
@@ -42,6 +45,9 @@ app.component("support-page", SupportPage); // Registers SupportPage component
 app.component("subscription-page", SubscriptionPage); // Registers SubscriptionPage component
 app.component("profile-page", ProfilePage); // Registers ProfilePage component
 app.component("settings-page", SettingsPage); // Registers SettingsPage component
+
+// Using the Vue Router
+app.use(router);
 
 // Mounting the Vue application to the DOM element with id="app"
 app.mount("#app");
