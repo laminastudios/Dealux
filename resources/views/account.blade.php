@@ -5,5 +5,4 @@
     <account-page></account-page>
 </div>
 
-@vite('resources/js/app.js')
 @endsection
