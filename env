@@ -1,5 +1,5 @@
 # development@v2
-APP_NAME=Laravel
+APP_NAME=Dealux
 APP_ENV=local
 APP_KEY=base64:bjGTGkUXVTxjLuLUDZ8tCHWYt3iTsrrb2EWl80UZowE=
 APP_DEBUG=true
