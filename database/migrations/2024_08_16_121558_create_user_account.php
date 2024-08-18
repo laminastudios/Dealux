@@ -15,8 +15,8 @@ return new class extends Migration
             $table->char('user_id', 12)->primary(); // Primary Key
             $table->string('user_name', 30)->unique()->notNullable();
             $table->string('email', 30)->unique()->notNullable();
-            $table->char('password', 32)->notNullable();
-            $table->date('created_at')->nullable();
+            $table->char('password', 60)->notNullable();
+            $table->timestamp('created_at')->nullable();
             $table->date('modified_at')->nullable();
         });
     }
