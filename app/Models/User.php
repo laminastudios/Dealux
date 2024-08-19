@@ -16,6 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     // Specify the primary key
     protected $primaryKey = 'user_id';
+    public $incrementing = false;
     // Specify the type of the primary key
     protected $keyType = 'string';
 
