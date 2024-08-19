@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/signin';
 
     /**
      * Create a new controller instance.
@@ -49,9 +51,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'user_name' => 'required|string|max:30|unique:user_account',
+            'email' => 'required|string|email|max:30|unique:user_account',
+            'password' => 'required|string|min:8',
         ]);
     }
 
@@ -63,10 +65,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $user_id = $this->generateUserId();
         return User::create([
-            'name' => $data['name'],
+            'user_id' => $user_id,
+            'user_name' => $data['user_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    private function generateUserId()
+    {
+        // Find the maximum numeric part of user_id from the database
+        $maxNumericId = DB::table('user_account')
+            ->select(DB::raw('MAX(CAST(SUBSTRING(user_id FROM 1 FOR 4) AS INTEGER)) AS max_id'))
+            ->value('max_id');
+
+        // Increment the numeric part by 1
+        $newNumericId = $maxNumericId ? $maxNumericId + 1 : 1;
+
+        // Generate a random string of 8 characters to append
+        $randomString = strtoupper(Str::random(8));
+
+        // Combine the numeric part and random string to create the new user_id
+        return str_pad($newNumericId, 4, '0', STR_PAD_LEFT) . $randomString;
     }
 }

@@ -1,17 +1,37 @@
+<!-- resources/js/components/SignIn.vue -->
+
 <template>
-    <div>
-        <h1>Welcome to our Sign In Page!</h1>
-        <h2>This page's development hasn't started yet.</h2>
-        <!-- Add more content here -->
-    </div>
+  <div>
+    <h2>Sign In</h2>
+    <form @submit.prevent="signIn">
+      <input v-model="email" type="email" placeholder="Email" required />
+      <input v-model="password" type="password" placeholder="Password" required />
+      <button type="submit">Sign In</button>
+      <p v-if="errorMessage">{{ errorMessage }}</p>
+    </form>
+  </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-    name: "SignInPage",
+  data() {
+    return {
+      email: '',
+      password: '',
+      errorMessage: '',
+    };
+  },
+  methods: {
+    async signIn() {
+      try {
+        await axios.post('/signin', { email: this.email, password: this.password });
+        this.$router.push('/home'); // Redirect after successful sign-in
+      } catch (error) {
+        this.errorMessage = error.response.data.message;
+      }
+    },
+  },
 };
 </script>
-
-<style scoped>
-/* Add styles here */
-</style>

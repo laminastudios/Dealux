@@ -2,7 +2,7 @@
 import { createApp } from "vue";
 
 // Importing the Vue-router
-import router from"./router"; 
+import router from "./router";
 
 // Importing pages
 import LandingPage from "./pages/LandingPage.vue";
@@ -19,6 +19,7 @@ import SubscriptionPage from "./pages/SubscriptionPage.vue";
 import ProfilePage from "./pages/ProfilePage.vue";
 import SettingsPage from "./pages/SettingsPage.vue";
 import CheckoutPage from "./pages/CheckoutPage.vue";
+import HomePage from "./pages/HomePage.vue";
 
 // Creating a new Vue application instance
 const app = createApp({});
@@ -45,6 +46,8 @@ app.component("support-page", SupportPage); // Registers SupportPage component
 app.component("subscription-page", SubscriptionPage); // Registers SubscriptionPage component
 app.component("profile-page", ProfilePage); // Registers ProfilePage component
 app.component("settings-page", SettingsPage); // Registers SettingsPage component
+
+app.component("home-page", HomePage); // Registers HomePage component
 
 // Using the Vue Router
 app.use(router);

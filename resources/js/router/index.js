@@ -13,6 +13,7 @@ import SupportPage from '../pages/SupportPage.vue';
 import SubscriptionPage from '../pages/SubscriptionPage.vue';
 import ProfilePage from '../pages/ProfilePage.vue';
 import SettingsPage from '../pages/SettingsPage.vue';
+import HomePage from '../pages/HomePage.vue';
 
 const routes = [
     { path: '/', name: 'landing', component: LandingPage },
@@ -29,6 +30,7 @@ const routes = [
     { path: '/account/subscription', name: 'subscription', component: SubscriptionPage },
     { path: '/account/profile', name: 'profile', component: ProfilePage },
     { path: '/account/settings', name: 'settings', component: SettingsPage },
+    { path: '/home', name: 'home', component: HomePage },
 ];
 
 const router = createRouter({
