@@ -49,12 +49,6 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->user_name;
     }
-    
-    // Custom mutator for password
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = bcrypt($value);
-    }
 
     public function markEmailAsVerified()
     {
