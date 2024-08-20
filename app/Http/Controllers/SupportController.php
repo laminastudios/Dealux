@@ -11,6 +11,7 @@ class SupportController extends Controller
     {
         return view('support');
     }
+
     public function sendEmail(Request $request)
     {
         $request->validate([
@@ -23,10 +24,9 @@ class SupportController extends Controller
         Mail::raw($request->message, function ($message) use ($request) {
             $message->to('jadumpyy@gmail.com') // Recipient's email
                     ->subject('Support Request from ' . $request->name)
-                    ->from($request->name) // Sender's email and name
+                    ->from($request->email, $request->name) // Sender's email and name
                     ->replyTo($request->email, $request->name); // Reply-To email and name
         });
-
 
         return response()->json(['message' => 'Email sent successfully.']);
     }
