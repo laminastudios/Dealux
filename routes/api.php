@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 
 // PUT:
-// /api/get/<component>
-// /api/get/user/{id} - edit user with id = {id} (form response is in req.body)
+// /api/edit/<component>
+// /api/edit/user/{id} - edit user with id = {id} (form response is in req.body)
 
 
 // Preferably, auth should be inside /api/auth/<components>
