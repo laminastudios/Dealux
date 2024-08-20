@@ -26,7 +26,7 @@ export default {
   methods: {
     async signIn() {
       try {
-        await axios.post('/signin', { email: this.email, password: this.password });
+        await axios.post('/login', { email: this.email, password: this.password });
         this.$router.push('/home'); // Redirect after successful sign-in
       } catch (error) {
         this.errorMessage = error.response.data.message;
