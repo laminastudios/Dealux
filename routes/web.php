@@ -25,13 +25,13 @@ use App\Http\Controllers\{
 Route::get('/', [LandingPageController::class, 'index'])->name('landing');
 
 Route::controller(LoginController::class)->group(function () {
-    Route::get('/signin', 'showLoginForm')->name('login');
-    Route::post('/signin', 'login');
+    Route::get('/login', 'showLoginForm')->name('login');
+    Route::post('/login', 'login');
 });
 
 Route::controller(RegisterController::class)->group(function () {
-    Route::get('/signup', 'showRegistrationForm')->name('register');
-    Route::post('/signup', 'register');
+    Route::get('/register', 'showRegistrationForm')->name('register');
+    Route::post('/register', 'register');
 });
 
 Route::controller(VerificationController::class)->group(function () {

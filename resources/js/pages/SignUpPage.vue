@@ -28,8 +28,8 @@ export default {
   methods: {
     async signUp() {
       try {
-        await axios.post('/signup', { user_name: this.userName, email: this.email, password: this.password });
-        this.$router.push('/signin'); // Redirect after successful sign-up
+        await axios.post('/register', { user_name: this.userName, email: this.email, password: this.password });
+        this.$router.push('/login'); // Redirect after successful sign-up
       } catch (error) {
         this.errorMessage = error.response.data.message;
       }

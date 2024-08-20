@@ -17,8 +17,8 @@ import HomePage from '../pages/HomePage.vue';
 
 const routes = [
     { path: '/', name: 'landing', component: LandingPage },
-    { path: '/signup', name: 'signup', component: SignUpPage },
-    { path: '/signin', name: 'signin', component: SignInPage },
+    { path: '/register', name: 'signup', component: SignUpPage },
+    { path: '/login', name: 'signin', component: SignInPage },
     { path: '/cart', name: 'cart', component: CartPage },
     { path: '/checkout', name: 'checkout', component: CheckoutPage },
     { path: '/compare', name: 'compare', component: ComparePage },

@@ -53,7 +53,7 @@ export default {
                     throw new Error('Network response was not ok.');
                 }
 
-                window.location.href = '/signin'; // Redirect after logout
+                window.location.href = '/login'; // Redirect after logout
             } catch (error) {
                 console.error('Error logging out:', error);
             }
