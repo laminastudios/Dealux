@@ -71,6 +71,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/compare', [CompareController::class, 'index'])->name('compare');
 });
 
+
+// this will be moved to api.php
+
 // Route to fetch the authenticated user's data
 Route::middleware('auth')->get('/user', function () {
     return response()->json(['username' => Auth::user()->user_name]);
@@ -81,3 +84,6 @@ Route::post('/logout', function () {
     Auth::logout();
     return response()->json(['message' => 'Logged out successfully']);
 });
+
+// Route to handle posting of email to the support
+Route::post('/account/support', [SupportController::class, 'sendEmail']);
