@@ -6,6 +6,11 @@ module.exports = {
         "./resources/**/*.vue",
     ],
     theme: {
+        fontFamily: {
+            'mainfont': ['Montserrat', 'sans-serif'],
+            'subfont': ['Source Sans 3', 'sans-serif'],
+        },
+
         extend: {
             colors: {
                 // Generic Colors
