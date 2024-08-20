@@ -13,10 +13,15 @@ return new class extends Migration
     {
         Schema::create('api_tokens_list', function (Blueprint $table) {
             $table->id('api_token_id'); // Primary Key
-            $table->foreignId('user_id')->constrained('user_account')->onDelete('cascade'); // Foreign Key to User Account
-            $table->string('api_token', 64)->unique(); // API Token
-            $table->timestamps('created_at', 'modified_at');
 
+            $table->char('user_id', 12); // Foreign Key to User Account
+            $table->foreign('user_id')->references('user_id')->on('user_account')->onDelete('cascade');
+
+            $table->string('api_token', 64)->unique(); // API Token
+            $table->integer('number_of_uses')->default(0); // Number of Uses
+
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable(); // Timestamps
         });
     }
 
