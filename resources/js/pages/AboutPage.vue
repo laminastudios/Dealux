@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Welcome to our Account Page!</h1>
+        <h1>Welcome to our About Page!</h1>
         <h2>This page's development hasn't started yet.</h2>
         <!-- Add more content here -->
     </div>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    name: "AccountPage",
+    name: "AboutPage",
 };
 </script>
 
