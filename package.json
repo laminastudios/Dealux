@@ -3,7 +3,16 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "prepare": "husky"
+    },
+    "lint-staged": {
+        "*.{js,json,css,html,vue}": [
+            "prettier --write"
+        ],
+        "*.{php,blade.php}": [
+            "./vendor/bin/pint"
+        ]
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
@@ -11,8 +20,11 @@
         "autoprefixer": "^10.4.20",
         "axios": "^1.6.4",
         "bootstrap": "^5.2.3",
+        "husky": "^9.1.5",
         "laravel-vite-plugin": "^1.0",
+        "lint-staged": "^15.2.9",
         "postcss": "^8.4.41",
+        "prettier": "^3.3.3",
         "sass": "^1.56.1",
         "tailwindcss": "^3.4.10",
         "vite": "^5.0",
