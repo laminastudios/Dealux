@@ -16,10 +16,11 @@
 </head>
 <body>
     <div id="app">
-        <!-- Insert Nav Bar component here -->
+        <navbar></navbar>
         <main class="py-4">
             @yield('content')
         </main>
+        <footerbar></footerbar>
     </div>
 </body>
 </html>

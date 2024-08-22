@@ -3,26 +3,25 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\{
-    AccountController,
+    AboutController,
     ActiveOrderController,
     Auth\LoginController,
     Auth\RegisterController,
     Auth\VerificationController,
     CartController,
     CheckoutController,
-    CompareController,
     HomeController,
-    LandingPageController,
+    LandingController,
+    ProductController,
     ProfileController,
-    PurchaseController,
     PurchaseHistoryController,
-    SettingsController,
+    SearchProductController,
     SubscriptionController,
     SupportController
 };
 
 // Public routes
-Route::get('/', [LandingPageController::class, 'index'])->name('landing');
+Route::get('/', [LandingController::class, 'index'])->name('landing');
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'showLoginForm')->name('login');
@@ -51,24 +50,26 @@ Route::controller(VerificationController::class)->group(function () {
 // Authenticated and verified routes
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+    Route::get('/about', [AboutController::class, 'index'])->name('about');
+    Route::get('/support', [SupportController::class, 'index'])->name('support');
+    
     Route::prefix('account')->group(function () {
-        Route::get('/', [AccountController::class, 'index'])->name('account');
-        Route::get('/support', [SupportController::class, 'index'])->name('support');
-        Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription');
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-        Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+        Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription');
     });
 
     Route::prefix('purchase')->group(function () {
-        Route::get('/', [PurchaseController::class, 'index'])->name('purchase');
         Route::get('/active', [ActiveOrderController::class, 'index'])->name('activeorder');
         Route::get('/history', [PurchaseHistoryController::class, 'index'])->name('purchasehistory');
     });
 
+    Route::prefix('search')->group(function () {
+        Route::get('/', [SearchProductController::class, 'index'])->name('search');
+        Route::get('/product', [ProductController::class, 'index'])->name('purchasehistory');
+    });
+
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
-    Route::get('/compare', [CompareController::class, 'index'])->name('compare');
 });
 
 

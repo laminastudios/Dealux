@@ -9,17 +9,18 @@ import LandingPage from "./pages/LandingPage.vue";
 import SignUpPage from "./pages/SignUpPage.vue";
 import SignInPage from "./pages/SignInPage.vue";
 import CartPage from "./pages/CartPage.vue";
-import PurchasePage from "./pages/PurchasePage.vue";
-import ComparePage from "./pages/ComparePage.vue";
-import AccountPage from "./pages/AccountPage.vue";
 import ActiveOrderPage from "./pages/ActiveOrderPage.vue";
 import PurchaseHistoryPage from "./pages/PurchaseHistoryPage.vue";
 import SupportPage from "./pages/SupportPage.vue";
 import SubscriptionPage from "./pages/SubscriptionPage.vue";
 import ProfilePage from "./pages/ProfilePage.vue";
-import SettingsPage from "./pages/SettingsPage.vue";
 import CheckoutPage from "./pages/CheckoutPage.vue";
 import HomePage from "./pages/HomePage.vue";
+import AboutPage from "./pages/AboutPage.vue";
+import SearchProductPage from "./pages/SearchProductPage.vue";
+import ProductPage from "./pages/ProductPage.vue";
+import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
 
 // Creating a new Vue application instance
 const app = createApp({});
@@ -35,19 +36,26 @@ app.component("cart-page", CartPage); // Registers CartPage component
 
 app.component("checkout-page", CheckoutPage); // Registers CheckoutPage component
 
-app.component("compare-page", ComparePage); // Registers ComparePage component
-
-app.component("purchase-page", PurchasePage); // Registers PurchasePage component
 app.component("activeorder-page", ActiveOrderPage); // Registers ActiveOrderPage component
 app.component("purchasehistory-page", PurchaseHistoryPage); // Registers PurchaseHistoryPage component
 
-app.component("account-page", AccountPage); // Registers AccountPage component
 app.component("support-page", SupportPage); // Registers SupportPage component
 app.component("subscription-page", SubscriptionPage); // Registers SubscriptionPage component
 app.component("profile-page", ProfilePage); // Registers ProfilePage component
-app.component("settings-page", SettingsPage); // Registers SettingsPage component
 
 app.component("home-page", HomePage); // Registers HomePage component
+
+app.component("about-page", AboutPage); // Registers AboutPage component
+
+app.component("searchproduct-page", SearchProductPage); // Registers SearchProductPage component
+
+app.component("product-page", ProductPage); // Registers Product component
+
+
+// Register the individual component here
+app.component("navbar", Navbar);
+app.component("footerbar", Footer);
+
 
 // Using the Vue Router
 app.use(router);
