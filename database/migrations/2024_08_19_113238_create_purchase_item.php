@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id('purchase_item_id'); // Primary Key
             $table->unsignedBigInteger('purchase_id'); // Foreign key to the purchase table
             $table->unsignedBigInteger('product_id'); // Foreign key to the product table
+
             $table->integer('quantity'); // Quantity of the product
-            $table->timestamps(); // Created and updated timestamps
+
+            $table->timestamp('created_at')->nullable();
 
             // Foreign key constraints
             $table->foreign('purchase_id')->references('purchase_id')->on('purchase')->onDelete('cascade');

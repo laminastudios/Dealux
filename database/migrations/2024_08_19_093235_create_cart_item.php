@@ -14,12 +14,15 @@ return new class extends Migration
         Schema::create('cart_item', function (Blueprint $table) {
             $table->id('cart_item_id'); // Primary Key
             $table->foreignId('user_id'); // Foreign Key
+
             $table->string('product_name');
             $table->decimal('product_price', 8, 2); // Assuming price format
             $table->string('product_url');
             $table->integer('quantity');
             $table->boolean('selected')->default(false);
-            $table->timestamps(); // created_at and modified_at columns
+
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('modified_at')->nullable();
         });
     }
 

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('number_of_uses')->default(0); // Number of Uses
 
             $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable(); // Timestamps
+            $table->timestamp('modified_at')->nullable();
         });
     }
 
