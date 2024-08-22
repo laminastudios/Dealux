@@ -10,12 +10,10 @@ use App\Http\Controllers\{
     Auth\VerificationController,
     CartController,
     CheckoutController,
-    CompareController,
     HomeController,
     LandingPageController,
     ProfileController,
     PurchaseHistoryController,
-    SettingsController,
     SubscriptionController,
     SupportController
 };
@@ -52,10 +50,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/support', [SupportController::class, 'index'])->name('support');
-    Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription');
     
     Route::prefix('account')->group(function () {
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+        Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription');
     });
 
     Route::prefix('purchase')->group(function () {
@@ -65,7 +63,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
-    Route::get('/compare', [CompareController::class, 'index'])->name('compare');
 });
 
 
