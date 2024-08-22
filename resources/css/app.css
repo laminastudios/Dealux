@@ -1,3 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    /* Headings */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-mainfont;
+        letter-spacing: -2%;
+    }
+
+    h1 {
+        font-size: 36px;
+        line-height: 44px;
+    }
+    @screen md {
+        h1 {
+            font-size: 40px;
+            line-height: 48px;
+        }
+    }
+
+    h2 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    @screen md {
+        h2 {
+            font-size: 36px;
+            line-height: 44px;
+        }
+    }
+
+    h3 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+    @screen md {
+        h3 {
+            font-size: 32px;
+            line-height: 40px;
+        }
+    }
+
+    h4 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    @screen md {
+        h4 {
+            font-size: 28px;
+            line-height: 36px;
+        }
+    }
+
+    h5 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    @screen md {
+        h5 {
+            font-size: 24px;
+            line-height: 32px;
+        }
+    }
+
+    h6 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    @screen md {
+        h6 {
+            font-size: 20px;
+            line-height: 28px;
+        }
+    }
+
+    /* Paragraph */
+    p {
+        @apply: font-subfont;
+        font-size: 15px;
+        line-height: 23px;
+    }
+    @screen md {
+        p {
+            font-size: 18px;
+            line-height: 28px;
+        }
+    }
+}
+
+/* Labels */
+.label-1 {
+    font-size: 18px;
+    line-height: 22px;
+}
+.label-2 {
+    font-size: 16px;
+    line-height: 18px;
+}
+.label-3 {
+    font-size: 14px;
+    line-height: 16px;
+}
+.label-4 {
+    font-size: 12px;
+    line-height: 14px;
+}
+.label-5 {
+    font-size: 10px;
+    line-height: 14px;
+}
