@@ -124,6 +124,13 @@ module.exports = {
                 900: '#0C1339',
             },
         },
+        fontWeight: {
+            regular: 400,
+            medium: 500,
+            semibold: 600,
+            bold: 700,
+            extrabold: 800,
+        },
     },
     plugins: [],
 };
