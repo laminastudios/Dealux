@@ -19,6 +19,8 @@ import HomePage from "./pages/HomePage.vue";
 import AboutPage from "./pages/AboutPage.vue";
 import SearchProductPage from "./pages/SearchProductPage.vue";
 import ProductPage from "./pages/ProductPage.vue";
+import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
 
 // Creating a new Vue application instance
 const app = createApp({});
@@ -48,6 +50,12 @@ app.component("about-page", AboutPage); // Registers AboutPage component
 app.component("searchproduct-page", SearchProductPage); // Registers SearchProductPage component
 
 app.component("product-page", ProductPage); // Registers Product component
+
+
+// Register the individual component here
+app.component("navbar", Navbar);
+app.component("footerbar", Footer);
+
 
 // Using the Vue Router
 app.use(router);
