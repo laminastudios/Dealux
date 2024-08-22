@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('product', function (Blueprint $table) {
             $table->id('product_id'); // Primary Key
+
             $table->string('product_name', 100); // Product name
             $table->decimal('product_price', 10, 2); // Product price
             $table->string('product_url', 255); // URL of the product
-            $table->timestamp('created_at')->useCurrent(); // Created timestamp
+
+            $table->timestamp('created_at')->useCurrent()->nullable();
         });
     }
 

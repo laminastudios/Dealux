@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('payment_information', function (Blueprint $table) {
             $table->id('payment_info_id'); // Primary Key
+
             $table->char('user_id', 12)->notNullable(); // Foreign Key reference
             $table->foreign('user_id')->references('user_id')->on('user_account')->onDelete('cascade');
+
             $table->string('delivery_address', 100)->notNullable();
+
+            $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->timestamp('modified_at')->useCurrent()->nullable();
         });
     }
 
