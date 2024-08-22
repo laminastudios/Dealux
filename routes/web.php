@@ -11,15 +11,17 @@ use App\Http\Controllers\{
     CartController,
     CheckoutController,
     HomeController,
-    LandingPageController,
+    LandingController,
+    ProductController,
     ProfileController,
     PurchaseHistoryController,
+    SearchProductController,
     SubscriptionController,
     SupportController
 };
 
 // Public routes
-Route::get('/', [LandingPageController::class, 'index'])->name('landing');
+Route::get('/', [LandingController::class, 'index'])->name('landing');
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'showLoginForm')->name('login');
@@ -59,6 +61,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('purchase')->group(function () {
         Route::get('/active', [ActiveOrderController::class, 'index'])->name('activeorder');
         Route::get('/history', [PurchaseHistoryController::class, 'index'])->name('purchasehistory');
+    });
+
+    Route::prefix('search')->group(function () {
+        Route::get('/', [SearchProductController::class, 'index'])->name('search');
+        Route::get('/product', [ProductController::class, 'index'])->name('purchasehistory');
     });
 
     Route::get('/cart', [CartController::class, 'index'])->name('cart');

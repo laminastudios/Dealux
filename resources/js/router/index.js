@@ -11,6 +11,8 @@ import SubscriptionPage from '../pages/SubscriptionPage.vue';
 import ProfilePage from '../pages/ProfilePage.vue';
 import HomePage from '../pages/HomePage.vue';
 import AboutPage from '../pages/AboutPage.vue';
+import SearchProductPage from '../pages/SearchProductPage.vue';
+import ProductPage from '../pages/ProductPage.vue';
 
 const routes = [
     { path: '/', name: 'landing', component: LandingPage },
@@ -25,6 +27,8 @@ const routes = [
     { path: '/account/subscription', name: 'subscription', component: SubscriptionPage },
     { path: '/home', name: 'home', component: HomePage },
     { path: '/about', name: 'about', component: AboutPage },
+    { path: '/search', name: 'seachproduct', component: SearchProductPage },
+    { path: '/search/product', name: 'product', component: ProductPage },
 ];
 
 const router = createRouter({

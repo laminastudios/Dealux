@@ -9,7 +9,6 @@ import LandingPage from "./pages/LandingPage.vue";
 import SignUpPage from "./pages/SignUpPage.vue";
 import SignInPage from "./pages/SignInPage.vue";
 import CartPage from "./pages/CartPage.vue";
-import ComparePage from "./pages/ComparePage.vue";
 import ActiveOrderPage from "./pages/ActiveOrderPage.vue";
 import PurchaseHistoryPage from "./pages/PurchaseHistoryPage.vue";
 import SupportPage from "./pages/SupportPage.vue";
@@ -18,6 +17,8 @@ import ProfilePage from "./pages/ProfilePage.vue";
 import CheckoutPage from "./pages/CheckoutPage.vue";
 import HomePage from "./pages/HomePage.vue";
 import AboutPage from "./pages/AboutPage.vue";
+import SearchProductPage from "./pages/SearchProductPage.vue";
+import ProductPage from "./pages/ProductPage.vue";
 
 // Creating a new Vue application instance
 const app = createApp({});
@@ -33,8 +34,6 @@ app.component("cart-page", CartPage); // Registers CartPage component
 
 app.component("checkout-page", CheckoutPage); // Registers CheckoutPage component
 
-app.component("compare-page", ComparePage); // Registers ComparePage component
-
 app.component("activeorder-page", ActiveOrderPage); // Registers ActiveOrderPage component
 app.component("purchasehistory-page", PurchaseHistoryPage); // Registers PurchaseHistoryPage component
 
@@ -44,7 +43,11 @@ app.component("profile-page", ProfilePage); // Registers ProfilePage component
 
 app.component("home-page", HomePage); // Registers HomePage component
 
-app.component("about-page", AboutPage); // Registers HomePage component
+app.component("about-page", AboutPage); // Registers AboutPage component
+
+app.component("searchproduct-page", SearchProductPage); // Registers SearchProductPage component
+
+app.component("product-page", ProductPage); // Registers Product component
 
 // Using the Vue Router
 app.use(router);
