@@ -1,24 +1,22 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ActiveOrderController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PurchaseHistoryController;
+use App\Http\Controllers\SearchProductController;
+use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\{
-    AboutController,
-    ActiveOrderController,
-    Auth\LoginController,
-    Auth\RegisterController,
-    Auth\VerificationController,
-    CartController,
-    CheckoutController,
-    HomeController,
-    LandingController,
-    ProductController,
-    ProfileController,
-    PurchaseHistoryController,
-    SearchProductController,
-    SubscriptionController,
-    SupportController
-};
+use Illuminate\Support\Facades\Route;
 
 // Public routes
 Route::get('/', [LandingController::class, 'index'])->name('landing');
@@ -52,7 +50,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/support', [SupportController::class, 'index'])->name('support');
-    
+
     Route::prefix('account')->group(function () {
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
         Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription');
@@ -60,7 +58,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::prefix('purchase')->group(function () {
         Route::get('/active', [ActiveOrderController::class, 'index'])->name('activeorder');
-        Route::get('/history', [PurchaseHistoryController::class, 'index'])->name('purchasehistory');
+        Route::get('/history', [PurchaseHistoryController::class, 'history'])->name('purchasehistory');
     });
 
     Route::prefix('search')->group(function () {
@@ -72,7 +70,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 });
 
-
 // this will be moved to api.php
 
 // Route to fetch the authenticated user's data
@@ -83,6 +80,7 @@ Route::middleware('auth')->get('/user', function () {
 // Route to handle logout
 Route::post('/logout', function () {
     Auth::logout();
+
     return response()->json(['message' => 'Logged out successfully']);
 });
 
