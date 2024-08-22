@@ -4,78 +4,118 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Display */
-.display-lg {
-    font-size: 52px;
-    line-height: 56px;
-    letter-spacing: -2%;
+@layer base {
+    /* Headings */
+    h1 {
+        font-size: 36px;
+        line-height: 44px;
+        letter-spacing: -2%;
+    }
+    @screen md {
+        h1 {
+            font-size: 40px;
+            line-height: 48px;
+            letter-spacing: -2%;
+        }
+    }
+
+    h2 {
+        font-size: 32px;
+        line-height: 40px;
+        letter-spacing: -2%;
+    }
+    @screen md {
+        h2 {
+            font-size: 36px;
+            line-height: 44px;
+            letter-spacing: -2%;
+        }
+    }
+
+    h3 {
+        font-size: 28px;
+        line-height: 36px;
+        letter-spacing: -2%;
+    }
+    @screen md {
+        h3 {
+            font-size: 32px;
+            line-height: 40px;
+            letter-spacing: -2%;
+        }
+    }
+
+    h4 {
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: -2%;
+    }
+    @screen md {
+        h4 {
+            font-size: 28px;
+            line-height: 36px;
+            letter-spacing: -2%;
+        }
+    }
+
+    h5 {
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: -2%;
+    }
+    @screen md {
+        h5 {
+            font-size: 24px;
+            line-height: 32px;
+            letter-spacing: -2%;
+        }
+    }
+
+    h6 {
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: -2%;
+    }
+    @screen md {
+        h6 {
+            font-size: 20px;
+            line-height: 28px;
+            letter-spacing: -2%;
+        }
+    }
+
+    /* Paragraph */
+    p {
+        font-size: 15px;
+        line-height: 23px;
+    }
+    @screen md {
+        p {
+            font-size: 18px;
+            line-height: 28px;
+        }
+    }
 }
 
-.display-sm {
-    font-size: 44px;
-    line-height: 48px;
-    letter-spacing: -2%;
-}
-
-/* Headings */
-.heading-1 {
-    font-size: 40px;
-    line-height: 48px;
-    letter-spacing: -2%;
-}
-.heading-2 {
-    font-size: 36px;
-    line-height: 44px;
-    letter-spacing: -2%;
-}
-.heading-3 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -2%;
-}
-.heading-4 {
-    font-size: 28px;
-    line-height: 36px;
-    letter-spacing: -2%;
-}
-.heading-5 {
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: -2%;
-}
-
-/* Paragraphs */
-.p-lg {
-    font-size: 18px;
-    line-height: 28px;
-}
-.p-md {
-    font-size: 16px;
-    line-height: 24px;
-}
-.p-sm {
-    font-size: 14px;
-    line-height: 20px;
-}
-.p-xs {
-    font-size: 12px;
-    line-height: 20px;
-}
 
 /* Labels */
-.label-lg {
+.label-1 {
+    font-size: 18px;
+    line-height: 22px;
+}
+.label-2 {
     font-size: 16px;
     line-height: 18px;
 }
-.label-md {
+.label-3 {
     font-size: 14px;
     line-height: 16px;
 }
-.label-sm {
+.label-4 {
     font-size: 12px;
-    line-height: 16px;
+    line-height: 14px;
 }
-.label-xs {
+.label-5 {
     font-size: 10px;
     line-height: 14px;
 }

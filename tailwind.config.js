@@ -1,23 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
-    ],
+    content: ['./resources/**/*.blade.php', './resources/**/*.js', './resources/**/*.vue'],
     theme: {
         fontFamily: {
-            'mainfont': ['Montserrat', 'sans-serif'],
-            'subfont': ['Source Sans 3', 'sans-serif'],
+            mainfont: ['Montserrat', 'sans-serif'],
+            subfont: ['Source Sans 3', 'sans-serif'],
         },
 
         colors: {
             // Generic Colors
-            'white': '#FFFFFF',
-            'black': '#000000',
+            white: '#FFFFFF',
+            black: '#000000',
 
             // Primary Colors
-            'neutral': {
+            neutral: {
                 50: '#F2F2F2',
                 100: '#D9D9D9',
                 200: '#BFBFBF',
@@ -29,7 +25,7 @@ module.exports = {
                 800: '#262626',
                 900: '#0D0D0D',
             },
-            'primary': {
+            primary: {
                 50: '#E7F2FD',
                 100: '#B7D7FA',
                 200: '#88BCF7',
@@ -41,7 +37,7 @@ module.exports = {
                 800: '#041E3B',
                 900: '#020C18',
             },
-            'success': {
+            success: {
                 50: '#E9FCF0',
                 100: '#BCF6D1',
                 200: '#8FF0B3',
@@ -53,7 +49,7 @@ module.exports = {
                 800: '#09431F',
                 900: '#03160A',
             },
-            'warning': {
+            warning: {
                 50: '#FEF6E9',
                 100: '#FCE4BC',
                 200: '#FAD390',
@@ -65,7 +61,7 @@ module.exports = {
                 800: '#6F4805',
                 900: '#432B03',
             },
-            'destructive': {
+            destructive: {
                 50: '#FCEBEB',
                 100: '#F6C3C3',
                 200: '#F09A9A',
@@ -79,7 +75,7 @@ module.exports = {
             },
 
             // Secondary Colors
-            'yellow': {
+            yellow: {
                 50: '#FFF5E8',
                 100: '#FFE1B9',
                 200: '#FFCD8B',
@@ -91,7 +87,7 @@ module.exports = {
                 800: '#744200',
                 900: '#462700',
             },
-            'red': {
+            red: {
                 50: '#FBEDEC',
                 100: '#F2C9C7',
                 200: '#E9A5A1',
@@ -103,7 +99,7 @@ module.exports = {
                 800: '#5E1A16',
                 900: '#380F0D',
             },
-            'green': {
+            green: {
                 50: '#DDF8E8',
                 100: '#C5F3D8',
                 200: '#9FEBBE',
@@ -115,7 +111,7 @@ module.exports = {
                 800: '#146033',
                 900: '#0C3A1F',
             },
-            'blue': {
+            blue: {
                 50: '#ECEEFB',
                 100: '#C6CCF3',
                 200: '#A0AAEA',
