@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('mode_of_payment', 50); // Example: Credit Card, PayPal, etc.
             $table->string('purchase_status', 50); // Example: Pending, Completed, etc.
 
-            $table->timestamp('created_at')->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
         });
     }
 

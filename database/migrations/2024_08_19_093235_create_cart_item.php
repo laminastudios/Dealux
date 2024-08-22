@@ -23,8 +23,8 @@ return new class extends Migration
             $table->integer('quantity');
             $table->boolean('selected')->default(false);
 
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('modified_at')->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->timestamp('modified_at')->useCurrent()->nullable();
         });
     }
 

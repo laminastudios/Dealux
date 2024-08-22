@@ -22,7 +22,7 @@ return new class extends Migration
 
             $table->integer('quantity'); // Quantity of the product
 
-            $table->timestamp('created_at')->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
         });
     }
 

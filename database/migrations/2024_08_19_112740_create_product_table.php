@@ -18,7 +18,7 @@ return new class extends Migration
             $table->decimal('product_price', 10, 2); // Product price
             $table->string('product_url', 255); // URL of the product
 
-            $table->timestamp('created_at')->nullable(); // Created timestamp
+            $table->timestamp('created_at')->useCurrent()->nullable();
         });
     }
 

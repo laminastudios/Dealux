@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('api_token', 64)->unique(); // API Token
             $table->integer('number_of_uses')->default(0); // Number of Uses
 
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('modified_at')->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->timestamp('modified_at')->useCurrent()->nullable();
         });
     }
 

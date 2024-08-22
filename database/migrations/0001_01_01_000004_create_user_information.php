@@ -25,8 +25,8 @@ return new class extends Migration
             $table->char('phone_number', 11)->notNullable();
             $table->char('subs_status', 1)->notNullable()->comment('B = Basic, P = Premium');
 
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('modified_at')->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->timestamp('modified_at')->useCurrent()->nullable();
         });
     }
 

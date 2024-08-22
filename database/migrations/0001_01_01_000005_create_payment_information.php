@@ -19,8 +19,8 @@ return new class extends Migration
 
             $table->string('delivery_address', 100)->notNullable();
 
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('modified_at')->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->timestamp('modified_at')->useCurrent()->nullable();
         });
     }
 
