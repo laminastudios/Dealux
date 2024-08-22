@@ -6,86 +6,85 @@
 
 @layer base {
     /* Headings */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-mainfont;
+        letter-spacing: -2%;
+    }
+
     h1 {
         font-size: 36px;
         line-height: 44px;
-        letter-spacing: -2%;
     }
     @screen md {
         h1 {
             font-size: 40px;
             line-height: 48px;
-            letter-spacing: -2%;
         }
     }
 
     h2 {
         font-size: 32px;
         line-height: 40px;
-        letter-spacing: -2%;
     }
     @screen md {
         h2 {
             font-size: 36px;
             line-height: 44px;
-            letter-spacing: -2%;
         }
     }
 
     h3 {
         font-size: 28px;
         line-height: 36px;
-        letter-spacing: -2%;
     }
     @screen md {
         h3 {
             font-size: 32px;
             line-height: 40px;
-            letter-spacing: -2%;
         }
     }
 
     h4 {
         font-size: 24px;
         line-height: 32px;
-        letter-spacing: -2%;
     }
     @screen md {
         h4 {
             font-size: 28px;
             line-height: 36px;
-            letter-spacing: -2%;
         }
     }
 
     h5 {
         font-size: 20px;
         line-height: 28px;
-        letter-spacing: -2%;
     }
     @screen md {
         h5 {
             font-size: 24px;
             line-height: 32px;
-            letter-spacing: -2%;
         }
     }
 
     h6 {
         font-size: 18px;
         line-height: 24px;
-        letter-spacing: -2%;
     }
     @screen md {
         h6 {
             font-size: 20px;
             line-height: 28px;
-            letter-spacing: -2%;
         }
     }
 
     /* Paragraph */
     p {
+        @apply: font-subfont;
         font-size: 15px;
         line-height: 23px;
     }
@@ -96,7 +95,6 @@
         }
     }
 }
-
 
 /* Labels */
 .label-1 {
