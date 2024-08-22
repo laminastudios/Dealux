@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('cart_item', function (Blueprint $table) {
             $table->id('cart_item_id'); // Primary Key
-            $table->foreignId('user_id'); // Foreign Key
+
+            $table->char('user_id', 12)->unique()->notNullable(); // Foreign Key reference from the User Table
+            $table->foreign('user_id')->references('user_id')->on('user_account')->onDelete('cascade');
 
             $table->string('product_name');
             $table->decimal('product_price', 8, 2); // Assuming price format

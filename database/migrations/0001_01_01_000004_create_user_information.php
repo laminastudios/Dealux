@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('user_information', function (Blueprint $table) {
             $table->id('user_info_id'); // Primary Key
-            $table->char('user_id', 12)->unique()->notNullable(); // Foreign Key reference from the User Table
 
+            $table->char('user_id', 12)->unique()->notNullable(); // Foreign Key reference from the User Table
             $table->foreign('user_id')->references('user_id')->on('user_account')->onDelete('cascade');
+
             $table->string('first_name', 20)->notNullable();
             $table->string('mid_name', 20)->nullable();
             $table->string('last_name', 20)->notNullable();
