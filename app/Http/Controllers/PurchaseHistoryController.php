@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Purchase;
+use Illuminate\Support\Facades\Auth;
 
 class PurchaseHistoryController extends Controller
 {
@@ -11,4 +12,15 @@ class PurchaseHistoryController extends Controller
         return view('purchasehistory');
     }
 
+    public function history()
+    {
+        $user = Auth::user();
+        $purchases = Purchase::with(['items.product'])
+            ->where('user_id', $user->user_id)
+            ->orderBy('order_date', 'desc')
+            ->get();
+
+        // dd(response()->json($purchases));
+        return view('purchasehistory', ['purchases' => $purchases]);
+    }
 }
