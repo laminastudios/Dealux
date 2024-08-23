@@ -2,6 +2,9 @@
     <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
         <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
             <h1 class="text-2xl font-bold text-center mb-6">Register Information</h1>
+            <h2 class="text-xl font-semibold text-gray-600 bg-gray-100 p-4 border border-gray-200 rounded-lg shadow-sm mb-6">
+                The actual page is not yet started to develop. The page here is just a tester for the user information registration logic
+            </h2>    
             <form @submit.prevent="submitForm">
                 <div class="mb-4">
                     <label class="block text-gray-700">First Name</label>

@@ -86,5 +86,3 @@ Route::post('/logout', function () {
     return response()->json(['message' => 'Logged out successfully']);
 });
 
-// Route to handle posting of email to the support
-Route::post('/account/support', [SupportController::class, 'sendEmail']);

@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\RegisterInformationController;
+use App\Http\Controllers\SupportController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\UserInformation;
+
 // API Routes Guide
 // Laravel automatically prefixes `api` on the routes, don't include it
 
@@ -39,5 +40,12 @@ Route::get('/get/test', function () {
     ]);
 });
 
+// Route to handle the user information registration
+// /api/register-info
 Route::post('/register-info', [RegisterInformationController::class, 'store']);
-Route::get('/register-info/{user_id}', [RegisterInformationController::class, 'show']);
+// /api/register-info/{user_info_id}
+Route::get('/register-info/{user_info_id}', [RegisterInformationController::class, 'show']);
+
+// Route to handle posting of email to the support
+Route::post('/account/support', [SupportController::class, 'sendEmail']);
+

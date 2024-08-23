@@ -35,9 +35,9 @@ class RegisterInformationController extends Controller
     }
 
     // Retrieve user information
-    public function show($user_id)
+    public function show($user_info_id)
     {
-        $userInfo = UserInformation::where('user_id', $user_id)->first();
+        $userInfo = UserInformation::where('user_info_id', $user_info_id)->first();
 
         if (!$userInfo) {
             return response()->json(['message' => 'User information not found'], 404);
