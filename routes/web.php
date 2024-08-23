@@ -12,7 +12,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseHistoryController;
-use App\Http\Controllers\RegisterInformation;
+use App\Http\Controllers\RegisterInformationController;
 use App\Http\Controllers\SearchProductController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\SupportController;
@@ -51,7 +51,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/support', [SupportController::class, 'index'])->name('support');
-    Route::get('/register-info', [RegisterInformation::class, 'index'])->name('registerinfo');
+    Route::get('/register-info', [RegisterInformationController::class, 'index'])->name('registerinfo');
 
     Route::prefix('account')->group(function () {
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
@@ -76,7 +76,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 // Route to fetch the authenticated user's data
 Route::middleware('auth')->get('/user', function () {
-    return response()->json(['username' => Auth::user()->user_name]);
+    return response()->json(['user' => Auth::user()]);
 });
 
 // Route to handle logout

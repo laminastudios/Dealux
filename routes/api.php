@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\RegisterInformationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\UserInformation;
 // API Routes Guide
 // Laravel automatically prefixes `api` on the routes, don't include it
 
@@ -37,3 +38,6 @@ Route::get('/get/test', function () {
         'code' => 200
     ]);
 });
+
+Route::post('/register-info', [RegisterInformationController::class, 'store']);
+Route::get('/register-info/{user_id}', [RegisterInformationController::class, 'show']);
