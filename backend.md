@@ -92,10 +92,10 @@ Note that you also need to include the `message` and the `status code` in order 
 
 #### Viewing All API Routes
 You can view all the API routes in the application by using the following custom command:
+This command will list all the routes related to API endpoints, making it easier to verify that your routes are correctly set up.
 ```terminal
 php artisan route:list-data-routes
 ```
-This command will list all the routes related to API endpoints, making it easier to verify that your routes are correctly set up.
 ---
 ### Questions/Problems
 
