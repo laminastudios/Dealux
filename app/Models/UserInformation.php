@@ -18,6 +18,12 @@ class UserInformation extends Model
     {
         return $this->belongsTo(UserInformation::class, 'user_id');
     }
+    
+    // Define the relationship to the PaymentInformation model
+    public function paymentInformation()
+    {
+        return $this->hasOne(PaymentInformation::class, 'user_id', 'user_id');
+    }
     protected $fillable = [
         'user_id',
         'first_name',
