@@ -76,6 +76,6 @@ class RegisterInformationController extends Controller
             return response()->json(['message' => 'User information not found'], 404);
         }
 
-        return response()->json(['data' => $userInfo], 200);
+        return response()->json(['user_info' => $userInfo], 200);
     }
 }
