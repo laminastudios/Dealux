@@ -90,6 +90,12 @@ Route::get('/get/sample_model', [SampleController::class, 'test']);
 
 Note that you also need to include the `message` and the `status code` in order to follow optimal coding standards. In the second example, you can define them in its controller file.
 
+#### Viewing All API Routes
+You can view all the API routes in the application by using the following custom command:
+```terminal
+php artisan route:list-data-routes
+```
+This command will list all the routes related to API endpoints, making it easier to verify that your routes are correctly set up.
 ---
 ### Questions/Problems
 
