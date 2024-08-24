@@ -39,7 +39,7 @@ export default {
     methods: {
         async sendEmail() {
             try {
-                await axios.post('api/account/support', this.form);
+                await axios.post('api/support', this.form);
                 alert('Your message has been sent!');
                 this.form.name = '';
                 this.form.email = '';

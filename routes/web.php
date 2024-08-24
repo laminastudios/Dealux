@@ -51,7 +51,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/support', [SupportController::class, 'index'])->name('support');
-    Route::get('/register-info', [RegisterInformationController::class, 'index'])->name('registerinfo');
+    Route::get('/register/info', [RegisterInformationController::class, 'index'])->name('registerinfo');
 
     Route::prefix('account')->group(function () {
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');

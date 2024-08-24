@@ -22,7 +22,7 @@ const routes = [
     { path: '/cart', name: 'cart', component: CartPage },
     { path: '/checkout', name: 'checkout', component: CheckoutPage },
     { path: '/support', name: 'support', component: SupportPage },
-    { path: '/register-info', name: 'registerinfo', component: RegisterInformationPage },
+    { path: '/register/info', name: 'registerinfo', component: RegisterInformationPage },
     { path: '/purchase/active', name: 'activeorder', component: ActiveOrderPage },
     { path: '/purchase/history', name: 'purchasehistory', component: PurchaseHistoryPage },
     { path: '/account/profile', name: 'profile', component: ProfilePage },

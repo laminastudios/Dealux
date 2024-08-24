@@ -195,7 +195,7 @@ export default {
                 cvv: this.cvv,
             };
             // Make an API request to post the form data
-            axios.post('/api/register-info', formData)
+            axios.post('/api/register/info', formData)
                 .then(response => {
                     console.log('Form submitted successfully:', response.data);
                 })
