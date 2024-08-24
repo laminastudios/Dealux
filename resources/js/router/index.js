@@ -13,6 +13,7 @@ import HomePage from '../pages/HomePage.vue';
 import AboutPage from '../pages/AboutPage.vue';
 import SearchProductPage from '../pages/SearchProductPage.vue';
 import ProductPage from '../pages/ProductPage.vue';
+import RegisterInformationPage from '../pages/RegisterInformationPage.vue';
 
 const routes = [
     { path: '/', name: 'landing', component: LandingPage },
@@ -21,6 +22,7 @@ const routes = [
     { path: '/cart', name: 'cart', component: CartPage },
     { path: '/checkout', name: 'checkout', component: CheckoutPage },
     { path: '/support', name: 'support', component: SupportPage },
+    { path: '/register/info', name: 'registerinfo', component: RegisterInformationPage },
     { path: '/purchase/active', name: 'activeorder', component: ActiveOrderPage },
     { path: '/purchase/history', name: 'purchasehistory', component: PurchaseHistoryPage },
     { path: '/account/profile', name: 'profile', component: ProfilePage },

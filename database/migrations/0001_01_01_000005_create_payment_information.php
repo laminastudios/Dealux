@@ -19,6 +19,12 @@ return new class extends Migration
 
             $table->string('delivery_address', 100)->notNullable();
 
+            $table->enum('card_type', ['cc', 'dc'])->notNullable(); // "cc" for credit card, "dc" for debit card
+            $table->string('name_on_card', 100)->notNullable();
+            $table->string('card_number', 16)->notNullable();
+            $table->date('expiry_date')->notNullable();
+            $table->char('cvv', 3)->notNullable();
+            
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('modified_at')->useCurrent()->nullable();
         });

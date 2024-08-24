@@ -3,7 +3,8 @@
         <h1 class="text-2xl font-bold mb-4">Welcome to our Support Page!</h1>
         <h2 class="text-xl font-semibold text-gray-600 bg-gray-100 p-4 border border-gray-200 rounded-lg shadow-sm mb-6">
             The actual page is not yet started to develop. The page here is just a tester for the email logic
-        </h2>        <form @submit.prevent="sendEmail" class="space-y-4">
+        </h2>        
+        <form @submit.prevent="sendEmail" class="space-y-4">
             <div>
                 <label for="name" class="block text-sm font-medium text-gray-700">Name:</label>
                 <input v-model="form.name" type="text" id="name" required class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
@@ -38,7 +39,7 @@ export default {
     methods: {
         async sendEmail() {
             try {
-                await axios.post('/account/support', this.form);
+                await axios.post('api/post/support', this.form);
                 alert('Your message has been sent!');
                 this.form.name = '';
                 this.form.email = '';

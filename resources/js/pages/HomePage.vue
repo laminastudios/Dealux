@@ -33,7 +33,7 @@ export default {
                     throw new Error('Network response was not ok.');
                 }
                 const data = await response.json();
-                this.userName = data.username || 'Guest'; // Adjust according to your user data structure
+                this.userName = data.user.user_name || 'Guest'; // Adjust according to your user data structure
             } catch (error) {
                 console.error('Error fetching user data:', error);
                 this.userName = 'Guest'; // Default value if user data can't be fetched

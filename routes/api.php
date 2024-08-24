@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\RegisterInformationApi;
+use App\Http\Controllers\Api\SupportCenterApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -37,3 +39,13 @@ Route::get('/get/test', function () {
         'code' => 200
     ]);
 });
+
+// Route to handle the user information registration
+// /api/register-info
+Route::post('/post/register/info', [RegisterInformationApi::class, 'store']);
+// /api/register-info/{user_info_id}
+Route::get('/get/register/info/{user_info_id}', [RegisterInformationApi::class, 'show'])->name('user_information');
+
+// Route to handle posting of email to the support
+Route::post('/post/support', [SupportCenterApi::class, 'sendEmail']);
+
