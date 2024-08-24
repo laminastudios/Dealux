@@ -55,6 +55,7 @@ MAIL_PASSWORD="ugrz epdz zoum rfsz"     # this is just temporary, we will create
 MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS=jadumpyy@gmail.com    # this is just temporary, we will create a gmail for dealux. for now, this is for testing purposes
 MAIL_FROM_NAME=Dealux
+SUPPORT_EMAIL=jadumpyy@gmail.com
 
 AWS_ACCESS_KEY_ID=
 AWS_SECRET_ACCESS_KEY=
@@ -63,3 +64,4 @@ AWS_BUCKET=
 AWS_USE_PATH_STYLE_ENDPOINT=false
 
 VITE_APP_NAME="${APP_NAME}"
+
