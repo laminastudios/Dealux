@@ -18,7 +18,7 @@ class SupportCenterApi extends Controller
 
         // Email sending logic
         Mail::raw($request->message, function ($message) use ($request) {
-            $message->to('jadumpyy@gmail.com') // Recipient's email
+             $message->to(env('SUPPORT_EMAIL')) // Recipient's email
                     ->subject('Support Request from ' . $request->name)
                     ->from($request->email, $request->name) // Sender's email and name
                     ->replyTo($request->email, $request->name); // Reply-To email and name
