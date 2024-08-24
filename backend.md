@@ -22,7 +22,7 @@ The Controller is the main process of the application. It handles the literally 
 
 To start, create a controller with `php artisan make:controller <controller_name>`.
 
-Example: `php artisan make:model Api/SampleController` - This creates a controller file in `/app/Http/Controllers/Api/` directory.
+Example: `php artisan make:controller Api/SampleController` - This creates a controller file in `/app/Http/Controllers/Api/` directory.
 
 The controller takes in the model that you have created and works upon it. This is where you can create methods that create, fetch, and update data from the database using the model.
 
