@@ -44,7 +44,7 @@ Route::get('/get/test', function () {
 // /api/register-info
 Route::post('/register-info', [RegisterInformationController::class, 'store']);
 // /api/register-info/{user_info_id}
-Route::get('/register-info/{user_info_id}', [RegisterInformationController::class, 'show']);
+Route::get('/register-info/{user_info_id}', [RegisterInformationController::class, 'show'])->name('user_information');
 
 // Route to handle posting of email to the support
 Route::post('/account/support', [SupportController::class, 'sendEmail']);
