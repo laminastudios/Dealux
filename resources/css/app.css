@@ -50,7 +50,7 @@
     }
 
     /* Big Screens */
-    @screen md {
+    @screen lg {
         /* Headings */
         h1 {
             font-size: 40px;
@@ -104,5 +104,34 @@
     .label-5 {
         font-size: 10px;
         line-height: 14px;
+    }
+}
+
+/* Container */
+.container {
+    @apply max-w-[97.5%];
+}
+
+@screen md {
+    .container {
+        @apply max-w-[1216px];
+    }
+}
+
+@screen lg {
+    .container {
+        @apply max-w-[90%];
+    }
+}
+
+@screen xl {
+    .container {
+        @apply max-w-[70%];
+    }
+}
+
+@screen 2xl {
+    .container {
+        @apply max-w-[1216px];
     }
 }

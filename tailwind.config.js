@@ -138,6 +138,10 @@ module.exports = {
             xl: '1440px',
             '2xl': '1920px',
         },
+        container: {
+            center: true,
+            padding: '0',
+        },
     },
     plugins: [],
 };
