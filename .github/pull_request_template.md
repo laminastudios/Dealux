@@ -1,4 +1,4 @@
-<DESCRIPTION>
+<DESCRIPTION HERE>
 
 
 #### Changes includes
@@ -8,7 +8,7 @@
 - **Modify:**
     - `<FILENAME>`: <REASON>
 
- **Remove:**
+- **Remove:**
     - `<FILENAME>`: <REASON>
 
 
@@ -20,5 +20,3 @@
 
 
 #### Tasks to do (if it's still a work in progress upon PR):
-
-
