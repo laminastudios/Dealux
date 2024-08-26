@@ -1,0 +1,25 @@
+name: New Feature/Update
+description: Suggest or request a new feature or update
+title: '[feat/update]: '
+labels: ['enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill out the sections below to properly describe the new feature or update
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the feature/update
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: It should be implemented because
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      placeholder: |
+        Add any other context or screenshots about the feature/update.
