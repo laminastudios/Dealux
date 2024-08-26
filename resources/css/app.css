@@ -16,70 +16,30 @@
         letter-spacing: -2%;
     }
 
+    /* Small Screens */
     h1 {
         font-size: 36px;
         line-height: 44px;
     }
-    @screen md {
-        h1 {
-            font-size: 40px;
-            line-height: 48px;
-        }
-    }
-
     h2 {
         font-size: 32px;
         line-height: 40px;
     }
-    @screen md {
-        h2 {
-            font-size: 36px;
-            line-height: 44px;
-        }
-    }
-
     h3 {
         font-size: 28px;
         line-height: 36px;
     }
-    @screen md {
-        h3 {
-            font-size: 32px;
-            line-height: 40px;
-        }
-    }
-
     h4 {
         font-size: 24px;
         line-height: 32px;
     }
-    @screen md {
-        h4 {
-            font-size: 28px;
-            line-height: 36px;
-        }
-    }
-
     h5 {
         font-size: 20px;
         line-height: 28px;
     }
-    @screen md {
-        h5 {
-            font-size: 24px;
-            line-height: 32px;
-        }
-    }
-
     h6 {
         font-size: 18px;
         line-height: 24px;
-    }
-    @screen md {
-        h6 {
-            font-size: 20px;
-            line-height: 28px;
-        }
     }
 
     /* Paragraph */
@@ -88,32 +48,88 @@
         font-size: 15px;
         line-height: 23px;
     }
-    @screen md {
+
+    /* Big Screens */
+    @screen lg {
+        /* Headings */
+        h1 {
+            font-size: 40px;
+            line-height: 48px;
+        }
+        h2 {
+            font-size: 36px;
+            line-height: 44px;
+        }
+        h3 {
+            font-size: 32px;
+            line-height: 40px;
+        }
+        h4 {
+            font-size: 28px;
+            line-height: 36px;
+        }
+        h5 {
+            font-size: 24px;
+            line-height: 32px;
+        }
+        h6 {
+            font-size: 20px;
+            line-height: 28px;
+        }
+
+        /* Paragraph */
         p {
             font-size: 18px;
             line-height: 28px;
         }
     }
+
+    /* Labels */
+    .label-1 {
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .label-2 {
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .label-3 {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .label-4 {
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .label-5 {
+        font-size: 10px;
+        line-height: 14px;
+    }
 }
 
-/* Labels */
-.label-1 {
-    font-size: 18px;
-    line-height: 22px;
+/* Container */
+/* For Small Screens */
+.container {
+    @apply max-w-[92%];
 }
-.label-2 {
-    font-size: 16px;
-    line-height: 18px;
+
+/* Applies from 768px and up */
+@screen md {
+    .container {
+        @apply max-w-[90%];
+    }
 }
-.label-3 {
-    font-size: 14px;
-    line-height: 16px;
+
+/* Applies from 1024px and up */
+@screen lg {
+    .container {
+        @apply max-w-[80%];
+    }
 }
-.label-4 {
-    font-size: 12px;
-    line-height: 14px;
-}
-.label-5 {
-    font-size: 10px;
-    line-height: 14px;
+
+/* Applies from 1440px and up */
+@screen xl {
+    .container {
+        @apply max-w-[1216px];
+    }
 }
