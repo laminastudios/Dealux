@@ -108,29 +108,27 @@
 }
 
 /* Container */
+/* For Small Screens */
 .container {
-    @apply max-w-[97.5%];
+    @apply max-w-[92%];
 }
 
+/* Applies from 768px and up */
 @screen md {
-    .container {
-        @apply max-w-[1216px];
-    }
-}
-
-@screen lg {
     .container {
         @apply max-w-[90%];
     }
 }
 
-@screen xl {
+/* Applies from 1024px and up */
+@screen lg {
     .container {
-        @apply max-w-[70%];
+        @apply max-w-[80%];
     }
 }
 
-@screen 2xl {
+/* Applies from 1440px and up */
+@screen xl {
     .container {
         @apply max-w-[1216px];
     }

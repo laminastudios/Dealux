@@ -132,11 +132,10 @@ module.exports = {
             extrabold: 800,
         },
         screens: {
-            sm: '320px',
-            md: '768px',
-            lg: '1024px',
-            xl: '1440px',
-            '2xl': '1920px',
+            sm: '320px', // Applies from 320px and up
+            md: '768px', // Applies from 768px and up
+            lg: '1024px', // Applies from 1024px and up
+            xl: '1440px', // Applies from 1440px and up
         },
         container: {
             center: true,
