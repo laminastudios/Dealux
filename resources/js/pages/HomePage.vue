@@ -1,25 +1,25 @@
 <template>
-    <div>
-        <h1>Welcome to our Home Page!</h1>
-        <h2>This page's development hasn't started yet.</h2>
-
-        <!-- Display the username if available -->
-        <h3 v-if="userName">Hello, {{ userName }}!</h3>
-
-        <!-- Logout button -->
-        <form @submit.prevent="logout">
-            <button type="submit">Logout</button>
-        </form>
-    </div>
+    <section class="min-h-screen">
+        <div class="container border border-blue-500 h-full">
+            <h1>Welcome to our Home Page!</h1>
+            <h2>This page's development hasn't started yet.</h2>
+            <!-- Display the username if available -->
+            <h3 v-if="userName">Hello, {{ userName }}!</h3>
+            <!-- Logout button -->
+            <form @submit.prevent="logout">
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+    </section>
 </template>
 
 <script>
 export default {
-    name: "HomePage",
+    name: 'HomePage',
     data() {
         return {
             userName: '',
-            csrfToken: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            csrfToken: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         };
     },
     mounted() {
@@ -45,8 +45,8 @@ export default {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': this.csrfToken
-                    }
+                        'X-CSRF-TOKEN': this.csrfToken,
+                    },
                 });
 
                 if (!response.ok) {
@@ -57,8 +57,8 @@ export default {
             } catch (error) {
                 console.error('Error logging out:', error);
             }
-        }
-    }
+        },
+    },
 };
 </script>
 
