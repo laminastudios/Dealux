@@ -7,6 +7,7 @@
             class="h-[48px] font-medium label-3"
             :type="type"
             :id="id"
+            :aria-label="label"
             :placeholder="''"
             :class="inputClasses"
             :value="modelValue"
@@ -32,10 +33,6 @@ export default {
         modelValue: {
             type: String,
             default: '',
-        },
-        placeholder: {
-            type: String,
-            default: '', // Always set the placeholder to an empty string, use the label as the placebolder
         },
         type: {
             type: String,
