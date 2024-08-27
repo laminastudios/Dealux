@@ -45,7 +45,7 @@ export default {
         inputClasses: {
             type: String,
             default:
-                'block px-[24px] py-[13px] text-neutral-700 bg-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2  focus:border-neutral-600 peer',
+                'block px-[24px] py-[13px] text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2  focus:border-neutral-600 peer',
         },
         labelClasses: {
             type: String,
