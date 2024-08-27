@@ -54,7 +54,7 @@ export default {
 </script>
 
 <style>
-/* we will explain what these classes do next! */
+/* Transition Styling */
 .v-enter-active,
 .v-leave-active {
     transition: opacity 100ms ease-in-out;
