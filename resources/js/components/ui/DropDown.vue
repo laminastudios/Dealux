@@ -1,11 +1,11 @@
 <template>
     <div class="inline-flex relative">
-        <div
+        <button
             @click="toggleDropDown"
             class="inline-flex gap-[10px] cursor-pointer hover:bg-neutral-100 rounded-md p-2 transition-colors"
         >
             <slot></slot>
-        </div>
+        </button>
         <transition>
             <div
                 v-if="open"
