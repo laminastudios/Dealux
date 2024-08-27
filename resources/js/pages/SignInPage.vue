@@ -39,7 +39,7 @@ export default {
         async signIn() {
             try {
                 await axios.post('/login', { email: this.email, password: this.password });
-                this.$router.push('/home'); // Redirect after successful sign-in
+                window.location.href = '/home'; // Redirect after successful sign-in
             } catch (error) {
                 this.errorMessage = error.response.data.message;
             }

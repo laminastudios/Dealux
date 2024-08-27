@@ -17,9 +17,7 @@
 <body>
     <div id="app">
         <navbar></navbar>
-        <main>
-            @yield('content')
-        </main>
+        <router-view></router-view>
         <footerbar></footerbar>
     </div>
 </body>
