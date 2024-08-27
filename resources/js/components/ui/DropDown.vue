@@ -1,7 +1,8 @@
 <template>
     <div class="inline-flex relative">
         <button
-            @click="toggleDropDown"
+            ref="dropDownButton"
+            @click="openDropDown"
             class="inline-flex gap-[10px] cursor-pointer hover:bg-neutral-100 rounded-md p-2 transition-colors"
         >
             <slot></slot>
@@ -31,16 +32,26 @@
 <script>
 export default {
     name: 'DropDown',
-    mounted() {},
     data() {
         return {
             open: false,
         };
     },
     methods: {
-        toggleDropDown() {
+        openDropDown() {
             this.open = !this.open;
         },
+        closeDropDown() {
+            if (!this.$refs.dropDownButton.contains(event.target)) {
+                this.open = false;
+            }
+        },
+    },
+    mounted() {
+        document.addEventListener('click', this.closeDropDown);
+    },
+    beforeDestroy() {
+        document.removeEventListener('click', this.closeDropDown);
     },
     props: {
         links: {
