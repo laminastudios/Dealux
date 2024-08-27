@@ -35,16 +35,13 @@
             <div class="my-auto">
                 <button>Logo</button>
             </div>
-            <div class="flex gap-[8px]">
-                <Button
-                    variant="outline"
-                    class="my-auto"
-                >
-                    <router-link to="/register">Sign Up</router-link>
-                </Button>
-                <Button class="my-auto">
-                    <router-link to="/login">Sign In</router-link>
-                </Button>
+            <div class="flex gap-[8px] my-auto">
+                <router-link to="/register">
+                    <Button variant="outline"> Sign Up </Button>
+                </router-link>
+                <router-link to="/login">
+                    <Button> Sign In </Button>
+                </router-link>
             </div>
         </div>
     </nav>
