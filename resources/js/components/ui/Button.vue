@@ -8,11 +8,8 @@
 
 <template>
     <button
-        :class="[
-            'flex justify-center items-center px-[33px] py-[3px] transition-colors font-medium label-4',
-            sizeClasses,
-            variantClasses,
-        ]"
+        class="flex justify-center items-center px-[33px] py-[3px] transition-colors font-medium label-4"
+        :class="[sizeClasses, variantClasses]"
     >
         <slot></slot>
     </button>
