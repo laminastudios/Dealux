@@ -31,9 +31,7 @@
 <script>
 export default {
     name: 'DropDown',
-    mounted() {
-        console.log(this.links);
-    },
+    mounted() {},
     data() {
         return {
             open: false,
