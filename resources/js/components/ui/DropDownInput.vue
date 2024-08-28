@@ -22,18 +22,16 @@
                 :class="variantClassesDropDown"
             >
                 <ul class="flex flex-col">
-                    <a
+                    <li
                         v-for="(item, index) in items"
                         :key="index"
                         href="#"
                         @click.prevent="selectOption(item.text, item.value)"
-                        class="first:rounded-t-[15px] last:rounded-b-[15px] transition-colors"
+                        class="first:rounded-t-[15px] last:rounded-b-[15px] transition-colors p-2"
                         :class="variantClassesItems"
                     >
-                        <li class="p-2">
-                            {{ item.text }}
-                        </li>
-                    </a>
+                        {{ item.text }}
+                    </li>
                 </ul>
             </div>
         </transition>
