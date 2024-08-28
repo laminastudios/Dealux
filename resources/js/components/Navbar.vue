@@ -24,9 +24,18 @@
                     <router-link to="/support">Support Center</router-link>
                 </li>
             </ul>
-            <div class="my-auto">
-                <button>Username</button>
-            </div>
+            <DropDownLink
+                class=""
+                variant="bare"
+                :links="DropDownLinks"
+            >
+                <img
+                    src="https://cdn.vectorstock.com/i/500p/08/19/gray-photo-placeholder-icon-design-ui-vector-35850819.jpg"
+                    alt="test"
+                    class="w-[29px] h-[29px] rounded-full"
+                />
+                <p class="label-3 font-bold my-auto">{{ userName }}</p>
+            </DropDownLink>
         </div>
         <div
             v-else
@@ -48,6 +57,7 @@
 </template>
 
 <script>
+import DropDownLink from '../components/ui/DropDownLink.vue';
 import Button from './ui/Button.vue';
 export default {
     name: 'Navbar',
@@ -57,8 +67,43 @@ export default {
             required: true,
         },
     },
+    data() {
+        return {
+            userName: '',
+            DropDownLinks: [
+                {
+                    text: 'My Account',
+                    link: '#',
+                },
+                {
+                    text: 'Log Out',
+                    link: '/logout',
+                    callback: 'logout',
+                },
+            ],
+        };
+    },
+    mounted() {
+        this.fetchUserData();
+    },
+    methods: {
+        async fetchUserData() {
+            try {
+                const response = await fetch('/user');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok.');
+                }
+                const data = await response.json();
+                this.userName = data.user.user_name || 'Guest'; // Adjust according to your user data structure
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+                this.userName = 'Guest'; // Default value if user data can't be fetched
+            }
+        },
+    },
     components: {
         Button,
+        DropDownLink,
     },
 };
 </script>
