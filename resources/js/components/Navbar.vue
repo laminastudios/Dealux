@@ -92,7 +92,7 @@ export default {
             accountLinks: [
                 {
                     text: 'My Account',
-                    link: '#',
+                    link: '/account/profile',
                 },
                 {
                     text: 'Log Out',
