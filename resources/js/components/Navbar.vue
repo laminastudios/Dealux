@@ -25,7 +25,7 @@
                 </li>
             </ul>
             <DropDownLink
-                class=""
+                class="my-auto"
                 variant="bare"
                 :links="DropDownLinks"
             >
