@@ -1,6 +1,6 @@
 <!-- resources/js/components/Navbar.vue -->
 <template>
-    <nav class="h-[60px] bg-neutral-300">
+    <nav class="h-[60px] bg-neutral-300 text-white">
         <div
             v-if="isAuthenticated"
             class="container border border-red-500 h-full flex flex-row"
@@ -10,7 +10,7 @@
                     <Button>Logo</Button>
                 </router-link>
             </div>
-            <ul class="m-auto flex flex-row gap-[76px]">
+            <ul class="m-auto flex flex-row items-center gap-[76px]">
                 <li class="label-3 font-bold">
                     <router-link to="/home">Home</router-link>
                 </li>
@@ -18,7 +18,13 @@
                     <router-link to="/cart">My Cart</router-link>
                 </li>
                 <li class="label-3 font-bold">
-                    <router-link to="#">My Purchase</router-link>
+                    <DropDownLink
+                        variant="bare"
+                        :links="purchaseLinks"
+                    >
+                        <p class="label-3 font-bold my-auto">My Purchase</p>
+                        <i class="bx bxs-down-arrow"></i>
+                    </DropDownLink>
                 </li>
                 <li class="label-3 font-bold">
                     <router-link to="/support">Support Center</router-link>
@@ -27,7 +33,7 @@
             <DropDownLink
                 class="my-auto"
                 variant="bare"
-                :links="DropDownLinks"
+                :links="accountLinks"
             >
                 <img
                     src="https://cdn.vectorstock.com/i/500p/08/19/gray-photo-placeholder-icon-design-ui-vector-35850819.jpg"
@@ -35,6 +41,7 @@
                     class="w-[29px] h-[29px] rounded-full"
                 />
                 <p class="label-3 font-bold my-auto">{{ userName }}</p>
+                <i class="bx bxs-down-arrow bx-xs"></i>
             </DropDownLink>
         </div>
         <div
@@ -42,7 +49,9 @@
             class="container border border-red-500 h-full flex justify-between"
         >
             <div class="my-auto">
-                <button>Logo</button>
+                <router-link to="/home">
+                    <Button>Logo</Button>
+                </router-link>
             </div>
             <div class="flex gap-[8px] my-auto">
                 <router-link to="/register">
@@ -70,7 +79,17 @@ export default {
     data() {
         return {
             userName: '',
-            DropDownLinks: [
+            purchaseLinks: [
+                {
+                    text: 'Active Orders',
+                    link: '/purchase/active',
+                },
+                {
+                    text: 'Purchase History',
+                    link: '/purchase/history',
+                },
+            ],
+            accountLinks: [
                 {
                     text: 'My Account',
                     link: '#',
