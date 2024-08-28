@@ -16,7 +16,6 @@ import SubscriptionPage from './pages/SubscriptionPage.vue';
 import ProfilePage from './pages/ProfilePage.vue';
 import CheckoutPage from './pages/CheckoutPage.vue';
 import HomePage from './pages/HomePage.vue';
-import AboutPage from './pages/AboutPage.vue';
 import SearchProductPage from './pages/SearchProductPage.vue';
 import ProductPage from './pages/ProductPage.vue';
 import Navbar from './components/Navbar.vue';
@@ -46,8 +45,6 @@ app.component('profile-page', ProfilePage); // Registers ProfilePage component
 
 app.component('home-page', HomePage); // Registers HomePage component
 
-app.component('about-page', AboutPage); // Registers AboutPage component
-
 app.component('searchproduct-page', SearchProductPage); // Registers SearchProductPage component
 
 app.component('product-page', ProductPage); // Registers Product component
@@ -55,7 +52,9 @@ app.component('product-page', ProductPage); // Registers Product component
 app.component('registerinfo-page', RegisterInformationPage); // Registers Register User Information component
 
 // Register the individual component here
+
 app.component('Navbar', Navbar);
+
 app.component('footerbar', Footer);
 
 // Using the Vue Router
