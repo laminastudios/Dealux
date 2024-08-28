@@ -50,12 +50,12 @@ REDIS_PORT=6379
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=587
-MAIL_USERNAME=jadumpyy@gmail.com        # this is just temporary, we will create a gmail for dealux. for now, this is for testing purposes
-MAIL_PASSWORD="ugrz epdz zoum rfsz"     # this is just temporary, we will create a gmail for dealux. for now, this is for testing purposes
+MAIL_USERNAME=dealux.lmn@gmail.com
+MAIL_PASSWORD="lawh nztg udlz kpca"     
 MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS=jadumpyy@gmail.com    # this is just temporary, we will create a gmail for dealux. for now, this is for testing purposes
+MAIL_FROM_ADDRESS=dealux.lmn@gmail.com    
 MAIL_FROM_NAME=Dealux
-SUPPORT_EMAIL=jadumpyy@gmail.com
+SUPPORT_EMAIL=dealux.lmn@gmail.com
 
 AWS_ACCESS_KEY_ID=
 AWS_SECRET_ACCESS_KEY=
