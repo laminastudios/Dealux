@@ -18,7 +18,7 @@
         <transition>
             <div
                 v-if="open"
-                class="absolute top-full mt-[11px] translate-x-1/2 right-1/2 text-center rounded-[15px] min-w-[7.5rem]"
+                class="absolute top-full mt-[11px] translate-x-1/2 right-1/2 text-center min-w-[7.5rem]"
                 :class="variantClassesDropDown"
             >
                 <ul class="flex flex-col">
@@ -27,7 +27,7 @@
                         :key="index"
                         href="#"
                         @click.prevent="selectOption(item.text, item.value)"
-                        class="first:rounded-t-[15px] last:rounded-b-[15px] transition-colors p-2 whitespace-nowrap"
+                        class="transition-colors p-2 whitespace-nowrap"
                         :class="variantClassesItems"
                     >
                         {{ item.text }}
@@ -90,9 +90,9 @@ export default {
     computed: {
         variantClassesContainer() {
             const variants = {
-                light: 'bg-neutral-50 hover:bg-neutral-100 rounded-md text-neutral-400',
-                dark: 'bg-neutral-500 hover:bg-neutral-300 rounded-md text-white',
-                bare: 'hover:bg-neutral-100 rounded-md p-2',
+                light: 'bg-neutral-50 hover:bg-neutral-100 text-neutral-400',
+                dark: 'bg-neutral-500 hover:bg-neutral-300 text-white',
+                bare: 'hover:bg-neutral-100 p-2',
             };
             return variants[this.variant] || variants['light'];
         },
