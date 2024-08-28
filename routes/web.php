@@ -10,7 +10,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PurchaseHistoryController;
 use App\Http\Controllers\RegisterInformationController;
 use App\Http\Controllers\SearchProductController;
 use App\Http\Controllers\SubscriptionController;
@@ -58,7 +57,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::prefix('purchase')->group(function () {
         Route::get('/active', [ActiveOrderController::class, 'index'])->name('activeorder');
-        Route::get('/history', [PurchaseHistoryController::class, 'history'])->name('purchasehistory');
     });
 
     Route::prefix('search')->group(function () {
