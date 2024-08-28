@@ -11,7 +11,7 @@
         <transition>
             <div
                 v-if="open"
-                class="absolute top-full mt-[11px] translate-x-1/2 right-1/2 text-center rounded-[15px]"
+                class="absolute top-full mt-[11px] translate-x-1/2 right-1/2 text-center rounded-[15px] min-w-[7.5rem]"
                 :class="variantClassesDropDown"
             >
                 <ul class="flex flex-col">
