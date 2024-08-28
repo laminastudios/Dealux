@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ['./resources/**/*.blade.php', './resources/**/*.js', './resources/**/*.vue'],
+    content: [
+        './r, esources/**/*.blade.php',
+        './resources/**/*.js',
+        './resources/**/*.vue',
+        './node_modules/flowbite/**/*.js',
+    ],
     theme: {
         fontFamily: {
             mainfont: ['Montserrat', 'sans-serif'],
@@ -142,5 +147,5 @@ module.exports = {
             padding: '0',
         },
     },
-    plugins: [],
+    plugins: [require('flowbite/plugin')],
 };
