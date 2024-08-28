@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ActiveOrderController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -49,7 +48,6 @@ Route::controller(VerificationController::class)->group(function () {
 // Authenticated and verified routes
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/support', [SupportController::class, 'index'])->name('support');
     Route::get('/register/info', [RegisterInformationController::class, 'index'])->name('registerinfo');
 
@@ -85,4 +83,3 @@ Route::post('/logout', function () {
 
     return response()->json(['message' => 'Logged out successfully']);
 });
-

@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import LandingPage from '../pages/LandingPage.vue';
 import SignUpPage from '../pages/SignUpPage.vue';
 import SignInPage from '../pages/SignInPage.vue';
@@ -10,7 +10,6 @@ import SupportPage from '../pages/SupportPage.vue';
 import SubscriptionPage from '../pages/SubscriptionPage.vue';
 import ProfilePage from '../pages/ProfilePage.vue';
 import HomePage from '../pages/HomePage.vue';
-import AboutPage from '../pages/AboutPage.vue';
 import SearchProductPage from '../pages/SearchProductPage.vue';
 import ProductPage from '../pages/ProductPage.vue';
 import RegisterInformationPage from '../pages/RegisterInformationPage.vue';
@@ -28,7 +27,6 @@ const routes = [
     { path: '/account/profile', name: 'profile', component: ProfilePage },
     { path: '/account/subscription', name: 'subscription', component: SubscriptionPage },
     { path: '/home', name: 'home', component: HomePage },
-    { path: '/about', name: 'about', component: AboutPage },
     { path: '/search', name: 'seachproduct', component: SearchProductPage },
     { path: '/search/product', name: 'product', component: ProductPage },
 ];
