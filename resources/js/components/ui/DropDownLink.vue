@@ -23,7 +23,7 @@
                         class="first:rounded-t-[15px] last:rounded-b-[15px] transition-colors"
                         :class="variantClassesItems"
                     >
-                        <li class="p-2">
+                        <li class="py-2 px-4 whitespace-nowrap">
                             {{ link.text }}
                         </li>
                     </a>
@@ -105,9 +105,9 @@ export default {
         },
         variantClassesDropDown() {
             const variants = {
-                light: 'bg-neutral-50 w-full label-4',
-                dark: 'bg-neutral-500 text-white w-full label-3',
-                bare: 'bg-neutral-500 text-white w-full label-3 font-semibold',
+                light: 'bg-neutral-50 min-w-full label-4',
+                dark: 'bg-neutral-500 text-white min-w-full label-3',
+                bare: 'bg-neutral-500 text-white min-w-full label-3 font-semibold',
             };
             return variants[this.variant] || variants['light'];
         },
