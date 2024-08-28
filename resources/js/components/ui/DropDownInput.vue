@@ -3,7 +3,7 @@
         <button
             ref="dropDownButton"
             @click="openDropDown"
-            class="flex items-center justify-center gap-[10px] cursor-pointer w-full h-full transition-colors"
+            class="flex items-center justify-between gap-[10px] cursor-pointer w-full h-full transition-colors px-[24px]"
             :class="variantClassesContainer"
         >
             <slot v-if="!selected">{{ selected }}</slot>
