@@ -18,7 +18,7 @@
                 <!-- Answer Box -->
                 <div class="flex items-start bg-[#F2F2F2] p-4">
                     <img
-                        src="/reply.png"
+                        src="/assets/reply.png"
                         alt="reply"
                         class="w-8 h-8 mr-4"
                     />
@@ -44,7 +44,7 @@
                 <!-- Answer Box -->
                 <div class="flex items-start bg-[#F2F2F2] p-4">
                     <img
-                        src="/reply.png"
+                        src="/assets/reply.png"
                         alt="reply"
                         class="w-8 h-8 mr-4"
                     />
@@ -70,7 +70,7 @@
                 <!-- Answer Box -->
                 <div class="flex items-start bg-[#F2F2F2] p-4">
                     <img
-                        src="/reply.png"
+                        src="/assets/reply.png"
                         alt="reply"
                         class="w-8 h-8 mr-4"
                     />
@@ -95,7 +95,7 @@
                 <!-- Answer Box -->
                 <div class="flex items-start bg-[#F2F2F2] p-4">
                     <img
-                        src="/reply.png"
+                        src="/assets/reply.png"
                         alt="reply"
                         class="w-8 h-8 mr-4"
                     />
