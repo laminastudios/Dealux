@@ -1,16 +1,47 @@
 <template>
     <section class="min-h-screen">
-        <div class="container border border-blue-500 h-full">
-            <h1>Welcome to our Cart Page!</h1>
-            <h2>This page's development hasn't started yet.</h2>
-            <!-- Add more content here -->
+        <div class="container h-full flex flex-col gap-5 my-10">
+            <StoreCartItems
+                storeName="Dealux Store"
+                :items="[
+                    {
+                        name: 'Pants',
+                        description: 'Green, XL, M',
+                        price: '69',
+                        quantity: '2',
+                    },
+                    {
+                        name: 'Shoes',
+                        description: 'Green, 46, M',
+                        price: '69',
+                        quantity: '2',
+                    },
+                ]"
+            />
+
+            <StoreCartItems
+                storeName="Goldealux"
+                :items="[
+                    {
+                        name: 'Chocolate Cake',
+                        description: '128x128, round',
+                        price: '69',
+                        quantity: '2',
+                    },
+                ]"
+            />
         </div>
     </section>
 </template>
 
 <script>
+import StoreCartItems from '../components/ui/StoreCartItems.vue';
+
 export default {
     name: 'CartPage',
+    components: {
+        StoreCartItems,
+    },
 };
 </script>
 
