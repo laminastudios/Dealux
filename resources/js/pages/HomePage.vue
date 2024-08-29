@@ -1,6 +1,6 @@
 <template>
     <section class="min-h-screen-navbar flex">
-        <div class="container flex flex-col items-center justify-center w-[1037px]">
+        <div class="container flex flex-col items-center justify-center">
             <h1 class="mb-[67px] font-semibold">Sari-sari Deals</h1>
             <div class="w-[1037px]">
                 <form
