@@ -25,7 +25,7 @@ DB_HOST=127.0.0.1       # this is the default, but you can change it depending o
 DB_PORT=5432            # this is the default, but you can change it depending on your setting
 DB_DATABASE=dealux      # dont change it
 DB_USERNAME=postgres    # this is the default, but you can change it depending on your setting
-DB_PASSWORD=password    # put your password here, dont put quotations
+DB_PASSWORD=caloocan005    # put your password here, dont put quotations
 
 SESSION_DRIVER=database
 SESSION_LIFETIME=120
@@ -65,3 +65,5 @@ AWS_USE_PATH_STYLE_ENDPOINT=false
 
 VITE_APP_NAME="${APP_NAME}"
 
+STRIPE_TEST_PK=pk_test_51Pt2wyJAW3mzulcJpADvD9fRz0VYJThK7VHN66hn6FrWVyNlx7FrqXhOdwKVToGfucjuL8L5ONkwaXzC2IItYnUa00LW9g0cqv
+STRIPE_TEST_SK=sk_test_51Pt2wyJAW3mzulcJv0eofxmq0vjHqrYYORChpauWlyk1vnstr2UKJdmHXKMsk63MiFtq2iDSyxzZRfgaLrwcBMQ700OC5sMv2I
