@@ -30,6 +30,7 @@
                         class="w-[163px] h-[44px]"
                         variant="dark"
                         :items="DropDownItems"
+                        name="quantity"
                     >
                         <p class="label-3 font-semibold">Quantity</p>
                         <i class="bx bxs-down-arrow"></i>
