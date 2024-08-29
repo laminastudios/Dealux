@@ -27,6 +27,8 @@
                             />
                         </div>
                     </div>
+
+                    <!-- Dropdown for selecting display product quantity -->
                     <DropDownInput
                         class="w-[163px] h-[44px]"
                         variant="dark"
@@ -37,11 +39,14 @@
                         <p class="label-3 font-semibold">Quantity</p>
                         <i class="bx bxs-down-arrow"></i>
                     </DropDownInput>
+
+                    <!-- Button to add filters -->
                     <custom-button
                         variant="filled"
                         size="md"
                         class="gap-[10px] w-[163px]"
                         color="neutral-500"
+                        @click="showPopup = true"
                     >
                         <p class="label-3 font-semibold">Add Filter</p>
                         <i class="bx bx-add-to-queue text-white h-[15px] w-[15px]"></i>
@@ -90,12 +95,18 @@
                 </div>
             </div>
         </div>
+        <!-- Pop-Up Component -->
+        <AddFilterModal
+            :visible.sync="showPopup"
+            @update:visible="showPopup = $event"
+        ></AddFilterModal>
     </section>
 </template>
 
 <script>
 import Button from '../components/ui/Button.vue';
 import DropDownInput from '../components/ui/DropDownInput.vue';
+import AddFilterModal from '../components/ui/AddFilterModal.vue';
 
 export default {
     name: 'HomePage',
@@ -133,6 +144,7 @@ export default {
                     image: '/assets/image_placeholder.jpg',
                 },
             ],
+            showPopup: false, // Initialize showPopup
         };
     },
     computed: {
@@ -154,6 +166,7 @@ export default {
     components: {
         'custom-button': Button,
         DropDownInput,
+        AddFilterModal,
     },
 };
 </script>
