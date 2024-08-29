@@ -5,7 +5,7 @@
             <div class="w-[1037px] flex justify-center">
                 <form
                     class="flex flex-row justify-between gap-[5px]"
-                    @submit.prevent="default"
+                    @submit.prevent="handleSearch"
                 >
                     <div>
                         <label
