@@ -72,25 +72,11 @@
                 <div class="mt-[39px]">
                     <!-- Product Grid -->
                     <div class="mt-[39px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[23px]">
-                        <div
+                        <ProductCard
                             v-for="product in filteredProducts"
                             :key="product.id"
-                            class="flex flex-col items-center"
-                        >
-                            <img
-                                :src="product.image"
-                                alt="Product Image"
-                                class="h-[140px] w-full object-cover"
-                            />
-                            <!-- rectangle div -->
-                            <div class="bg-neutral-100 p-[12px] w-full">
-                                <h6>{{ product.name }}</h6>
-                                <h6 class="text-red-500">{{ product.price }}</h6>
-                                <p class="label-4 text-neutral-300">
-                                    <s>{{ product.oldPrice }}</s>
-                                </p>
-                            </div>
-                        </div>
+                            :product="product"
+                        />
                     </div>
                 </div>
             </div>
@@ -107,6 +93,7 @@
 import Button from '../components/ui/Button.vue';
 import DropDownInput from '../components/ui/DropDownInput.vue';
 import AddFilterModal from '../components/ui/AddFilterModal.vue';
+import ProductCard from '../components/ui/ProductCard.vue'; // Import the ProductCard component
 
 export default {
     name: 'HomePage',
@@ -167,6 +154,7 @@ export default {
         'custom-button': Button,
         DropDownInput,
         AddFilterModal,
+        ProductCard, // Register the ProductCard component
     },
 };
 </script>
