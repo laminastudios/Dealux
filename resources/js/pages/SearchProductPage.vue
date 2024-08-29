@@ -31,6 +31,7 @@
                         variant="dark"
                         :items="DropDownItems"
                         name="quantity"
+                        @change="handleQuantityChange"
                     >
                         <p class="label-3 font-semibold">Quantity</p>
                         <i class="bx bxs-down-arrow"></i>
@@ -66,7 +67,7 @@
                     <!-- Product Grid -->
                     <div class="mt-[39px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[23px]">
                         <div
-                            v-for="product in products"
+                            v-for="product in filteredProducts"
                             :key="product.id"
                             class="flex flex-col items-center"
                         >
@@ -100,17 +101,18 @@ export default {
     data() {
         return {
             searchQuery: '',
+            selectedQuantity: 5, // Default quantity
             DropDownItems: [
-                { text: '1', value: '#' },
-                { text: '2', value: '#' },
-                { text: '3', value: '#' },
-                { text: '4', value: '#' },
-                { text: '5', value: '#' },
-                { text: '6', value: '#' },
-                { text: '7', value: '#' },
-                { text: '8', value: '#' },
-                { text: '9', value: '#' },
-                { text: '10', value: '#' },
+                { text: '1', value: 1 },
+                { text: '2', value: 2 },
+                { text: '3', value: 3 },
+                { text: '4', value: 4 },
+                { text: '5', value: 5 },
+                { text: '6', value: 6 },
+                { text: '7', value: 7 },
+                { text: '8', value: 8 },
+                { text: '9', value: 9 },
+                { text: '10', value: 10 },
             ],
             products: [
                 { id: 1, name: 'Product 1', price: 'P199', oldPrice: 'P299', image: '/assets/image_placeholder.jpg' },
@@ -132,14 +134,19 @@ export default {
             ],
         };
     },
+    computed: {
+        filteredProducts() {
+            return this.products.slice(0, this.selectedQuantity);
+        },
+    },
     methods: {
         handleSearch() {
             console.log('Searching for:', this.searchQuery);
             // Add search logic here (e.g., API call)
         },
-        searchProduct(product) {
-            this.searchQuery = product;
-            this.handleSearch();
+        handleQuantityChange(selectedItem) {
+            this.selectedQuantity = selectedItem.value;
+            console.log('Selected Quantity:', this.selectedQuantity);
         },
     },
     components: {
