@@ -5,7 +5,7 @@
             <div class="w-[1037px]">
                 <form
                     class="flex flex-row justify-between"
-                    @submit.prevent="handleSearch"
+                    @submit.prevent="default"
                 >
                     <div>
                         <label
@@ -23,6 +23,7 @@
                                 class="block w-full label-2 p-0 text-neutral-800 font-semibold bg-transparent placeholder:text-neutral-50 border-none focus:outline-none focus:ring-0"
                                 placeholder="Search Product"
                                 v-model="searchQuery"
+                                @keydown.enter="handleSearch"
                             />
                         </div>
                     </div>
@@ -30,6 +31,8 @@
                         class="w-[163px] h-[44px]"
                         variant="dark"
                         :items="DropDownItems"
+                        name="quantity"
+                        @change="handleQuantityChange"
                     >
                         <p class="label-3 font-semibold">Quantity</p>
                         <i class="bx bxs-down-arrow"></i>
@@ -72,6 +75,7 @@ export default {
     data() {
         return {
             searchQuery: '',
+            selectedQuantity: 5, // Default quantity
             mostSearchedProducts: [
                 'Product 1',
                 'Product 2',
@@ -82,8 +86,16 @@ export default {
                 'Product 7',
             ], // this is just a placeholder
             DropDownItems: [
-                { text: 'Option 1', value: '#' },
-                { text: 'Option 2', value: '#' },
+                { text: '1', value: 1 },
+                { text: '2', value: 2 },
+                { text: '3', value: 3 },
+                { text: '4', value: 4 },
+                { text: '5', value: 5 },
+                { text: '6', value: 6 },
+                { text: '7', value: 7 },
+                { text: '8', value: 8 },
+                { text: '9', value: 9 },
+                { text: '10', value: 10 },
             ],
         };
     },
@@ -95,6 +107,11 @@ export default {
         searchProduct(product) {
             this.searchQuery = product;
             this.handleSearch();
+        },
+        handleQuantityChange(selectedItem) {
+            this.selectedQuantity = selectedItem.value;
+            console.log('Selected Quantity:', this.selectedQuantity);
+            this.handleSearch(); // Trigger search when dropdown value changes
         },
     },
     components: {
