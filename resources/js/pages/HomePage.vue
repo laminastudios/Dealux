@@ -72,7 +72,15 @@ export default {
     data() {
         return {
             searchQuery: '',
-            mostSearchedProducts: ['Laptop', 'Phone 15', 'Headphones', 'Camera', 'Watch', 'Shoes', 'Backpack'],
+            mostSearchedProducts: [
+                'Product 1',
+                'Product 2',
+                'Product 3',
+                'Product 4',
+                'Product 5',
+                'Product 6',
+                'Product 7',
+            ], // this is just a placeholder
             DropDownItems: [
                 { text: 'Option 1', value: '#' },
                 { text: 'Option 2', value: '#' },
