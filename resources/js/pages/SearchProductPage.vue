@@ -5,7 +5,7 @@
             <div class="w-[1037px] flex justify-center">
                 <form
                     class="flex flex-row justify-between gap-[5px]"
-                    @submit.prevent="handleSearch"
+                    @submit.prevent="default"
                 >
                     <div>
                         <label
@@ -23,6 +23,7 @@
                                 class="block w-full label-2 p-0 text-neutral-800 font-semibold bg-transparent placeholder:text-neutral-50 border-none focus:outline-none focus:ring-0"
                                 placeholder="Search Product"
                                 v-model="searchQuery"
+                                @keydown.enter="handleSearch"
                             />
                         </div>
                     </div>
@@ -147,6 +148,7 @@ export default {
         handleQuantityChange(selectedItem) {
             this.selectedQuantity = selectedItem.value;
             console.log('Selected Quantity:', this.selectedQuantity);
+            this.handleSearch(); // Trigger search when dropdown value changes
         },
     },
     components: {
