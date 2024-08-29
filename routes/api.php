@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Api\RegisterInformationApi;
 use App\Http\Controllers\Api\SupportCenterApi;
-use Illuminate\Http\Request;
+use App\Http\Controllers\StripeController;
 use Illuminate\Support\Facades\Route;
 
 // API Routes Guide
@@ -15,16 +15,13 @@ use Illuminate\Support\Facades\Route;
 // /api/get/user - returns all users
 // /api/get/user/{id} - returns user with id = {id}
 
-
 // POST:
 // /api/post/<component>
 // /api/post/user - add new user (form response is in req.body)
 
-
 // PUT:
 // /api/edit/<component>
 // /api/edit/user/{id} - edit user with id = {id} (form response is in req.body)
-
 
 // Preferably, auth should be inside /api/auth/<components>
 // Note: Learn and Include HTTP Status Code (200, 404, etc.)
@@ -34,9 +31,9 @@ use Illuminate\Support\Facades\Route;
 // /api/get/test
 Route::get('/get/test', function () {
     return response()->json([
-        'body' => "Hello World!",
-        'message' => "Success",
-        'code' => 200
+        'body' => 'Hello World!',
+        'message' => 'Success',
+        'code' => 200,
     ]);
 });
 
@@ -49,3 +46,13 @@ Route::get('/get/register/info/{user_info_id}', [RegisterInformationApi::class, 
 // Route to handle posting of email to the support
 Route::post('/post/support', [SupportCenterApi::class, 'sendEmail']);
 
+// ----------------------------
+// Stripe-related routes
+
+// Route to get Stripe public key
+Route::get('/stripe-public-key', function () {
+    return response()->json(['public_key' => config('stripe.stripe_pk')]);
+});
+
+// Route to create a Stripe Checkout session
+Route::post('/stripe-checkout', [StripeController::class, 'stripe']);

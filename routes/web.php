@@ -14,6 +14,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseHistoryController;
 use App\Http\Controllers\RegisterInformationController;
 use App\Http\Controllers\SearchProductController;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Auth;
@@ -72,6 +73,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 });
 
+// Stripe routes
+Route::get('/', [StripeController::class, 'index'])->name('index');
+Route::post('/checkout', [StripeController::class, 'checkout']);
+Route::get('/success', [StripeController::class, 'success'])->name('success');
+
 // this will be moved to api.php
 
 // Route to fetch the authenticated user's data
@@ -85,4 +91,3 @@ Route::post('/logout', function () {
 
     return response()->json(['message' => 'Logged out successfully']);
 });
-
