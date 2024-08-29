@@ -1,5 +1,5 @@
 <template>
-    <transition name="fade">
+    <transition>
         <div
             v-if="visible"
             class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50"
@@ -157,12 +157,14 @@ export default {
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 0.5s;
+/* Transition Styling */
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 100ms ease-in-out;
 }
-.fade-enter,
-.fade-leave-to {
+
+.v-enter-from,
+.v-leave-to {
     opacity: 0;
 }
 </style>
