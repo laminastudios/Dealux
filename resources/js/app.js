@@ -52,7 +52,9 @@ app.component('product-page', ProductPage); // Registers Product component
 app.component('registerinfo-page', RegisterInformationPage); // Registers Register User Information component
 
 // Register the individual component here
-app.component('navbar', Navbar);
+
+app.component('Navbar', Navbar);
+
 app.component('footerbar', Footer);
 
 // Using the Vue Router

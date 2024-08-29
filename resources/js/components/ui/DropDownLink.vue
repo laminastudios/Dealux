@@ -11,7 +11,7 @@
         <transition>
             <div
                 v-if="open"
-                class="absolute top-full mt-[11px] translate-x-1/2 right-1/2 text-center rounded-[15px]"
+                class="absolute top-full mt-[11px] translate-x-1/2 right-1/2 text-center min-w-[7.5rem]"
                 :class="variantClassesDropDown"
             >
                 <ul class="flex flex-col">
@@ -20,10 +20,10 @@
                         :key="index"
                         :href="link.link"
                         @click.prevent="handleLinkClick(link)"
-                        class="first:rounded-t-[15px] last:rounded-b-[15px] transition-colors"
+                        class="transition-colors"
                         :class="variantClassesItems"
                     >
-                        <li class="p-2">
+                        <li class="py-2 px-4 whitespace-nowrap">
                             {{ link.text }}
                         </li>
                     </a>
@@ -97,17 +97,17 @@ export default {
     computed: {
         variantClassesContainer() {
             const variants = {
-                light: 'bg-neutral-50 hover:bg-neutral-100 rounded-md text-neutral-400',
-                dark: 'bg-neutral-500 hover:bg-neutral-300 rounded-md text-white',
-                bare: 'hover:bg-neutral-100 rounded-md p-2',
+                light: 'bg-neutral-50 hover:bg-neutral-100 text-neutral-400',
+                dark: 'bg-neutral-500 hover:bg-neutral-300 text-white',
+                bare: 'hover:bg-neutral-100 p-2',
             };
             return variants[this.variant] || variants['light'];
         },
         variantClassesDropDown() {
             const variants = {
-                light: 'bg-neutral-50 w-full label-4',
-                dark: 'bg-neutral-500 text-white w-full label-3',
-                bare: 'bg-neutral-500 text-white w-full label-3 font-semibold',
+                light: 'bg-neutral-50 min-w-full label-4',
+                dark: 'bg-neutral-500 text-white min-w-full label-3',
+                bare: 'bg-neutral-500 text-white min-w-full label-3 font-semibold',
             };
             return variants[this.variant] || variants['light'];
         },

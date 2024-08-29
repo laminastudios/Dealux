@@ -19,7 +19,7 @@
 </head>
 <body>
     <div id="app">
-        <navbar></navbar>
+        <Navbar :is-authenticated="{{ json_encode(auth()->check()) }}"></Navbar>
         <router-view></router-view>
         <footerbar></footerbar>
     </div>
