@@ -3,6 +3,7 @@
         <div class="container flex flex-col items-center justify-center">
             <h1 class="mb-[67px] font-semibold">Sari-sari Deals</h1>
             <div class="w-[1037px]">
+                <!-- Search Bar -->
                 <form
                     class="flex flex-row justify-between"
                     @submit.prevent="handleSearch"
@@ -23,22 +24,30 @@
                                 class="block w-full label-2 p-0 text-neutral-800 font-semibold bg-transparent placeholder:text-neutral-50 border-none focus:outline-none focus:ring-0"
                                 placeholder="Search Product"
                                 v-model="searchQuery"
+                                @keydown.enter="handleSearch"
                             />
                         </div>
                     </div>
+
+                    <!-- Dropdown for selecting display product quantity -->
                     <DropDownInput
                         class="w-[163px] h-[44px]"
                         variant="dark"
                         :items="DropDownItems"
+                        name="quantity"
+                        @change="handleQuantityChange"
                     >
                         <p class="label-3 font-semibold">Quantity</p>
                         <i class="bx bxs-down-arrow"></i>
                     </DropDownInput>
+
+                    <!-- Button to add filters -->
                     <custom-button
                         variant="filled"
                         size="md"
                         class="gap-[10px] w-[163px]"
                         color="neutral-500"
+                        @click="showPopup = true"
                     >
                         <p class="label-3 font-semibold">Add Filter</p>
                         <i class="bx bx-add-to-queue text-white h-[15px] w-[15px]"></i>
@@ -60,18 +69,25 @@
                 </div>
             </div>
         </div>
+        <!-- Pop-Up Component -->
+        <AddFilterModal
+            :visible.sync="showPopup"
+            @update:visible="showPopup = $event"
+        ></AddFilterModal>
     </section>
 </template>
 
 <script>
 import Button from '../components/ui/Button.vue';
 import DropDownInput from '../components/ui/DropDownInput.vue';
+import AddFilterModal from '../components/ui/AddFilterModal.vue';
 
 export default {
     name: 'HomePage',
     data() {
         return {
             searchQuery: '',
+            selectedQuantity: 5, // Default quantity
             mostSearchedProducts: [
                 'Product 1',
                 'Product 2',
@@ -82,9 +98,18 @@ export default {
                 'Product 7',
             ], // this is just a placeholder
             DropDownItems: [
-                { text: 'Option 1', value: '#' },
-                { text: 'Option 2', value: '#' },
+                { text: '1', value: 1 },
+                { text: '2', value: 2 },
+                { text: '3', value: 3 },
+                { text: '4', value: 4 },
+                { text: '5', value: 5 },
+                { text: '6', value: 6 },
+                { text: '7', value: 7 },
+                { text: '8', value: 8 },
+                { text: '9', value: 9 },
+                { text: '10', value: 10 },
             ],
+            showPopup: false, // Initialize showPopup
         };
     },
     methods: {
@@ -96,10 +121,20 @@ export default {
             this.searchQuery = product;
             this.handleSearch();
         },
+        handleQuantityChange(selectedItem) {
+            this.selectedQuantity = selectedItem.value;
+            console.log('Selected Quantity:', this.selectedQuantity);
+            this.handleSearch(); // Trigger search when dropdown value changes
+        },
     },
     components: {
         'custom-button': Button,
         DropDownInput,
+        AddFilterModal,
     },
 };
 </script>
+
+<style scoped>
+/* Add any custom styles for the popup or other elements here */
+</style>

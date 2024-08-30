@@ -61,6 +61,7 @@ export default {
             this.selected = text; // Update the selected option
             this.selectedValue = value; // Update the hidden input value
             this.open = false; // Close the dropdown after selection
+            this.$emit('change', { value }); // Emit the selected value
         },
     },
     mounted() {
