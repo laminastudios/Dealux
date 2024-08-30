@@ -202,7 +202,6 @@
                     color="neutral-500"
                     hoverColor="neutral-100"
                     type="submit"
-                    :style="{ borderRadius: '0.3125rem' }"
                 >
                     Submit
                 </custom-button>
