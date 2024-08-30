@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\ApiTokensList;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -45,7 +46,6 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -60,18 +60,24 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
      * @return \App\Models\User
      */
     protected function create(array $data)
     {
         $user_id = $this->generateUserId();
-        return User::create([
-            'user_id' => $user_id,
-            'user_name' => $data['user_name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+
+        return DB::transaction(function () use ($user_id, $data) {
+            $user = User::create([
+                'user_id' => $user_id,
+                'user_name' => $data['user_name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]);
+
+            $this->generateApiToken($user_id);
+
+            return $user;
+        });
     }
 
     private function generateUserId()
@@ -88,6 +94,25 @@ class RegisterController extends Controller
         $randomString = strtoupper(Str::random(8));
 
         // Combine the numeric part and random string to create the new user_id
-        return str_pad($newNumericId, 4, '0', STR_PAD_LEFT) . $randomString;
+        return str_pad($newNumericId, 4, '0', STR_PAD_LEFT).$randomString;
+    }
+
+    private function generateApiToken(string $user_id)
+    {
+        $apiToken = Str::random(64);
+        $hashedToken = hash('sha256', $apiToken);
+
+        // check if the user is premium or not. number of uses will be -1 if premium. default is 3
+        $no_of_uses = 3;
+
+        ApiTokensList::Create([
+            'user_id' => $user_id,
+            'api_token' => $hashedToken,
+            'number_of_uses' => $no_of_uses,
+            'created_at' => now(),
+            'modified_at' => now(),
+        ]);
+
+        return $apiToken;
     }
 }
