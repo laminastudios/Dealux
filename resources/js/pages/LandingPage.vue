@@ -1,6 +1,8 @@
 <template>
     <!-- Hero Section -->
-    <section class="container min-h-[600px] mx-auto flex flex-col items-center justify-center">
+    <section
+        class="container min-h-screen-navbar mx-auto flex flex-col items-center justify-center border border-blue-500 h-full"
+    >
         <h1 class="font-semibold mb-[44px]">Find, Compare, and Shop Smarter</h1>
         <p class="label-2 font-regular w-[773px] text-center">
             Seamlessly explore products from leading e-commerce platforms, compare prices, and make purchases—all from
@@ -26,8 +28,10 @@
     </section>
 
     <!-- Feature Section -->
-    <section class="container min-h-[600px] mx-auto mt-8 flex flex-col items-center">
-        <h1 class="font-semibold mb-[2rem]">What We Offer</h1>
+    <section
+        class="container min-h-screen-navbar mx-auto py-8 flex flex-col items-center border border-blue-500 h-full"
+    >
+        <h1 class="font-semibold mt-8 mb-8">What We Offer</h1>
         <h6 class="font-semibold w-[742px] text-center">
             Experience shopping bliss with Dealux! It’s smart, sleek, and just a little bit magical—everything you need
             for a great shopping day!
@@ -35,7 +39,9 @@
     </section>
 
     <!-- Testimonial Carousel -->
-    <section class="container min-h-[600px]">
+    <section
+        class="container min-h-screen-navbar mx-auto py-8 flex flex-col items-center border border-blue-500 h-full"
+    >
         <!-- Add testimonial content here -->
     </section>
 </template>
