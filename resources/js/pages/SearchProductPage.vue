@@ -73,6 +73,7 @@
                     <!-- Product Grid -->
                     <div class="mt-[39px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[23px]">
                         <ProductCard
+                            @click="goToProduct(product.name)"
                             v-for="product in filteredProducts"
                             :key="product.id"
                             :product="product"
@@ -97,9 +98,16 @@ import ProductCard from '../components/ui/ProductCard.vue'; // Import the Produc
 
 export default {
     name: 'HomePage',
+    components: {
+        'custom-button': Button,
+        DropDownInput,
+        AddFilterModal,
+        ProductCard,
+    },
+    props: ['keyword'],
     data() {
         return {
-            searchQuery: '',
+            searchQuery: this.keyword || '', // Initialize with the keyword from the route
             selectedQuantity: 5, // Default quantity
             DropDownItems: [
                 { text: '1', value: 1 },
@@ -114,18 +122,36 @@ export default {
                 { text: '10', value: 10 },
             ],
             products: [
-                { id: 1, name: 'Product 1', price: '₱199', oldPrice: '₱299', image: '/assets/image_placeholder.jpg' },
-                { id: 2, name: 'Product 2', price: '₱299', oldPrice: '₱399', image: '/assets/image_placeholder.jpg' },
-                { id: 3, name: 'Product 3', price: '₱399', oldPrice: '₱499', image: '/assets/image_placeholder.jpg' },
-                { id: 4, name: 'Product 4', price: '₱499', oldPrice: '₱599', image: '/assets/image_placeholder.jpg' },
-                { id: 5, name: 'Product 5', price: '₱599', oldPrice: '₱699', image: '/assets/image_placeholder.jpg' },
-                { id: 6, name: 'Product 6', price: '₱699', oldPrice: '₱799', image: '/assets/image_placeholder.jpg' },
-                { id: 7, name: 'Product 7', price: '₱799', oldPrice: '₱899', image: '/assets/image_placeholder.jpg' },
-                { id: 8, name: 'Product 8', price: '₱899', oldPrice: '₱999', image: '/assets/image_placeholder.jpg' },
-                { id: 9, name: 'Product 9', price: '₱999', oldPrice: '₱1099', image: '/assets/image_placeholder.jpg' },
+                {
+                    id: 1,
+                    name: 'Kwekwek mainit',
+                    price: '₱199',
+                    oldPrice: '₱299',
+                    image: '/assets/image_placeholder.jpg',
+                },
+                { id: 2, name: 'Iphone 15', price: '₱299', oldPrice: '₱399', image: '/assets/image_placeholder.jpg' },
+                {
+                    id: 3,
+                    name: 'Spades large',
+                    price: '₱399',
+                    oldPrice: '₱499',
+                    image: '/assets/image_placeholder.jpg',
+                },
+                { id: 4, name: 'Pencil Case', price: '₱499', oldPrice: '₱599', image: '/assets/image_placeholder.jpg' },
+                { id: 5, name: 'Eyeglass', price: '₱599', oldPrice: '₱699', image: '/assets/image_placeholder.jpg' },
+                { id: 6, name: 'Vivo y11', price: '₱699', oldPrice: '₱799', image: '/assets/image_placeholder.jpg' },
+                {
+                    id: 7,
+                    name: 'Siomai rice bente',
+                    price: '₱799',
+                    oldPrice: '₱899',
+                    image: '/assets/image_placeholder.jpg',
+                },
+                { id: 8, name: 'Fewa', price: '₱899', oldPrice: '₱999', image: '/assets/image_placeholder.jpg' },
+                { id: 9, name: 'Dahon', price: '₱999', oldPrice: '₱1099', image: '/assets/image_placeholder.jpg' },
                 {
                     id: 10,
-                    name: 'Product 10',
+                    name: 'Sample lang ewan ko na',
                     price: 'P1099',
                     oldPrice: 'P1199',
                     image: '/assets/image_placeholder.jpg',
@@ -142,6 +168,9 @@ export default {
     methods: {
         handleSearch() {
             console.log('Searching for:', this.searchQuery);
+            if (this.searchQuery.trim()) {
+                this.$router.push({ name: 'searchproduct', params: { keyword: this.searchQuery.trim() } });
+            }
             // Add search logic here (e.g., API call)
         },
         handleQuantityChange(selectedItem) {
@@ -149,12 +178,19 @@ export default {
             console.log('Selected Quantity:', this.selectedQuantity);
             this.handleSearch(); // Trigger search when dropdown value changes
         },
+        goToProduct(productName) {
+            // Navigate to the product page using the product name as the keyword
+            this.$router.push({ name: 'product', params: { productName: productName } });
+        },
     },
-    components: {
-        'custom-button': Button,
-        DropDownInput,
-        AddFilterModal,
-        ProductCard, // Register the ProductCard component
+    watch: {
+        keyword(newKeyword) {
+            this.searchQuery = newKeyword;
+            this.handleSearch();
+        },
+    },
+    mounted() {
+        this.handleSearch(); // Perform search when the page loads
     },
 };
 </script>
