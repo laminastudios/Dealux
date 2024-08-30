@@ -1,112 +1,9 @@
 <template>
     <!-- FAQ Section -->
-    <section class="container mx-auto mb-12 pb-12 mt-[80px]">
-        <h2 class="font-semibold text-center mb-[20px]">Frequently Asked Questions (FAQ)</h2>
-        <div class="flex flex-col gap-5">
-            <!-- Repeat FAQ items -->
-            <div class="flex flex-col bg-neutral-500 rounded shadow border-neutral-400 mb-[20px]">
-                <!-- Question Box -->
-                <div class="p-4">
-                    <p class="flex items-center font-regular text-white">
-                        <span class="mr-3 text-4xl">?</span>
-                        <span class="text-base">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua?
-                        </span>
-                    </p>
-                </div>
-                <!-- Answer Box -->
-                <div class="flex items-start bg-neutral-50 p-4">
-                    <img
-                        src="/assets/reply.png"
-                        alt="reply"
-                        class="w-8 h-8 mr-4"
-                    />
-                    <p class="text-black">
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="flex flex-col bg-neutral-500 rounded shadow border-neutral-400 mb-[20px]">
-            <!-- Question Box -->
-            <div class="p-4">
-                <p class="flex items-center font-regular text-white">
-                    <span class="mr-3 text-4xl">?</span>
-                    <span class="text-base">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua?
-                    </span>
-                </p>
-            </div>
-            <!-- Answer Box -->
-            <div class="flex items-start bg-neutral-50 p-4">
-                <img
-                    src="/assets/reply.png"
-                    alt="reply"
-                    class="w-8 h-8 mr-4"
-                />
-                <p class="text-black">
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                </p>
-            </div>
-        </div>
-
-        <div class="flex flex-col bg-neutral-500 rounded shadow border-neutral-400 mb-[20px]">
-            <!-- Question Box -->
-            <div class="p-4">
-                <p class="flex items-center font-regular text-white">
-                    <span class="mr-3 text-4xl">?</span>
-                    <span class="text-base">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua?
-                    </span>
-                </p>
-            </div>
-            <!-- Answer Box -->
-            <div class="flex items-start bg-neutral-50 p-4">
-                <img
-                    src="/assets/reply.png"
-                    alt="reply"
-                    class="w-8 h-8 mr-4"
-                />
-                <p class="text-black">
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                </p>
-            </div>
-        </div>
-
-        <div class="flex flex-col bg-neutral-500 rounded shadow border-neutral-400">
-            <!-- Question Box -->
-            <div class="p-4">
-                <p class="flex items-center font-regular text-white">
-                    <span class="mr-3 text-4xl">?</span>
-                    <span class="text-base">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua?
-                    </span>
-                </p>
-            </div>
-            <!-- Answer Box -->
-            <div class="flex items-start bg-neutral-50 p-4">
-                <img
-                    src="/assets/reply.png"
-                    alt="reply"
-                    class="w-8 h-8 mr-4"
-                />
-                <p class="text-black">
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                </p>
-            </div>
-        </div>
-    </section>
+    <FAQAccordion :items="faqItems" />
 
     <!-- Report a Problem Form -->
-    <section class="container mx-auto mb-[100px]">
+    <section class="container mx-auto mb-[100px] mt-10">
         <h2 class="font-semibold text-center mb-8">Report a Problem</h2>
         <form
             @submit.prevent="submitForm"
@@ -160,9 +57,8 @@
                 <label
                     class="block font-bold mb-2"
                     for="summary"
+                    >Summary</label
                 >
-                    Summary
-                </label>
                 <span class="block mb-2 text-neutral-500 label-3">
                     Please provide a one-sentence summary of your problem or concern
                 </span>
@@ -179,9 +75,8 @@
                 <label
                     class="block font-bold mb-2"
                     for="details"
+                    >Details</label
                 >
-                    Details
-                </label>
                 <span class="block mb-2 text-neutral-500 label-3">
                     Please provide as much detail as possible related to your problem or concern
                 </span>
@@ -207,11 +102,15 @@
         </form>
     </section>
 </template>
+
 <script>
 import axios from 'axios';
-import CustomButton from '@/components/ui/Button.vue';
+import FAQAccordion from '../components/ui/FAQAccordion.vue'; // Import the FAQAccordion component
+import CustomButton from '../components/ui/Button.vue';
+
 export default {
     components: {
+        FAQAccordion,
         CustomButton,
     },
     data() {
@@ -223,6 +122,20 @@ export default {
                 summary: '',
                 details: '',
             },
+            faqItems: [
+                {
+                    question:
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?',
+                    answer: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                },
+
+                {
+                    question:
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?',
+                    answer: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                },
+                // Add more FAQ items here
+            ],
         };
     },
 
@@ -247,6 +160,7 @@ export default {
     },
 };
 </script>
+
 <style scoped>
 /* No additional CSS needed with Tailwind */
 </style>
