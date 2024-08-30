@@ -97,9 +97,16 @@ import ProductCard from '../components/ui/ProductCard.vue'; // Import the Produc
 
 export default {
     name: 'HomePage',
+    components: {
+        'custom-button': Button,
+        DropDownInput,
+        AddFilterModal,
+        ProductCard,
+    },
+    props: ['keyword'],
     data() {
         return {
-            searchQuery: '',
+            searchQuery: this.keyword || '', // Initialize with the keyword from the route
             selectedQuantity: 5, // Default quantity
             DropDownItems: [
                 { text: '1', value: 1 },
@@ -142,6 +149,9 @@ export default {
     methods: {
         handleSearch() {
             console.log('Searching for:', this.searchQuery);
+            if (this.searchQuery.trim()) {
+                this.$router.push({ name: 'searchproduct', params: { keyword: this.searchQuery.trim() } });
+            }
             // Add search logic here (e.g., API call)
         },
         handleQuantityChange(selectedItem) {
@@ -150,11 +160,14 @@ export default {
             this.handleSearch(); // Trigger search when dropdown value changes
         },
     },
-    components: {
-        'custom-button': Button,
-        DropDownInput,
-        AddFilterModal,
-        ProductCard, // Register the ProductCard component
+    watch: {
+        keyword(newKeyword) {
+            this.searchQuery = newKeyword;
+            this.handleSearch();
+        },
+    },
+    mounted() {
+        this.handleSearch(); // Perform search when the page loads
     },
 };
 </script>

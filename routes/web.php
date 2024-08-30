@@ -62,7 +62,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     Route::prefix('search')->group(function () {
-        Route::get('/', [SearchProductController::class, 'index'])->name('search');
+        Route::get('/{keyword}', [SearchProductController::class, 'index'])->name('search');
         Route::get('/product', [ProductController::class, 'index'])->name('purchasehistory');
     });
 
