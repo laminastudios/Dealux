@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\RegisterInformationApi;
-use App\Http\Controllers\Api\SupportCenterApi;
-use App\Http\Controllers\StripeController;
+use App\Http\Controllers\Api\StripeApi;
+use App\Http\Controllers\Api\SupportCenterApi; //  Use StripeApi instead of StripeController
 use Illuminate\Support\Facades\Route;
 
 // API Routes Guide
@@ -29,9 +29,9 @@ use Illuminate\Support\Facades\Route;
 // ----------------------------
 
 // Stripe API routes
-Route::get('/index', [StripeController::class, 'index'])->name('stripe.index');
-Route::post('/checkout', [StripeController::class, 'checkout']);
-Route::get('/success', [StripeController::class, 'success'])->name('stripe.success');
+Route::get('/index', [StripeApi::class, 'index'])->name('stripe.index');
+Route::post('/checkout', [StripeApi::class, 'checkout']);
+Route::get('/success', [StripeApi::class, 'success'])->name('stripe.success');
 
 // /api/get/test
 Route::get('/get/test', function () {
@@ -50,8 +50,3 @@ Route::get('/get/register/info/{user_info_id}', [RegisterInformationApi::class, 
 
 // Route to handle posting of email to the support
 Route::post('/post/support', [SupportCenterApi::class, 'sendEmail']);
-
-// Stripe routes
-Route::get('/index', [StripeController::class, 'index'])->name('stripe.index');
-Route::post('/checkout', [StripeController::class, 'checkout']);
-Route::get('/success', [StripeController::class, 'success'])->name('stripe.success');
