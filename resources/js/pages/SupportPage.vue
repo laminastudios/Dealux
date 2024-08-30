@@ -3,10 +3,8 @@
     <section class="container mx-auto mb-12 pb-12 mt-[80px]">
         <h2 class="font-semibold text-center mb-[20px]">Frequently Asked Questions (FAQ)</h2>
         <div class="flex flex-col gap-5">
-            <!-- FAQ Item -->
-
-            <!-- Repeat for other FAQ items -->
-            <div class="flex flex-col bg-neutral-500 rounded shadow border-b-2 border-neutral-400 mb-[20px]">
+            <!-- Repeat FAQ items -->
+            <div class="flex flex-col bg-neutral-500 rounded shadow border-neutral-400 mb-[20px]">
                 <!-- Question Box -->
                 <div class="p-4">
                     <p class="flex items-center font-regular text-white">
@@ -31,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex flex-col bg-neutral-500 rounded shadow border-b-2 border-neutral-400 mb-[20px]">
+        <div class="flex flex-col bg-neutral-500 rounded shadow border-neutral-400 mb-[20px]">
             <!-- Question Box -->
             <div class="p-4">
                 <p class="flex items-center font-regular text-white">
@@ -56,7 +54,7 @@
             </div>
         </div>
 
-        <div class="flex flex-col bg-neutral-500 rounded shadow border-b-2 border-neutral-400 mb-[20px]">
+        <div class="flex flex-col bg-neutral-500 rounded shadow border-neutral-400 mb-[20px]">
             <!-- Question Box -->
             <div class="p-4">
                 <p class="flex items-center font-regular text-white">
@@ -81,7 +79,7 @@
             </div>
         </div>
 
-        <div class="flex flex-col bg-neutral-500 rounded shadow border-b-2 border-neutral-400">
+        <div class="flex flex-col bg-neutral-500 rounded shadow border-neutral-400">
             <!-- Question Box -->
             <div class="p-4">
                 <p class="flex items-center font-regular text-white">
