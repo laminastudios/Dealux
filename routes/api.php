@@ -28,6 +28,11 @@ use Illuminate\Support\Facades\Route;
 
 // ----------------------------
 
+// Stripe API routes
+Route::get('/index', [StripeController::class, 'index'])->name('stripe.index');
+Route::post('/checkout', [StripeController::class, 'checkout']);
+Route::get('/success', [StripeController::class, 'success'])->name('stripe.success');
+
 // /api/get/test
 Route::get('/get/test', function () {
     return response()->json([
@@ -46,13 +51,7 @@ Route::get('/get/register/info/{user_info_id}', [RegisterInformationApi::class, 
 // Route to handle posting of email to the support
 Route::post('/post/support', [SupportCenterApi::class, 'sendEmail']);
 
-// ----------------------------
-// Stripe-related routes
-
-// Route to get Stripe public key
-Route::get('/stripe-public-key', function () {
-    return response()->json(['public_key' => config('stripe.stripe_pk')]);
-});
-
-// Route to create a Stripe Checkout session
-Route::post('/stripe-checkout', [StripeController::class, 'stripe']);
+// Stripe routes
+Route::get('/index', [StripeController::class, 'index'])->name('stripe.index');
+Route::post('/checkout', [StripeController::class, 'checkout']);
+Route::get('/success', [StripeController::class, 'success'])->name('stripe.success');

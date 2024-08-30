@@ -4,34 +4,36 @@
             <h1 class="text-2xl font-bold mb-4">Maayong gabii</h1>
             <h2 class="text-xl mb-6">This page's development has started!</h2>
             <!-- Add more content here -->
-            <form
-                action="/checkout"
-                method="POST"
-                class="w-full max-w-sm"
+            <button
+                @click="initiateCheckout"
+                class="btn-primary"
             >
-                <input
-                    type="hidden"
-                    name="_token"
-                    :value="csrfToken"
-                />
-                <button
-                    type="submit"
-                    class="btn-primary"
-                >
-                    Checkout
-                </button>
-            </form>
+                Checkout
+            </button>
         </div>
     </section>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: 'CheckoutPage',
-    data() {
-        return {
-            csrfToken: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-        };
+    methods: {
+        async initiateCheckout() {
+            try {
+                const response = await axios.post('/api/checkout');
+                const checkoutUrl = response.data.url;
+
+                if (checkoutUrl) {
+                    // Redirect to the Stripe Checkout page
+                    window.location.href = checkoutUrl;
+                }
+            } catch (error) {
+                console.error('Error during checkout:', error.response || error.message);
+                alert('There was an error initiating the checkout. Please try again.');
+            }
+        },
     },
 };
 </script>
