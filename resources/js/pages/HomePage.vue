@@ -115,6 +115,9 @@ export default {
     methods: {
         handleSearch() {
             console.log('Searching for:', this.searchQuery);
+            if (this.searchQuery.trim()) {
+                this.$router.push({ name: 'searchproduct', params: { keyword: this.searchQuery.trim() } });
+            }
             // Add search logic here (e.g., API call)
         },
         searchProduct(product) {

@@ -59,11 +59,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/active', [ActiveOrderController::class, 'index'])->name('activeorder');
     });
 
-    Route::prefix('search')->group(function () {
-        Route::get('/', [SearchProductController::class, 'index'])->name('search');
-        Route::get('/product', [ProductController::class, 'index'])->name('purchasehistory');
-    });
-
+    Route::get('/search/{keyword}', [SearchProductController::class, 'index'])->name('search');
+    Route::get('/product/{productName}', [ProductController::class, 'index'])->name('purchasehistory');
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 });
