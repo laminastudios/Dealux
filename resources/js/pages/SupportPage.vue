@@ -7,7 +7,7 @@
 
     <!-- Report a Problem Form -->
     <section class="container mx-auto mb-[100px] mt-10">
-        <h2 class="font-semibold text-center mb-8">Report a Problem</h2>
+        <h1 class="font-semibold text-center mb-8">Report a Problem</h1>
         <form
             @submit.prevent="submitForm"
             class="bg-white p-8 rounded shadow-md mx-auto"
