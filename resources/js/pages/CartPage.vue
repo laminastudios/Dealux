@@ -13,10 +13,13 @@
                             <!-- TODO: compute total number of items -->
                         </span>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <i class="bx bx-trash font-medium"></i>
-                        <span class="font-medium leading-4">Delete</span>
-                    </div>
+                    <Button
+                        variant="filled"
+                        class="flex gap-2 px-0"
+                    >
+                        <i class="bx bx-trash font-semibold text-neutral-700 text-sm"></i>
+                        <span class="font-semibold leading-4 text-sm text-neutral-700">Delete</span>
+                    </Button>
                 </div>
 
                 <StoreCartItems
@@ -58,12 +61,14 @@
 <script>
 import StoreCartItems from '../components/ui/StoreCartItems.vue';
 import OrderSummary from '../components/ui/OrderSummary.vue';
+import Button from '../components/ui/Button.vue';
 
 export default {
     name: 'CartPage',
     components: {
         StoreCartItems,
         OrderSummary,
+        Button,
     },
 };
 </script>
