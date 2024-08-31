@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\ApiTokensList;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\DB;
@@ -67,14 +66,19 @@ class RegisterController extends Controller
         $user_id = $this->generateUserId();
 
         return DB::transaction(function () use ($user_id, $data) {
+            $api_token_controller = new ApiTokenController;
+            $api_token = Str::random(64);
+            $hashedToken = hash('sha256', $api_token);
+
             $user = User::create([
                 'user_id' => $user_id,
                 'user_name' => $data['user_name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
+                'api_token' => $hashedToken,
             ]);
 
-            $this->generateApiToken($user_id);
+            $api_token_controller->createApiToken($hashedToken);
 
             return $user;
         });
@@ -95,24 +99,5 @@ class RegisterController extends Controller
 
         // Combine the numeric part and random string to create the new user_id
         return str_pad($newNumericId, 4, '0', STR_PAD_LEFT).$randomString;
-    }
-
-    private function generateApiToken(string $user_id)
-    {
-        $apiToken = Str::random(64);
-        $hashedToken = hash('sha256', $apiToken);
-
-        // check if the user is premium or not. number of uses will be -1 if premium. default is 3
-        $no_of_uses = 3;
-
-        ApiTokensList::Create([
-            'user_id' => $user_id,
-            'api_token' => $hashedToken,
-            'number_of_uses' => $no_of_uses,
-            'created_at' => now(),
-            'modified_at' => now(),
-        ]);
-
-        return $apiToken;
     }
 }
