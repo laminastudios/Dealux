@@ -21,7 +21,6 @@ class ApiTokensList extends Model
     }
 
     protected $fillable = [
-        'user_id',
         'api_token',
         'number_of_uses',
         'created_at',
