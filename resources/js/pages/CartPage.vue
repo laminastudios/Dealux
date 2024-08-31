@@ -8,14 +8,14 @@
                         {
                             name: 'Pants',
                             description: 'Green, XL, M',
-                            price: '69',
-                            quantity: '2',
+                            price: 69,
+                            quantity: 2,
                         },
                         {
                             name: 'Shoes',
                             description: 'Green, 46, M',
-                            price: '69',
-                            quantity: '2',
+                            price: 69,
+                            quantity: 2,
                         },
                     ]"
                 />
@@ -26,8 +26,8 @@
                         {
                             name: 'Chocolate Cake',
                             description: '128x128, round',
-                            price: '69',
-                            quantity: '2',
+                            price: 69,
+                            quantity: 2,
                         },
                     ]"
                 />
