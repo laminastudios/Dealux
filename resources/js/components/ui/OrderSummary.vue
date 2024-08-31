@@ -22,7 +22,7 @@
                         type="text"
                         label="Voucher Code"
                         placeholder="Enter Voucher Code"
-                        class="w-full text-center bg-neutral-200"
+                        class="w-full bg-neutral-200 h-fit"
                     />
                     <Button
                         variant="filled"
@@ -54,7 +54,7 @@
 
 <script>
 import Button from './Button.vue';
-import Input from 'postcss/lib/input';
+import Input from './Input.vue';
 
 export default {
     name: 'OrderSummary',
@@ -74,6 +74,7 @@ export default {
     },
     components: {
         Button,
+        Input,
     },
     computed: {},
     methods: {
