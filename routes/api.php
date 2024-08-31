@@ -47,4 +47,10 @@ Route::get('/get/register/info/{user_info_id}', [RegisterInformationApi::class, 
 Route::post('/post/support', [SupportCenterApi::class, 'sendEmail']);
 
 // Route for displaying user's purchase history
-Route::get('/get/purchase/history', [PurchaseHistoryApi::class, 'history'])->name('purchasehistory');
+Route::middleware('auth:api')->group(function () {
+    Route::get('/test', function () {
+        return response()->json(['message' => 'Test route working'], 200);
+    });
+
+    Route::get('/get/purchase/history', [PurchaseHistoryApi::class, 'history'])->name('purchasehistory');
+});
