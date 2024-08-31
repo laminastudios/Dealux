@@ -27,10 +27,12 @@
         <div class="flex flex-col">
             <CartItem
                 v-for="item in items"
+                :key="item.id"
                 :itemName="item.name"
-                :description="item.description"
+                :details="item.details"
                 :price="item.price"
                 :quantity="item.quantity"
+                :image="item.image"
             />
         </div>
     </div>

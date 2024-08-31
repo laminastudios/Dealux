@@ -6,7 +6,7 @@
         />
 
         <img
-            :src="imageLink"
+            :src="image"
             :alt="`Photo of ${itemName}`"
             class="border-black border-[1.2px] object-cover"
         />
@@ -18,7 +18,7 @@
                         {{ itemName }}
                     </div>
                     <div class="font-medium leading-4">
-                        {{ description }}
+                        {{ details }}
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@ import InputSpinner from './InputSpinner.vue';
 export default {
     name: 'CartItem',
     props: {
-        imageLink: {
+        image: {
             type: String,
             default: 'https://placehold.co/84x67',
         },
@@ -45,7 +45,7 @@ export default {
             type: String,
             default: 'None',
         },
-        description: {
+        details: {
             type: String,
             default: 'None',
         },

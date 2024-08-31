@@ -9,13 +9,12 @@
                             class="accent-neutral-300 bg-neutral-300"
                         />
                         <span class="font-medium leading-4">
-                            Select All (3 (items))
-                            <!-- TODO: compute total number of items -->
+                            Select All ({{ totalItems }} item{{ totalItems > 1 ? 's' : '' }})
                         </span>
                     </div>
                     <Button
                         variant="filled"
-                        class="flex gap-2 px-0"
+                        class="gap-1 px-0"
                     >
                         <i class="bx bx-trash font-semibold text-neutral-700 text-sm"></i>
                         <span class="font-semibold leading-4 text-sm text-neutral-700">Delete</span>
@@ -23,33 +22,12 @@
                 </div>
 
                 <StoreCartItems
-                    storeName="Dealux Store"
-                    :items="[
-                        {
-                            name: 'Pants',
-                            description: 'Green, XL, M',
-                            price: 69,
-                            quantity: 2,
-                        },
-                        {
-                            name: 'Shoes',
-                            description: 'Green, 46, M',
-                            price: 69,
-                            quantity: 2,
-                        },
-                    ]"
-                />
-
-                <StoreCartItems
-                    storeName="Goldealux"
-                    :items="[
-                        {
-                            name: 'Chocolate Cake',
-                            description: '128x128, round',
-                            price: 69,
-                            quantity: 2,
-                        },
-                    ]"
+                    v-for="store in stores"
+                    v-show="store.items.length > 0"
+                    :key="store.id"
+                    :storeName="store.name"
+                    :storeURL="store.link"
+                    :items="store.items"
                 />
             </div>
 
@@ -65,6 +43,57 @@ import Button from '../components/ui/Button.vue';
 
 export default {
     name: 'CartPage',
+    data() {
+        return {
+            stores: [
+                {
+                    id: 1,
+                    name: 'Store A',
+                    link: '#',
+                    items: [
+                        {
+                            id: 1,
+                            name: 'Product A',
+                            details: '128x128, round',
+                            price: 69,
+                            quantity: 2,
+                            image: 'https://placehold.co/84x67',
+                        },
+                        {
+                            id: 2,
+                            name: 'Product A1',
+                            details: '128x128, round',
+                            price: 420,
+                            quantity: 1,
+                            image: 'https://placehold.co/84x67',
+                        },
+                    ],
+                },
+                {
+                    id: 2,
+                    name: 'Store B',
+                    link: '#',
+                    items: [
+                        {
+                            id: 1,
+                            name: 'Product B',
+                            details: '128x128, round',
+                            price: 69_420,
+                            quantity: 2,
+                            image: 'https://placehold.co/84x67',
+                        },
+                    ],
+                },
+            ],
+        };
+    },
+    computed: {
+        totalItems() {
+            let total = 0;
+            this.stores.forEach((store) => (total += store.items.length));
+            return total;
+        },
+    },
     components: {
         StoreCartItems,
         OrderSummary,
