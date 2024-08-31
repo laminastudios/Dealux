@@ -29,9 +29,9 @@ use Illuminate\Support\Facades\Route;
 // ----------------------------
 
 // Stripe API routes
-Route::get('/index', [StripeApi::class, 'index'])->name('stripe.index');
-Route::post('/checkout', [StripeApi::class, 'checkout']);
-Route::get('/success', [StripeApi::class, 'success'])->name('stripe.success');
+Route::get('/get/index', [StripeApi::class, 'index'])->name('stripe.index');
+Route::post('/post/checkout', [StripeApi::class, 'checkout']);
+Route::get('/get/success', [StripeApi::class, 'success'])->name('stripe.success');
 
 // /api/get/test
 Route::get('/get/test', function () {

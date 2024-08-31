@@ -22,7 +22,7 @@ export default {
     methods: {
         async initiateCheckout() {
             try {
-                const response = await axios.post('/api/checkout');
+                const response = await axios.post('/api/post/checkout');
                 const checkoutUrl = response.data.url;
 
                 if (checkoutUrl) {
