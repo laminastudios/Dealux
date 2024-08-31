@@ -1,6 +1,9 @@
 <template>
     <!-- FAQ Section -->
-    <FAQAccordion :items="faqItems" />
+    <section class="container mx-auto mb-[20px] pb-12 mt-[80px]">
+        <h1 class="font-semibold text-center mb-[20px]">Frequently Asked Questions (FAQs)</h1>
+        <FAQAccordion :items="faqItems" />
+    </section>
 
     <!-- Report a Problem Form -->
     <section class="container mx-auto mb-[100px] mt-10">
@@ -134,6 +137,7 @@ export default {
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?',
                     answer: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                 },
+
                 // Add more FAQ items here
             ],
         };
