@@ -12,7 +12,6 @@
         />
 
         <div class="flex flex-wrap gap-5 justify-between w-full text-neutral-700">
-            <!-- TODO: sm:flex-1 is temporary until Order Summary creation -->
             <div class="flex md:flex-1 flex-wrap gap-5 justify-between">
                 <div class="flex flex-col gap-6 w-full">
                     <div class="font-extrabold leading-4">
@@ -24,20 +23,17 @@
                 </div>
             </div>
 
-            <!-- TODO: sm:flex-1 is temporary until Order Summary creation -->
             <div class="flex flex-wrap items-center gap-12">
                 <div class="font-medium leading-4 sm:flex-1">₱{{ price }}</div>
-
-                <!-- TODO: InputSpinner-->
-                <div class="w-20 text-center bg-neutral-500 text-white py-1">
-                    {{ quantity }}
-                </div>
+                <InputSpinner :quantity="2" />
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import InputSpinner from './InputSpinner.vue';
+
 export default {
     name: 'CartItem',
     props: {
@@ -61,6 +57,9 @@ export default {
             type: Number,
             default: 1,
         },
+    },
+    components: {
+        InputSpinner,
     },
 };
 </script>
