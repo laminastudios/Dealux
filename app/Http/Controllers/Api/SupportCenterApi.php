@@ -10,18 +10,24 @@ class SupportCenterApi extends Controller
 {
     public function sendEmail(Request $request)
     {
+        // Validate the form data
         $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email',
-            'message' => 'required|string',
+            'firstName' => 'required|string|max:255',
+            'lastName' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'summary' => 'required|string|max:255',
+            'details' => 'required|string',
         ]);
 
+        // Compose the email content
+        $emailContent = 'Summary: '.$request->summary."\n\n".$request->details;
+
         // Email sending logic
-        Mail::raw($request->message, function ($message) use ($request) {
-             $message->to(env('SUPPORT_EMAIL')) // Recipient's email
-                    ->subject('Support Request from ' . $request->name)
-                    ->from($request->email, $request->name) // Sender's email and name
-                    ->replyTo($request->email, $request->name); // Reply-To email and name
+        Mail::raw($emailContent, function ($message) use ($request) {
+            $message->to(env('SUPPORT_EMAIL')) // Recipient's email (configured in the .env file)
+                ->subject('Support Request from '.$request->firstName.' '.$request->lastName)
+                ->from($request->email, $request->firstName.' '.$request->lastName) // Sender's email and full name
+                ->replyTo($request->email, $request->firstName.' '.$request->lastName); // Reply-To email and full name
         });
 
         return response()->json(['message' => 'Email sent successfully.']);
