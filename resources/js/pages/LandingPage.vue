@@ -1,48 +1,118 @@
 <template>
     <!-- Hero Section -->
-    <section
-        class="container min-h-screen-navbar mx-auto flex flex-col items-center justify-center border border-blue-500 h-full"
-    >
-        <h1 class="font-semibold mb-[44px]">Find, Compare, and Shop Smarter</h1>
-        <p class="label-2 font-regular w-[773px] text-center">
-            Seamlessly explore products from leading e-commerce platforms, compare prices, and make purchases—all from
-            one convenient app designed to enhance your shopping experience.
-        </p>
-        <h6 class="font-semibold mt-[139px]">Access thousands of products from these trusted retailers</h6>
+    <section class="bg-background">
+        <div class="container min-h-screen mx-auto flex flex-col items-center justify-center border border-blue-500">
+            <h1 class="font-semibold mb-[28px]">Find, Compare, and Shop Smarter</h1>
+            <h3 class="font-semibold"><i>Great Deals for Smart Shoppers</i></h3>
+            <h6 class="font-semibold mt-[151px]">Access thousands of products from these trusted retailers</h6>
 
-        <!-- Shop List -->
-        <div class="mt-6 flex text-center justify-between gap-[4rem]">
-            <article
-                v-for="shop in shops"
-                :key="shop.id"
-                class="flex text-center justify-between gap-3"
-            >
-                <img
-                    :src="shop.image"
-                    alt="Shop Logo"
-                    class="mx-auto h-[45px] object-contain"
-                />
-                <p class="label-1 font-bold mt-4">{{ shop.name }}</p>
-            </article>
+            <!-- Shop List -->
+            <div class="mt-6 flex text-center justify-between gap-[4rem]">
+                <article
+                    v-for="shop in shops"
+                    :key="shop.id"
+                    class="flex text-center justify-between gap-3"
+                >
+                    <img
+                        :src="shop.image"
+                        alt="Shop Logo"
+                        class="mx-auto h-[45px] object-contain"
+                    />
+                    <p class="label-1 font-bold mt-4">{{ shop.name }}</p>
+                </article>
+            </div>
         </div>
     </section>
 
     <!-- Feature Section -->
-    <section
-        class="container min-h-screen-navbar mx-auto py-8 flex flex-col items-center border border-blue-500 h-full"
-    >
-        <h1 class="font-semibold mt-8 mb-8">What We Offer</h1>
-        <h6 class="font-semibold w-[742px] text-center">
-            Experience shopping bliss with Dealux! It’s smart, sleek, and just a little bit magical—everything you need
-            for a great shopping day!
-        </h6>
+    <section class="bg-primary-800">
+        <div class="h-[724px] mx-auto py-8 flex flex-col items-center border border-blue-500">
+            <h1 class="font-semibold mt-8 mb-[27px] text-white">What We <span class="text-yellow-400">Offer</span></h1>
+            <h6 class="font-semibold w-[742px] text-center text-primary-50">
+                Experience shopping bliss with Dealux! It’s smart, sleek, and just a little bit magical—everything you
+                need for a great shopping day!
+            </h6>
+
+            <div class="flex justify-between items-center gap-12 mt-[62px]">
+                <!-- Search Up -->
+                <div class="flex flex-col items-center">
+                    <img
+                        src="assets/image_placeholder.jpg"
+                        alt=""
+                        class="h-[115px] w-[115px] object-cover"
+                    />
+                    <h3 class="text-yellow-400 font-semibold mt-[28px]">
+                        Search <span class="text-primary-50">Up</span>
+                    </h3>
+                    <p class="label-1 font-semibold text-center text-white w-[270px] mt-[17px]">
+                        Find the best deals across multiple platforms with our advanced search tool
+                    </p>
+                </div>
+
+                <div class="border border-white h-[386px] w-[2px]"></div>
+
+                <!-- Compare Me -->
+                <div class="flex flex-col items-center">
+                    <img
+                        src="assets/image_placeholder.jpg"
+                        alt=""
+                        class="h-[115px] w-[115px] object-cover"
+                    />
+                    <h3 class="text-yellow-400 font-semibold mt-[28px]">
+                        Compare <span class="text-primary-50">Me</span>
+                    </h3>
+                    <p class="label-1 font-semibold text-center text-white w-[270px] mt-[17px]">
+                        Easily compare products side-by-side from different platforms to find the perfect deal
+                    </p>
+                </div>
+
+                <div class="border border-white h-[386px] w-[2px]"></div>
+
+                <!-- Rank It -->
+                <div class="flex flex-col items-center">
+                    <img
+                        src="assets/image_placeholder.jpg"
+                        alt=""
+                        class="h-[115px] w-[115px] object-cover"
+                    />
+                    <h3 class="text-yellow-400 font-semibold mt-[28px]">
+                        Rank <span class="text-primary-50">It</span>
+                    </h3>
+                    <p class="label-1 font-semibold text-center text-white w-[270px] mt-[17px]">
+                        Rank products by ratings, prices, locations, and more for a personalized shopping experience
+                    </p>
+                </div>
+
+                <div class="border border-white h-[386px] w-[2px]"></div>
+
+                <!-- Direct Purchase -->
+                <div class="flex flex-col items-center">
+                    <img
+                        src="assets/image_placeholder.jpg"
+                        alt=""
+                        class="h-[115px] w-[115px] object-cover"
+                    />
+                    <h3 class="text-yellow-400 font-semibold mt-[28px]">
+                        Direct <span class="text-primary-50">Purchase</span>
+                    </h3>
+                    <p class="label-1 font-semibold text-center text-white w-[270px] mt-[17px]">
+                        Buy directly through Dealux for a seamless shopping experience.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Testimonial Carousel -->
-    <section
-        class="container min-h-screen-navbar mx-auto py-8 flex flex-col items-center border border-blue-500 h-full"
-    >
-        <!-- Add testimonial content here -->
+    <section class="bg-background">
+        <div class="container min-h-screen mx-auto py-8 flex flex-col items-center border border-blue-500">
+            <h1 class="font-semibold mt-8 mb-[27px] text-black">
+                Why Shoppers <span class="text-yellow-400">Love</span> Dealux
+            </h1>
+            <h6 class="font-semibold w-[742px] text-center text-black">
+                Hear from customers who found the Best Deals on Dealux
+            </h6>
+        </div>
     </section>
 </template>
 
