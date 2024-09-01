@@ -1,7 +1,7 @@
 <template>
     <!-- Hero Section -->
     <section class="bg-background">
-        <div class="container min-h-screen mx-auto flex flex-col items-center justify-center border border-blue-500">
+        <div class="container h-[600px] mx-auto flex flex-col items-center justify-center">
             <h1 class="font-semibold mb-[28px]">Find, Compare, and Shop Smarter</h1>
             <h3 class="font-semibold"><i>Great Deals for Smart Shoppers</i></h3>
             <h6 class="font-semibold mt-[151px]">Access thousands of products from these trusted retailers</h6>
@@ -26,7 +26,7 @@
 
     <!-- Feature Section -->
     <section class="bg-primary-800">
-        <div class="h-[724px] mx-auto py-8 flex flex-col items-center border border-blue-500">
+        <div class="container h-[724px] mx-auto py-8 flex flex-col items-center">
             <h1 class="font-semibold mt-8 mb-[27px] text-white">What We <span class="text-yellow-400">Offer</span></h1>
             <h6 class="font-semibold w-[742px] text-center text-primary-50">
                 Experience shopping bliss with Dealux! It’s smart, sleek, and just a little bit magical—everything you
@@ -105,20 +105,33 @@
 
     <!-- Testimonial Carousel -->
     <section class="bg-background">
-        <div class="container min-h-screen mx-auto py-8 flex flex-col items-center border border-blue-500">
-            <h1 class="font-semibold mt-8 mb-[27px] text-black">
-                Why Shoppers <span class="text-yellow-400">Love</span> Dealux
-            </h1>
-            <h6 class="font-semibold w-[742px] text-center text-black">
-                Hear from customers who found the Best Deals on Dealux
-            </h6>
+        <div class="container h-[724px] mx-auto py-8">
+            <div class="flex flex-col items-center">
+                <h1 class="font-semibold mt-8 mb-[27px] text-black">
+                    What We <span class="text-yellow-400">Offer</span>
+                </h1>
+                <h6 class="font-semibold w-[742px] mb-[64px] text-center text-black">
+                    Hear from customers who found the Best Deals on Dealux
+                </h6>
+            </div>
+            <!-- Testimonial Carousel -->
+            <TestimonialCarousel :testimonials="testimonials" />
         </div>
     </section>
 </template>
 
 <script>
+import TestimonialCarousel from '../components/ui/TestimonialCarousel.vue';
+import { VueperSlides, VueperSlide } from 'vueperslides';
+import 'vueperslides/dist/vueperslides.css';
+
 export default {
     name: 'LandingPage',
+    components: {
+        TestimonialCarousel,
+        VueperSlides,
+        VueperSlide,
+    },
     data() {
         return {
             shops: [
@@ -128,6 +141,65 @@ export default {
                 { id: 4, name: 'Alibaba', image: '/assets/alibaba_logo.png' },
                 { id: 5, name: 'eBay', image: '/assets/ebay_logo.png' },
                 { id: 6, name: 'Zalora', image: '/assets/zalora_logo.png' },
+            ],
+            testimonials: [
+                {
+                    name: 'John Doe',
+                    review: 'This is an amazing product! Highly recommended.',
+                    rating: 5,
+                    userSince: '2021',
+                    image: 'https://via.placeholder.com/150', // Replace with actual image URL
+                },
+                {
+                    name: 'Jane Smith',
+                    review: 'Good value for money. Will definitely buy again.',
+                    rating: 4,
+                    userSince: '2022',
+                    image: 'https://via.placeholder.com/150', // No image URL to show the icon
+                },
+                {
+                    name: 'John Doe',
+                    review: 'This is an amazing product! Highly recommended.',
+                    rating: 5,
+                    userSince: '2021',
+                    image: 'https://via.placeholder.com/150', // Replace with actual image URL
+                },
+                {
+                    name: 'Jane Smith',
+                    review: 'Good value for money. Will definitely buy again.',
+                    rating: 4,
+                    userSince: '2022',
+                    image: 'https://via.placeholder.com/150', // No image URL to show the icon
+                },
+                {
+                    name: 'John Doe',
+                    review: 'This is an amazing product! Highly recommended.',
+                    rating: 5,
+                    userSince: '2021',
+                    image: 'https://via.placeholder.com/150', // Replace with actual image URL
+                },
+                {
+                    name: 'Jane Smith',
+                    review: 'Good value for money. Will definitely buy again.',
+                    rating: 4,
+                    userSince: '2022',
+                    image: 'https://via.placeholder.com/150', // No image URL to show the icon
+                },
+                {
+                    name: 'John Doe',
+                    review: 'This is an amazing product! Highly recommended.',
+                    rating: 5,
+                    userSince: '2021',
+                    image: 'https://via.placeholder.com/150', // Replace with actual image URL
+                },
+                {
+                    name: 'Jane Smith',
+                    review: 'Good value for money. Will definitely buy again.',
+                    rating: 4,
+                    userSince: '2022',
+                    image: 'https://via.placeholder.com/150', // No image URL to show the icon
+                },
+                // Add more testimonials as needed
             ],
         };
     },
