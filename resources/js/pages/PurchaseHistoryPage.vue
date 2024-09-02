@@ -64,7 +64,7 @@ import PurchaseCard from '../components/ui/PurchaseCard.vue';
 import PurchaseSideBar from '../components/ui/PurchaseSideBar.vue';
 
 export default {
-    name: 'ActiveOrderPage',
+    name: 'PurchaseHistoryPage',
     components: {
         PurchaseTab,
         PurchaseCard,
