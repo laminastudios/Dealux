@@ -1,24 +1,40 @@
 <template>
     <!-- Hero Section -->
-    <section class="bg-background">
-        <div class="container h-[600px] mx-auto flex flex-col items-center justify-center">
-            <h1 class="font-semibold mb-[28px]">Find, Compare, and Shop Smarter</h1>
-            <h3 class="font-semibold"><i>Great Deals for Smart Shoppers</i></h3>
-            <h6 class="font-semibold mt-[151px]">Access thousands of products from these trusted retailers</h6>
+    <section class="relative bg-background h-[600px] overflow-hidden">
+        <!-- Background Video -->
+        <div>
+            <video
+                src="/assets/hero_bg.mp4"
+                type="video/mp4"
+                autoplay
+                muted
+                loop
+                class="absolute inset-0 w-full h-full object-cover border border-red-500"
+            ></video>
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#041E3B] to-[#020C18] opacity-60"></div>
+        </div>
+
+        <div class="relative w-[1400px] h-full mx-auto flex flex-col justify-center">
+            <h1 class="font-semibold mb-[16px] text-yellow-400">Find, Compare, and Shop Smarter</h1>
+            <h4 class="font-semibold text-white"><i>Great Deals for Smart Shoppers</i></h4>
+            <h6 class="font-semibold mt-[116px] text-white">
+                Access thousands of products from these trusted retailers
+            </h6>
 
             <!-- Shop List -->
-            <div class="mt-6 flex text-center justify-between gap-[4rem]">
+            <div class="mt-6 grid grid-cols-3 gap-[2rem] w-[700px]">
                 <article
                     v-for="shop in shops"
                     :key="shop.id"
-                    class="flex text-center justify-between gap-3"
+                    class="w-full max-w-[150px] flex flex-row gap-[10px] text-center items-start"
                 >
                     <img
                         :src="shop.image"
                         alt="Shop Logo"
-                        class="mx-auto h-[45px] object-contain"
+                        class="h-[45px] object-contain"
                     />
-                    <p class="label-1 font-bold mt-4">{{ shop.name }}</p>
+                    <p class="label-1 font-bold mt-4 text-white">{{ shop.name }}</p>
                 </article>
             </div>
         </div>
@@ -26,7 +42,7 @@
 
     <!-- Feature Section -->
     <section class="bg-primary-800">
-        <div class="container h-auto mx-auto py-8 flex flex-col items-center">
+        <div class="h-auto w-[1400px] mx-auto py-8 flex flex-col items-center">
             <h1 class="font-semibold mt-8 mb-[27px] text-white">What We <span class="text-yellow-400">Offer</span></h1>
             <h6 class="font-semibold w-[742px] text-center text-primary-50">
                 Experience shopping bliss with Dealux! It’s smart, sleek, and just a little bit magical—everything you
@@ -105,7 +121,7 @@
 
     <!-- Testimonial Carousel -->
     <section class="bg-background">
-        <div class="container h-[724px] mx-auto py-8">
+        <div class="h-[724px] w-[1400px] mx-auto py-8">
             <div class="flex flex-col items-center">
                 <h1 class="font-semibold mt-8 mb-[27px] text-black">
                     What We <span class="text-yellow-400">Offer</span>
