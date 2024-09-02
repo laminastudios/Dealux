@@ -64,7 +64,8 @@
                         :key="index"
                         variant="filled"
                         size="md"
-                        class="gap-[10px] bg-blue-50"
+                        class="gap-[10px]"
+                        color="blue"
                         @click="searchProduct(product)"
                     >
                         <p class="label-3 font-semibold text-black">{{ product }}</p>
