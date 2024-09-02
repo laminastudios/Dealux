@@ -26,19 +26,19 @@
 
     <!-- Feature Section -->
     <section class="bg-primary-800">
-        <div class="container h-[724px] mx-auto py-8 flex flex-col items-center">
+        <div class="container h-auto mx-auto py-8 flex flex-col items-center">
             <h1 class="font-semibold mt-8 mb-[27px] text-white">What We <span class="text-yellow-400">Offer</span></h1>
             <h6 class="font-semibold w-[742px] text-center text-primary-50">
                 Experience shopping bliss with Dealux! It’s smart, sleek, and just a little bit magical—everything you
                 need for a great shopping day!
             </h6>
 
-            <div class="flex justify-between items-center gap-12 mt-[62px]">
+            <div class="flex justify-between items-start gap-12 mt-[62px]">
                 <!-- Search Up -->
-                <div class="flex flex-col items-center">
+                <div class="flex flex-col items-center h-[450px]">
                     <img
                         src="assets/image_placeholder.jpg"
-                        alt=""
+                        alt="Search Up"
                         class="h-[115px] w-[115px] object-cover"
                     />
                     <h3 class="text-yellow-400 font-semibold mt-[28px]">
@@ -52,10 +52,10 @@
                 <div class="border border-white h-[386px] w-[2px]"></div>
 
                 <!-- Compare Me -->
-                <div class="flex flex-col items-center">
+                <div class="flex flex-col items-center h-[450px]">
                     <img
                         src="assets/image_placeholder.jpg"
-                        alt=""
+                        alt="Compare Me"
                         class="h-[115px] w-[115px] object-cover"
                     />
                     <h3 class="text-yellow-400 font-semibold mt-[28px]">
@@ -69,10 +69,10 @@
                 <div class="border border-white h-[386px] w-[2px]"></div>
 
                 <!-- Rank It -->
-                <div class="flex flex-col items-center">
+                <div class="flex flex-col items-center h-[450px]">
                     <img
                         src="assets/image_placeholder.jpg"
-                        alt=""
+                        alt="Rank It"
                         class="h-[115px] w-[115px] object-cover"
                     />
                     <h3 class="text-yellow-400 font-semibold mt-[28px]">
@@ -86,10 +86,10 @@
                 <div class="border border-white h-[386px] w-[2px]"></div>
 
                 <!-- Direct Purchase -->
-                <div class="flex flex-col items-center">
+                <div class="flex flex-col items-center h-[450px]">
                     <img
                         src="assets/image_placeholder.jpg"
-                        alt=""
+                        alt="Direct Purchase"
                         class="h-[115px] w-[115px] object-cover"
                     />
                     <h3 class="text-yellow-400 font-semibold mt-[28px]">
