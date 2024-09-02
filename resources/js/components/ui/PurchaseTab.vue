@@ -1,7 +1,7 @@
 <template>
     <!-- Tabs navigation -->
     <ul
-        class="h-[72px] flex list-none flex-row flex-wrap bg-neutral-50"
+        class="flex list-none flex-row justify-between bg-neutral-50 px-20 py-0 m-0 h-[72px]"
         role="tablist"
     >
         <!-- Loop through tabs to generate buttons -->
@@ -9,11 +9,11 @@
             v-for="tab in tabs"
             :key="tab"
             role="presentation"
-            class="flex-auto text-center"
+            class="flex items-center justify-center flex-none"
         >
             <button
                 @click="filterStatus(tab)"
-                class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 label-2 font-bold leading-tight text-neutral-500 hover:border-primary hover:text-primary focus:outline-none"
+                class="block border-x-0 border-b-2 border-t-0 border-transparent py-2 text-neutral-500 font-bold leading-tight hover:border-primary hover:text-primary focus:outline-none"
                 :class="{ 'text-primary border-primary': selectedTab === tab }"
             >
                 {{ tab }}
