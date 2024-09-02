@@ -66,6 +66,7 @@
                         size="md"
                         class="gap-[10px]"
                         color="blue"
+                        hoverColor="None"
                         @click="searchProduct(product)"
                     >
                         <p class="label-3 font-semibold text-black">{{ product }}</p>
