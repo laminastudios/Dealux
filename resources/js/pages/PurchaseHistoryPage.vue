@@ -78,8 +78,8 @@ export default {
                 {
                     id: 1,
                     name: 'Store 1',
-                    parcelStatus: 'To Receive',
-                    orderStatus: 'Ongoing',
+                    parcelStatus: 'Received',
+                    orderStatus: 'Received',
                     products: [
                         {
                             id: 1,
@@ -109,8 +109,8 @@ export default {
                 {
                     id: 2,
                     name: 'Store 2',
-                    parcelStatus: 'To Ship',
-                    orderStatus: 'Ongoing',
+                    parcelStatus: 'Refunded',
+                    orderStatus: 'Refunded',
                     products: [
                         {
                             id: 7,
