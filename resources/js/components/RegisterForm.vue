@@ -41,29 +41,30 @@ export default {
       ],
     };
   },
- methods: {
-  async submitForm() {
-    try {
-      // Validate the form data (you can add custom validation here)
-      if (!this.formData.user_name || !this.formData.first_name || !this.formData.last_name) {
-        alert('Please fill in all required fields.');
-        return;
-      }
-
-      // Send data to the server
-      const response = await axios.post('/register', this.formData);
-
-      // Handle the server response
-      if (response.data.success) {
-        alert('Registration successful!');
-        // Optionally, redirect the user or clear the form
-      } else {
-        alert('Registration failed: ' + response.data.message);
-      }
-    } catch (error) {
-      alert('An error occurred: ' + error.message);
+methods: {
+    async submitForm() {
+        try {
+            const response = await axios.post('/register', {
+                user_name: this.user_name,
+                first_name: this.first_name,
+                middle_name: this.middle_name,
+                last_name: this.last_name,
+                birth_date: this.birth_date,
+                phone_number: this.phone_number,
+            });
+            // Handle successful response
+            console.log('Registration successful:', response.data);
+            // You might want to display a success message or close the popup
+        } catch (error) {
+            // Handle server-side errors
+            if (error.response && error.response.data) {
+                // Example: Display error messages from the server
+                this.errors = error.response.data.errors;
+            } else {
+                console.error('Unexpected error:', error);
+            }
+        }
     }
-  }
 }
     },
   },
