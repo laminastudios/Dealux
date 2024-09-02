@@ -37,7 +37,7 @@
                                 <img
                                     :src="item.image"
                                     :alt="item.name"
-                                    class="w-[45px] h-[45px]"
+                                    class="w-[45px] h-[45px] object-contain"
                                 />
                                 <p class="label-3 font-bold">{{ item.name }}</p>
                             </div>
@@ -54,7 +54,7 @@
                                 <img
                                     :src="item.image"
                                     :alt="item.name"
-                                    class="w-[45px] h-[45px]"
+                                    class="w-[45px] h-[45px] object-contain"
                                 />
                                 <p class="label-3 font-bold">{{ item.name }}</p>
                             </div>
@@ -142,53 +142,53 @@ export default {
             ourPartnersItems: [
                 {
                     name: 'Shopee',
-                    image: 'https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg',
+                    image: '/assets/shopee_logo.png',
                 },
                 {
                     name: 'Lazada',
-                    image: 'https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg',
+                    image: '/assets/lazada_logo.png',
                 },
                 {
                     name: 'Shein',
-                    image: 'https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg',
+                    image: '/assets/shein_logo.jpg',
                 },
                 {
                     name: 'Alibaba',
-                    image: 'https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg',
+                    image: '/assets/alibaba_logo.png',
                 },
                 {
                     name: 'eBay',
-                    image: 'https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg',
+                    image: '/assets/ebay_logo.png',
                 },
                 {
                     name: 'Zalora',
-                    image: 'https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg',
+                    image: '/assets/zalora_logo.png',
                 },
             ],
             paymentMethodsItems: [
                 {
                     name: 'VISA',
-                    image: 'https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg',
+                    image: '/assets/visa_logo.png',
                 },
                 {
                     name: 'GCash',
-                    image: 'https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg',
+                    image: '/assets/gcash_logo.jpeg',
                 },
                 {
                     name: 'BPI',
-                    image: 'https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg',
+                    image: '/assets/bpi_logo.png',
                 },
                 {
                     name: 'Mastercard',
-                    image: 'https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg',
+                    image: '/assets/mastercard_logo.png',
                 },
                 {
                     name: 'Maya',
-                    image: 'https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg',
+                    image: '/assets/maya_logo.png',
                 },
                 {
                     name: 'PayPal',
-                    image: 'https://img.freepik.com/free-photo/abstract-surface-textures-white-concrete-stone-wall_74190-8189.jpg',
+                    image: '/assets/paypal_logo.png',
                 },
             ],
         };
