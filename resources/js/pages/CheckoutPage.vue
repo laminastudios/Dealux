@@ -14,6 +14,7 @@
             <BillingInfoSection
                 :priceSubtotal="priceSubtotal"
                 :shippingFee="totalShippingFee"
+                @initiateCheckout="initiateCheckout"
             />
         </div>
     </section>

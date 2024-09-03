@@ -66,6 +66,7 @@
                 variant="filled"
                 color="neutral-200"
                 hoverColor="neutral-300"
+                @click="initiateCheckout"
             >
                 <span class="font-semibold text-sm text-black">Place Order</span>
             </Button>
@@ -94,6 +95,11 @@ export default {
         shippingFee: {
             type: Number,
             default: 0,
+        },
+    },
+    methods: {
+        initiateCheckout() {
+            this.$emit('initiateCheckout');
         },
     },
 };
