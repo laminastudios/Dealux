@@ -1,12 +1,24 @@
 <template>
-    <div class="bg-neutral-100 w-[380px] h-fit py-10 px-7 text-neutral-700 flex flex-col gap-6">
-        <div class="flex justify-between items-center">
-            <div class="font-bold text-neutral-800">Payment Method</div>
-            <div class="font-medium text-sm leading-4">
-                <a href="#"> View all methods > </a>
+    <div class="bg-neutral-100 w-[380px] h-fit py-10 px-7 text-neutral-700 flex flex-col gap-7">
+        <div>
+            <div class="flex justify-between items-center">
+                <div class="font-bold text-neutral-800">Payment Method</div>
+                <div class="font-medium text-sm leading-4">
+                    <a href="#"> View all methods > </a>
+                </div>
             </div>
 
-            <!-- TODO: Stripe integration? -->
+            <!-- temporary -->
+            <div class="mt-3 flex flex-col gap-0">
+                <div class="bg-neutral-200 flex justify-between px-4 items-center py-4">
+                    <div class="text-neutral-700 font-medium leading-4">Credit/Debit Card</div>
+                    <div class="bg-neutral-100 w-5 h-5 rounded-full"></div>
+                </div>
+                <div class="bg-neutral-200 mt-3 flex justify-between px-4 items-center py-4">
+                    <div class="text-neutral-700 font-medium leading-4">Credit/Debit Card</div>
+                    <div class="bg-neutral-100 w-5 h-5 rounded-full"></div>
+                </div>
+            </div>
         </div>
 
         <div>
@@ -45,7 +57,7 @@
             </div>
         </div>
 
-        <div class="border-t border-t-neutral-700 pt-5 px-4 flex flex-col gap-4">
+        <div class="border-t border-t-neutral-700 pt-3 px-4 flex flex-col gap-3">
             <div class="flex justify-between">
                 <div class="font-medium leading-4">Total</div>
                 <div class="font-semibold leading-4">₱{{ shippingFee + priceSubtotal }}</div>
