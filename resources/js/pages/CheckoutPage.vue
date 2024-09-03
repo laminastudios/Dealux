@@ -1,21 +1,19 @@
 <template>
     <section class="min-h-screen">
-        <div class="container border border-blue-500 h-full flex flex-col items-center justify-center">
-            <h1 class="text-2xl font-bold mb-4">Maayong gabii</h1>
-            <h2 class="text-xl mb-6">This page's development has started!</h2>
-            <!-- Add more content here -->
-            <button
-                @click="initiateCheckout"
-                class="btn-primary"
-            >
-                Checkout
-            </button>
+        <div class="container border flex gap-4 justify-center my-10">
+            <div class="flex flex-col gap-4 flex-1">
+                <ShippingInfoSection />
+                <!-- TODO: <CheckoutItems /> -->
+            </div>
+            <!-- TODO: <BillingInfoSection /> -->
         </div>
     </section>
 </template>
 
 <script>
 import axios from 'axios';
+
+import ShippingInfoSection from '../components/ui/ShippingInfoSection.vue';
 
 export default {
     name: 'CheckoutPage',
@@ -35,25 +33,12 @@ export default {
             }
         },
     },
+    components: {
+        ShippingInfoSection,
+    },
 };
 </script>
 
 <style scoped>
-h1,
-h2 {
-    color: #333;
-    text-align: center;
-}
-.btn-primary {
-    background-color: #007bff;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.375rem;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.btn-primary:hover {
-    background-color: #0056b3;
-}
+/* Add styles here */
 </style>
