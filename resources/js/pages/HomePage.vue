@@ -66,7 +66,7 @@
                         variant="filled"
                         size="md"
                         class="gap-[10px]"
-                        color="blue"
+                        color="blue-50"
                         hoverColor="None"
                         @click="searchProduct(product)"
                     >

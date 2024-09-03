@@ -46,7 +46,8 @@ export default {
         colorClass() {
             const colors = {
                 yellow: 'bg-[#FFA52E] hover:bg-[#D17600]',
-                blue: 'bg-[#ECEEFB]',
+                'blue-50': 'bg-[#ECEEFB]',
+                'blue-100': 'bg-[#C6CCF3] hover:bg-[#151F5F]',
                 green: 'bg-[#2CD370] hover:bg-[#146033]',
                 gray: 'bg-[#8C8C8C] hover:bg-[#595959]',
                 neutral: 'bg-[#737373]',
