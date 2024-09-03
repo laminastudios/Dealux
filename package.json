@@ -32,6 +32,7 @@
     },
     "dependencies": {
         "flowbite": "^2.5.1",
-        "vue-router": "^4.4.3"
+        "vue-router": "^4.4.3",
+        "vueperslides": "^3.5.1"
     }
 }
