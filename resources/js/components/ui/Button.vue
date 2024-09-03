@@ -21,11 +21,7 @@ export default {
         },
         color: {
             type: String,
-            default: 'yellow',
-        },
-        hoverColor: {
-            type: String,
-            default: '',
+            default: 'neutral',
         },
     },
     computed: {
@@ -40,7 +36,6 @@ export default {
             return sizes[this.size] || sizes['md'];
         },
         colorClasses() {
-            // Default color options mapped to Tailwind CSS classes
             const colorMap = {
                 yellow: 'yellow-300',
                 blue: 'blue-50',
@@ -49,16 +44,32 @@ export default {
                 red: 'red-500',
                 neutral: 'neutral-500',
             };
-            return colorMap[this.color] || this.color; // Fall back to raw value if custom color is passed
+            return colorMap[this.color] || this.color;
+        },
+        hoverClasses() {
+            const hoverMap = {
+                yellow: 'hover:bg-yellow-600',
+                blue: '', // No hover color for blue-50
+                green: 'hover:bg-green-800',
+                gray: 'hover:bg-gray-800',
+                red: 'hover:bg-red-800',
+                neutral: '', // No hover color for neutral
+            };
+            return hoverMap[this.color] || '';
         },
         variantClasses() {
             const baseColor = this.colorClasses;
-            const hoverColor = this.hoverColor || `${baseColor.split('-')[0]}-600`; // Auto-generate hover color if not provided
+            const hoverColor = this.hoverClasses;
 
             if (this.variant === 'outline') {
+                if (this.color === 'yellow') {
+                    return `border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400`;
+                } else if (this.color === 'neutral') {
+                    return `border-2 border-neutral-500 text-neutral-500`;
+                }
                 return `border-2 border-${baseColor} text-${baseColor} hover:bg-${baseColor}/10`;
             } else if (this.variant === 'filled') {
-                return `bg-${baseColor} text-white hover:bg-${hoverColor}`;
+                return `bg-${baseColor} text-white ${hoverColor}`;
             }
             return '';
         },
