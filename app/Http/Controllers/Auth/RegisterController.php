@@ -67,18 +67,15 @@ class RegisterController extends Controller
 
         return DB::transaction(function () use ($user_id, $data) {
             $api_token_controller = new ApiTokenController;
-            $api_token = Str::random(64);
-            $hashedToken = hash('sha256', $api_token);
 
             $user = User::create([
                 'user_id' => $user_id,
                 'user_name' => $data['user_name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
-                'api_token' => $hashedToken,
             ]);
 
-            $api_token_controller->createApiToken($hashedToken);
+            $api_token_controller->createApiToken($user_id);
 
             return $user;
         });
