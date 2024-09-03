@@ -54,7 +54,7 @@
                         @click="showPopup = true"
                     >
                         <p class="label-3 font-semibold">Add Filter</p>
-                        <i class="bx bx-add-to-queue text-black text-[15px] font-medium"></i>
+                        <i class="bx bx-add-to-queue text-white text-[15px] font-medium"></i>
                     </custom-button>
                 </form>
 
