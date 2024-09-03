@@ -11,7 +11,10 @@
                     :items="store.items"
                 />
             </div>
-            <!-- TODO: <BillingInfoSection /> -->
+            <BillingInfoSection
+                :priceSubtotal="priceSubtotal"
+                :shippingFee="totalShippingFee"
+            />
         </div>
     </section>
 </template>
@@ -21,6 +24,7 @@ import axios from 'axios';
 
 import ShippingInfoSection from '../components/ui/ShippingInfoSection.vue';
 import CheckoutItems from '../components/ui/CheckoutItems.vue';
+import BillingInfoSection from '../components/ui/BillingInfoSection.vue';
 
 export default {
     name: 'CheckoutPage',
@@ -37,6 +41,7 @@ export default {
                             name: 'Product 1.1',
                             details: 'Color, size',
                             price: 123,
+                            shippingFee: 10,
                             quantity: 1,
                             image: 'https://placehold.co/84x67',
                         },
@@ -45,6 +50,7 @@ export default {
                             name: 'Product 1.2',
                             details: 'Color, size',
                             price: 456,
+                            shippingFee: 10,
                             quantity: 2,
                             image: 'https://placehold.co/84x67',
                         },
@@ -59,6 +65,7 @@ export default {
                             name: 'Product 2.1',
                             details: 'Color, size',
                             price: 123,
+                            shippingFee: 10,
                             quantity: 2,
                             image: 'https://placehold.co/84x67',
                         },
@@ -83,9 +90,21 @@ export default {
             }
         },
     },
+    computed: {
+        priceSubtotal() {
+            return this.allItems.reduce((total, item) => total + item.price, 0);
+        },
+        totalShippingFee() {
+            return this.allItems.reduce((shippingFee, item) => shippingFee + item.shippingFee, 0);
+        },
+        allItems() {
+            return Array.from(this.stores, (store) => store.items).flat();
+        },
+    },
     components: {
         ShippingInfoSection,
         CheckoutItems,
+        BillingInfoSection,
     },
 };
 </script>
