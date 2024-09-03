@@ -16,6 +16,7 @@ module.exports = {
             // Generic Colors
             white: '#FFFFFF',
             black: '#000000',
+            background: '#F2F9FF',
 
             // Primary Colors
             neutral: {

@@ -6,8 +6,8 @@
             <div class="w-[1006px]">
                 <!-- PurchaseTab component -->
                 <PurchaseTab
+                    :tabs="['All', 'To Pay', 'To Ship', 'To Receive', 'Received']"
                     class="mb-[20px]"
-                    :stores="stores"
                     @filter-by-status="filterStores"
                 />
 

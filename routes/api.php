@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Api\PurchaseHistoryApi;
 use App\Http\Controllers\Api\RegisterInformationApi;
-use App\Http\Controllers\Api\SupportCenterApi;
+use App\Http\Controllers\Api\StripeApi;
+use App\Http\Controllers\Api\SupportCenterApi; //  Use StripeApi instead of StripeController
 use Illuminate\Support\Facades\Route;
 
 // API Routes Guide
@@ -28,6 +28,11 @@ use Illuminate\Support\Facades\Route;
 
 // ----------------------------
 
+// Stripe API routes
+Route::get('/get/index', [StripeApi::class, 'index'])->name('stripe.index');
+Route::post('/post/checkout', [StripeApi::class, 'checkout']);
+Route::get('/get/success', [StripeApi::class, 'success'])->name('stripe.success');
+
 // /api/get/test
 Route::get('/get/test', function () {
     return response()->json([
@@ -45,12 +50,3 @@ Route::get('/get/register/info/{user_info_id}', [RegisterInformationApi::class, 
 
 // Route to handle posting of email to the support
 Route::post('/post/support', [SupportCenterApi::class, 'sendEmail']);
-
-// Route for displaying user's purchase history
-Route::middleware('auth:api')->group(function () {
-    Route::get('/test', function () {
-        return response()->json(['message' => 'Test route working'], 200);
-    });
-
-    Route::get('/get/purchase/history', [PurchaseHistoryApi::class, 'history'])->name('purchasehistory');
-});
