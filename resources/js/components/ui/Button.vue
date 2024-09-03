@@ -69,7 +69,7 @@ export default {
                 }
                 return `border-2 border-${baseColor} text-${baseColor} hover:bg-${baseColor}/10`;
             } else if (this.variant === 'filled') {
-                return `bg-${baseColor} text-white ${hoverColor}`;
+                return `bg-${baseColor} text-black ${hoverColor}`;
             }
             return '';
         },
