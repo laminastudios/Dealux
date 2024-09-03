@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('api_tokens_list', function (Blueprint $table) {
             $table->id('api_token_id'); // Primary Key
 
+            $table->char('user_id', 12);
+            $table->foreign('user_id')->references('user_id')->on('user_account')->onDelete('cascade');
             $table->string('api_token', 64)->unique(); // API Token
-            $table->foreign('api_token')->references('api_token')->on('user_account')->onDelete('cascade');
+            // $table->foreign('api_token')->references('api_token')->on('user_account')->onDelete('cascade');
             $table->integer('number_of_uses')->default(0); // Number of Uses
 
             $table->timestamp('created_at')->useCurrent()->nullable();
