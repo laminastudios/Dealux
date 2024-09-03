@@ -1,7 +1,7 @@
 <template>
     <button
         class="flex justify-center items-center px-[33px] py-[3px] transition-colors font-semibold label-4 rounded-[5px] cursor-pointer"
-        :class="[sizeClasses, variantClass, colorClass]"
+        :class="[sizeClasses, variantClass, colorClass, borderRadius]"
         @click="handleClick"
     >
         <slot></slot>
@@ -23,6 +23,10 @@ export default {
         color: {
             type: String,
             default: 'neutral',
+        },
+        roundness: {
+            type: Boolean,
+            default: true,
         },
     },
     computed: {
@@ -53,6 +57,9 @@ export default {
                 neutral: 'bg-[#737373]',
             };
             return this.variant === 'filled' ? colors[this.color] || colors['neutral'] : '';
+        },
+        borderRadius() {
+            return this.roundness ? 'rounded-[5px]' : 'rounded-none';
         },
     },
     methods: {

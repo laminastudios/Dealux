@@ -47,9 +47,9 @@
 
                     <!-- Button to add filters -->
                     <custom-button
-                        variant="filled"
-                        color="yellow"
-                        size="md"
+                        :variant="'filled'"
+                        :color="'yellow'"
+                        :size="'md'"
                         class="gap-[10px] w-[170px] custom-shadow"
                         @click="showPopup = true"
                     >
