@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Api\PurchaseHistoryApi;
 use App\Http\Controllers\Api\RegisterInformationApi;
-use App\Http\Controllers\Api\StripeApi;
-use App\Http\Controllers\Api\SupportCenterApi; //  Use StripeApi instead of StripeController
+use App\Http\Controllers\Api\StripeApi; //  Use StripeApi instead of StripeController
+use App\Http\Controllers\Api\SupportCenterApi;
+use App\Http\Controllers\Auth\ApiTokenController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 // API Routes Guide
@@ -26,27 +29,45 @@ use Illuminate\Support\Facades\Route;
 // Preferably, auth should be inside /api/auth/<components>
 // Note: Learn and Include HTTP Status Code (200, 404, etc.)
 
+// Reference to get current user's information through api routes
+// Route::get('me', function (Request $request) {
+//     $token = $request->bearerToken();
+
+//     $api_token_controller = new ApiTokenController;
+//     $user = $api_token_controller->getUser($token);
+
+//     if ($user !== null) {
+//         return 'User is logged in. id:'.$user->user_id;
+//     } else {
+//         return 'User is not logged in.';
+//     }
+// });
+
 // ----------------------------
+Route::middleware(['apiToken'])->group(function () {
+    // Stripe API routes
+    Route::get('/get/index', [StripeApi::class, 'index'])->name('stripe.index');
+    Route::post('/post/checkout', [StripeApi::class, 'checkout']);
+    Route::get('/get/success', [StripeApi::class, 'success'])->name('stripe.success');
 
-// Stripe API routes
-Route::get('/get/index', [StripeApi::class, 'index'])->name('stripe.index');
-Route::post('/post/checkout', [StripeApi::class, 'checkout']);
-Route::get('/get/success', [StripeApi::class, 'success'])->name('stripe.success');
+    // /api/get/test
+    Route::get('/get/test', function () {
+        return response()->json([
+            'body' => 'Hello World!',
+            'message' => 'Success',
+            'code' => 200,
+        ]);
+    });
 
-// /api/get/test
-Route::get('/get/test', function () {
-    return response()->json([
-        'body' => 'Hello World!',
-        'message' => 'Success',
-        'code' => 200,
-    ]);
+    // Route to handle the user information registration
+    // /api/register-info
+    Route::post('/post/register/info', [RegisterInformationApi::class, 'store']);
+    // /api/register-info/{user_info_id}
+    Route::get('/get/register/info/{user_info_id}', [RegisterInformationApi::class, 'show'])->name('user_information');
+
+    // Route to handle posting of email to the support
+    Route::post('/post/support', [SupportCenterApi::class, 'sendEmail']);
+
+    // Route for displaying user's purchase history
+    Route::get('/get/purchase/history', [PurchaseHistoryApi::class, 'history'])->name('purchasehistory');
 });
-
-// Route to handle the user information registration
-// /api/register-info
-Route::post('/post/register/info', [RegisterInformationApi::class, 'store']);
-// /api/register-info/{user_info_id}
-Route::get('/get/register/info/{user_info_id}', [RegisterInformationApi::class, 'show'])->name('user_information');
-
-// Route to handle posting of email to the support
-Route::post('/post/support', [SupportCenterApi::class, 'sendEmail']);
