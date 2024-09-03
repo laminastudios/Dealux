@@ -1,6 +1,6 @@
 <template>
     <button
-        class="flex justify-center items-center px-[33px] py-[3px] transition-colors font-medium label-4 rounded-[5px] cursor-pointer"
+        class="flex justify-center items-center px-[33px] py-[3px] transition-colors font-semibold label-4 rounded-[5px] cursor-pointer"
         :class="[sizeClasses, variantClass, colorClass]"
         @click="handleClick"
     >
@@ -48,7 +48,7 @@ export default {
                 yellow: 'bg-[#FFA52E] hover:bg-[#D17600] text-white',
                 'blue-50': 'bg-[#ECEEFB] text-black',
                 'blue-100': 'bg-[#C6CCF3] hover:bg-[#151F5F] text-black',
-                green: 'bg-[#C5F3D8] hover:bg-[#09431F] text-black',
+                green: 'bg-[#C5F3D8] hover:bg-[#09431F] text-black hover:text-[#FFFFFF]',
                 gray: 'bg-[#8C8C8C] hover:bg-[#595959] text-white',
                 neutral: 'bg-[#737373]',
             };
