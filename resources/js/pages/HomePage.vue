@@ -48,8 +48,9 @@
                     <!-- Button to add filters -->
                     <custom-button
                         variant="filled"
+                        color="yellow"
                         size="md"
-                        class="gap-[10px] w-[163px] bg-yellow-300 custom-shadow"
+                        class="gap-[10px] w-[163px] custom-shadow"
                         @click="showPopup = true"
                     >
                         <p class="label-3 font-semibold text-black">Add Filter</p>
