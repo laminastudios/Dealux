@@ -23,6 +23,7 @@
 
 <script>
 import Button from '../ui/Button.vue';
+
 export default {
     name: 'ShippingInfoSection',
     components: {

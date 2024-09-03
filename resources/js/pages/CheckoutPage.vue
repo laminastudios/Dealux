@@ -1,9 +1,15 @@
 <template>
     <section class="min-h-screen">
-        <div class="container border flex gap-4 justify-center my-10">
+        <div class="container flex gap-4 justify-center my-10">
             <div class="flex flex-col gap-4 flex-1">
                 <ShippingInfoSection />
-                <!-- TODO: <CheckoutItems /> -->
+                <CheckoutItems
+                    v-for="store in stores"
+                    :key="id"
+                    :storeName="store.name"
+                    :storeLink="store.link"
+                    :items="store.items"
+                />
             </div>
             <!-- TODO: <BillingInfoSection /> -->
         </div>
@@ -14,9 +20,53 @@
 import axios from 'axios';
 
 import ShippingInfoSection from '../components/ui/ShippingInfoSection.vue';
+import CheckoutItems from '../components/ui/CheckoutItems.vue';
 
 export default {
     name: 'CheckoutPage',
+    data() {
+        return {
+            stores: [
+                {
+                    id: 1,
+                    name: 'Store 1',
+                    link: '#',
+                    items: [
+                        {
+                            id: 1,
+                            name: 'Product 1.1',
+                            details: 'Color, size',
+                            price: 123,
+                            quantity: 1,
+                            image: 'https://placehold.co/84x67',
+                        },
+                        {
+                            id: 2,
+                            name: 'Product 1.2',
+                            details: 'Color, size',
+                            price: 456,
+                            quantity: 2,
+                            image: 'https://placehold.co/84x67',
+                        },
+                    ],
+                },
+                {
+                    id: 2,
+                    name: 'Store 2',
+                    items: [
+                        {
+                            id: 1,
+                            name: 'Product 2.1',
+                            details: 'Color, size',
+                            price: 123,
+                            quantity: 2,
+                            image: 'https://placehold.co/84x67',
+                        },
+                    ],
+                },
+            ],
+        };
+    },
     methods: {
         async initiateCheckout() {
             try {
@@ -35,6 +85,7 @@ export default {
     },
     components: {
         ShippingInfoSection,
+        CheckoutItems,
     },
 };
 </script>
