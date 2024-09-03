@@ -13,7 +13,7 @@
                     </div>
                     <div class="flex justify-between">
                         <div class="font-medium leading-4">Shipping Fee</div>
-                        <div class="font-semibold leading-4">₱{{ shippingFee }}</div>
+                        <div class="font-semibold leading-4">₱{{ totalShippingFee }}</div>
                     </div>
                 </div>
 
@@ -40,37 +40,35 @@
                     <div class="font-semibold leading-4">₱{{ totalPrice() }}</div>
                 </div>
 
-                <Button
-                    variant="filled"
-                    color="neutral-200"
-                    hoverColor="neutral-400"
-                    class="font-semibold leading-4 text-neutral-700"
-                    >Proceed to Checkout</Button
+                <RouterLink
+                    class="w-full"
+                    to="/checkout"
                 >
+                    <Button
+                        variant="filled"
+                        color="neutral-200"
+                        hoverColor="neutral-400"
+                        class="font-semibold leading-4 text-neutral-700 w-full"
+                    >
+                        <span class="text-black font-semibold"> Proceed to Checkout </span>
+                    </Button>
+                </RouterLink>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
 import Button from './Button.vue';
 import Input from './Input.vue';
 
 export default {
     name: 'OrderSummary',
     props: {
-        totalItems: {
-            type: Number,
-            default: 1,
-        },
-        priceSubtotal: {
-            type: Number,
-            default: 0,
-        },
-        shippingFee: {
-            type: Number,
-            default: 0,
-        },
+        totalItems: Number,
+        priceSubtotal: Number,
+        totalShippingFee: Number,
     },
     components: {
         Button,
@@ -79,7 +77,7 @@ export default {
     computed: {},
     methods: {
         totalPrice() {
-            return `${this.priceSubtotal + this.shippingFee}`;
+            return `${this.priceSubtotal + this.totalShippingFee}`;
         },
     },
 };

@@ -9,7 +9,7 @@
                             class="accent-neutral-300 bg-neutral-300"
                         />
                         <span class="font-medium leading-4">
-                            Select All ({{ totalItems }} item{{ totalItems > 1 ? 's' : '' }})
+                            Select All ({{ allItems.length }} item{{ allItems.length > 1 ? 's' : '' }})
                         </span>
                     </div>
                     <Button
@@ -31,7 +31,11 @@
                 />
             </div>
 
-            <OrderSummary />
+            <OrderSummary
+                :totalItems="allItems.length"
+                :priceSubtotal="priceSubtotal"
+                :totalShippingFee="totalShippingFee"
+            />
         </div>
     </section>
 </template>
@@ -56,6 +60,7 @@ export default {
                             name: 'Product A',
                             details: '128x128, round',
                             price: 69,
+                            shippingFee: 10,
                             quantity: 2,
                             image: 'https://placehold.co/84x67',
                         },
@@ -64,6 +69,7 @@ export default {
                             name: 'Product A1',
                             details: '128x128, round',
                             price: 420,
+                            shippingFee: 10,
                             quantity: 1,
                             image: 'https://placehold.co/84x67',
                         },
@@ -79,6 +85,7 @@ export default {
                             name: 'Product B',
                             details: '128x128, round',
                             price: 69_420,
+                            shippingFee: 10,
                             quantity: 2,
                             image: 'https://placehold.co/84x67',
                         },
@@ -88,10 +95,14 @@ export default {
         };
     },
     computed: {
-        totalItems() {
-            let total = 0;
-            this.stores.forEach((store) => (total += store.items.length));
-            return total;
+        priceSubtotal() {
+            return this.allItems.reduce((total, item) => total + item.price, 0);
+        },
+        totalShippingFee() {
+            return this.allItems.reduce((shippingFee, item) => shippingFee + item.shippingFee, 0);
+        },
+        allItems() {
+            return Array.from(this.stores, (store) => store.items).flat();
         },
     },
     components: {
