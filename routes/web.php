@@ -65,8 +65,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 });
 
-// this will be moved to api.php
-
 // Route to fetch the authenticated user's data
 Route::middleware('auth')->get('/user', function () {
     return response()->json(['user' => Auth::user()]);
