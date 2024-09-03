@@ -223,5 +223,12 @@ export default {
 </script>
 
 <style scoped>
-/* Add styles here */
+/* Add custom styles here */
+.profile-image {
+    width: 73px; /* Adjust size as needed */
+    height: 73px; /* Adjust size as needed */
+    border-radius: 100%; /* Ensures the image is circular */
+    object-fit: cover; /* Maintains aspect ratio and covers the circular area */
+    background-color: #d1d5db; /* Fallback background color */
+}
 </style>

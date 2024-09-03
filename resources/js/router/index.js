@@ -9,6 +9,7 @@ import PurchaseHistoryPage from '../pages/PurchaseHistoryPage.vue';
 import SupportPage from '../pages/SupportPage.vue';
 import SubscriptionPage from '../pages/SubscriptionPage.vue';
 import ProfilePage from '../pages/ProfilePage.vue';
+import ProfileAddressPage from '../pages/ProfileAddressPage.vue';
 import HomePage from '../pages/HomePage.vue';
 import SearchProductPage from '../pages/SearchProductPage.vue';
 import ProductPage from '../pages/ProductPage.vue';
@@ -25,6 +26,7 @@ const routes = [
     { path: '/purchase/active', name: 'activeorder', component: ActiveOrderPage },
     { path: '/purchase/history', name: 'purchasehistory', component: PurchaseHistoryPage },
     { path: '/account/profile', name: 'profile', component: ProfilePage },
+    { path: '/account/address', name: 'profileaddress', component: ProfileAddressPage },
     { path: '/account/subscription', name: 'subscription', component: SubscriptionPage },
     { path: '/home', name: 'home', component: HomePage },
     { path: '/search/:keyword', name: 'searchproduct', component: SearchProductPage },
