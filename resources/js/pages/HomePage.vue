@@ -1,7 +1,7 @@
 <template>
     <section class="min-h-screen-navbar flex bg-background">
         <div class="container flex flex-col items-center justify-center">
-            <h1 class="mb-[67px] font-semibold">Sari-sari Deals</h1>
+            <h1 class="mb-[67px] font-semibold"><span class="text-yellow-400">Sari-sari</span> Deals</h1>
             <div class="w-[1037px]">
                 <!-- Search Bar -->
                 <form
