@@ -1,7 +1,8 @@
 <template>
     <button
-        class="flex justify-center items-center px-[33px] py-[3px] transition-colors font-medium label-4"
-        :class="[sizeClasses, variantClasses]"
+        class="flex justify-center items-center px-[33px] py-[3px] transition-colors font-medium label-4 text-black rounded-[5px] cursor-pointer"
+        :class="[sizeClasses, variantClass, colorClass]"
+        @click="handleClick"
     >
         <slot></slot>
     </button>
@@ -9,7 +10,7 @@
 
 <script>
 export default {
-    name: 'Button',
+    name: 'CustomButton',
     props: {
         variant: {
             type: String,
@@ -35,44 +36,32 @@ export default {
             };
             return sizes[this.size] || sizes['md'];
         },
-        colorClasses() {
-            const colorMap = {
-                yellow: 'yellow-300',
-                blue: 'blue-50',
-                green: 'green-500',
-                gray: 'gray-500',
-                red: 'red-500',
-                neutral: 'neutral-500',
-            };
-            return colorMap[this.color] || this.color;
-        },
-        hoverClasses() {
-            const hoverMap = {
-                yellow: 'hover:bg-yellow-600',
-                blue: '', // No hover color for blue-50
-                green: 'hover:bg-green-800',
-                gray: 'hover:bg-gray-800',
-                red: 'hover:bg-red-800',
-                neutral: '', // No hover color for neutral
-            };
-            return hoverMap[this.color] || '';
-        },
-        variantClasses() {
-            const baseColor = this.colorClasses;
-            const hoverColor = this.hoverClasses;
-
+        variantClass() {
             if (this.variant === 'outline') {
-                if (this.color === 'yellow') {
-                    return `border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400`;
-                } else if (this.color === 'neutral') {
-                    return `border-2 border-neutral-500 text-neutral-500`;
-                }
-                return `border-2 border-${baseColor} text-${baseColor} hover:bg-${baseColor}/10`;
-            } else if (this.variant === 'filled') {
-                return `bg-${baseColor} text-black ${hoverColor}`;
+                return `bg-transparent border-2 border-[#FFA52E] text-[#FFA52E] hover:bg-[#FFA52E] hover:text-white`;
+            } else {
+                return ''; // No background for the filled variant in this class
             }
-            return '';
+        },
+        colorClass() {
+            const colors = {
+                yellow: 'bg-[#FFA52E] hover:bg-[#D17600]',
+                blue: 'bg-[#ECEEFB]',
+                green: 'bg-[#2CD370] hover:bg-[#146033]',
+                gray: 'bg-[#8C8C8C] hover:bg-[#595959]',
+                neutral: 'bg-[#737373]',
+            };
+            return this.variant === 'filled' ? colors[this.color] || colors['neutral'] : '';
+        },
+    },
+    methods: {
+        handleClick() {
+            this.$emit('click');
         },
     },
 };
 </script>
+
+<style scoped>
+/* Additional styles or Tailwind classes can be added here if needed */
+</style>

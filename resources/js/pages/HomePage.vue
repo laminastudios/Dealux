@@ -10,7 +10,7 @@
                 >
                     <div class="flex gap-[4px]">
                         <div
-                            class="bg-primary-800 w-[51px] rounded-l-[5px] flex justify-center items-center custom-shadow"
+                            class="bg-primary-800 w-[47px] rounded-l-[5px] flex justify-center items-center custom-shadow"
                         >
                             <i class="bx bx-search text-neutral-50 text-[20px] font-medium"></i>
                         </div>
@@ -20,7 +20,7 @@
                             >Search</label
                         >
                         <div
-                            class="relative w-[644px] h-[44px] bg-white flex items-center px-[14px] py-[13px] gap-[13px] border border-white focus-within:border-neutral-600 custom-shadow"
+                            class="relative w-[41rem] h-[44px] bg-white flex items-center px-[14px] py-[13px] gap-[13px] border border-white focus-within:border-neutral-600 custom-shadow"
                         >
                             <input
                                 type="search"
@@ -35,7 +35,7 @@
 
                     <!-- Dropdown for selecting display product quantity -->
                     <DropDownInput
-                        class="w-[163px] h-[44px] custom-shadow"
+                        class="w-[170px] h-[44px] custom-shadow"
                         variant="dark"
                         :items="DropDownItems"
                         name="quantity"
@@ -50,10 +50,10 @@
                         variant="filled"
                         color="yellow"
                         size="md"
-                        class="gap-[10px] w-[163px] custom-shadow"
+                        class="gap-[10px] w-[170px] custom-shadow"
                         @click="showPopup = true"
                     >
-                        <p class="label-3 font-semibold text-black">Add Filter</p>
+                        <p class="label-3 font-semibold">Add Filter</p>
                         <i class="bx bx-add-to-queue text-black text-[15px] font-medium"></i>
                     </custom-button>
                 </form>
