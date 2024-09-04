@@ -66,9 +66,9 @@
                             <p class="label-4 font-semibold">Visit Store</p>
                         </custom-button>
                         <custom-button
-                            :variant="'filled'"
+                            :variant="'outline'"
                             :size="'sm'"
-                            :color="'gray'"
+                            :color="'red'"
                             class="gap-[10px]"
                         >
                             <p class="label-4 font-semibold">Cancel/Refund</p>
