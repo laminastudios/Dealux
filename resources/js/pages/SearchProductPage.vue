@@ -62,15 +62,14 @@
             <div class="mt-[83px] w-full">
                 <div class="flex gap-[23px]">
                     <h3 class="font-semibold">Products</h3>
-                    <custom-button
-                        variant="filled"
-                        size="md"
-                        class="gap-[10px]"
-                        color="green"
+                    <ComparePopup
+                        :initialProduct="initialProduct"
+                        :remainingProducts="remainingProducts"
+                        class="bg-blue-100 rounded-[5px]"
                     >
                         <p class="label-3 font-semibold">Compare Me</p>
                         <i class="bx bx-git-compare text-[18px]"></i>
-                    </custom-button>
+                    </ComparePopup>
                 </div>
                 <!-- Product -->
                 <div class="mt-[39px]">
@@ -99,7 +98,8 @@
 import Button from '../components/ui/Button.vue';
 import DropDownInput from '../components/ui/DropDownInput.vue';
 import AddFilterModal from '../components/ui/AddFilterModal.vue';
-import ProductCard from '../components/ui/ProductCard.vue'; // Import the ProductCard component
+import ProductCard from '../components/ui/ProductCard.vue';
+import ComparePopup from '../components/ui/ComparePopup.vue';
 
 export default {
     name: 'HomePage',
@@ -108,12 +108,75 @@ export default {
         DropDownInput,
         AddFilterModal,
         ProductCard,
+        ComparePopup,
     },
     props: ['keyword'],
     data() {
         return {
             searchQuery: this.keyword || '', // Initialize with the keyword from the route
             selectedQuantity: 5, // Default quantity
+            initialProduct: {
+                Name: 'iPhone 15 Pro Max',
+                Network: 'GSM / CDMA / HSPA / EVDO / LTE / 5G',
+                Launch: '2023, September 12',
+                Dimension: '159.9 x 76.7 x 8.3 mm (6.30 x 3.02 x 0.33 in)',
+                Weight: '221 g (7.80 oz)',
+                Resolution: '1290 x 2796 pixels, 19.5:9 ratio (~460 ppi density)',
+                Chipset: 'Apple A17 Pro (3 nm)',
+                GPU: 'Apple GPU (6-core graphics)',
+                Features: 'Dual-LED dual-tone flash, HDR (photo/panorama)',
+                Modules: '12 MP, f/1.9, 23mm (wide), 1/3.6", PDAF, OIS',
+                Sensors: 'Face ID, accelerometer, gyro, proximity, compass, barometer',
+                Battery: 'Li-Ion 4441 mAh, non-removable',
+                Colors: 'Black Titanium, White Titanium, Blue Titanium, Natural Titanium',
+            },
+            remainingProducts: [
+                {
+                    Name: 'iPhone 15 Pro Max 2',
+                    Network: 'GSM / CDMA / HSPA / EVDO / LTE / 5G',
+                    Launch: '2023, September 12',
+                    Dimension: '159.9 x 76.7 x 8.3 mm (6.30 x 3.02 x 0.33 in)',
+                    Weight: '221 g (7.80 oz)',
+                    Resolution: '1290 x 2796 pixels, 19.5:9 ratio (~460 ppi density)',
+                    Chipset: 'Apple A17 Pro (3 nm)',
+                    GPU: 'Apple GPU (6-core graphics)',
+                    Features: 'Dual-LED dual-tone flash, HDR (photo/panorama)',
+                    Modules: '12 MP, f/1.9, 23mm (wide), 1/3.6", PDAF, OIS',
+                    Sensors: 'Face ID, accelerometer, gyro, proximity, compass, barometer',
+                    Battery: 'Li-Ion 4441 mAh, non-removable',
+                    Colors: 'Black Titanium, White Titanium, Blue Titanium, Natural Titanium',
+                },
+                {
+                    Name: 'iPhone 15 Pro Max 3',
+                    Network: 'GSM / CDMA / HSPA / EVDO / LTE / 5G',
+                    Launch: '2023, September 12',
+                    Dimension: '159.9 x 76.7 x 8.3 mm (6.30 x 3.02 x 0.33 in)',
+                    Weight: '221 g (7.80 oz)',
+                    Resolution: '1290 x 2796 pixels, 19.5:9 ratio (~460 ppi density)',
+                    Chipset: 'Apple A17 Pro (3 nm)',
+                    GPU: 'Apple GPU (6-core graphics)',
+                    Features: 'Dual-LED dual-tone flash, HDR (photo/panorama)',
+                    Modules: '12 MP, f/1.9, 23mm (wide), 1/3.6", PDAF, OIS',
+                    Sensors: 'Face ID, accelerometer, gyro, proximity, compass, barometer',
+                    Battery: 'Li-Ion 4441 mAh, non-removable',
+                    Colors: 'Black Titanium, White Titanium, Blue Titanium, Natural Titanium',
+                },
+                {
+                    Name: 'iPhone 15 Pro Max 4',
+                    Network: 'GSM / CDMA / HSPA / EVDO / LTE / 5G',
+                    Launch: '2023, September 12',
+                    Dimension: '159.9 x 76.7 x 8.3 mm (6.30 x 3.02 x 0.33 in)',
+                    Weight: '221 g (7.80 oz)',
+                    Resolution: '1290 x 2796 pixels, 19.5:9 ratio (~460 ppi density)',
+                    Chipset: 'Apple A17 Pro (3 nm)',
+                    GPU: 'Apple GPU (6-core graphics)',
+                    Features: 'Dual-LED dual-tone flash, HDR (photo/panorama)',
+                    Modules: '12 MP, f/1.9, 23mm (wide), 1/3.6", PDAF, OIS',
+                    Sensors: 'Face ID, accelerometer, gyro, proximity, compass, barometer',
+                    Battery: 'Li-Ion 4441 mAh, non-removable',
+                    Colors: 'Black Titanium, White Titanium, Blue Titanium, Natural Titanium',
+                },
+            ],
             DropDownItems: [
                 { text: '1', value: 1 },
                 { text: '2', value: 2 },
