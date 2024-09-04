@@ -1,0 +1,69 @@
+# development@v2
+APP_NAME=Dealux
+APP_ENV=local
+APP_KEY=base64:bjGTGkUXVTxjLuLUDZ8tCHWYt3iTsrrb2EWl80UZowE=
+APP_DEBUG=true
+APP_TIMEZONE=UTC
+APP_URL=http://localhost
+
+APP_LOCALE=en
+APP_FALLBACK_LOCALE=en
+APP_FAKER_LOCALE=en_US
+
+APP_MAINTENANCE_DRIVER=file
+# APP_MAINTENANCE_STORE=database
+
+BCRYPT_ROUNDS=12
+
+LOG_CHANNEL=stack
+LOG_STACK=single
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
+
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1       # this is the default, but you can change it depending on your setting
+DB_PORT=5432            # this is the default, but you can change it depending on your setting
+DB_DATABASE=dealux      # dont change it
+DB_USERNAME=postgres    # this is the default, but you can change it depending on your setting
+DB_PASSWORD=password    # put your password here, dont put quotations
+
+SESSION_DRIVER=database
+SESSION_LIFETIME=120
+SESSION_ENCRYPT=false
+SESSION_PATH=/
+SESSION_DOMAIN=null
+
+BROADCAST_CONNECTION=log
+FILESYSTEM_DISK=local
+QUEUE_CONNECTION=database
+
+CACHE_STORE=database
+CACHE_PREFIX=
+
+MEMCACHED_HOST=127.0.0.1
+
+REDIS_CLIENT=phpredis
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=dealux.lmn@gmail.com
+MAIL_PASSWORD="lawh nztg udlz kpca"     
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=dealux.lmn@gmail.com    
+MAIL_FROM_NAME=Dealux
+SUPPORT_EMAIL=dealux.lmn@gmail.com
+
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+AWS_USE_PATH_STYLE_ENDPOINT=false
+
+VITE_APP_NAME="${APP_NAME}"
+
+STRIPE_TEST_PK=pk_test_51Pt2wyJAW3mzulcJpADvD9fRz0VYJThK7VHN66hn6FrWVyNlx7FrqXhOdwKVToGfucjuL8L5ONkwaXzC2IItYnUa00LW9g0cqv
+STRIPE_TEST_SK=sk_test_51Pt2wyJAW3mzulcJv0eofxmq0vjHqrYYORChpauWlyk1vnstr2UKJdmHXKMsk63MiFtq2iDSyxzZRfgaLrwcBMQ700OC5sMv2I
