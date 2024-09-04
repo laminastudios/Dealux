@@ -1,6 +1,6 @@
 <template>
     <section class="min-h-screen">
-        <div class="container flex gap-4 justify-center my-10">
+        <div class="container flex gap-4 justify-center my-20">
             <div class="flex flex-col gap-4 flex-1">
                 <ShippingInfoSection />
                 <CheckoutItems
