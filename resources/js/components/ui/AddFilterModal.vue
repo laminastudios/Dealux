@@ -75,9 +75,14 @@
                             <custom-button
                                 v-for="(location, index) in shipLocations"
                                 :key="index"
-                                variant="filled"
-                                size="md"
-                                class="w-full bg-primary-50 custom-shadow"
+                                :variant="'filled'"
+                                :size="'md'"
+                                :class="{
+                                    'bg-primary-100': selectedLocation === location,
+                                    'bg-primary-50': selectedLocation !== location,
+                                }"
+                                class="w-full custom-shadow"
+                                @click="selectLocation(location)"
                             >
                                 <p class="label-3 font-medium">{{ location }}</p>
                             </custom-button>
@@ -105,6 +110,7 @@
                         :size="'md'"
                         :color="'yellow'"
                         class="w-[150px]"
+                        @click="resetFilters"
                     >
                         <p class="label-3 font-medium">Reset</p>
                     </custom-button>
@@ -144,6 +150,7 @@ export default {
             minPrice: '', // Default value for min price input
             maxPrice: '', // Default value for max price input
             otherFilter: '', // Default value for other filter
+            selectedLocation: '', // Default value for selected location
             shipLocations: ['Domestic', 'Metro Manila', 'Overseas', 'Luzon', 'Visayas', 'Mindanao'],
         };
     },
@@ -151,13 +158,37 @@ export default {
         close() {
             this.$emit('update:visible', false);
         },
+        resetFilters() {
+            this.selectedValue = 3; // Reset rating to default
+            this.minPrice = ''; // Reset min price to default
+            this.maxPrice = ''; // Reset max price to default
+            this.otherFilter = ''; // Reset other filter to default
+            this.selectedLocation = ''; // Reset selected location
+
+            // Call method to update visual aspects related to the rating slider
+            this.$nextTick(() => {
+                this.updateSliderVisuals();
+            });
+        },
+        selectLocation(location) {
+            this.selectedLocation = location; // Set the selected location
+        },
+        updateSliderVisuals() {
+            const slider = document.querySelector('#default-range');
+            if (slider) {
+                const value = this.selectedValue;
+                const max = slider.max;
+                const min = slider.min;
+                const thumbPos = ((value - min) / (max - min)) * 100;
+                slider.style.setProperty('--value', `${thumbPos}%`);
+            }
+        },
     },
     watch: {
         selectedValue() {
-            const slider = document.querySelector('#default-range');
-            const max = slider.max;
-            const min = slider.min;
-            slider.style.setProperty('--thumbPos', slider.value);
+            this.$nextTick(() => {
+                this.updateSliderVisuals();
+            });
         },
     },
 };
