@@ -2,10 +2,9 @@
     <div class="w-1/4 pt-20 bg-white">
         <div class="flex items-center">
             <img
-                :src="imageSrc"
+                :src="'https://placehold.co/84x67'"
                 alt="Profile Picture"
-                class="ml-1 profile-image cursor-pointer"
-                @click="$refs.fileInput.click()"
+                class="ml-1 profile-image"
             />
             <input
                 type="file"
@@ -88,24 +87,9 @@
 <script>
 export default {
     name: 'Sidebar',
-    data() {
-        return {
-            imageSrc: 'path/to/placeholder-image.jpg', // Default placeholder image
-        };
-    },
     methods: {
         isActive(route) {
             return this.$route.path === route;
-        },
-        handleImageUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    this.imageSrc = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
         },
     },
 };
