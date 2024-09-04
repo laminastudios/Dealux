@@ -3,8 +3,8 @@
     <footer class="bg-primary-800 h-[662px] w-full text-white">
         <div class="container">
             <div class="h-[522px] flex flex-row">
-                <div class="w-full mt-[128px] flex flex-row">
-                    <ul class="w-full flex flex-col gap-[15px]">
+                <div class="w-full mt-[74px] flex flex-row">
+                    <ul class="w-full flex flex-col gap-[17px]">
                         <li class="label-2 font-bold">CUSTOMER SUPPORT</li>
                         <li
                             v-for="(item, index) in customerSupportItems"
@@ -14,7 +14,7 @@
                             <router-link :to="item.link">{{ item.text }}</router-link>
                         </li>
                     </ul>
-                    <ul class="w-full flex flex-col gap-[15px]">
+                    <ul class="w-full flex flex-col gap-[17px]">
                         <li class="label-2 font-bold">ABOUT DEALUX</li>
                         <li
                             v-for="(item, index) in aboutDealuxItems"
@@ -25,10 +25,10 @@
                         </li>
                     </ul>
                 </div>
-                <div class="w-full mt-[128px] flex flex-col text-white">
+                <div class="w-full mt-[74px] flex flex-col text-white">
                     <div class="flex flex-col h-full">
                         <p class="label-2 font-bold">OUR PARTNERS</p>
-                        <div class="grid grid-cols-3 grid-rows-2 gap-y-[15px] my-auto">
+                        <div class="grid grid-cols-3 gap-y-[15px] mt-[17px]">
                             <div
                                 v-for="(item, index) in ourPartnersItems"
                                 :key="index"
@@ -44,10 +44,10 @@
                         </div>
                     </div>
                     <div class="flex flex-col h-full">
-                        <p class="label-2 font-bold">Payment Methods</p>
-                        <div class="grid grid-cols-3 grid-rows-2 gap-y-[15px] my-auto">
+                        <p class="label-2 font-bold">PAYMENT PROVIDERS</p>
+                        <div class="grid grid-cols-3 gap-y-[15px] mt-[17px]">
                             <div
-                                v-for="(item, index) in paymentMethodsItems"
+                                v-for="(item, index) in paymentProvidersItems"
                                 :key="index"
                                 class="flex flex-row items-center gap-[13px]"
                             >
@@ -63,12 +63,8 @@
                 </div>
             </div>
 
-            <div class="h-[140px] flex flex-row justify-between items-center border-t border-white">
-                <p class="label-4 font-medium">© 2024 Dealux. All Rights Reserved.</p>
-                <p class="label-4 font-medium">
-                    Dealux Southeast Asia: Brunei | Indonesia | Laos | Malaysia | Philippines | Singapore | Thailand |
-                    Vietnam
-                </p>
+            <div class="h-[140px] flex flex-row justify-center border-t border-white">
+                <p class="label-4 font-medium mt-[21px]">© 2024 Dealux. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -85,15 +81,11 @@ export default {
                     link: '#',
                 },
                 {
-                    text: 'Payment Methods',
+                    text: 'Payment Providers',
                     link: '#',
                 },
                 {
                     text: 'Order Tracking',
-                    link: '#',
-                },
-                {
-                    text: 'Voucher Channel',
                     link: '#',
                 },
                 {
@@ -104,38 +96,14 @@ export default {
                     text: 'Return and Refund',
                     link: '#',
                 },
-                {
-                    text: 'International Product Policy',
-                    link: '#',
-                },
-                {
-                    text: 'Contact Us',
-                    link: '#',
-                },
             ],
             aboutDealuxItems: [
-                {
-                    text: 'About Us',
-                    link: '#',
-                },
-                {
-                    text: 'Affiliate Program',
-                    link: '#',
-                },
                 {
                     text: 'Terms of Service',
                     link: '#',
                 },
                 {
                     text: 'Privacy Policy',
-                    link: '#',
-                },
-                {
-                    text: 'Press and Media',
-                    link: '#',
-                },
-                {
-                    text: 'Intellectual Property Protection',
                     link: '#',
                 },
             ],
@@ -146,7 +114,7 @@ export default {
                 },
                 {
                     name: 'Lazada',
-                    image: '/assets/lazada_logo.png',
+                    image: '/assets/lazada_logo.jfif',
                 },
                 {
                     name: 'Shein',
@@ -158,37 +126,41 @@ export default {
                 },
                 {
                     name: 'eBay',
-                    image: '/assets/ebay_logo.png',
+                    image: '/assets/ebay_logo.jfif',
                 },
                 {
                     name: 'Zalora',
                     image: '/assets/zalora_logo.png',
                 },
             ],
-            paymentMethodsItems: [
+            paymentProvidersItems: [
                 {
                     name: 'VISA',
                     image: '/assets/visa_logo.png',
                 },
                 {
-                    name: 'GCash',
-                    image: '/assets/gcash_logo.jpeg',
+                    name: 'Diners Club',
+                    image: '/assets/dinersclub_logo.jfif',
                 },
                 {
-                    name: 'BPI',
-                    image: '/assets/bpi_logo.png',
+                    name: 'JCB',
+                    image: '/assets/jcb_logo.png',
                 },
                 {
                     name: 'Mastercard',
                     image: '/assets/mastercard_logo.png',
                 },
                 {
-                    name: 'Maya',
-                    image: '/assets/maya_logo.png',
+                    name: 'Discover',
+                    image: '/assets/discover_logo.jfif',
                 },
                 {
-                    name: 'PayPal',
-                    image: '/assets/paypal_logo.png',
+                    name: 'UnionPay',
+                    image: '/assets/unionpay_logo.jfif',
+                },
+                {
+                    name: 'American Express',
+                    image: '/assets/americanexpress_logo.jfif',
                 },
             ],
         };
