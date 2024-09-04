@@ -33,7 +33,7 @@
                         >
                             <tbody>
                                 <tr
-                                    v-for="(value, key) in initialProduct"
+                                    v-for="(value, key) in filteredInitialProduct"
                                     :key="key"
                                 >
                                     <th class="text-left text-neutral-600 w-[100px]">{{ key }}</th>
@@ -53,7 +53,7 @@
                             class="table-fixed label-1 font-semibold mt-[32px] border-separate border-spacing-[20px]"
                         >
                             <tbody>
-                                <tr v-for="(value, key) in comparedProduct">
+                                <tr v-for="(value, key) in filteredComparedProduct">
                                     <th class="text-left text-neutral-600 w-[100px]">{{ key }}</th>
                                     <td class="text-neutral-400">{{ value }}</td>
                                 </tr>
@@ -72,21 +72,6 @@ export default {
     data() {
         return {
             open: false,
-            initialProduct: {
-                Name: 'iPhone 15 Pro Max',
-                Network: 'GSM / CDMA / HSPA / EVDO / LTE / 5G',
-                Launch: '2023, September 12',
-                Dimension: '159.9 x 76.7 x 8.3 mm (6.30 x 3.02 x 0.33 in)',
-                Weight: '221 g (7.80 oz)',
-                Resolution: '1290 x 2796 pixels, 19.5:9 ratio (~460 ppi density)',
-                Chipset: 'Apple A17 Pro (3 nm)',
-                GPU: 'Apple GPU (6-core graphics)',
-                Features: 'Dual-LED dual-tone flash, HDR (photo/panorama)',
-                Modules: '12 MP, f/1.9, 23mm (wide), 1/3.6", PDAF, OIS',
-                Sensors: 'Face ID, accelerometer, gyro, proximity, compass, barometer',
-                Battery: 'Li-Ion 4441 mAh, non-removable',
-                Colors: 'Black Titanium, White Titanium, Blue Titanium, Natural Titanium',
-            },
             comparedProduct: {},
         };
     },
@@ -103,7 +88,7 @@ export default {
         DropDownCompare,
     },
     props: {
-        initialProducts: {
+        initialProduct: {
             type: Object,
             required: true,
         },
@@ -113,22 +98,22 @@ export default {
         },
     },
     computed: {
-        // filteredInitialProduct() {
-        //     return Object.keys(this.initialProduct)
-        //         .filter((key) => key.toLowerCase() !== 'name')
-        //         .reduce((obj, key) => {
-        //             obj[key] = this.initialProduct[key];
-        //             return obj;
-        //         }, {});
-        // },
-        // filteredComparedProduct() {
-        //     return Object.keys(this.comparedProduct)
-        //         .filter((key) => key.toLowerCase() !== 'name')
-        //         .reduce((obj, key) => {
-        //             obj[key] = this.comparedProduct[key];
-        //             return obj;
-        //         }, {});
-        // },
+        filteredInitialProduct() {
+            return Object.keys(this.initialProduct)
+                .filter((key) => key.toLowerCase() !== 'name')
+                .reduce((obj, key) => {
+                    obj[key] = this.initialProduct[key];
+                    return obj;
+                }, {});
+        },
+        filteredComparedProduct() {
+            return Object.keys(this.comparedProduct)
+                .filter((key) => key.toLowerCase() !== 'name')
+                .reduce((obj, key) => {
+                    obj[key] = this.comparedProduct[key];
+                    return obj;
+                }, {});
+        },
     },
 };
 </script>

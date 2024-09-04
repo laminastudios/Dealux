@@ -10,7 +10,7 @@
         <transition>
             <div
                 v-if="open"
-                class="absolute top-full translate-x-1/2 right-1/2 text-center min-w-[7.5rem] w-full"
+                class="absolute top-full translate-x-1/2 right-1/2 text-center min-w-full"
                 :class="variantClassesDropDown"
             >
                 <div class="h-[33px] w-full bg-blue-300 flex items-center justify-center">
