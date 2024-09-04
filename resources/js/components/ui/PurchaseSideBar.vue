@@ -39,7 +39,7 @@ export default {
 /* Active link highlight */
 .active-link i,
 .active-link span {
-    color: #c88108;
+    color: #d17600;
     font-weight: bold;
 }
 </style>
