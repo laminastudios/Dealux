@@ -109,45 +109,51 @@
                     <div class="pt-4 mb-4 flex space-x-2">
                         <float-input
                             v-model="newAddress.name"
+                            id="namename"
                             type="input"
                             label="Full Name"
-                            class="w-full w-1/3"
+                            class="w-full"
                             required
                         />
                         <float-input
                             v-model="newAddress.phone"
+                            id="phonenumber"
                             type="input"
                             label="Phone Number"
-                            class="w-full w-1/3"
+                            class="w-full"
                             required
                         />
                     </div>
                     <div class="mb-4 flex space-x-2">
                         <float-input
                             v-model="newAddress.region"
+                            id="region"
                             type="input"
                             label="Region"
-                            class="w-full w-1/3"
+                            class="w-full"
                             required
                         />
                         <float-input
                             v-model="newAddress.province"
-                            type="text"
+                            id="province"
+                            type="input"
                             label="Province"
-                            class="w-full w-1/3"
+                            class="w-full"
                             required
                         />
                         <float-input
                             v-model="newAddress.city"
+                            id="city"
                             type="input"
                             label="City"
-                            class="w-full w-1/3"
+                            class="w-full"
                             required
                         />
                     </div>
                     <div class="mb-4">
                         <float-input
                             v-model="newAddress.zip"
+                            id="zip"
                             type="input"
                             label="Postal Code"
                             class="w-full"
@@ -157,6 +163,7 @@
                     <div class="mb-4">
                         <float-input
                             v-model="newAddress.street"
+                            id="street"
                             type="textarea"
                             label="Street Name, Building No. House No."
                             class="w-full"
