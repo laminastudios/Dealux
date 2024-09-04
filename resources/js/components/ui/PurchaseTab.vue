@@ -1,7 +1,7 @@
 <template>
     <!-- Tabs navigation -->
     <ul
-        class="flex list-none flex-row justify-between bg-neutral-50 px-20 py-0 m-0 h-[72px]"
+        class="flex list-none flex-row justify-between bg-white px-20 py-0 m-0 h-[72px]"
         role="tablist"
     >
         <!-- Loop through tabs to generate buttons -->
