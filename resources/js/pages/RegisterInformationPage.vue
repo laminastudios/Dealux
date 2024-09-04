@@ -3,7 +3,6 @@
     <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl mx-auto">
         
-        <!-- Multi-step Form -->
         <div v-if="currentStep === 1">
           <!-- Step 1: Personal Information -->
           <h2>Personal Information</h2>
@@ -96,6 +95,11 @@ import axios from 'axios';
 
 export default {
     name: 'RegisterInformationPage',
+    components: {
+    Input,
+    DatePicker,
+    Button,
+  },
     data() {
         return {
             firstName: '',
