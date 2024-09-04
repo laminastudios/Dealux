@@ -6,7 +6,7 @@
             <div class="w-[1006px]">
                 <!-- PurchaseTab component -->
                 <PurchaseTab
-                    :tabs="['All', 'To Pay', 'To Ship', 'To Receive', 'Received']"
+                    :tabs="['All', 'To Ship', 'To Deliver']"
                     class="mb-[1rem] custom-shadow"
                     @filter-by-status="filterStores"
                 />
@@ -50,6 +50,7 @@
                         :storeName="store.name"
                         :products="store.products"
                         :orderTotal="store.orderTotal"
+                        :deliverDate="store.deliverDate"
                         :lastActionDate="store.lastActionDate"
                         :parcelStatus="store.parcelStatus"
                         :orderStatus="store.orderStatus"
@@ -80,8 +81,9 @@ export default {
                 {
                     id: 1,
                     name: 'Store 1',
-                    parcelStatus: 'To Receive',
+                    parcelStatus: 'To Deliver',
                     orderStatus: 'Ongoing',
+                    deliverDate: '09/15/2024',
                     products: [
                         {
                             id: 1,
@@ -113,6 +115,7 @@ export default {
                     name: 'Store 2',
                     parcelStatus: 'To Ship',
                     orderStatus: 'Ongoing',
+                    deliverDate: '09/15/2024',
                     products: [
                         {
                             id: 7,
