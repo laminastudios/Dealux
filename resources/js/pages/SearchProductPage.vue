@@ -1,26 +1,30 @@
 <template>
-    <section class="min-h-screen-navbar flex">
-        <div class="container flex flex-col items-center mt-[110px]">
+    <section class="min-h-screen-navbar flex bg-background">
+        <div class="container flex flex-col items-center mt-[5rem] mb-[5rem]">
             <!-- Centering the search form -->
             <div class="w-[1037px] flex justify-center">
                 <form
-                    class="flex flex-row justify-between gap-[5px]"
+                    class="flex flex-row justify-between gap-[4px]"
                     @submit.prevent="handleSearch"
                 >
-                    <div>
+                    <div class="flex gap-[4px]">
+                        <div
+                            class="bg-primary-800 w-[51px] rounded-l-[5px] flex justify-center items-center custom-shadow"
+                        >
+                            <i class="bx bx-search text-neutral-50 text-[20px] font-medium"></i>
+                        </div>
                         <label
                             for="default-search"
                             class="mb-2 label-2 font-semibold text-neutral-50 sr-only"
                             >Search</label
                         >
                         <div
-                            class="relative w-[43.5rem] h-[44px] bg-neutral-200 flex items-center px-[14px] py-[13px] gap-[13px] border border-neutral-200 focus-within:border-neutral-600"
+                            class="relative w-[41rem] h-[44px] bg-white flex items-center px-[14px] py-[13px] gap-[13px] border border-white focus-within:border-neutral-600 custom-shadow"
                         >
-                            <i class="bx bx-search text-neutral-50 text-[15px] font-medium"></i>
                             <input
                                 type="search"
                                 id="default-search"
-                                class="block w-full label-2 p-0 text-neutral-800 font-semibold bg-transparent placeholder:text-neutral-50 border-none focus:outline-none focus:ring-0"
+                                class="block w-full label-2 p-0 text-neutral-800 font-semibold bg-transparent placeholder:text-neutral-200 placeholder:font-medium border-none focus:outline-none focus:ring-0"
                                 placeholder="Search Product"
                                 v-model="searchQuery"
                                 @keydown.enter="handleSearch"
@@ -30,26 +34,26 @@
 
                     <!-- Dropdown for selecting display product quantity -->
                     <DropDownInput
-                        class="w-[163px] h-[44px]"
+                        class="w-[163px] h-[44px] custom-shadow"
                         variant="dark"
                         :items="DropDownItems"
                         name="quantity"
                         @change="handleQuantityChange"
                     >
-                        <p class="label-3 font-semibold">Quantity</p>
-                        <i class="bx bxs-down-arrow"></i>
+                        <p class="label-3 font-semibold text-black">Quantity</p>
+                        <i class="bx bxs-down-arrow text-black"></i>
                     </DropDownInput>
 
                     <!-- Button to add filters -->
                     <custom-button
                         variant="filled"
+                        color="yellow"
                         size="md"
-                        class="gap-[10px] w-[163px]"
-                        color="neutral-500"
+                        class="gap-[10px] w-[163px] custom-shadow"
                         @click="showPopup = true"
                     >
                         <p class="label-3 font-semibold">Add Filter</p>
-                        <i class="bx bx-add-to-queue text-white h-[15px] w-[15px]"></i>
+                        <i class="bx bx-add-to-queue text-white text-[15px] font-medium"></i>
                     </custom-button>
                 </form>
             </div>
@@ -62,10 +66,10 @@
                         variant="filled"
                         size="md"
                         class="gap-[10px]"
-                        color="neutral-500"
+                        color="green"
                     >
                         <p class="label-3 font-semibold">Compare Me</p>
-                        <i class="bx bx-git-compare text-white text-[18px]"></i>
+                        <i class="bx bx-git-compare text-[18px]"></i>
                     </custom-button>
                 </div>
                 <!-- Product -->
@@ -73,6 +77,7 @@
                     <!-- Product Grid -->
                     <div class="mt-[39px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[23px]">
                         <ProductCard
+                            class="custom-shadow"
                             @click="goToProduct(product.name)"
                             v-for="product in filteredProducts"
                             :key="product.id"

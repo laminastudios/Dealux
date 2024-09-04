@@ -8,9 +8,9 @@
             alt="Product Image"
             class="h-[140px] w-full object-cover"
         />
-        <div class="bg-neutral-100 p-[12px] w-full">
+        <div class="bg-white p-[12px] w-full">
             <!-- Truncate product name if it exceeds the width -->
-            <h6 class="truncate-text">{{ product.name }}</h6>
+            <h6 class="truncate-text font-medium">{{ product.name }}</h6>
             <h6 class="text-red-500">{{ product.price }}</h6>
             <p class="label-4 text-neutral-300">
                 <s>{{ product.oldPrice }}</s>
