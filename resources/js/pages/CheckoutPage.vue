@@ -1,7 +1,7 @@
 <template>
     <section class="min-h-screen">
-        <div class="container flex gap-4 justify-center my-20">
-            <div class="flex flex-col gap-4 flex-1">
+        <div class="container flex gap-5 justify-center my-20">
+            <div class="flex flex-col gap-5 flex-1">
                 <ShippingInfoSection />
                 <CheckoutItems
                     v-for="store in stores"
