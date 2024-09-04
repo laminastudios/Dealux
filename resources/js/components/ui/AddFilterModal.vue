@@ -174,10 +174,6 @@ export default {
 .v-leave-to {
     opacity: 0;
 }
-.range-slider {
-    /* Set the default track color */
-    background: linear-gradient(to right, #1e3a8a 0%, #1e3a8a var(--value), #e5e7eb var(--value), #e5e7eb 100%);
-}
 
 .range-slider::-webkit-slider-runnable-track {
     height: 8px;
