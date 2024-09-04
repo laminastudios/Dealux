@@ -1,14 +1,17 @@
 <template>
-    <button @click="openPopup">
+    <DropDownCompare
+        :items="remainingProducts"
+        @pass="openPopup"
+    >
         <slot></slot>
-    </button>
+    </DropDownCompare>
     <transition>
         <div
             v-if="open"
             class="fixed top-0 left-0 h-screen w-screen bg-gray-900 bg-opacity-50"
         >
             <div
-                class="absolute w-[1218px] border border-red-500 translate-x-1/2 right-1/2 z-[1000] top-1/2 -translate-y-1/2 bg-white h-[800px] overflow-y-scroll"
+                class="absolute w-[1218px] translate-x-1/2 right-1/2 z-[1000] top-1/2 -translate-y-1/2 bg-white h-[800px] overflow-y-scroll"
             >
                 <button
                     @click="closePopup"
@@ -30,7 +33,7 @@
                         >
                             <tbody>
                                 <tr
-                                    v-for="(value, key) in filteredInitialProduct"
+                                    v-for="(value, key) in initialProduct"
                                     :key="key"
                                 >
                                     <th class="text-left text-neutral-600 w-[100px]">{{ key }}</th>
@@ -50,7 +53,7 @@
                             class="table-fixed label-1 font-semibold mt-[32px] border-separate border-spacing-[20px]"
                         >
                             <tbody>
-                                <tr v-for="(value, key) in filteredComparedProduct">
+                                <tr v-for="(value, key) in comparedProduct">
                                     <th class="text-left text-neutral-600 w-[100px]">{{ key }}</th>
                                     <td class="text-neutral-400">{{ value }}</td>
                                 </tr>
@@ -63,6 +66,7 @@
     </transition>
 </template>
 <script>
+import DropDownCompare from '@/components/ui/DropDownCompare.vue';
 export default {
     name: 'ComparePopup',
     data() {
@@ -83,49 +87,48 @@ export default {
                 Battery: 'Li-Ion 4441 mAh, non-removable',
                 Colors: 'Black Titanium, White Titanium, Blue Titanium, Natural Titanium',
             },
-            comparedProduct: {
-                Name: 'iPhone 15 Pro Max 2',
-                Network: 'GSM / CDMA / HSPA / EVDO / LTE / 5G',
-                Launch: '2023, September 12',
-                Dimension: '159.9 x 76.7 x 8.3 mm (6.30 x 3.02 x 0.33 in)',
-                Weight: '221 g (7.80 oz)',
-                Resolution: '1290 x 2796 pixels, 19.5:9 ratio (~460 ppi density)',
-                Chipset: 'Apple A17 Pro (3 nm)',
-                GPU: 'Apple GPU (6-core graphics)',
-                Features: 'Dual-LED dual-tone flash, HDR (photo/panorama)',
-                Modules: '12 MP, f/1.9, 23mm (wide), 1/3.6", PDAF, OIS',
-                Sensors: 'Face ID, accelerometer, gyro, proximity, compass, barometer',
-                Battery: 'Li-Ion 4441 mAh, non-removable',
-                Colors: 'Black Titanium, White Titanium, Blue Titanium, Natural Titanium',
-            },
+            comparedProduct: {},
         };
     },
     methods: {
-        openPopup() {
+        openPopup(product) {
             this.open = true;
+            this.comparedProduct = product;
         },
         closePopup() {
             this.open = false;
         },
     },
-    props: {},
+    components: {
+        DropDownCompare,
+    },
+    props: {
+        initialProducts: {
+            type: Object,
+            required: true,
+        },
+        remainingProducts: {
+            type: Array,
+            required: true,
+        },
+    },
     computed: {
-        filteredInitialProduct() {
-            return Object.keys(this.initialProduct)
-                .filter((key) => key.toLowerCase() !== 'name')
-                .reduce((obj, key) => {
-                    obj[key] = this.initialProduct[key];
-                    return obj;
-                }, {});
-        },
-        filteredComparedProduct() {
-            return Object.keys(this.comparedProduct)
-                .filter((key) => key.toLowerCase() !== 'name')
-                .reduce((obj, key) => {
-                    obj[key] = this.comparedProduct[key];
-                    return obj;
-                }, {});
-        },
+        // filteredInitialProduct() {
+        //     return Object.keys(this.initialProduct)
+        //         .filter((key) => key.toLowerCase() !== 'name')
+        //         .reduce((obj, key) => {
+        //             obj[key] = this.initialProduct[key];
+        //             return obj;
+        //         }, {});
+        // },
+        // filteredComparedProduct() {
+        //     return Object.keys(this.comparedProduct)
+        //         .filter((key) => key.toLowerCase() !== 'name')
+        //         .reduce((obj, key) => {
+        //             obj[key] = this.comparedProduct[key];
+        //             return obj;
+        //         }, {});
+        // },
     },
 };
 </script>
