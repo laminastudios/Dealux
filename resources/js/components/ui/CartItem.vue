@@ -2,6 +2,8 @@
     <div class="flex gap-5 py-6 px-4 bg-neutral-100">
         <input
             type="checkbox"
+            :checked="isItemSelected"
+            @change="$emit('updateSelectedStoreItem', { isChecked: $event.target.checked, itemId: itemId })"
             class="accent-neutral-300 bg-neutral-300"
         />
 
@@ -41,22 +43,12 @@ export default {
             type: String,
             default: 'https://placehold.co/84x67',
         },
-        itemName: {
-            type: String,
-            default: 'None',
-        },
-        details: {
-            type: String,
-            default: 'None',
-        },
-        price: {
-            type: Number,
-            default: 0,
-        },
-        quantity: {
-            type: Number,
-            default: 1,
-        },
+        itemId: Number,
+        itemName: String,
+        details: String,
+        price: Number,
+        quantity: Number,
+        isItemSelected: Boolean,
     },
     components: {
         InputSpinner,

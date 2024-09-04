@@ -4,6 +4,8 @@
             <div class="flex gap-5 flex-1">
                 <input
                     type="checkbox"
+                    :checked="SelectedStoreItems.size === items.length"
+                    @change="toggleSelectedStoreItems($event)"
                     class="accent-neutral-300 bg-neutral-300"
                 />
                 <div class="font-semibold w-full">
@@ -27,12 +29,15 @@
         <div class="flex flex-col">
             <CartItem
                 v-for="item in items"
+                @updateSelectedStoreItem="updateSelectedStoreItem"
                 :key="item.id"
+                :itemId="item.id"
                 :itemName="item.name"
                 :details="item.details"
                 :price="item.price"
                 :quantity="item.quantity"
                 :image="item.image"
+                :isItemSelected="SelectedStoreItems.has(item.id)"
             />
         </div>
     </div>
@@ -44,6 +49,11 @@ import Button from './Button.vue';
 
 export default {
     name: 'StoreCartItems',
+    data() {
+        return {
+            SelectedStoreItems: new Set(),
+        };
+    },
     props: {
         items: {
             type: Array,
@@ -57,8 +67,24 @@ export default {
             type: String,
             default: '',
         },
+        storeId: Number,
     },
-    methods: {},
+    methods: {
+        updateSelectedStoreItem({ isChecked, itemId }) {
+            if (isChecked) {
+                this.SelectedStoreItems.add(itemId);
+                return;
+            }
+            this.SelectedStoreItems.delete(itemId);
+        },
+        toggleSelectedStoreItems($event) {
+            if (!$event.target.checked) {
+                this.SelectedStoreItems.clear();
+                return;
+            }
+            this.items.forEach((item) => this.SelectedStoreItems.add(item.id));
+        },
+    },
     components: {
         'custom-button': Button,
         CartItem,
