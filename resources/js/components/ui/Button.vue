@@ -1,15 +1,8 @@
-<!-- EXAMPLE USAGE:  -->
-
-<!-- Filled Button -->
-<!-- <custom-button variant ="outline" size="lg" color="neutral-500" hoverColor="neutral-100"> Filled Button </custom-button> -->
-
-<!-- No-Fill Button -->
-<!-- <custom-button variant ="filled" size="lg" color="neutral-500" hoverColor="neutral-100"> No-Fill Button </custom-button> -->
-
 <template>
     <button
-        class="flex justify-center items-center px-[33px] py-[3px] transition-colors font-medium label-4"
-        :class="[sizeClasses, variantClasses]"
+        class="flex justify-center items-center px-[33px] py-[3px] transition-colors font-semibold label-4 rounded-[5px] cursor-pointer"
+        :class="[sizeClasses, variantClass, colorClass, borderRadius]"
+        @click="handleClick"
     >
         <slot></slot>
     </button>
@@ -17,11 +10,11 @@
 
 <script>
 export default {
-    name: 'Button',
+    name: 'CustomButton',
     props: {
         variant: {
             type: String,
-            default: 'default',
+            default: 'filled',
         },
         size: {
             type: String,
@@ -29,11 +22,11 @@ export default {
         },
         color: {
             type: String,
-            default: 'primary-500',
+            default: 'neutral',
         },
-        hoverColor: {
-            type: String,
-            default: 'primary-500',
+        roundness: {
+            type: Boolean,
+            default: true,
         },
     },
     computed: {
@@ -47,16 +40,36 @@ export default {
             };
             return sizes[this.size] || sizes['md'];
         },
-        variantClasses() {
-            const hoverBgColor = this.hoverColor || `${this.color}-dark`;
-
+        variantClass() {
             if (this.variant === 'outline') {
-                return `border-2 border-${this.color} text-${this.color} hover:bg-${this.color}/10`;
-            } else if (this.variant === 'filled') {
-                return `bg-${this.color} text-white hover:bg-${hoverBgColor}`;
+                return `bg-transparent border-2 border-[#FFA52E] text-[#FFA52E] hover:bg-[#FFA52E] hover:text-white`;
+            } else {
+                return ''; // No background for the filled variant in this class
             }
-            return '';
+        },
+        colorClass() {
+            const colors = {
+                yellow: 'bg-[#FFA52E] hover:bg-[#D17600] text-white',
+                'blue-50': 'bg-[#ECEEFB] text-black',
+                'blue-100': 'bg-[#C6CCF3] hover:bg-[#151F5F] text-black',
+                green: 'bg-[#C5F3D8] hover:bg-[#09431F] text-black hover:text-[#FFFFFF]',
+                gray: 'bg-[#8C8C8C] hover:bg-[#595959] text-white',
+                neutral: 'bg-[#737373]',
+            };
+            return this.variant === 'filled' ? colors[this.color] || colors['neutral'] : '';
+        },
+        borderRadius() {
+            return this.roundness ? 'rounded-[5px]' : 'rounded-none';
+        },
+    },
+    methods: {
+        handleClick() {
+            this.$emit('click');
         },
     },
 };
 </script>
+
+<style scoped>
+/* Additional styles or Tailwind classes can be added here if needed */
+</style>
