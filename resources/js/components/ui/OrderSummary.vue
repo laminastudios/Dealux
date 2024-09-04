@@ -2,7 +2,7 @@
     <div class="flex w-[380px] flex-col gap-5 bg-neutral-100 px-5 py-6 h-fit">
         <div class="font-bold text-md leading-4">Order Summary</div>
 
-        <div class="flex flex-col gap-10 px-6 w-full text-neutral-700">
+        <div class="flex flex-col gap-6 px-6 w-full text-neutral-700">
             <div class="flex flex-col gap-4">
                 <div class="flex flex-col gap-4">
                     <div class="flex justify-between">
@@ -16,25 +16,9 @@
                         <div class="font-semibold leading-4">₱{{ totalShippingFee }}</div>
                     </div>
                 </div>
-
-                <div class="flex gap-2 justify-stretch">
-                    <Input
-                        type="text"
-                        label="Voucher Code"
-                        placeholder="Enter Voucher Code"
-                        class="w-full bg-neutral-200 h-fit"
-                    />
-                    <Button
-                        variant="filled"
-                        color="neutral-400"
-                        class="font-semibold leading-4"
-                        hoverColor="neutral-600"
-                        >Apply</Button
-                    >
-                </div>
             </div>
 
-            <div class="flex flex-col gap-7">
+            <div class="flex flex-col gap-7 pt-5 border-t-2 border-t-neutral-700">
                 <div class="flex justify-between gap-3">
                     <div class="font-medium leading-4">Total</div>
                     <div class="font-semibold leading-4">₱{{ totalPrice() }}</div>
