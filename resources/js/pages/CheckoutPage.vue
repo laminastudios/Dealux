@@ -5,7 +5,7 @@
                 <ShippingInfoSection />
                 <CheckoutItems
                     v-for="store in stores"
-                    :key="id"
+                    :key="store.id"
                     :storeName="store.name"
                     :storeLink="store.link"
                     :items="store.items"
