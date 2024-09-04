@@ -97,63 +97,67 @@
             class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
         >
             <div class="bg-white p-8 rounded shadow-lg max-w-lg w-full">
-                <h3 class="text-xl border-b pb-4 font-bold mb-4">{{ isEdit ? 'Edit Address' : 'Add New Address' }}</h3>
+                <h3 class="text-xl border-b border-black pb-2 font-bold mb-4">
+                    {{ isEdit ? 'Edit Address' : 'Add New Address' }}
+                </h3>
                 <form @submit.prevent="submitAddress">
-                    <div class="mb-4 flex space-x-2">
-                        <input
+                    <div class="pt-4 mb-4 flex space-x-2">
+                        <float-input
                             v-model="newAddress.name"
-                            type="text"
-                            placeholder="Full Name"
-                            class="w-1/2 p-2 bg-neutral-100 border-neutral-100"
+                            type="input"
+                            label="Full Name"
+                            class="w-full w-1/3"
                             required
                         />
-                        <input
+                        <float-input
                             v-model="newAddress.phone"
-                            type="text"
-                            placeholder="Phone Number"
-                            class="w-1/2 p-2 bg-neutral-100 border-neutral-100"
+                            type="input"
+                            label="Phone Number"
+                            class="w-full w-1/3"
                             required
                         />
                     </div>
                     <div class="mb-4 flex space-x-2">
-                        <input
+                        <float-input
                             v-model="newAddress.region"
-                            type="text"
-                            placeholder="Region"
-                            class="w-1/3 p-2 bg-neutral-100 border-neutral-100"
+                            type="input"
+                            label="Region"
+                            class="w-full w-1/3"
                             required
                         />
-                        <input
+                        <float-input
                             v-model="newAddress.province"
                             type="text"
-                            placeholder="Province"
-                            class="w-1/3 p-2 bg-neutral-100 border-neutral-100"
+                            label="Province"
+                            class="w-full w-1/3"
                             required
                         />
-                        <input
+                        <float-input
                             v-model="newAddress.city"
-                            type="text"
-                            placeholder="City"
-                            class="w-1/3 p-2 bg-neutral-100 border-neutral-100"
+                            type="input"
+                            label="City"
+                            class="w-full w-1/3"
                             required
                         />
                     </div>
                     <div class="mb-4">
-                        <input
+                        <float-input
                             v-model="newAddress.zip"
-                            type="text"
-                            placeholder="Postal Code"
-                            class="w-full p-2 bg-neutral-100 border-neutral-100"
+                            type="input"
+                            label="Postal Code"
+                            class="w-full"
                             required
                         />
                     </div>
                     <div class="mb-4">
-                        <textarea
+                        <float-input
                             v-model="newAddress.street"
-                            placeholder="Street Name, Building No. House No."
-                            class="w-full p-2 bg-neutral-100 border-neutral-100"
+                            type="textarea"
+                            label="Street Name, Building No. House No."
+                            class="w-full"
+                            :style="{ height: '100px' }"
                             required
-                        ></textarea>
+                        />
                     </div>
                     <div class="mb-4">
                         <label>
@@ -190,6 +194,7 @@
 <script>
 import Button from '../components/ui/Button.vue';
 import Sidebar from '../components/ui/Sidebar.vue';
+import FloatingLabelInput from '../components/ui/Input.vue';
 
 export default {
     name: 'ProfileAddressPage',
@@ -267,6 +272,7 @@ export default {
     components: {
         Sidebar,
         'custom-button': Button,
+        'float-input': FloatingLabelInput,
     },
 };
 </script>
