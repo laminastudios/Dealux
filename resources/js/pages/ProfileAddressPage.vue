@@ -6,10 +6,10 @@
                 <Sidebar></Sidebar>
 
                 <!-- Main Content -->
-                <div class="w-3/4 px-[38px] py-[36px] bg-neutral-100">
-                    <div class="border-b border-black pb-4 mb-4 flex justify-between items-center">
+                <div class="w-3/4 ml-12 px-[38px] py-[36px] bg-neutral-100">
+                    <div class="border-b border-black pb-2 mb-4 flex justify-between items-center">
                         <div>
-                            <h4 class="font-semibold">My Addresses</h4>
+                            <h5 class="font-semibold">My Addresses</h5>
                             <p class="font-semibold label-3 mt-4 text-neutral-400">Manage and protect your account</p>
                         </div>
                         <custom-button
@@ -23,7 +23,7 @@
                             <i class="bx bx-add-to-queue"></i>
                         </custom-button>
                     </div>
-                    <h5 class="font-semibold pt-6">Addresses</h5>
+                    <h6 class="font-semibold pt-6">Addresses</h6>
 
                     <!-- Addresses List -->
                     <div v-if="addresses.length > 0">
@@ -37,18 +37,18 @@
                         >
                             <div class="flex justify-between items-start">
                                 <div>
-                                    <p class="font-bold label-3">
+                                    <p class="font-bold label-4">
                                         {{ address.name }} | <span class="text-neutral-400">{{ address.phone }}</span>
                                     </p>
-                                    <p class="font-bold label-3 text-neutral-400 mt-4">
+                                    <p class="font-bold label-4 text-neutral-400 mt-4">
                                         {{ address.street }}, {{ address.region }}
                                     </p>
-                                    <p class="font-bold label-3 text-neutral-400 mt-4 mb-4">
+                                    <p class="font-bold label-4 text-neutral-400 mt-4 mb-2">
                                         {{ address.city }}, {{ address.province }}, {{ address.zip }}
                                     </p>
                                     <span
                                         v-if="address.default"
-                                        class="text-red-600 font-bold label-3"
+                                        class="text-red-600 font-bold label-4"
                                         >Default</span
                                     >
                                 </div>
@@ -86,7 +86,12 @@
                             </div>
                         </div>
                     </div>
-                    <p v-else>No addresses added yet. Click "Add New Address" to start adding your addresses.</p>
+                    <p
+                        v-else
+                        class="label-3"
+                    >
+                        No addresses added yet. Click "Add New Address" to start adding your addresses.
+                    </p>
                 </div>
             </div>
         </div>
@@ -171,19 +176,24 @@
                         </label>
                     </div>
                     <div class="flex justify-end space-x-4">
-                        <button
+                        <custom-button
+                            variant="filled"
+                            size="sm"
+                            class="gap-[10px]"
+                            color="neutral-400"
                             @click="closeModal"
-                            type="button"
-                            class="px-4 py-2 bg-neutral-400 text-white rounded"
                         >
-                            Cancel
-                        </button>
-                        <button
-                            type="submit"
-                            class="px-4 py-2 bg-neutral-400 text-white rounded"
+                            <p class="label-4 font-semibold">Cancel</p>
+                        </custom-button>
+
+                        <custom-button
+                            variant="filled"
+                            size="sm"
+                            class="gap-[10px]"
+                            color="neutral-400"
                         >
-                            {{ isEdit ? 'Update' : 'Submit' }}
-                        </button>
+                            <p class="label-4 font-semibold">{{ isEdit ? 'Update' : 'Submit' }}</p>
+                        </custom-button>
                     </div>
                 </form>
             </div>
