@@ -42,7 +42,11 @@ export default {
         },
         variantClass() {
             if (this.variant === 'outline') {
-                return `bg-transparent border-2 border-[#FFA52E] text-[#FFA52E] hover:bg-[#FFA52E] hover:text-white`;
+                if (this.color === 'red') {
+                    return `bg-transparent border-2 border-[#E44A4A] text-[#E44A4A] hover:bg-[#E44A4A] hover:text-white`;
+                } else {
+                    return `bg-transparent border-2 border-[#FFA52E] text-[#FFA52E] hover:bg-[#FFA52E] hover:text-white`;
+                }
             } else {
                 return ''; // No background for the filled variant in this class
             }
