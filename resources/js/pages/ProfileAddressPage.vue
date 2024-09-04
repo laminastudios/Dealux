@@ -109,7 +109,7 @@
                     <div class="pt-4 mb-4 flex space-x-2">
                         <float-input
                             v-model="newAddress.name"
-                            id="namename"
+                            id="name"
                             type="input"
                             label="Full Name"
                             class="w-full"
@@ -117,7 +117,7 @@
                         />
                         <float-input
                             v-model="newAddress.phone"
-                            id="phonenumber"
+                            id="phone"
                             type="input"
                             label="Phone Number"
                             class="w-full"
