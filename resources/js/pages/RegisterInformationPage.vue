@@ -1,152 +1,97 @@
 <template>
-    <section class="min-h-screen">
-        <div class="container border border-blue-500 h-full">
-            <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-                <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-                    <h1 class="text-2xl font-bold text-center mb-6">Register Information</h1>
-                    <h2
-                        class="text-xl font-semibold text-gray-600 bg-gray-100 p-4 border border-gray-200 rounded-lg shadow-sm mb-6"
-                    >
-                        The actual page is not yet started to develop. The page here is just a tester for the user
-                        information registration logic
-                    </h2>
-                    <form @submit.prevent="submitForm">
-                        <!-- User Information -->
-                        <div class="mb-4">
-                            <label class="block text-gray-700">First Name</label>
-                            <input
-                                v-model="firstName"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="First Name"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Middle Name</label>
-                            <input
-                                v-model="midName"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="Middle Name"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Last Name</label>
-                            <input
-                                v-model="lastName"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="Last Name"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Gender</label>
-                            <select
-                                v-model="gender"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                            >
-                                <option value="M">Male</option>
-                                <option value="F">Female</option>
-                                <option value="P">Prefer not to say</option>
-                                <option value="O">Other</option>
-                            </select>
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Birth Date</label>
-                            <input
-                                v-model="birthDate"
-                                type="date"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Phone Number</label>
-                            <input
-                                v-model="phoneNumber"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="Phone Number"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Subscription Status</label>
-                            <select
-                                v-model="subsStatus"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                            >
-                                <option value="B">Basic</option>
-                                <option value="P">Premium</option>
-                            </select>
-                        </div>
-                        <!-- Payment Information -->
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Delivery Address</label>
-                            <input
-                                v-model="deliveryAddress"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="Delivery Address"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Card Type</label>
-                            <select
-                                v-model="cardType"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                            >
-                                <option value="cc">Credit Card</option>
-                                <option value="dc">Debit Card</option>
-                            </select>
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Name on Card</label>
-                            <input
-                                v-model="nameOnCard"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="Name on Card"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Card Number</label>
-                            <input
-                                v-model="cardNumber"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="Card Number"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Expiry Date</label>
-                            <input
-                                v-model="expiryDate"
-                                type="date"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">CVV</label>
-                            <input
-                                v-model="cvv"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="CVV"
-                            />
-                        </div>
-                        <button
-                            type="submit"
-                            class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
-                        >
-                            Submit
-                        </button>
-                    </form>
-                </div>
+  <div class="container" style="border: 1px solid var(--Primary-Color-Neutral-300, #A6A6A6);">
+    <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl mx-auto">
+        
+        <!-- Multi-step Form -->
+        <div v-if="currentStep === 1">
+          <!-- Step 1: Personal Information -->
+          <h2>Personal Information</h2>
+          <div class="grid grid-cols-3 gap-4">
+            <div>
+              <Input label="First Name" v-model="firstName" />
             </div>
+            <div>
+              <Input label="Middle Name" v-model="midName" />
+            </div>
+            <div>
+              <Input label="Last Name" v-model="lastName" />
+            </div>
+            <div>
+              <Input label="Gender" v-model="gender" />
+            </div>
+            <div>
+              <DatePicker label="Birth Date" v-model="birthDate" />
+            </div>
+            <div>
+              <Input label="Phone Number" v-model="phoneNumber" />
+            </div>
+          </div>
         </div>
-    </section>
+
+        <div v-if="currentStep === 2">
+          <!-- Step 2: Address -->
+          <h2>Address</h2>
+          <div class="grid grid-cols-3 gap-4">
+            <div>
+              <Input label="House Number" v-model="houseNumber" />
+            </div>
+            <div>
+              <Input label="Subdivision/Blk" v-model="subdivision" />
+            </div>
+            <div>
+              <Input label="Street" v-model="street" />
+            </div>
+            <div>
+              <Input label="Barangay" v-model="barangay" />
+            </div>
+            <div>
+              <Input label="City" v-model="city" />
+            </div>
+            <div>
+              <Input label="Region" v-model="region" />
+            </div>
+          </div>
+        </div>
+
+        <div v-if="currentStep === 3">
+          <!-- Step 3: Payment Setup -->
+          <h2>Payment Setup</h2>
+          <div class="grid grid-cols-3 gap-4">
+            <div>
+              <Input label="Card Type" v-model="cardType" />
+            </div>
+            <div>
+              <Input label="Name on Card" v-model="nameOnCard" />
+            </div>
+            <div>
+              <Input label="Card Number" v-model="cardNumber" />
+            </div>
+            <div>
+              <DatePicker label="Expiry Date" v-model="expiryDate" />
+            </div>
+            <div>
+              <Input label="CVV" v-model="cvv" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex justify-between mt-4">
+          <Button v-if="currentStep > 1" :label="'Previous'" @click="prevStep" />
+          <Button v-if="currentStep < 3" :label="'Next'" @click="nextStep" />
+          <Button v-if="currentStep === 3" :label="'Submit'" @click="submitForm" />
+        </div>
+
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import Input from './Input.vue';
+import DatePicker from './DatePicker.vue';
+import Button from './Button.vue';
 import axios from 'axios';
 
 export default {
