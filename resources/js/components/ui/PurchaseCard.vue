@@ -5,14 +5,17 @@
             class="flex items-center justify-between gap-[10px] w-[1006px] h-[39px] px-[32px] bg-primary-800 border-b border-neutral-500"
         >
             <!-- Leftmost content -->
-            <div class="flex items-center gap-2">
-                <input
-                    :id="'checkbox' + storeName"
-                    type="checkbox"
-                    v-model="checked"
-                    class="w-[21px] h-[21px] text-blue-600 bg-neutral-300 border-neutral-300 focus:ring-blue-500 focus:ring-2"
-                />
+            <div class="flex items-center gap-5 h-13">
                 <p class="label-4 font-semibold text-white">{{ storeName }}</p>
+                <custom-button
+                    :variant="'filled'"
+                    :size="'xs'"
+                    :color="'green'"
+                    class="gap-[10px]"
+                >
+                    <i class="bx bxs-crown text-[15px]"></i>
+                    <p class="label-4 font-semibold">Visit Store</p>
+                </custom-button>
             </div>
 
             <!-- Rightmost content -->
@@ -45,9 +48,14 @@
 
         <!-- Total Price -->
         <div class="h-[160px] w-[1006px] bg-white px-[35px] py-[25px] flex flex-col gap-[20px]">
-            <div class="flex items-center justify-end gap-10 h-[45px]">
-                <p class="label-2">Order Total:</p>
-                <p class="label-1 font-bold">{{ orderTotal }}</p>
+            <div class="flex items-center justify-between">
+                <p class="label-4 font-semibold">
+                    Item to be Delivered at <span class="text-yellow-400">{{ deliverDate }}</span>
+                </p>
+                <div class="flex items-center justify-end gap-10 h-[45px]">
+                    <p class="label-2 font-medium">Order Total:</p>
+                    <p class="label-1 font-bold">{{ orderTotal }}</p>
+                </div>
             </div>
             <div class="flex items-center justify-between">
                 <div>
@@ -57,19 +65,18 @@
                 <div class="flex items-center justify-end gap-[12px] h-[45px]">
                     <template v-if="isActivePurchase">
                         <custom-button
-                            :variant="'filled'"
+                            :variant="'outline'"
                             :size="'sm'"
-                            :color="'green'"
-                            class="gap-[10px]"
+                            :color="'yellow'"
+                            class="gap-[10px] w-[10rem]"
                         >
-                            <i class="bx bxs-crown text-[15px]"></i>
-                            <p class="label-4 font-semibold">Visit Store</p>
+                            <p class="label-4 font-semibold">View Order</p>
                         </custom-button>
                         <custom-button
                             :variant="'outline'"
                             :size="'sm'"
                             :color="'red'"
-                            class="gap-[10px]"
+                            class="gap-[10px] w-[10rem]"
                         >
                             <p class="label-4 font-semibold">Cancel/Refund</p>
                         </custom-button>
@@ -84,21 +91,20 @@
                             <p class="label-3 font-semibold">Rate</p>
                         </custom-button>
                         <custom-button
-                            :variant="'filled'"
+                            :variant="'outline'"
                             :size="'sm'"
-                            :color="'gray'"
-                            class="gap-[10px] w-[170px]"
+                            :color="'yellow'"
+                            class="gap-[10px]"
                         >
                             <p class="label-3 font-semibold">Buy Again</p>
                         </custom-button>
                         <custom-button
-                            :variant="'filled'"
+                            :variant="'outline'"
                             :size="'sm'"
-                            :color="'green'"
-                            class="gap-[10px] w-[170px]"
+                            :color="'red'"
+                            class="gap-[10px]"
                         >
-                            <i class="bx bxs-crown text-[15px]"></i>
-                            <p class="label-4 font-semibold">Visit Store</p>
+                            <p class="label-4 font-semibold">Return</p>
                         </custom-button>
                     </template>
                 </div>
@@ -120,6 +126,7 @@ export default {
         storeName: String,
         parcelStatus: String,
         orderStatus: String,
+        deliverDate: String,
         products: Array,
         orderTotal: String,
         lastActionDate: String,
