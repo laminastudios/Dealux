@@ -14,11 +14,10 @@
         <vueper-slide
             v-for="(testimonial, index) in testimonials"
             :key="index"
+            class="custom-shadow h-[21rem]"
         >
             <template #content>
-                <div
-                    class="px-[55px] py-[40px] flex flex-col justify-between p-4 border border-gray-300 rounded-lg bg-neutral-50 shadow-sm h-full"
-                >
+                <div class="px-[55px] py-[40px] flex flex-col justify-between p-4 rounded-lg bg-white shadow-sm h-full">
                     <div class="flex justify-start">
                         <div class="text-yellow-500 text-xl flex gap-[12px] items-center">
                             <p class="label-3 font-bold">{{ testimonial.rating }}</p>
