@@ -6,7 +6,7 @@
             <div class="w-[1006px]">
                 <!-- PurchaseTab component -->
                 <PurchaseTab
-                    :tabs="['All', 'Received', 'Refunded/Returned', 'Cancelled']"
+                    :tabs="['All', 'Received', 'Refunded', 'Cancelled']"
                     class="mb-[1rem] custom-shadow"
                     @filter-by-status="filterStores"
                 />
