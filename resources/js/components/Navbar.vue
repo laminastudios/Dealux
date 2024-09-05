@@ -1,13 +1,17 @@
 <!-- resources/js/components/Navbar.vue -->
 <template>
-    <nav class="h-[60px] bg-neutral-300 text-white">
+    <nav class="h-[60px] bg-primary-800 text-white">
         <div
             v-if="isAuthenticated"
             class="container border border-red-500 h-full flex flex-row"
         >
-            <div class="my-auto">
+            <div class="my-auto h-full">
                 <router-link to="/home">
-                    <Button>Logo</Button>
+                    <img
+                        src="/assets/dealux_logo.png"
+                        alt="Dealux Logo"
+                        class="h-full object-contain"
+                    />
                 </router-link>
             </div>
             <ul class="m-auto flex flex-row items-center gap-[76px]">
@@ -48,9 +52,13 @@
             v-else
             class="container border border-red-500 h-full flex justify-between"
         >
-            <div class="my-auto">
+            <div class="my-auto h-full">
                 <router-link to="/home">
-                    <Button>Logo</Button>
+                    <img
+                        src="/assets/dealux_logo.png"
+                        alt="Dealux Logo"
+                        class="h-full object-contain"
+                    />
                 </router-link>
             </div>
             <div class="flex gap-[8px] my-auto">
