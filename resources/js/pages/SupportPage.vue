@@ -90,7 +90,7 @@
                         v-model="form.details"
                         id="details"
                         placeholder="Details related to your problem or concern"
-                        class="w-full h-[245px] bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-300 label-1 font-medium mb-[68px] custom-shadow"
+                        class="w-full h-[245px] bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-300 label-1 font-medium mb-[5px] custom-shadow"
                     ></textarea>
                 </div>
                 <!-- Submit Button -->

@@ -73,7 +73,7 @@ export default {
             });
         },
         leave(el) {
-            el.style.transition = 'height 0.1s ease'; // Set the transition
+            el.style.transition = 'height  ease'; // Set the transition
             el.style.height = '0'; // Set height to 0
         },
     },
