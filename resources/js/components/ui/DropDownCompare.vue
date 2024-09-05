@@ -47,7 +47,6 @@ export default {
     methods: {
         openDropDown() {
             this.open = !this.open;
-            console.log(childClassContainer);
         },
         closeDropDown(event) {
             if (!this.$refs.dropDownButton.contains(event.target)) {
