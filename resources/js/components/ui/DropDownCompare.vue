@@ -3,7 +3,7 @@
         <button
             ref="dropDownButton"
             @click="openDropDown"
-            class="flex items-center justify-between gap-[10px] cursor-pointer w-full h-full transition-colors px-[33px] py-[7px] text-black bg-blue-100 hover:bg-blue-200"
+            class="flex items-center justify-between gap-[10px] cursor-pointer w-full h-full transition-colors px-[33px] py-[7px] text-black bg-blue-100 hover:bg-blue-200 rounded-[5px]"
         >
             <slot>{{ selected }}</slot>
         </button>
