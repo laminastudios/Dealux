@@ -16,10 +16,20 @@
             </div>
             <ul class="m-auto flex flex-row items-center gap-[76px]">
                 <li class="label-3 font-bold">
-                    <router-link to="/home">Home</router-link>
+                    <router-link
+                        to="/home"
+                        class="hover:text-yellow-400 transition-colors"
+                        :class="isHomePage"
+                        >Home</router-link
+                    >
                 </li>
                 <li class="label-3 font-bold">
-                    <router-link to="/cart">My Cart</router-link>
+                    <router-link
+                        to="/cart"
+                        class="hover:text-yellow-400 transition-colors"
+                        :class="isMyCart"
+                        >My Cart</router-link
+                    >
                 </li>
                 <li class="label-3 font-bold">
                     <DropDownLink
@@ -31,7 +41,12 @@
                     </DropDownLink>
                 </li>
                 <li class="label-3 font-bold">
-                    <router-link to="/support">Support Center</router-link>
+                    <router-link
+                        to="/support"
+                        class="hover:text-yellow-400 transition-colors"
+                        :class="isSupportCenter"
+                        >Support Center</router-link
+                    >
                 </li>
             </ul>
             <DropDownLink
@@ -131,6 +146,33 @@ export default {
     components: {
         Button,
         DropDownLink,
+    },
+    computed: {
+        isHomePage() {
+            if (this.$route.path === '/home') {
+                return 'text-yellow-400';
+            }
+        },
+        isMyCart() {
+            if (this.$route.path === '/cart') {
+                return 'text-yellow-400';
+            }
+        },
+        isActiveOrders() {
+            if (this.$route.path === '/purchase/active') {
+                return 'text-yellow-400';
+            }
+        },
+        isPurchaseHistory() {
+            if (this.$route.path === '/purchase/history') {
+                return 'text-yellow-400';
+            }
+        },
+        isSupportCenter() {
+            if (this.$route.path === '/support') {
+                return 'text-yellow-400';
+            }
+        },
     },
 };
 </script>
