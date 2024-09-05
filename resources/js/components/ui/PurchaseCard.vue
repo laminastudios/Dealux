@@ -69,6 +69,7 @@
                             :size="'sm'"
                             :color="'yellow'"
                             class="gap-[10px] w-[10rem]"
+                            @click="viewOrder"
                         >
                             <p class="label-4 font-semibold">View Order</p>
                         </custom-button>
@@ -123,6 +124,7 @@ export default {
         'custom-button': Button,
     },
     props: {
+        storeID: Number,
         storeName: String,
         parcelStatus: String,
         orderStatus: String,
@@ -140,6 +142,11 @@ export default {
         isActivePurchase() {
             const route = useRoute();
             return route.path === '/purchase/active';
+        },
+    },
+    methods: {
+        viewOrder() {
+            this.$router.push(`/purchase/active/${this.storeID}`);
         },
     },
 };

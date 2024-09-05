@@ -14,6 +14,7 @@ import HomePage from '../pages/HomePage.vue';
 import SearchProductPage from '../pages/SearchProductPage.vue';
 import ProductPage from '../pages/ProductPage.vue';
 import RegisterInformationPage from '../pages/RegisterInformationPage.vue';
+import OrderDetailPage from '../pages/OrderDetailPage.vue';
 
 const routes = [
     { path: '/', name: 'landing', component: LandingPage },
@@ -24,6 +25,7 @@ const routes = [
     { path: '/support', name: 'support', component: SupportPage },
     { path: '/register/info', name: 'registerinfo', component: RegisterInformationPage },
     { path: '/purchase/active', name: 'activeorder', component: ActiveOrderPage },
+    { path: '/purchase/active/:orderNumber', name: 'orderdetail', component: OrderDetailPage },
     { path: '/purchase/history', name: 'purchasehistory', component: PurchaseHistoryPage },
     { path: '/account/profile', name: 'profile', component: ProfilePage },
     { path: '/account/address', name: 'profileaddress', component: ProfileAddressPage },
