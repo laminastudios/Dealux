@@ -3,7 +3,7 @@
     <nav class="h-[60px] bg-primary-800 text-white">
         <div
             v-if="isAuthenticated"
-            class="container border border-red-500 h-full flex flex-row"
+            class="container h-full flex flex-row"
         >
             <div class="my-auto h-full">
                 <router-link to="/home">
@@ -50,7 +50,7 @@
         </div>
         <div
             v-else
-            class="container border border-red-500 h-full flex justify-between"
+            class="container h-full flex justify-between"
         >
             <div class="my-auto h-full">
                 <router-link to="/home">
