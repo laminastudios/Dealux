@@ -54,18 +54,14 @@ import Button from './Button.vue';
 
 export default {
     name: 'StoreCartItems',
-    data() {
-        return {
-            selectedStoreItems: new Set(),
-        };
-    },
     props: {
         items: Array,
         storeName: String,
         storeURL: String,
         storeId: Number,
-        selectedStores: Array,
-        selectedItems: Array,
+        selectedStores: Set,
+        selectedItems: Set,
+        selectedItemsGroupByStore: Array,
     },
     methods: {
         handleSelectItemEmit({ isChecked, itemId }) {
@@ -100,6 +96,13 @@ export default {
     computed: {
         storeItemsId() {
             return Array.from(this.items, (item) => item.id);
+        },
+        selectedStoreItems() {
+            let store = this.selectedItemsGroupByStore.find((store) => store.storeId === this.storeId);
+            if (store) {
+                return store.items;
+            }
+            return new Set();
         },
     },
     components: {

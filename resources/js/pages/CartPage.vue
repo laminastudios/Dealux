@@ -36,6 +36,7 @@
                     :items="store.items"
                     :selectedStores="selectedStores"
                     :selectedItems="selectedItems"
+                    :selectedItemsGroupByStore="selectedItemsGroupByStore"
                     @selectStore="selectStore"
                     @selectItem="selectItem"
                     @selectItemsByStore="selectItemsByStore"
@@ -62,6 +63,7 @@ export default {
 
     data() {
         return {
+            selectedItemsGroupByStore: [], // [{ storeID: ..., items: Set([...itemIDs]) }, ...]
             selectedStores: new Set(),
             selectedItems: new Set(), // assume that all items have unique ID
             stores: [
@@ -127,10 +129,17 @@ export default {
         },
         selectAllStores($event) {
             if ($event.target.checked) {
-                this.stores.forEach((store) => this.selectedStores.add(store.id));
+                this.stores.forEach((store) => {
+                    this.selectedStores.add(store.id);
+                    this.selectedItemsGroupByStore.push({
+                        storeId: store.id,
+                        items: new Set(Array.from(store.items, (item) => item.id)),
+                    });
+                });
                 return;
             }
             this.selectedStores.clear();
+            this.selectedItemsGroupByStore = [];
         },
         selectAllItems($event) {
             if ($event.target.checked) {
