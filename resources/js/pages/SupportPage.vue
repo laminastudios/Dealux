@@ -1,108 +1,116 @@
 <template>
-    <!-- FAQ Section -->
-    <section class="container mx-auto mb-[20px] pb-12 mt-[80px]">
-        <h1 class="font-semibold text-center mb-[20px]">Frequently Asked Questions (FAQs)</h1>
-        <FAQAccordion :items="faqItems" />
-    </section>
+    <section class="relative bg-background h-[1600px] overflow-hidden">
+        <!-- FAQ Section -->
+        <section class="container mx-auto mb-[20px] pb-12 mt-[100px]">
+            <h1 class="font-semibold text-center text-yellow-400 mb-[20px]">Frequently Asked Questions (FAQs)</h1>
+            <FAQAccordion :items="faqItems" />
+        </section>
 
-    <!-- Report a Problem Form -->
-    <section class="container mx-auto mb-[100px] mt-10">
-        <h1 class="font-semibold text-center mb-8">Report a Problem</h1>
-        <form
-            @submit.prevent="submitForm"
-            class="bg-white p-8 rounded shadow-md mx-auto"
-        >
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                    <label
-                        class="block font-bold mb-2"
-                        for="firstName"
-                        >First Name</label
+        <!-- Report a Problem Form -->
+        <section class="container mx-auto mb-[100px] mt-10">
+            <h1 class="font-semibold text-center text-yellow-400 mb-8">Report a Problem</h1>
+            <form @submit.prevent="submitForm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h6
+                            class="text-black font-semibold mb-2"
+                            for="firstName"
+                        >
+                            First Name
+                        </h6>
+                        <input
+                            v-model="form.firstName"
+                            id="firstName"
+                            type="text"
+                            placeholder="First Name"
+                            class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-900 label-1 font-medium custom-shadow"
+                        />
+                    </div>
+                    <div>
+                        <h6
+                            class="text-black font-semibold mb-2"
+                            for="lastName"
+                        >
+                            Last Name
+                        </h6>
+                        <input
+                            v-model="form.lastName"
+                            id="lastName"
+                            type="text"
+                            placeholder="Last Name"
+                            class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-900 label-1 font-medium mb-[30px] custom-shadow"
+                        />
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <h6
+                        class="text-black font-semibold mb-2"
+                        for="email"
                     >
+                        E-mail Address
+                    </h6>
                     <input
-                        v-model="form.firstName"
-                        id="firstName"
-                        type="text"
-                        placeholder="First Name"
-                        class="w-full border border-neutral-100 rounded p-3 text-neutral-500 label-3"
+                        v-model="form.email"
+                        id="email"
+                        type="email"
+                        placeholder="E-mail Address"
+                        class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-900 label-1 font-medium mb-[30px] custom-shadow"
                     />
                 </div>
-                <div>
-                    <label
-                        class="block font-bold mb-2"
-                        for="lastName"
-                        >Last Name</label
+                <div class="mb-6">
+                    <h6
+                        class="text-black font-semibold mb-2"
+                        for="summary"
                     >
+                        Summary
+                    </h6>
+                    <span class="block mb-2 text-neutral-400 label-1 font-medium">
+                        Please provide a one-sentence summary of your problem or concern
+                    </span>
                     <input
-                        v-model="form.lastName"
-                        id="lastName"
+                        v-model="form.summary"
+                        id="summary"
                         type="text"
-                        placeholder="Last Name"
-                        class="w-full border border-neutral-100 rounded p-3 text-neutral-500 label-3"
+                        placeholder="Summary"
+                        class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-900 label-1 font-medium mb-[30px] custom-shadow"
                     />
                 </div>
-            </div>
-            <div class="mb-6">
-                <label
-                    class="block font-bold mb-2"
-                    for="email"
-                    >E-mail Address</label
-                >
-                <input
-                    v-model="form.email"
-                    id="email"
-                    type="email"
-                    placeholder="E-mail Address"
-                    class="w-full border border-neutral-100 rounded p-3 text-neutral-500 label-3"
-                />
-            </div>
-            <div class="mb-6">
-                <label
-                    class="block font-bold mb-2"
-                    for="summary"
-                    >Summary</label
-                >
-                <span class="block mb-2 text-neutral-500 label-3">
-                    Please provide a one-sentence summary of your problem or concern
-                </span>
-                <input
-                    v-model="form.summary"
-                    id="summary"
-                    type="text"
-                    placeholder="Summary"
-                    class="w-full border border-neutral-100 rounded p-3 text-neutral-500 label-3"
-                />
-            </div>
 
-            <div class="mb-6">
-                <label
-                    class="block font-bold mb-2"
-                    for="details"
-                    >Details</label
-                >
-                <span class="block mb-2 text-neutral-500 label-3">
-                    Please provide as much detail as possible related to your problem or concern
-                </span>
-                <textarea
-                    v-model="form.details"
-                    id="details"
-                    placeholder="Details related to your problem or concern"
-                    class="w-full border border-neutral-100 rounded p-3 text-neutral-500 label-3"
-                ></textarea>
-            </div>
-            <!-- Submit Button -->
-            <div class="flex justify-end">
-                <custom-button
-                    variant="filled"
-                    size="md"
-                    color="neutral-500"
-                    hoverColor="neutral-100"
-                    type="submit"
-                >
-                    Submit
-                </custom-button>
-            </div>
-        </form>
+                <div class="mb-6">
+                    <h6
+                        class="text-black font-semibold mb-2"
+                        for="details"
+                    >
+                        Details
+                    </h6>
+                    <span class="block mb-2 text-neutral-400 label-1 font-medium">
+                        Please provide as much detail as possible related to your problem or concern
+                    </span>
+                    <textarea
+                        v-model="form.details"
+                        id="details"
+                        placeholder="Details related to your problem or concern"
+                        class="w-full h-[245px] bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-900 label-1 font-medium mb-[5px] custom-shadow"
+                    ></textarea>
+                </div>
+                <!-- Submit Button -->
+                <div class="flex justify-end">
+                    <custom-button
+                        variant="filled"
+                        size="md"
+                        color="yellow"
+                        roundness="true"
+                        height="44px"
+                        padding="3px 33px"
+                        gap="10px"
+                        textStyle="text-semibold label-4"
+                        type="submit"
+                    >
+                        Submit
+                    </custom-button>
+                </div>
+            </form>
+        </section>
     </section>
 </template>
 
