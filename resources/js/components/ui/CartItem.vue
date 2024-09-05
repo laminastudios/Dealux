@@ -2,8 +2,11 @@
     <div class="flex gap-5 py-6 px-4 bg-neutral-100">
         <input
             type="checkbox"
-            :checked="isItemSelected"
-            @change="$emit('updateSelectedStoreItem', { isChecked: $event.target.checked, itemId: itemId })"
+            :checked="selectedItems.has(itemId)"
+            @change="
+                $emit('selectStoreItem', { $event, itemId });
+                $emit('handleSelectItemEmit', { isChecked: $event.target.checked, itemId });
+            "
             class="accent-neutral-300 bg-neutral-300"
         />
 
@@ -39,16 +42,14 @@ import InputSpinner from './InputSpinner.vue';
 export default {
     name: 'CartItem',
     props: {
-        image: {
-            type: String,
-            default: 'https://placehold.co/84x67',
-        },
+        image: String,
         itemId: Number,
         itemName: String,
         details: String,
         price: Number,
         quantity: Number,
         isItemSelected: Boolean,
+        selectedItems: Set,
     },
     components: {
         InputSpinner,

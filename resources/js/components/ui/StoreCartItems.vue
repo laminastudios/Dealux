@@ -4,8 +4,12 @@
             <div class="flex gap-5 flex-1">
                 <input
                     type="checkbox"
-                    :checked="SelectedStoreItems.size === items.length"
-                    @change="toggleSelectedStoreItems($event)"
+                    :checked="selectedStores.has(storeId) || selectedStoreItems.size === items.length"
+                    @change="
+                        addAllStoreItems($event);
+                        $emit('selectItemsByStore', { $event, storeItemsId });
+                        $emit('selectStore', { isChecked: $event.target.checked, storeId });
+                    "
                     class="accent-neutral-300 bg-neutral-300"
                 />
                 <div class="font-semibold w-full">
@@ -29,7 +33,6 @@
         <div class="flex flex-col">
             <CartItem
                 v-for="item in items"
-                @updateSelectedStoreItem="updateSelectedStoreItem"
                 :key="item.id"
                 :itemId="item.id"
                 :itemName="item.name"
@@ -37,7 +40,9 @@
                 :price="item.price"
                 :quantity="item.quantity"
                 :image="item.image"
-                :isItemSelected="SelectedStoreItems.has(item.id)"
+                :selectedItems="selectedItems"
+                @handleSelectItemEmit="handleSelectItemEmit"
+                @selectStoreItem="selectStoreItem"
             />
         </div>
     </div>
@@ -51,38 +56,50 @@ export default {
     name: 'StoreCartItems',
     data() {
         return {
-            SelectedStoreItems: new Set(),
+            selectedStoreItems: new Set(),
         };
     },
     props: {
-        items: {
-            type: Array,
-            default: [],
-        },
-        storeName: {
-            type: String,
-            default: 'None',
-        },
-        storeURL: {
-            type: String,
-            default: '',
-        },
+        items: Array,
+        storeName: String,
+        storeURL: String,
         storeId: Number,
+        selectedStores: Array,
+        selectedItems: Array,
     },
     methods: {
-        updateSelectedStoreItem({ isChecked, itemId }) {
-            if (isChecked) {
-                this.SelectedStoreItems.add(itemId);
-                return;
-            }
-            this.SelectedStoreItems.delete(itemId);
+        handleSelectItemEmit({ isChecked, itemId }) {
+            this.$emit('selectItem', { isChecked, itemId });
         },
-        toggleSelectedStoreItems($event) {
-            if (!$event.target.checked) {
-                this.SelectedStoreItems.clear();
+        handleSelectStoreByItemsEmit({ storeId, selectedStoreItems }) {
+            this.$emit('selectStoreByItems', { storeId, selectedStoreItems });
+        },
+        selectStoreItem({ $event, itemId }) {
+            if ($event.target.checked) {
+                this.selectedStoreItems.add(itemId);
+                this.handleSelectStoreByItemsEmit({
+                    storeId: this.storeId,
+                    selectedStoreItems: this.selectedStoreItems,
+                });
                 return;
             }
-            this.items.forEach((item) => this.SelectedStoreItems.add(item.id));
+            this.selectedStoreItems.delete(itemId);
+            this.handleSelectStoreByItemsEmit({
+                storeId: this.storeId,
+                selectedStoreItems: this.selectedStoreItems,
+            });
+        },
+        addAllStoreItems($event) {
+            if ($event.target.checked) {
+                this.storeItemsId.forEach((itemId) => this.selectedStoreItems.add(itemId));
+                return;
+            }
+            this.selectedStoreItems.clear();
+        },
+    },
+    computed: {
+        storeItemsId() {
+            return Array.from(this.items, (item) => item.id);
         },
     },
     components: {
