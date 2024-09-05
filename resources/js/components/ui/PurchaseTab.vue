@@ -1,7 +1,7 @@
 <template>
     <!-- Tabs navigation -->
     <ul
-        class="flex list-none flex-row justify-between bg-neutral-50 px-20 py-0 m-0 h-[72px]"
+        class="flex list-none flex-row justify-between bg-white px-20 py-0 m-0 h-[72px]"
         role="tablist"
     >
         <!-- Loop through tabs to generate buttons -->
@@ -14,7 +14,10 @@
             <button
                 @click="filterStatus(tab)"
                 class="block border-x-0 border-b-2 border-t-0 border-transparent py-2 text-neutral-500 font-bold leading-tight hover:border-primary hover:text-primary focus:outline-none"
-                :class="{ 'text-primary border-primary': selectedTab === tab }"
+                :class="{
+                    'text-yellow-400': selectedTab === tab,
+                    'border-transparent': selectedTab !== tab,
+                }"
             >
                 {{ tab }}
             </button>
@@ -45,10 +48,4 @@ export default {
 };
 </script>
 
-<style scoped>
-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-</style>
+<style scoped></style>

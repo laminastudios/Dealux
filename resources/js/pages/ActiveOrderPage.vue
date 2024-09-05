@@ -1,23 +1,25 @@
 <template>
-    <section class="min-h-screen-navbar">
-        <div class="container flex justify-between gap-[39px] mt-[5rem] mb-[5rem] h-full">
+    <section class="min-h-screen bg-background">
+        <div class="container flex justify-between gap-[39px] py-[5rem] h-full">
             <PurchaseSideBar />
 
             <div class="w-[1006px]">
                 <!-- PurchaseTab component -->
                 <PurchaseTab
-                    :tabs="['All', 'To Pay', 'To Ship', 'To Receive', 'Received']"
-                    class="mb-[20px]"
+                    :tabs="['All', 'To Ship', 'To Deliver']"
+                    class="mb-[1rem] custom-shadow"
                     @filter-by-status="filterStores"
                 />
 
                 <!-- Search Bar -->
                 <form
+                    class="flex flex-row justify-between gap-[4px]"
                     @submit.prevent="handleSearch"
-                    class="mb-[20px]"
                 >
-                    <div class="flex">
-                        <div class="bg-neutral-400 w-[51px] h-[49px] flex justify-center items-center">
+                    <div class="flex gap-[4px] w-full mb-[2rem]">
+                        <div
+                            class="bg-primary-800 w-[51px] rounded-l-[5px] flex justify-center items-center custom-shadow"
+                        >
                             <i class="bx bx-search text-neutral-50 text-[20px] font-medium"></i>
                         </div>
                         <label
@@ -26,13 +28,13 @@
                             >Search</label
                         >
                         <div
-                            class="relative w-full h-[49px] bg-neutral-50 flex items-center px-[20px] py-[13px] gap-[13px] border border-neutral-50 focus-within:border-neutral-600"
+                            class="relative w-full h-[44px] bg-white flex items-center px-[14px] py-[13px] gap-[13px] border border-white focus-within:border-neutral-600 custom-shadow"
                         >
                             <input
                                 type="search"
                                 id="default-search"
-                                class="block label-2 p-0 w-full text-neutral-800 font-semibold bg-transparent placeholder:text-neutral-300 placeholder:font-medium border-none focus:outline-none focus:ring-0"
-                                placeholder="Search Here"
+                                class="block w-full label-2 p-0 text-neutral-800 font-semibold bg-transparent placeholder:text-neutral-200 placeholder:font-medium border-none focus:outline-none focus:ring-0"
+                                placeholder="Search Product"
                                 v-model="searchQuery"
                                 @keydown.enter="handleSearch"
                             />
@@ -48,6 +50,7 @@
                         :storeName="store.name"
                         :products="store.products"
                         :orderTotal="store.orderTotal"
+                        :deliverDate="store.deliverDate"
                         :lastActionDate="store.lastActionDate"
                         :parcelStatus="store.parcelStatus"
                         :orderStatus="store.orderStatus"
@@ -78,8 +81,9 @@ export default {
                 {
                     id: 1,
                     name: 'Store 1',
-                    parcelStatus: 'To Receive',
+                    parcelStatus: 'To Deliver',
                     orderStatus: 'Ongoing',
+                    deliverDate: '09/15/2024',
                     products: [
                         {
                             id: 1,
@@ -111,6 +115,7 @@ export default {
                     name: 'Store 2',
                     parcelStatus: 'To Ship',
                     orderStatus: 'Ongoing',
+                    deliverDate: '09/15/2024',
                     products: [
                         {
                             id: 7,
