@@ -126,20 +126,3 @@ export default {
     },
 };
 </script>
-
-<style scoped>
-/* Hover effect for buttons */
-button {
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-button:hover {
-  transform: scale(1.05);
-  background-color: #f59e0b; /* Slightly darker yellow */
-}
-
-/* Style for the password eye icon */
-span {
-  cursor: pointer;
-}
-</style>
