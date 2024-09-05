@@ -10,13 +10,15 @@
                 <h2 class="font-mainfont font-medium text-white">New to Dealux?</h2>
                 <p class="label-4 text-white mt-7">Join now to see all the best deals!</p>
             </div>
-            <div class="relative z-20"> <!-- Added z-20 to ensure button is above the image -->
-                <button
+            <div class="mt-8 relative z-20"> <!-- Added z-20 to ensure button is above the image -->
+            <custom-button
+                variant="filled"
+                size="xl" 
+                color="yellow" 
                 @click="redirectToRegister"
-                class="label-3 mt-20 w-[232px] h-[52px] p-2 bg-yellow-400 text-white rounded-md"
-                >
-                Sign-Up
-                </button>
+            >
+                <p class="label-3 font-semibold text-white">Sign-Up</p> <!-- Adjust the text style as needed -->
+            </custom-button>
             </div>
         </div>
         
@@ -29,14 +31,14 @@
                 v-model="email"
                 type="email"
                 label="Email Address"
-                class="w-[465px] bg-neutral-50 border-neutral-50 shadow-sm"
+                class="w-[465px] bg-neutral-50 border-neutral-50 custom-shadow"
                 required
             />
             <float-input
                 v-model="password"
                 type="password"
                 label="Password"
-                class="w-[465px] bg-neutral-50 border-neutral-50 shadow-sm"
+                class="w-[465px] bg-neutral-50 border-neutral-50 custom-shadow"
                 required
             />
             
@@ -50,12 +52,14 @@
             </div>
             
             <div class="flex flex-col items-center">
-                <button
+                <custom-button
                     type="submit"
-                    class="mt-20 w-[232px] h-[52px] p-2 bg-yellow-400 text-white rounded-md"
+                    variant="filled"
+                    size="xl"
+                    color="yellow"
                 >
-                    Sign In
-                </button>
+                    <p class="label-3 font-semibold text-white">Sign In</p>
+                </custom-button>
             <p v-if="errorMessage" class="text-red-500 text-center mt-4">
                 {{ errorMessage }}
             </p>
@@ -69,11 +73,13 @@
 <script>
 import axios from 'axios';
 import FloatingLabelInput from '../components/ui/Input.vue';
+import Button from '../components/ui/Button.vue';
 
 export default {
     name: 'SignInPage',
     components: {
         'float-input': FloatingLabelInput,
+        'custom-button': Button,
     },
     data() {
         return {

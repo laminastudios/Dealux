@@ -13,21 +13,21 @@
             v-model="userName"
             type="text"
             label="Username"
-            class="w-[465px] bg-neutral-50 border-neutral-50 shadow-sm"
+            class="w-[465px] bg-neutral-50 border-neutral-50 custom-shadow"
             required
         />
         <float-input
             v-model="email"
             type="email"
             label="Email Address"
-            class="w-[465px] bg-neutral-50 border-neutral-50 shadow-sm"
+            class="w-[465px] bg-neutral-50 border-neutral-50 custom-shadow"
             required
         />
         <float-input
             v-model="password"
             type="password"
             label="Password"
-            class="w-[465px] bg-neutral-50 border-neutral-50 shadow-sm"
+            class="w-[465px] bg-neutral-50 border-neutral-50 custom-shadow"
             required
         />
         <div class="text-center label-4 text-black mt-8 font-semibold">
@@ -37,12 +37,15 @@
             <a href="#" class="text-black hover:underline">Privacy Policy</a>.
         </div>
         <div class="flex flex-col items-center">
-            <button
+            <custom-button
                 type="submit"
-                class="mb-[55px] w-[232px] h-[52px] p-2 bg-yellow-400 text-white rounded-md"
+                variant="filled"
+                size="xl"
+                color="yellow"
+                class="mb-[55px]"
             >
-                Sign Up
-            </button>
+                <p class="label-3 font-semibold text-white">Sign Up</p>
+            </custom-button>
             <p v-if="errorMessage" class="text-red-500 text-center mt-4">
                 {{ errorMessage }}
             </p>
@@ -58,11 +61,15 @@
             <p class="label-4 text-white mt-8">Stay connected with the best deals!</p>
         </div>
             <div class="relative z-20"> <!-- Added z-20 to ensure button is above the image -->
-                <button
+                <custom-button
+                    variant="filled"
+                    size="xl"
+                    color="yellow"
                     @click="redirectToLogin"
-                    class="label-3 mt-[52px] w-[232px] h-[52px] p-2 bg-yellow-400 text-white rounded-md">
-                Sign-In
-                </button>
+                    class="mt-[52px]"
+                >
+                    <p class="label-3 font-semibold text-white">Sign-In</p>
+                </custom-button>
             </div>
         </div>
     </div>
@@ -73,11 +80,13 @@
 <script>
 import axios from 'axios';
 import FloatingLabelInput from '../components/ui/Input.vue';
+import Button from '../components/ui/Button.vue';
 
 export default {
     name: 'SignUpPage',
     components: {
         'float-input': FloatingLabelInput,
+        'custom-button': Button,
     },
     data() {
         return {
