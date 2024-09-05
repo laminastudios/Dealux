@@ -152,10 +152,10 @@ export default {
         return {
             shops: [
                 { id: 1, name: 'Shopee', image: '/assets/shopee_logo.png' },
-                { id: 2, name: 'Lazada', image: '/assets/lazada_logo.png' },
+                { id: 2, name: 'Lazada', image: '/assets/lazada_logo.jfif' },
                 { id: 3, name: 'Shein', image: '/assets/shein_logo.jpg' },
                 { id: 4, name: 'Alibaba', image: '/assets/alibaba_logo.png' },
-                { id: 5, name: 'eBay', image: '/assets/ebay_logo.png' },
+                { id: 5, name: 'eBay', image: '/assets/ebay_logo.jfif' },
                 { id: 6, name: 'Zalora', image: '/assets/zalora_logo.png' },
             ],
             testimonials: [
