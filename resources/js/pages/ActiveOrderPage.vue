@@ -66,7 +66,6 @@
 import PurchaseTab from '../components/ui/PurchaseTab.vue';
 import PurchaseCard from '../components/ui/PurchaseCard.vue';
 import PurchaseSideBar from '../components/ui/PurchaseSideBar.vue';
-import { useRoute } from 'vue-router';
 
 export default {
     name: 'ActiveOrderPage',
