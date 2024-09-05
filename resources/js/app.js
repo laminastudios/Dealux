@@ -22,6 +22,7 @@ import ProductPage from './pages/ProductPage.vue';
 import Navbar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';
 import RegisterInformationPage from './pages/RegisterInformationPage.vue';
+import OrderDetailPage from './pages/OrderDetailPage.vue';
 
 // Creating a new Vue application instance
 const app = createApp({});
@@ -38,6 +39,7 @@ app.component('cart-page', CartPage); // Registers CartPage component
 app.component('checkout-page', CheckoutPage); // Registers CheckoutPage component
 
 app.component('activeorder-page', ActiveOrderPage); // Registers ActiveOrderPage component
+app.component('orderdetail-page', OrderDetailPage); // Registers ActiveOrderPage component
 app.component('purchasehistory-page', PurchaseHistoryPage); // Registers PurchaseHistoryPage component
 
 app.component('support-page', SupportPage); // Registers SupportPage component

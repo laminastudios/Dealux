@@ -47,6 +47,7 @@
                     <PurchaseCard
                         v-for="store in filteredStores"
                         :key="store.id"
+                        :storeID="store.id"
                         :storeName="store.name"
                         :products="store.products"
                         :orderTotal="store.orderTotal"
@@ -65,6 +66,7 @@
 import PurchaseTab from '../components/ui/PurchaseTab.vue';
 import PurchaseCard from '../components/ui/PurchaseCard.vue';
 import PurchaseSideBar from '../components/ui/PurchaseSideBar.vue';
+import { useRoute } from 'vue-router';
 
 export default {
     name: 'ActiveOrderPage',
