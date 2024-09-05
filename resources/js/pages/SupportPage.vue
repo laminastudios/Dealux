@@ -23,7 +23,7 @@
                             id="firstName"
                             type="text"
                             placeholder="First Name"
-                            class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-300 label-1 font-medium custom-shadow"
+                            class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-900 label-1 font-medium custom-shadow"
                         />
                     </div>
                     <div>
@@ -38,7 +38,7 @@
                             id="lastName"
                             type="text"
                             placeholder="Last Name"
-                            class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-300 label-1 font-medium mb-[30px] custom-shadow"
+                            class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-900 label-1 font-medium mb-[30px] custom-shadow"
                         />
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                         id="email"
                         type="email"
                         placeholder="E-mail Address"
-                        class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-300 label-1 font-medium mb-[30px] custom-shadow"
+                        class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-900 label-1 font-medium mb-[30px] custom-shadow"
                     />
                 </div>
                 <div class="mb-6">
@@ -72,7 +72,7 @@
                         id="summary"
                         type="text"
                         placeholder="Summary"
-                        class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-300 label-1 font-medium mb-[30px] custom-shadow"
+                        class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-900 label-1 font-medium mb-[30px] custom-shadow"
                     />
                 </div>
 
@@ -90,7 +90,7 @@
                         v-model="form.details"
                         id="details"
                         placeholder="Details related to your problem or concern"
-                        class="w-full h-[245px] bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-300 label-1 font-medium mb-[5px] custom-shadow"
+                        class="w-full h-[245px] bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-900 label-1 font-medium mb-[5px] custom-shadow"
                     ></textarea>
                 </div>
                 <!-- Submit Button -->
