@@ -53,7 +53,7 @@
                 <!-- Search Up -->
                 <div class="flex flex-col items-center h-[450px]">
                     <img
-                        src="assets/image_placeholder.jpg"
+                        src="assets/searchup_icon.png"
                         alt="Search Up"
                         class="h-[115px] w-[115px] object-cover"
                     />
@@ -70,7 +70,7 @@
                 <!-- Compare Me -->
                 <div class="flex flex-col items-center h-[450px]">
                     <img
-                        src="assets/image_placeholder.jpg"
+                        src="assets/compareme_icon.png"
                         alt="Compare Me"
                         class="h-[115px] w-[115px] object-cover"
                     />
@@ -78,7 +78,7 @@
                         Compare <span class="text-primary-50">Me</span>
                     </h3>
                     <p class="label-1 font-semibold text-center text-white w-[270px] mt-[17px]">
-                        Easily compare products side-by-side from different platforms to find the perfect deal
+                        Easily compare products from different platforms to find the perfect deal
                     </p>
                 </div>
 
@@ -87,7 +87,7 @@
                 <!-- Rank It -->
                 <div class="flex flex-col items-center h-[450px]">
                     <img
-                        src="assets/image_placeholder.jpg"
+                        src="assets/rankit_icon.png"
                         alt="Rank It"
                         class="h-[115px] w-[115px] object-cover"
                     />
@@ -95,7 +95,7 @@
                         Rank <span class="text-primary-50">It</span>
                     </h3>
                     <p class="label-1 font-semibold text-center text-white w-[270px] mt-[17px]">
-                        Rank products by ratings, prices, locations, and more for a personalized shopping experience
+                        Rank products by ratings, prices, and locations for a better shopping experience
                     </p>
                 </div>
 
@@ -104,7 +104,7 @@
                 <!-- Direct Purchase -->
                 <div class="flex flex-col items-center h-[450px]">
                     <img
-                        src="assets/image_placeholder.jpg"
+                        src="assets/directpurchase_icon.png"
                         alt="Direct Purchase"
                         class="h-[115px] w-[115px] object-cover"
                     />
@@ -161,59 +161,59 @@ export default {
             testimonials: [
                 {
                     name: 'John Doe',
-                    review: 'This is an amazing product! Highly recommended.',
+                    review: '"Dealux has completely changed the way I shop online. I used to spend hours comparing prices across different sites, but now I can find the best deals in minutes. The platform is so easy to use, and I love knowing that I\'m getting the best price every time."',
                     rating: 5,
                     userSince: '2021',
-                    image: 'https://via.placeholder.com/150', // Replace with actual image URL
+                    image: 'https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250', // Replace with actual image URL
                 },
                 {
                     name: 'Jane Smith',
-                    review: 'Good value for money. Will definitely buy again.',
+                    review: '"Dealux has completely changed the way I shop online. I used to spend hours comparing prices across different sites, but now I can find the best deals in minutes. The platform is so easy to use, and I love knowing that I\'m getting the best price every time."',
                     rating: 4,
                     userSince: '2022',
-                    image: 'https://via.placeholder.com/150', // No image URL to show the icon
+                    image: 'https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250', // No image URL to show the icon
                 },
                 {
                     name: 'John Doe',
-                    review: 'This is an amazing product! Highly recommended.',
+                    review: '"Dealux has completely changed the way I shop online. I used to spend hours comparing prices across different sites, but now I can find the best deals in minutes. The platform is so easy to use, and I love knowing that I\'m getting the best price every time."',
                     rating: 5,
                     userSince: '2021',
-                    image: 'https://via.placeholder.com/150', // Replace with actual image URL
+                    image: 'https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250', // Replace with actual image URL
                 },
                 {
                     name: 'Jane Smith',
-                    review: 'Good value for money. Will definitely buy again.',
+                    review: '"Dealux has completely changed the way I shop online. I used to spend hours comparing prices across different sites, but now I can find the best deals in minutes. The platform is so easy to use, and I love knowing that I\'m getting the best price every time."',
                     rating: 4,
                     userSince: '2022',
-                    image: 'https://via.placeholder.com/150', // No image URL to show the icon
+                    image: 'https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250', // No image URL to show the icon
                 },
                 {
                     name: 'John Doe',
-                    review: 'This is an amazing product! Highly recommended.',
+                    review: '"Dealux has completely changed the way I shop online. I used to spend hours comparing prices across different sites, but now I can find the best deals in minutes. The platform is so easy to use, and I love knowing that I\'m getting the best price every time."',
                     rating: 5,
                     userSince: '2021',
-                    image: 'https://via.placeholder.com/150', // Replace with actual image URL
+                    image: 'https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250', // Replace with actual image URL
                 },
                 {
                     name: 'Jane Smith',
-                    review: 'Good value for money. Will definitely buy again.',
+                    review: '"Dealux has completely changed the way I shop online. I used to spend hours comparing prices across different sites, but now I can find the best deals in minutes. The platform is so easy to use, and I love knowing that I\'m getting the best price every time."',
                     rating: 4,
                     userSince: '2022',
-                    image: 'https://via.placeholder.com/150', // No image URL to show the icon
+                    image: 'https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250', // No image URL to show the icon
                 },
                 {
                     name: 'John Doe',
-                    review: 'This is an amazing product! Highly recommended.',
+                    review: '"Dealux has completely changed the way I shop online. I used to spend hours comparing prices across different sites, but now I can find the best deals in minutes. The platform is so easy to use, and I love knowing that I\'m getting the best price every time."',
                     rating: 5,
                     userSince: '2021',
-                    image: 'https://via.placeholder.com/150', // Replace with actual image URL
+                    image: 'https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250', // Replace with actual image URL
                 },
                 {
                     name: 'Jane Smith',
-                    review: 'Good value for money. Will definitely buy again.',
+                    review: '"Dealux has completely changed the way I shop online. I used to spend hours comparing prices across different sites, but now I can find the best deals in minutes. The platform is so easy to use, and I love knowing that I\'m getting the best price every time."',
                     rating: 4,
                     userSince: '2022',
-                    image: 'https://via.placeholder.com/150', // No image URL to show the icon
+                    image: 'https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250', // No image URL to show the icon
                 },
                 // Add more testimonials as needed
             ],
