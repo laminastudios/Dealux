@@ -11,6 +11,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileAddressController;
+use App\Http\Controllers\ProfileBanksController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseHistoryController;
 use App\Http\Controllers\RegisterInformationController;
@@ -56,6 +57,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('account')->group(function () {
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
         Route::get('/address', [ProfileAddressController::class, 'index'])->name('profileaddress');
+        Route::get('/banks', [ProfileBanksController::class, 'index'])->name('profilebanks');
         Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription');
     });
 

@@ -15,6 +15,7 @@ import SupportPage from './pages/SupportPage.vue';
 import SubscriptionPage from './pages/SubscriptionPage.vue';
 import ProfilePage from './pages/ProfilePage.vue';
 import ProfileAddressPage from './pages/ProfileAddressPage.vue';
+import ProfileBanksPage from './pages/ProfileBanksPage.vue';
 import CheckoutPage from './pages/CheckoutPage.vue';
 import HomePage from './pages/HomePage.vue';
 import SearchProductPage from './pages/SearchProductPage.vue';
@@ -47,6 +48,7 @@ app.component('subscription-page', SubscriptionPage); // Registers SubscriptionP
 app.component('profile-page', ProfilePage); // Registers ProfilePage component
 
 app.component('profileaddress-page', ProfileAddressPage); // Registers ProfileAddressPage component
+app.component('profilebanks-page', ProfileBanksPage); // Registers ProfileBanksPage component
 
 app.component('home-page', HomePage); // Registers HomePage component
 
