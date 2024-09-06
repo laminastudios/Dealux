@@ -30,10 +30,8 @@
                     to="/checkout"
                 >
                     <Button
-                        variant="filled"
-                        color="neutral-200"
-                        hoverColor="neutral-400"
-                        class="font-semibold leading-4 w-full"
+                        color="yellow"
+                        class="w-full"
                     >
                         <span class="label-4 font-semibold"> Proceed to Checkout </span>
                     </Button>

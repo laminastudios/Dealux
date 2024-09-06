@@ -18,9 +18,7 @@
             </div>
 
             <custom-button
-                variant="filled"
-                color="neutral-600"
-                hover-color="neutral-400"
+                color="green"
                 size="xs"
             >
                 <div class="font-semibold flex items-center gap-2 label-4">
