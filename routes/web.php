@@ -9,6 +9,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\OrderDetailController;
+use App\Http\Controllers\PageNotFoundController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileAddressController;
 use App\Http\Controllers\ProfileBanksController;
@@ -47,6 +48,8 @@ Route::controller(VerificationController::class)->group(function () {
         ->middleware(['auth', 'throttle:6,1'])
         ->name('verification.resend');
 });
+
+Route::get('/pagenotfound', [PageNotFoundController::class, 'index'])->name('pagenotfound');
 
 // Authenticated and verified routes
 Route::middleware(['auth', 'verified'])->group(function () {

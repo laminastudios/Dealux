@@ -16,6 +16,7 @@ import SearchProductPage from '../pages/SearchProductPage.vue';
 import ProductPage from '../pages/ProductPage.vue';
 import RegisterInformationPage from '../pages/RegisterInformationPage.vue';
 import OrderDetailPage from '../pages/OrderDetailPage.vue';
+import PageNotFound from '../pages/PageNotFound.vue';
 
 const routes = [
     { path: '/', name: 'landing', component: LandingPage },
@@ -35,6 +36,7 @@ const routes = [
     { path: '/home', name: 'home', component: HomePage },
     { path: '/search/:keyword', name: 'searchproduct', component: SearchProductPage },
     { path: '/product/:productName', name: 'product', component: ProductPage },
+    { path: '/pagenotfound', name: 'page-notfound', component: PageNotFound },
 ];
 
 const router = createRouter({
