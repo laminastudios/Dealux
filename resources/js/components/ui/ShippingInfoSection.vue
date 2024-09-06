@@ -1,22 +1,18 @@
 <template>
-    <div class="bg-white text-neutral-700 leading-4 custom-shadow">
+    <div class="bg-white leading-4 custom-shadow">
         <div class="px-12 py-3 flex gap-5 items-center border-b-neutral-500 border-b justify-between">
-            <div class="font-semibold">Shipping Address</div>
-            <Button
-                variant="filled"
-                size="xs"
-                class="px-0"
-            >
-                <span class="font-medium text-sm text-neutral-700">Edit</span>
-            </Button>
+            <div class="font-semibold label-4">Shipping Address</div>
+            <button class="flex items-center">
+                <span class="font-medium label-4">Edit</span>
+            </button>
         </div>
 
         <div class="flex flex-col gap-5 px-12 py-5">
             <div class="flex gap-8">
-                <span class="font-semibold">{{ userName }}</span>
-                <span>{{ contactNumber }}</span>
+                <span class="font-semibold label-4">{{ userName }}</span>
+                <span class="font-medium label-4">{{ contactNumber }}</span>
             </div>
-            <span>{{ address }}</span>
+            <span class="font-medium label-4">{{ address }}</span>
         </div>
     </div>
 </template>
