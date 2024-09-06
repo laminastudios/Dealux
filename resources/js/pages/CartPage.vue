@@ -9,7 +9,7 @@
                     <div class="flex items-center gap-3">
                         <input
                             type="checkbox"
-                            :checked="selectedStores.size === stores.length || selectedItems.size === allItems.length"
+                            :checked="allItemsChecked"
                             class="checked:bg-primary-500 bg-white border border-primary-500 rounded w-5 h-5"
                             @change="
                                 selectAllStores($event);
@@ -119,10 +119,20 @@ export default {
 
     methods: {
         clearCartItems() {
-            this.stores = [];
-            this.selectedItemsGroupByStore.clear();
-            this.selectedStores.clear();
-            this.selectedItems.clear();
+            if (this.allItemsChecked) {
+                this.stores = [];
+            } else if (this.selectedStores.size > 0) {
+                alert('clear stores!');
+                // remove selected stores
+                this.stores = this.stores.filter((store) => !this.selectedStores.has(store.id));
+                // remove selected items
+                this.selectedStores.clear();
+            } else if (this.selectedItems.size > 0) {
+                this.stores.forEach((_, idx) => {
+                    this.stores[idx].items = this.stores[idx].items.filter((item) => !this.selectedItems.has(item.id));
+                });
+                this.selectedItems.clear();
+            }
         },
         selectStore({ isChecked, storeId }) {
             if (isChecked) {
@@ -185,6 +195,9 @@ export default {
         },
         allItems() {
             return Array.from(this.stores, (store) => store.items).flat();
+        },
+        allItemsChecked() {
+            return this.selectedItems.size === this.allItems.length;
         },
     },
 

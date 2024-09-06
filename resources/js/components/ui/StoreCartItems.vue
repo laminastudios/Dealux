@@ -4,7 +4,7 @@
             <div class="flex gap-3 flex-1 items-center">
                 <input
                     type="checkbox"
-                    :checked="selectedStores.has(storeId) || selectedStoreItems.size === items.length"
+                    :checked="selectedStores.has(storeId)"
                     @change="
                         addAllStoreItems($event);
                         $emit('selectItemsByStore', { $event, storeItemsId });
