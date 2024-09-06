@@ -13,7 +13,7 @@
         <img
             :src="image"
             :alt="`Photo of ${itemName}`"
-            class="border-black border-[1.2px] object-cover"
+            class="object-cover"
         />
 
         <div class="flex flex-wrap gap-5 justify-between w-full text-neutral-700">
