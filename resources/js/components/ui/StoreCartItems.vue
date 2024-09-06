@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-col leading-4">
-        <div class="p-4 flex gap-5 items-center bg-neutral-100 border-b-neutral-700 border-b-[1.2px]">
+    <div class="flex flex-col leading-4 custom-shadow">
+        <div class="p-4 flex gap-5 items-center bg-white border-b-neutral-700 border-b-[1.2px]">
             <div class="flex gap-5 flex-1">
                 <input
                     type="checkbox"

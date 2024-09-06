@@ -1,8 +1,8 @@
 <template>
-    <section class="min-h-screen mx-auto">
-        <div class="flex gap-5 justify-center container my-20">
+    <section class="min-h-screen mx-auto bg-background">
+        <div class="flex gap-5 justify-center container py-20">
             <div class="flex-1 h-full flex flex-col gap-5">
-                <div class="bg-neutral-100 px-4 py-2 flex justify-between">
+                <div class="bg-white px-4 py-2 flex justify-between custom-shadow">
                     <div class="flex items-center gap-2 text-sm">
                         <input
                             type="checkbox"
@@ -21,6 +21,7 @@
                         variant="filled"
                         class="gap-1 px-0"
                     >
+                        <!-- TODO: Delete button functionality -->
                         <i class="bx bx-trash font-semibold text-neutral-700 text-sm"></i>
                         <span class="font-semibold leading-4 text-sm text-neutral-700">Delete</span>
                     </Button>
@@ -176,6 +177,7 @@ export default {
             return Array.from(this.stores, (store) => store.items).flat();
         },
     },
+
     components: {
         StoreCartItems,
         OrderSummary,

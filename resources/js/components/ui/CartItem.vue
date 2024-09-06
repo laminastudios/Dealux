@@ -1,5 +1,5 @@
 <template>
-    <div class="flex gap-5 py-6 px-4 bg-neutral-100">
+    <div class="flex gap-5 py-6 px-4 bg-white">
         <input
             type="checkbox"
             :checked="selectedItems.has(itemId)"
