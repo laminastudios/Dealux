@@ -18,18 +18,18 @@
 
         <div class="flex flex-wrap gap-5 justify-between w-full">
             <div class="flex md:flex-1 flex-wrap gap-5 justify-between">
-                <div class="flex flex-col gap-6 w-full">
-                    <div class="font-extrabold leading-4">
+                <div class="flex flex-col gap-4 w-full">
+                    <div class="font-extrabold label-4">
                         {{ itemName }}
                     </div>
-                    <div class="font-medium leading-4">
+                    <div class="font-medium label-4">
                         {{ details }}
                     </div>
                 </div>
             </div>
 
             <div class="flex flex-wrap items-center gap-12">
-                <div class="font-medium leading-4 sm:flex-1">₱{{ price }}</div>
+                <div class="font-medium label-4 sm:flex-1">₱{{ price }}</div>
                 <InputSpinner :quantity="2" />
             </div>
         </div>

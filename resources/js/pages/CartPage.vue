@@ -7,23 +7,23 @@
                         <input
                             type="checkbox"
                             :checked="selectedStores.size === stores.length || selectedItems.size === allItems.length"
-                            class="checked:bg-primary-500 bg-white border border-primary-500 rounded w-6 h-6"
+                            class="checked:bg-primary-500 bg-white border border-primary-500 rounded w-5 h-5"
                             @change="
                                 selectAllStores($event);
                                 selectAllItems($event);
                             "
                         />
-                        <span class="font-semibold leading-4">
+                        <span class="font-semibold label-4">
                             Select All ({{ allItems.length }} item{{ allItems.length > 1 ? 's' : '' }})
                         </span>
                     </div>
                     <Button
                         variant="filled"
-                        class="gap-1 px-0"
+                        class="gap-1 px-0 label-4"
                     >
                         <!-- TODO: Delete button functionality -->
-                        <i class="bx bx-trash font-semibold text-sm"></i>
-                        <span class="font-semibold leading-4 text-sm">Delete</span>
+                        <i class="bx bx-trash font-semibold"></i>
+                        <span class="font-semibold leading-4">Delete</span>
                     </Button>
                 </div>
 

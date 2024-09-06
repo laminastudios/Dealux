@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col leading-4 custom-shadow text-black">
+    <div class="flex flex-col custom-shadow text-black">
         <div class="p-4 flex gap-5 items-center bg-white border-b-neutral-500 border-b-[1px]">
             <div class="flex gap-3 flex-1 items-center">
                 <input
@@ -12,7 +12,7 @@
                     "
                     class="checked:bg-primary-500 bg-white border border-primary-500 rounded w-6 h-6"
                 />
-                <div class="font-semibold w-full">
+                <div class="font-semibold w-full label-4">
                     {{ storeName }}
                 </div>
             </div>
@@ -23,7 +23,7 @@
                 hover-color="neutral-400"
                 size="xs"
             >
-                <div class="font-semibold flex items-center gap-2">
+                <div class="font-semibold flex items-center gap-2 label-4">
                     <i class="bx bxs-crown"></i>
                     <a :href="storeURL">Visit Store</a>
                 </div>

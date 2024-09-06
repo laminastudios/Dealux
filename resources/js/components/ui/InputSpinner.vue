@@ -1,16 +1,16 @@
 <template>
-    <div class="w-fit py-1 flex h-fit justify-center text-center">
+    <div class="w-fit py-1 flex h-fit justify-center text-center font-bold label-4 text-black">
         <button
-            class="px-2 py-0 font-semibold text-xl bg-neutral-400 text-neutral-600 flex-2 hover:bg-neutral-500 hover:text-neutral-50"
+            class="px-2 py-0 text-xl bg-neutral-400 flex-2 hover:bg-neutral-500"
             @click="decrementQuantity"
         >
             -
         </button>
-        <span class="bg-neutral-300 text-neutral-50 flex items-center px-3">
+        <span class="bg-neutral-300 flex items-center px-3">
             {{ itemQuantity }}
         </span>
         <button
-            class="bg-neutral-400 text-neutral-600 px-2 py-0 font-semibold text-xl hover:bg-neutral-500 hover:text-neutral-50"
+            class="bg-neutral-400 px-2 py-0 hover:bg-neutral-500"
             @click="incrementQuantity"
         >
             +
