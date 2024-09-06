@@ -4,7 +4,8 @@
             <div class="flex gap-3 flex-1 items-center">
                 <input
                     type="checkbox"
-                    :checked="selectedStores.has(storeId)"
+                    v-if="items.length > 1"
+                    :checked="allStoreItemsSelected"
                     @change="
                         addAllStoreItems($event);
                         $emit('selectItemsByStore', { $event, storeItemsId });
@@ -101,6 +102,9 @@ export default {
                 return store.items;
             }
             return new Set();
+        },
+        allStoreItemsSelected() {
+            return this.selectedStores.has(this.storeId);
         },
     },
     components: {

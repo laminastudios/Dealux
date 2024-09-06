@@ -121,12 +121,12 @@ export default {
         clearCartItems() {
             if (this.allItemsChecked) {
                 this.stores = [];
-            } else if (this.selectedStores.size > 0) {
-                this.stores = this.stores.filter((store) => !this.selectedStores.has(store.id));
             } else if (this.selectedItems.size > 0) {
                 this.stores.forEach((_, idx) => {
                     this.stores[idx].items = this.stores[idx].items.filter((item) => !this.selectedItems.has(item.id));
                 });
+            } else if (this.selectedStores.size > 0) {
+                this.stores = this.stores.filter((store) => !this.selectedStores.has(store.id));
             }
             this.selectedStores.clear();
             this.selectedItems.clear();
