@@ -3,7 +3,7 @@
         <button
             ref="dropDownButton"
             @click="openDropDown"
-            class="flex items-center justify-between gap-[10px] cursor-pointer w-full h-full transition-colors px-[24px] rounded-[5px]"
+            class="flex items-center cursor-pointer w-full h-full transition-colors px-[24px] rounded-[5px]"
             :class="variantClassesContainer"
         >
             <slot v-if="!selected">{{ selected }}</slot>
@@ -91,8 +91,8 @@ export default {
     computed: {
         variantClassesContainer() {
             const variants = {
-                variant1: 'bg-yellow-400 hover:bg-yellow-600 text-white',
-                variant2: 'bg-neutral-50 hover:bg-neutral-100 text-neutral-400',
+                variant1: 'bg-yellow-400 hover:bg-yellow-600 text-white justify-center gap-2.5',
+                variant2: 'bg-neutral-50 hover:bg-neutral-100 text-neutral-400 justify-between',
                 navbar: 'hover:text-yellow-400 p-2',
             };
             return variants[this.variant] || variants['light'];
