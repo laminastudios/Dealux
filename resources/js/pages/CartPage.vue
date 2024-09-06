@@ -3,15 +3,15 @@
         <div class="flex gap-5 justify-center container py-20">
             <div class="flex-1 h-full flex flex-col gap-5">
                 <div class="bg-white px-4 py-2 flex justify-between custom-shadow">
-                    <div class="flex items-center gap-2 text-sm">
+                    <div class="flex items-center gap-3 text-sm">
                         <input
                             type="checkbox"
                             :checked="selectedStores.size === stores.length || selectedItems.size === allItems.length"
+                            class="checked:bg-primary-500 bg-white border border-primary-500 rounded w-6 h-6"
                             @change="
                                 selectAllStores($event);
                                 selectAllItems($event);
                             "
-                            class="accent-neutral-300 bg-neutral-300"
                         />
                         <span class="font-medium leading-4">
                             Select All ({{ allItems.length }} item{{ allItems.length > 1 ? 's' : '' }})

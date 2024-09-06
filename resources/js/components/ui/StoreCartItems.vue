@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col leading-4 custom-shadow">
         <div class="p-4 flex gap-5 items-center bg-white border-b-neutral-700 border-b-[1.2px]">
-            <div class="flex gap-5 flex-1">
+            <div class="flex gap-3 flex-1 items-center">
                 <input
                     type="checkbox"
                     :checked="selectedStores.has(storeId) || selectedStoreItems.size === items.length"
@@ -10,7 +10,7 @@
                         $emit('selectItemsByStore', { $event, storeItemsId });
                         $emit('selectStore', { isChecked: $event.target.checked, storeId });
                     "
-                    class="accent-neutral-300 bg-neutral-300"
+                    class="checked:bg-primary-500 bg-white border border-primary-500 rounded w-6 h-6"
                 />
                 <div class="font-semibold w-full">
                     {{ storeName }}

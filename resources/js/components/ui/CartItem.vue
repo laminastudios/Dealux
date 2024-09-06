@@ -7,7 +7,7 @@
                 $emit('selectStoreItem', { $event, itemId });
                 $emit('handleSelectItemEmit', { isChecked: $event.target.checked, itemId });
             "
-            class="accent-neutral-300 bg-neutral-300"
+            class="checked:bg-primary-500 bg-white border border-primary-500 rounded w-6 h-6"
         />
 
         <img
