@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div class="flex flex-col gap-7 pt-5 border-t-2 border-t-neutral-700">
+            <div class="flex flex-col gap-7 pt-5 border-t border-t-black">
                 <div class="flex justify-between gap-3">
                     <div class="font-medium leading-4">Total</div>
                     <div class="font-semibold leading-4">₱{{ totalPrice() }}</div>
