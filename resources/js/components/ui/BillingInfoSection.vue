@@ -28,9 +28,8 @@
                 />
                 <Button
                     variant="filled"
-                    color="neutral-400"
+                    color="yellow"
                     class="font-semibold leading-4"
-                    hoverColor="neutral-600"
                 >
                     Apply
                 </Button>
@@ -60,9 +59,9 @@
             </div>
             <Button
                 variant="filled"
-                color="neutral-200"
-                hoverColor="neutral-300"
+                color="yellow"
                 @click="initiateCheckout"
+                class="w-fit mx-auto"
             >
                 <span class="font-semibold">Place Order</span>
             </Button>
