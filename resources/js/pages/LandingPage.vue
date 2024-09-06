@@ -9,7 +9,7 @@
                 autoplay
                 muted
                 loop
-                class="absolute inset-0 w-full h-full object-cover border border-red-500"
+                class="absolute inset-0 w-full h-full object-cover"
             ></video>
             <!-- Gradient Overlay -->
             <div class="absolute inset-0 bg-gradient-to-b from-[#041E3B] to-[#020C18] opacity-60"></div>
