@@ -1,15 +1,20 @@
 <template>
     <section class="min-h-screen mx-auto">
-        <div class="flex gap-5 justify-center container my-10">
+        <div class="flex gap-5 justify-center container my-20">
             <div class="flex-1 h-full flex flex-col gap-5">
                 <div class="bg-neutral-100 px-4 py-2 flex justify-between">
                     <div class="flex items-center gap-2 text-sm">
                         <input
                             type="checkbox"
+                            :checked="selectedStores.size === stores.length || selectedItems.size === allItems.length"
+                            @change="
+                                selectAllStores($event);
+                                selectAllItems($event);
+                            "
                             class="accent-neutral-300 bg-neutral-300"
                         />
                         <span class="font-medium leading-4">
-                            Select All ({{ totalItems }} item{{ totalItems > 1 ? 's' : '' }})
+                            Select All ({{ allItems.length }} item{{ allItems.length > 1 ? 's' : '' }})
                         </span>
                     </div>
                     <Button
@@ -25,13 +30,25 @@
                     v-for="store in stores"
                     v-show="store.items.length > 0"
                     :key="store.id"
+                    :storeId="store.id"
                     :storeName="store.name"
                     :storeURL="store.link"
                     :items="store.items"
+                    :selectedStores="selectedStores"
+                    :selectedItems="selectedItems"
+                    :selectedItemsGroupByStore="selectedItemsGroupByStore"
+                    @selectStore="selectStore"
+                    @selectItem="selectItem"
+                    @selectItemsByStore="selectItemsByStore"
+                    @selectStoreByItems="selectStoreByItems"
                 />
             </div>
 
-            <OrderSummary />
+            <OrderSummary
+                :totalItems="allItems.length"
+                :priceSubtotal="priceSubtotal"
+                :totalShippingFee="totalShippingFee"
+            />
         </div>
     </section>
 </template>
@@ -43,8 +60,12 @@ import Button from '../components/ui/Button.vue';
 
 export default {
     name: 'CartPage',
+
     data() {
         return {
+            selectedItemsGroupByStore: [], // [{ storeID: ..., items: Set([...itemIDs]) }, ...]
+            selectedStores: new Set(),
+            selectedItems: new Set(), // assume that all items have unique ID
             stores: [
                 {
                     id: 1,
@@ -56,6 +77,7 @@ export default {
                             name: 'Product A',
                             details: '128x128, round',
                             price: 69,
+                            shippingFee: 10,
                             quantity: 2,
                             image: 'https://placehold.co/84x67',
                         },
@@ -64,6 +86,7 @@ export default {
                             name: 'Product A1',
                             details: '128x128, round',
                             price: 420,
+                            shippingFee: 10,
                             quantity: 1,
                             image: 'https://placehold.co/84x67',
                         },
@@ -75,10 +98,11 @@ export default {
                     link: '#',
                     items: [
                         {
-                            id: 1,
+                            id: 3,
                             name: 'Product B',
                             details: '128x128, round',
                             price: 69_420,
+                            shippingFee: 10,
                             quantity: 2,
                             image: 'https://placehold.co/84x67',
                         },
@@ -87,11 +111,69 @@ export default {
             ],
         };
     },
+
+    methods: {
+        selectStore({ isChecked, storeId, selectedStoreItems }) {
+            if (isChecked) {
+                this.selectedStores.add(storeId);
+                return;
+            }
+            this.selectedStores.delete(storeId);
+        },
+        selectItem({ isChecked, itemId }) {
+            if (isChecked) {
+                this.selectedItems.add(itemId);
+                return;
+            }
+            this.selectedItems.delete(itemId);
+        },
+        selectAllStores($event) {
+            if ($event.target.checked) {
+                this.stores.forEach((store) => {
+                    this.selectedStores.add(store.id);
+                    this.selectedItemsGroupByStore.push({
+                        storeId: store.id,
+                        items: new Set(Array.from(store.items, (item) => item.id)),
+                    });
+                });
+                return;
+            }
+            this.selectedStores.clear();
+            this.selectedItemsGroupByStore = [];
+        },
+        selectAllItems($event) {
+            if ($event.target.checked) {
+                this.allItems.forEach((item) => this.selectedItems.add(item.id));
+                return;
+            }
+            this.selectedItems.clear();
+        },
+        selectItemsByStore({ $event, storeItemsId }) {
+            if ($event.target.checked) {
+                this.selectedItems = new Set([...this.selectedItems, ...storeItemsId]);
+                return;
+            }
+            storeItemsId.forEach((itemId) => this.selectedItems.delete(itemId));
+        },
+        selectStoreByItems({ storeId, selectedStoreItems }) {
+            let storeItemsId = this.stores.find((store) => store.id === storeId).items;
+            if (selectedStoreItems.size === storeItemsId.length) {
+                this.selectedStores.add(storeId);
+                return;
+            }
+            this.selectedStores.delete(storeId);
+        },
+    },
+
     computed: {
-        totalItems() {
-            let total = 0;
-            this.stores.forEach((store) => (total += store.items.length));
-            return total;
+        priceSubtotal() {
+            return this.allItems.reduce((total, item) => total + item.price, 0);
+        },
+        totalShippingFee() {
+            return this.allItems.reduce((shippingFee, item) => shippingFee + item.shippingFee, 0);
+        },
+        allItems() {
+            return Array.from(this.stores, (store) => store.items).flat();
         },
     },
     components: {
