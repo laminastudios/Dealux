@@ -5,15 +5,35 @@
                 <div class="font-extrabold label-2">Payment Method</div>
             </div>
 
-            <!-- temporary -->
-            <div class="mt-3 flex flex-col gap-0">
-                <div class="bg-neutral-200 flex justify-between px-4 items-center py-4">
-                    <div class="font-medium leading-4">Credit/Debit Card</div>
-                    <div class="bg-neutral-100 w-5 h-5 rounded-full"></div>
+            <!--
+            TODO: was about to make a component for each payment method
+                  but this section might be temporary
+            -->
+            <div class="mt-3 flex flex-col gap-3">
+                <div class="flex flex-col gap-0">
+                    <div class="bg-blue-50 px-4 py-2 font-semibold label-4 flex gap-2 items-center">
+                        <img
+                            src="/assets/visa_inc_logo.png"
+                            alt="MasterCard logo"
+                        />
+                        ************1234
+                    </div>
+                    <div class="bg-blue-100 flex items-center justify-end px-2 py-1">
+                        <span class="font-medium label-5 text-neutral-600 italic"> Credit Card </span>
+                    </div>
                 </div>
-                <div class="bg-neutral-200 mt-3 flex justify-between px-4 items-center py-4">
-                    <div class="font-medium leading-4">Credit/Debit Card</div>
-                    <div class="bg-neutral-100 w-5 h-5 rounded-full"></div>
+
+                <div class="flex flex-col gap-0">
+                    <div class="bg-blue-50 px-4 py-2 font-semibold label-4 flex gap-2 items-center">
+                        <img
+                            src="/assets/mastercard_logo_small.png"
+                            alt="MasterCard logo"
+                        />
+                        ************1234
+                    </div>
+                    <div class="bg-blue-100 flex items-center justify-end px-2 py-1">
+                        <span class="font-medium label-5 text-neutral-600 italic"> Debit Card </span>
+                    </div>
                 </div>
             </div>
         </div>
