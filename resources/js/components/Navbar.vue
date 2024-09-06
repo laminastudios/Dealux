@@ -78,7 +78,12 @@
                     <Button variant="outline"> Sign Up </Button>
                 </router-link>
                 <router-link to="/login">
-                    <Button> Sign In </Button>
+                    <Button
+                        variant="filled"
+                        color="yellow"
+                    >
+                        Sign In
+                    </Button>
                 </router-link>
             </div>
         </div>
