@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <div class="border-t border-t-neutral-700 pt-3 px-4 flex flex-col gap-3">
+        <div class="border-t border-t-neutral-500 pt-3 px-4 flex flex-col gap-3">
             <div class="flex justify-between">
                 <div class="font-medium leading-4">Total</div>
                 <div class="font-semibold leading-4">₱{{ shippingFee + priceSubtotal }}</div>
