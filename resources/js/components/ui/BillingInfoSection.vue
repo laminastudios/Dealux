@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-neutral-100 w-[380px] h-fit py-10 px-7 text-neutral-700 flex flex-col gap-7">
+    <div class="bg-white w-[380px] h-fit py-10 px-7 text-neutral-700 flex flex-col gap-7 custom-shadow">
         <div>
             <div class="flex justify-between items-center">
                 <div class="font-bold text-neutral-800">Payment Method</div>

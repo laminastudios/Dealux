@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-neutral-100 text-neutral-700">
+    <div class="bg-white text-neutral-700 custom-shadow">
         <div class="px-12 py-3 flex gap-5 items-center border-b-neutral-700 border-b-[1.2px] justify-between">
             <div class="font-medium text-neutral-700">
                 Package{{ totalItems > 1 ? 's' : '' }} {{ totalItems }} of {{ totalItems }}
