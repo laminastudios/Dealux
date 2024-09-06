@@ -122,17 +122,15 @@ export default {
             if (this.allItemsChecked) {
                 this.stores = [];
             } else if (this.selectedStores.size > 0) {
-                alert('clear stores!');
-                // remove selected stores
                 this.stores = this.stores.filter((store) => !this.selectedStores.has(store.id));
-                // remove selected items
-                this.selectedStores.clear();
             } else if (this.selectedItems.size > 0) {
                 this.stores.forEach((_, idx) => {
                     this.stores[idx].items = this.stores[idx].items.filter((item) => !this.selectedItems.has(item.id));
                 });
-                this.selectedItems.clear();
             }
+            this.selectedStores.clear();
+            this.selectedItems.clear();
+            this.selectedItemsGroupByStore.clear();
         },
         selectStore({ isChecked, storeId }) {
             if (isChecked) {
