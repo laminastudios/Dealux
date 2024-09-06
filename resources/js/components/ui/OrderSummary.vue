@@ -1,9 +1,9 @@
 <template>
     <!-- TODO: w-380px might change for better responsiveness -->
-    <div class="flex w-[380px] flex-col gap-5 bg-white px-5 py-6 h-fit custom-shadow">
+    <div class="flex w-[380px] flex-col gap-5 bg-white px-5 py-6 h-fit custom-shadow text-black">
         <div class="font-bold text-md leading-4">Order Summary</div>
 
-        <div class="flex flex-col gap-6 px-6 w-full text-neutral-700">
+        <div class="flex flex-col gap-6 px-6 w-full">
             <div class="flex flex-col gap-4">
                 <div class="flex flex-col gap-4">
                     <div class="flex justify-between">
@@ -33,7 +33,7 @@
                         variant="filled"
                         color="neutral-200"
                         hoverColor="neutral-400"
-                        class="font-semibold leading-4 text-neutral-700 w-full"
+                        class="font-semibold leading-4 w-full"
                     >
                         <span class="text-black font-semibold"> Proceed to Checkout </span>
                     </Button>

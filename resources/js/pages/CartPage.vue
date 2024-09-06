@@ -1,9 +1,9 @@
 <template>
-    <section class="min-h-screen mx-auto bg-background">
+    <section class="min-h-screen mx-auto bg-background text-black">
         <div class="flex gap-5 justify-center container py-20">
             <div class="flex-1 h-full flex flex-col gap-5">
                 <div class="bg-white px-4 py-2 flex justify-between custom-shadow">
-                    <div class="flex items-center gap-3 text-sm">
+                    <div class="flex items-center gap-3">
                         <input
                             type="checkbox"
                             :checked="selectedStores.size === stores.length || selectedItems.size === allItems.length"
@@ -13,7 +13,7 @@
                                 selectAllItems($event);
                             "
                         />
-                        <span class="font-medium leading-4">
+                        <span class="font-semibold leading-4">
                             Select All ({{ allItems.length }} item{{ allItems.length > 1 ? 's' : '' }})
                         </span>
                     </div>
@@ -22,8 +22,8 @@
                         class="gap-1 px-0"
                     >
                         <!-- TODO: Delete button functionality -->
-                        <i class="bx bx-trash font-semibold text-neutral-700 text-sm"></i>
-                        <span class="font-semibold leading-4 text-sm text-neutral-700">Delete</span>
+                        <i class="bx bx-trash font-semibold text-sm"></i>
+                        <span class="font-semibold leading-4 text-sm">Delete</span>
                     </Button>
                 </div>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex gap-3 py-6 px-4 bg-white">
+    <div class="flex gap-3 py-6 px-4 bg-white text-black">
         <input
             type="checkbox"
             :checked="selectedItems.has(itemId)"
@@ -16,7 +16,7 @@
             class="object-cover"
         />
 
-        <div class="flex flex-wrap gap-5 justify-between w-full text-neutral-700">
+        <div class="flex flex-wrap gap-5 justify-between w-full">
             <div class="flex md:flex-1 flex-wrap gap-5 justify-between">
                 <div class="flex flex-col gap-6 w-full">
                     <div class="font-extrabold leading-4">
