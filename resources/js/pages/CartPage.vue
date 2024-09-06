@@ -1,10 +1,10 @@
 <template>
     <section class="min-h-screen mx-auto bg-background text-black">
         <div
-            class="flex gap-5 justify-center container py-20"
+            class="flex gap-8 justify-center container py-20"
             v-show="stores.length > 0"
         >
-            <div class="flex-1 h-full flex flex-col gap-5">
+            <div class="flex-1 h-full flex flex-col gap-8">
                 <div class="bg-white px-6 py-2 flex justify-between custom-shadow">
                     <div class="flex items-center gap-3">
                         <input
@@ -29,22 +29,24 @@
                     </button>
                 </div>
 
-                <StoreCartItems
-                    v-for="store in stores"
-                    v-show="store.items.length > 0"
-                    :key="store.id"
-                    :storeId="store.id"
-                    :storeName="store.name"
-                    :storeURL="store.link"
-                    :items="store.items"
-                    :selectedStores="selectedStores"
-                    :selectedItems="selectedItems"
-                    :selectedItemsGroupByStore="selectedItemsGroupByStore"
-                    @selectStore="selectStore"
-                    @selectItem="selectItem"
-                    @selectItemsByStore="selectItemsByStore"
-                    @selectStoreByItems="selectStoreByItems"
-                />
+                <div class="flex flex-col gap-2">
+                    <StoreCartItems
+                        v-for="store in stores"
+                        v-show="store.items.length > 0"
+                        :key="store.id"
+                        :storeId="store.id"
+                        :storeName="store.name"
+                        :storeURL="store.link"
+                        :items="store.items"
+                        :selectedStores="selectedStores"
+                        :selectedItems="selectedItems"
+                        :selectedItemsGroupByStore="selectedItemsGroupByStore"
+                        @selectStore="selectStore"
+                        @selectItem="selectItem"
+                        @selectItemsByStore="selectItemsByStore"
+                        @selectStoreByItems="selectStoreByItems"
+                    />
+                </div>
             </div>
 
             <OrderSummary
