@@ -1,29 +1,29 @@
 <template>
-    <section class="min-h-screen">
+    <section class="min-h-screen bg-background">
         <div class="container mx-auto py-20">
             <div class="flex">
                 <!-- Sidebar -->
                 <Sidebar></Sidebar>
 
                 <!-- Main Content -->
-                <div class="w-3/4 ml-12 px-[38px] py-[36px] bg-neutral-100">
+                <div class="w-3/4 ml-6 px-[38px] py-[36px] bg-white rounded-xl shadow-lg">
                     <div class="border-b border-black pb-2 mb-4 flex justify-between items-center">
                         <div>
-                            <h5 class="font-semibold">My Addresses</h5>
-                            <p class="font-semibold label-3 mt-4 text-neutral-400">Manage and protect your account</p>
+                            <h5 class="font-semibold text-yellow-400">My Addresses</h5>
+                            <p class="font-semibold label-3 mt-4">Manage and protect your account</p>
                         </div>
                         <custom-button
                             variant="filled"
                             size="sm"
-                            class="gap-[10px]"
-                            color="neutral-400"
+                            class="gap-[10px] rounded-lg"
+                            color="yellow"
                             @click="showModal = true"
                         >
-                            <p class="label-4 font-semibold">Add New Address</p>
+                            <p class="label-4 font-extrabold">Add New Address</p>
                             <i class="bx bx-add-to-queue"></i>
                         </custom-button>
                     </div>
-                    <h6 class="font-semibold pt-6">Addresses</h6>
+                    <h6 class="font-semibold pt-6 text-yellow-400">Addresses</h6>
 
                     <!-- Addresses List -->
                     <div v-if="addresses.length > 0">
@@ -37,23 +37,27 @@
                         >
                             <div class="flex justify-between items-start">
                                 <div>
-                                    <p class="font-bold label-4">
-                                        {{ address.name }} | <span class="text-neutral-400">{{ address.phone }}</span>
+                                    <p class="font-semibold label-4">
+                                        {{ address.name }}
+                                        <span
+                                            class="font-normal"
+                                            size="xl"
+                                            >|</span
+                                        >
+                                        {{ address.phone }}
                                     </p>
-                                    <p class="font-bold label-4 text-neutral-400 mt-4">
-                                        {{ address.street }}, {{ address.region }}
-                                    </p>
-                                    <p class="font-bold label-4 text-neutral-400 mt-4 mb-2">
+                                    <p class="font-semibold label-4 mt-4">{{ address.street }}, {{ address.region }}</p>
+                                    <p class="font-semibold label-4 mt-4 mb-6">
                                         {{ address.city }}, {{ address.province }}, {{ address.zip }}
                                     </p>
                                     <span
                                         v-if="address.default"
-                                        class="text-red-600 font-bold label-4"
+                                        class="text-primary-500 font-bold label-4"
                                         >Default</span
                                     >
                                 </div>
                                 <div class="flex flex-col items-end space-y-2">
-                                    <div class="flex space-x-4">
+                                    <div class="flex space-x-4 pb-5">
                                         <button
                                             @click="editAddress(index)"
                                             class="text-blue-600 label-4"
@@ -77,8 +81,8 @@
                                         @click="setAsDefault(index)"
                                         variant="filled"
                                         size="xs"
-                                        class="gap-[10px]"
-                                        color="neutral-400"
+                                        class="gap-[10px] rounded-lg"
+                                        color="yellow"
                                     >
                                         <p class="label-4 font-semibold">Set as Default</p>
                                     </custom-button>
@@ -101,10 +105,10 @@
             v-if="showModal"
             class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
         >
-            <div class="bg-white p-8 rounded shadow-lg max-w-lg w-full">
-                <h3 class="text-xl border-b border-black pb-2 font-bold mb-4">
+            <div class="bg-background rounded shadow-lg max-w-xl py-[78px] px-[100px]">
+                <h5 class="border-b border-black pb-2 font-semibold mb-2 text-primary-600">
                     {{ isEdit ? 'Edit Address' : 'Add New Address' }}
-                </h3>
+                </h5>
                 <form @submit.prevent="submitAddress">
                     <div class="pt-4 mb-4 flex space-x-2">
                         <float-input
@@ -112,7 +116,7 @@
                             id="name"
                             type="input"
                             label="Full Name"
-                            class="w-full"
+                            class="w-full bg-primary-50 shadow-md"
                             required
                         />
                         <float-input
@@ -120,7 +124,7 @@
                             id="phone"
                             type="input"
                             label="Phone Number"
-                            class="w-full"
+                            class="w-full bg-primary-50 shadow-md"
                             required
                         />
                     </div>
@@ -130,7 +134,7 @@
                             id="region"
                             type="input"
                             label="Region"
-                            class="w-full"
+                            class="w-full bg-primary-50 shadow-md"
                             required
                         />
                         <float-input
@@ -138,7 +142,7 @@
                             id="province"
                             type="input"
                             label="Province"
-                            class="w-full"
+                            class="w-full bg-primary-50 shadow-md"
                             required
                         />
                         <float-input
@@ -146,7 +150,7 @@
                             id="city"
                             type="input"
                             label="City"
-                            class="w-full"
+                            class="w-full bg-primary-50 shadow-md"
                             required
                         />
                     </div>
@@ -156,7 +160,7 @@
                             id="zip"
                             type="input"
                             label="Postal Code"
-                            class="w-full"
+                            class="w-full bg-primary-50 shadow-md"
                             required
                         />
                     </div>
@@ -166,40 +170,41 @@
                             id="street"
                             type="textarea"
                             label="Street Name, Building No. House No."
-                            class="w-full"
+                            class="w-full bg-primary-50 shadow-md"
                             :style="{ height: '100px' }"
+                            :isTextarea="true"
                             required
                         />
                     </div>
-                    <div class="mb-4">
+                    <div class="mb-12">
                         <label>
                             <input
                                 v-model="newAddress.default"
                                 type="checkbox"
-                                class="mr-2"
+                                class="mr-2 rounded"
                                 :disabled="isEdit && newAddress.default"
                             />
-                            Set as Default
+                            <span class="label-4">Set as Default</span>
                         </label>
                     </div>
                     <div class="flex justify-end space-x-4">
                         <custom-button
                             variant="filled"
-                            size="sm"
-                            class="gap-[10px]"
-                            color="neutral-400"
-                            @click="closeModal"
+                            size="xs"
+                            class="gap-[10px] rounded"
+                            color="yellow"
                         >
-                            <p class="label-4 font-semibold">Cancel</p>
+                            <p class="label-4 font-semibold">{{ isEdit ? 'Update' : 'Submit' }}</p>
                         </custom-button>
 
                         <custom-button
                             variant="filled"
-                            size="sm"
-                            class="gap-[10px]"
-                            color="neutral-400"
+                            size="xs"
+                            class="gap-[10px] rounded"
+                            color="yellow"
+                            @click="closeModal"
                         >
-                            <p class="label-4 font-semibold">{{ isEdit ? 'Update' : 'Submit' }}</p>
+                            <p class="label-4 font-semibold">Cancel</p>
                         </custom-button>
                     </div>
                 </form>
@@ -294,13 +299,4 @@ export default {
 };
 </script>
 
-<style scoped>
-/* Add custom styles here */
-.profile-image {
-    width: 73px; /* Adjust size as needed */
-    height: 73px; /* Adjust size as needed */
-    border-radius: 100%; /* Ensures the image is circular */
-    object-fit: cover; /* Maintains aspect ratio and covers the circular area */
-    background-color: #d1d5db; /* Fallback background color */
-}
-</style>
+<style scoped></style>

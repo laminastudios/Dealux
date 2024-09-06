@@ -1,9 +1,12 @@
 <!-- EXAMPLE USAGE -->
 <!-- <float-input v-model="email" type="email" label="Email" required id="email" /> -->
+<!-- FOR TEXT AREA -->
+<!-- <float-input v-model="message" :isTextarea="true" label="Message" id="message" /> -->
 
 <template>
     <div class="relative">
-        <input
+        <component
+            :is="isTextarea ? 'textarea' : 'input'"
             class="h-[48px] block px-[24px] py-[13px] font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer"
             v-bind="$attrs"
             :type="type"
@@ -42,6 +45,10 @@ export default {
         id: {
             type: String,
             default: 'floating_filled',
+        },
+        isTextarea: {
+            type: Boolean,
+            default: false,
         },
     },
 };
