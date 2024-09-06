@@ -3,7 +3,7 @@
         <button
             ref="dropDownButton"
             @click="openDropDown"
-            class="flex items-center justify-center gap-[10px] cursor-pointer w-full h-full transition-colors"
+            class="flex items-center justify-center gap-[10px] cursor-pointer w-full h-full transition-colors rounded-[5px]"
             :class="variantClassesContainer"
         >
             <slot></slot>
@@ -11,7 +11,7 @@
         <transition>
             <div
                 v-if="open"
-                class="absolute z-50 top-full mt-[11px] translate-x-1/2 right-1/2 text-center min-w-[7.5rem]"
+                class="absolute z-50 top-full translate-x-1/2 right-1/2 text-center min-w-[7.5rem]"
                 :class="variantClassesDropDown"
             >
                 <ul class="flex flex-col">
@@ -97,25 +97,25 @@ export default {
     computed: {
         variantClassesContainer() {
             const variants = {
-                light: 'bg-neutral-50 hover:bg-neutral-100 text-neutral-400',
-                dark: 'bg-neutral-500 hover:bg-neutral-300 text-white',
-                bare: 'hover:bg-neutral-100 p-2',
+                variant1: 'bg-yellow-400 hover:bg-yellow-500 text-white',
+                variant2: 'bg-neutral-50 hover:bg-neutral-100 text-neutral-400',
+                navbar: 'hover:text-yellow-400',
             };
             return variants[this.variant] || variants['light'];
         },
         variantClassesDropDown() {
             const variants = {
-                light: 'bg-neutral-50 min-w-full label-4',
-                dark: 'bg-neutral-500 text-white min-w-full label-3',
-                bare: 'bg-neutral-500 text-white min-w-full label-3 font-semibold',
+                variant1: 'bg-background text-primary-600 min-w-full label-4 border border-yellow-200',
+                variant2: 'bg-background text-primary-600 min-w-full label-4 border border-neutral-100',
+                navbar: 'bg-primary-700 text-white min-w-full label-3 font-semibold',
             };
             return variants[this.variant] || variants['light'];
         },
         variantClassesItems() {
             const variants = {
-                light: 'hover:bg-neutral-100',
-                dark: 'hover:bg-neutral-300',
-                bare: 'hover:bg-neutral-300',
+                variant1: 'hover:bg-neutral-100',
+                variant2: 'hover:bg-neutral-100',
+                navbar: 'hover:text-yellow-400',
             };
             return variants[this.variant] || variants['light'];
         },

@@ -1,6 +1,8 @@
 <template>
     <DropDownCompare
         :items="remainingProducts"
+        :variant="variant"
+        :childClassContainer="childClass"
         @pass="openPopup"
     >
         <slot></slot>
@@ -88,6 +90,14 @@ export default {
         DropDownCompare,
     },
     props: {
+        variant: {
+            type: String,
+            default: 'compare',
+        },
+        childClass: {
+            type: String,
+            required: false,
+        },
         initialProduct: {
             type: Object,
             required: true,

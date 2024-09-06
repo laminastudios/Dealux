@@ -1,25 +1,37 @@
 <!-- resources/js/components/Navbar.vue -->
 <template>
-    <nav class="h-[60px] bg-neutral-300 text-white">
+    <nav class="h-[60px] bg-primary-800 text-white">
         <div
             v-if="isAuthenticated"
-            class="container border border-red-500 h-full flex flex-row"
+            class="container h-full flex flex-row"
         >
-            <div class="my-auto">
+            <div class="my-auto h-full">
                 <router-link to="/home">
-                    <Button>Logo</Button>
+                    <img
+                        src="/assets/dealux_logo.png"
+                        alt="Dealux Logo"
+                        class="h-full object-contain"
+                    />
                 </router-link>
             </div>
             <ul class="m-auto flex flex-row items-center gap-[76px]">
                 <li class="label-3 font-bold">
-                    <router-link to="/home">Home</router-link>
+                    <router-link
+                        to="/home"
+                        class="hover:text-yellow-400 transition-colors"
+                        >Home</router-link
+                    >
                 </li>
                 <li class="label-3 font-bold">
-                    <router-link to="/cart">My Cart</router-link>
+                    <router-link
+                        to="/cart"
+                        class="hover:text-yellow-400 transition-colors"
+                        >My Cart</router-link
+                    >
                 </li>
                 <li class="label-3 font-bold">
                     <DropDownLink
-                        variant="bare"
+                        variant="navbar"
                         :links="purchaseLinks"
                     >
                         <p class="label-3 font-bold my-auto">My Purchase</p>
@@ -27,12 +39,16 @@
                     </DropDownLink>
                 </li>
                 <li class="label-3 font-bold">
-                    <router-link to="/support">Support Center</router-link>
+                    <router-link
+                        to="/support"
+                        class="hover:text-yellow-400 transition-colors"
+                        >Support Center</router-link
+                    >
                 </li>
             </ul>
             <DropDownLink
                 class="my-auto"
-                variant="bare"
+                variant="navbar"
                 :links="accountLinks"
             >
                 <img
@@ -46,11 +62,15 @@
         </div>
         <div
             v-else
-            class="container border border-red-500 h-full flex justify-between"
+            class="container h-full flex justify-between"
         >
-            <div class="my-auto">
+            <div class="my-auto h-full">
                 <router-link to="/home">
-                    <Button>Logo</Button>
+                    <img
+                        src="/assets/dealux_logo.png"
+                        alt="Dealux Logo"
+                        class="h-full object-contain"
+                    />
                 </router-link>
             </div>
             <div class="flex gap-[8px] my-auto">
@@ -58,7 +78,12 @@
                     <Button variant="outline"> Sign Up </Button>
                 </router-link>
                 <router-link to="/login">
-                    <Button> Sign In </Button>
+                    <Button
+                        variant="filled"
+                        color="yellow"
+                    >
+                        Sign In
+                    </Button>
                 </router-link>
             </div>
         </div>
