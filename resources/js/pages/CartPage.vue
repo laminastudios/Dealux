@@ -2,7 +2,7 @@
     <section class="min-h-screen mx-auto bg-background text-black">
         <div class="flex gap-5 justify-center container py-20">
             <div class="flex-1 h-full flex flex-col gap-5">
-                <div class="bg-white px-4 py-2 flex justify-between custom-shadow">
+                <div class="bg-white px-6 py-2 flex justify-between custom-shadow">
                     <div class="flex items-center gap-3">
                         <input
                             type="checkbox"
@@ -17,14 +17,11 @@
                             Select All ({{ allItems.length }} item{{ allItems.length > 1 ? 's' : '' }})
                         </span>
                     </div>
-                    <Button
-                        variant="filled"
-                        class="gap-1 px-0 label-4"
-                    >
+                    <button class="gap-1 px-0 label-4 flex gap-1 items-center hover:text-red-600">
                         <!-- TODO: Delete button functionality -->
                         <i class="bx bx-trash font-semibold"></i>
                         <span class="font-semibold leading-4">Delete</span>
-                    </Button>
+                    </button>
                 </div>
 
                 <StoreCartItems
