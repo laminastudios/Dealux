@@ -122,7 +122,7 @@ export default {
             this.selectedStores.clear();
             this.selectedItems.clear();
         },
-        selectStore({ isChecked, storeId, selectedStoreItems }) {
+        selectStore({ isChecked, storeId }) {
             if (isChecked) {
                 this.selectedStores.add(storeId);
                 return;
