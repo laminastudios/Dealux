@@ -1,7 +1,7 @@
 <template>
-    <div class="bg-neutral-100 text-neutral-700">
-        <div class="px-12 py-3 flex gap-5 items-center border-b-neutral-700 border-b-[1.2px] justify-between">
-            <div class="font-medium text-neutral-700">
+    <div class="bg-white custom-shadow">
+        <div class="px-12 py-3 flex gap-5 items-center border-b-neutral-500 border-b justify-between">
+            <div class="font-semibold label-4">
                 Package{{ totalItems > 1 ? 's' : '' }} {{ totalItems }} of {{ totalItems }}
             </div>
             <Button
@@ -11,7 +11,7 @@
             >
                 <a
                     :href="storeLink"
-                    class="font-medium text-neutral-700"
+                    class="font-medium label-4"
                 >
                     Shipped by {{ storeName }}
                 </a>
@@ -25,14 +25,13 @@
             <img
                 :src="item.image"
                 :alt="`Photo of ${item.name}`"
-                class="border border-black"
             />
             <div class="flex flex-1 flex-col gap-2 justify-center">
-                <div class="font-extrabold">{{ item.name }}</div>
-                <div>{{ item.details }}</div>
+                <div class="font-extrabold label-4">{{ item.name }}</div>
+                <div class="font-medium label-4">{{ item.details }}</div>
             </div>
-            <div class="px-10">₱{{ item.price }}</div>
-            <div>Qty: {{ item.quantity }}</div>
+            <div class="px-10 font-medium label-4">₱{{ item.price }}</div>
+            <div class="font-medium label-4">Qty: {{ item.quantity }}</div>
         </div>
     </div>
 </template>
