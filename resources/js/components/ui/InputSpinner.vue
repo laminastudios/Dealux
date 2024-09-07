@@ -6,9 +6,13 @@
         >
             -
         </button>
-        <span class="bg-primary-50 flex items-center px-5">
-            {{ itemQuantity }}
-        </span>
+        <input
+            class="bg-primary-50 flex items-center px-2 text-center font-bold label-4 w-20 border-transparent focus:border-transparent focus:ring-0"
+            type="number"
+            :min="0"
+            :placeholder="0"
+            v-model="itemQuantity"
+        />
         <button
             class="bg-primary-100 px-2 py-0 hover:bg-primary-200"
             @click="incrementQuantity"
@@ -43,4 +47,14 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+</style>
