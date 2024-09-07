@@ -48,7 +48,10 @@
 
         <!-- Total Price -->
         <div class="h-[160px] w-[1006px] bg-white px-[35px] py-[25px] flex flex-col gap-[20px]">
-            <div class="flex items-center justify-between">
+            <div
+                v-if="isActivePurchase"
+                class="flex items-center justify-between"
+            >
                 <p class="label-4 font-semibold">
                     Item to be Delivered at <span class="text-yellow-400">{{ deliverDate }}</span>
                 </p>
@@ -57,10 +60,19 @@
                     <p class="label-1 font-bold">{{ orderTotal }}</p>
                 </div>
             </div>
+            <div
+                v-else
+                class="flex items-center justify-end"
+            >
+                <div class="flex items-center justify-end gap-10 h-[45px]">
+                    <p class="label-2 font-medium">Order Total:</p>
+                    <p class="label-1 font-bold">{{ orderTotal }}</p>
+                </div>
+            </div>
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="label-5 font-medium text-neutral-400">Last Action</p>
-                    <p class="label-5 font-medium text-neutral-400">Action at {{ lastActionDate }}</p>
+                    <p class="label-5 font-medium text-neutral-400">{{ orderStatus }}</p>
+                    <p class="label-5 font-medium text-neutral-400">{{ parcelStatus }} at {{ lastActionDate }}</p>
                 </div>
                 <div class="flex items-center justify-end gap-[12px] h-[45px]">
                     <template v-if="isActivePurchase">
@@ -69,6 +81,7 @@
                             :size="'sm'"
                             :color="'yellow'"
                             class="gap-[10px] w-[10rem]"
+                            @click="viewOrder"
                         >
                             <p class="label-4 font-semibold">View Order</p>
                         </custom-button>
@@ -123,6 +136,7 @@ export default {
         'custom-button': Button,
     },
     props: {
+        storeID: Number,
         storeName: String,
         parcelStatus: String,
         orderStatus: String,
@@ -140,6 +154,11 @@ export default {
         isActivePurchase() {
             const route = useRoute();
             return route.path === '/purchase/active';
+        },
+    },
+    methods: {
+        viewOrder() {
+            this.$router.push(`/purchase/active/${this.storeID}`);
         },
     },
 };

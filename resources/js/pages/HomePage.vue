@@ -36,13 +36,13 @@
                     <!-- Dropdown for selecting display product quantity -->
                     <DropDownInput
                         class="w-[170px] h-[44px] custom-shadow"
-                        variant="dark"
+                        variant="variant1"
                         :items="DropDownItems"
                         name="quantity"
                         @change="handleQuantityChange"
                     >
-                        <p class="label-3 font-semibold text-black">Quantity</p>
-                        <i class="bx bxs-down-arrow text-black"></i>
+                        <p class="label-3 font-semibold">Quantity</p>
+                        <i class="bx bxs-down-arrow"></i>
                     </DropDownInput>
 
                     <!-- Button to add filters -->

@@ -8,6 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileAddressController;
 use App\Http\Controllers\ProfileController;
@@ -60,6 +61,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::prefix('purchase')->group(function () {
         Route::get('/active', [ActiveOrderController::class, 'index'])->name('activeorder');
+        Route::get('/active/{orderNumber}', [OrderDetailController::class, 'index'])->name('orderdetail');
         Route::get('/history', [PurchaseHistoryController::class, 'history'])->name('purchasehistory');
     });
 

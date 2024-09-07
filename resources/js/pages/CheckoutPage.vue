@@ -1,15 +1,23 @@
 <template>
-    <section class="min-h-screen">
-        <div class="container border border-blue-500 h-full flex flex-col items-center justify-center">
-            <h1 class="text-2xl font-bold mb-4">Maayong gabii</h1>
-            <h2 class="text-xl mb-6">This page's development has started!</h2>
-            <!-- Add more content here -->
-            <button
-                @click="initiateCheckout"
-                class="btn-primary"
-            >
-                Checkout
-            </button>
+    <section class="min-h-screen bg-background">
+        <div class="container flex gap-8 justify-center py-20">
+            <div class="flex flex-col gap-8 flex-1">
+                <ShippingInfoSection />
+                <div class="flex flex-col gap-2">
+                    <CheckoutItems
+                        v-for="store in stores"
+                        :key="store.id"
+                        :storeName="store.name"
+                        :storeLink="store.link"
+                        :items="store.items"
+                    />
+                </div>
+            </div>
+            <BillingInfoSection
+                :priceSubtotal="priceSubtotal"
+                :shippingFee="totalShippingFee"
+                @initiateCheckout="initiateCheckout"
+            />
         </div>
     </section>
 </template>
@@ -17,8 +25,58 @@
 <script>
 import axios from 'axios';
 
+import ShippingInfoSection from '../components/ui/ShippingInfoSection.vue';
+import CheckoutItems from '../components/ui/CheckoutItems.vue';
+import BillingInfoSection from '../components/ui/BillingInfoSection.vue';
+
 export default {
     name: 'CheckoutPage',
+    data() {
+        return {
+            stores: [
+                {
+                    id: 1,
+                    name: 'Store 1',
+                    link: '#',
+                    items: [
+                        {
+                            id: 1,
+                            name: 'Product 1.1',
+                            details: 'Color, size',
+                            price: 123,
+                            shippingFee: 10,
+                            quantity: 1,
+                            image: 'https://placehold.co/84x67',
+                        },
+                        {
+                            id: 2,
+                            name: 'Product 1.2',
+                            details: 'Color, size',
+                            price: 456,
+                            shippingFee: 10,
+                            quantity: 2,
+                            image: 'https://placehold.co/84x67',
+                        },
+                    ],
+                },
+                {
+                    id: 2,
+                    name: 'Store 2',
+                    items: [
+                        {
+                            id: 1,
+                            name: 'Product 2.1',
+                            details: 'Color, size',
+                            price: 123,
+                            shippingFee: 10,
+                            quantity: 2,
+                            image: 'https://placehold.co/84x67',
+                        },
+                    ],
+                },
+            ],
+        };
+    },
     methods: {
         async initiateCheckout() {
             try {
@@ -35,25 +93,25 @@ export default {
             }
         },
     },
+    computed: {
+        priceSubtotal() {
+            return this.allItems.reduce((total, item) => total + item.price, 0);
+        },
+        totalShippingFee() {
+            return this.allItems.reduce((shippingFee, item) => shippingFee + item.shippingFee, 0);
+        },
+        allItems() {
+            return Array.from(this.stores, (store) => store.items).flat();
+        },
+    },
+    components: {
+        ShippingInfoSection,
+        CheckoutItems,
+        BillingInfoSection,
+    },
 };
 </script>
 
 <style scoped>
-h1,
-h2 {
-    color: #333;
-    text-align: center;
-}
-.btn-primary {
-    background-color: #007bff;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.375rem;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.btn-primary:hover {
-    background-color: #0056b3;
-}
+/* Add styles here */
 </style>
