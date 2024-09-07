@@ -1,136 +1,148 @@
 <template>
-    <section class="py-10 bg-white mx-lg flex justify-center items-center">
-        <div class="bg-neutral-100 w-[1216px] h-[624px] grid grid-cols-12 gap-6 w-3/4 mt-[80px] mb-[354px]">
-            <!-- Product Image-->
-            <div class="col-span-8 mt-[44px] mb-[236px] ml-[91px] mr-[85px]">
-                <img
-                    src="/assets/image_placeholder.jpg"
-                    alt="Product Image"
-                    class="border border-primary-700 mb-4 w-full h-[400px]"
+    <section class="relative bg-background h-[auto]">
+        <section class="py-10 mx-auto flex justify-center items-center">
+            <div>
+                <div class="bg-white w-[1216px] h-[auto] grid grid-cols-12 border shadow mt-[80px] mb-[30px]">
+                    <!-- Product Image and Thumbnails -->
+                    <div class="col-span-6 border-primary-700 w-[525px] mt-[44px] ml-[83px]">
+                        <ProductImage
+                            :mainImage="mainImage"
+                            :thumbnailImages="thumbnailImages"
+                            @updateMainImage="updateMainImage"
+                        />
+                    </div>
+
+                    <!-- Product Details -->
+                    <div class="col-span-6 mt-[44px] mb-[44px] flex flex-col justify-start w-[455px] ml-[79px] h-auto">
+                        <ProductDetails
+                            :product="product"
+                            :averageRating="averageRating"
+                            :totalRatings="totalRatings"
+                            :totalSold="totalSold"
+                        />
+                    </div>
+                </div>
+
+                <!-- Product Specifications -->
+                <ProductSpecifications :specifications="productSpecifications" />
+
+                <!-- Ratings and Reviews -->
+                <ProductRatingsReviews
+                    :averageRating="averageRating"
+                    :totalRatings="totalRatings"
+                    :reviews="reviews"
                 />
-
-                <!--Thumbnails -->
-                <ProductImageThumbnail :thumbnails="thumbnailImages" />
             </div>
-
-            <!-- Product Details -->
-            <div class="col-span-4 mt-[44px] mb-[44px] flex flex-col justify-start">
-                <div class="flex justify-between items-center mb-4">
-                    <h6 class="font-semibold text-neutral-800 mr-[11px]">Product Name</h6>
-
-                    <button
-                        class="flex items-center justify-center w-[100px] h-[28px] bg-neutral-600 label-4 font-semibold text-white px-33 py-3 gap-2 mr-[66px] ml-[5px]"
-                    >
-                        <i class="bx bxs-crown w-[12px] h-[12px]"></i>
-                        Visit Store
-                    </button>
-                </div>
-
-                <div class="flex items-center mb-4">
-                    <span class="text-neutral-800 label-3 font-semibold mr-[8px]">4.5</span>
-                    <span class="text-black">
-                        <i class="bx bxs-star"></i>
-                        <i class="bx bxs-star"></i>
-                        <i class="bx bxs-star"></i>
-                        <i class="bx bxs-star"></i>
-                        <i class="bx bxs-star-half"></i>
-                    </span>
-
-                    <span class="text-black w-[1px] h-[21px] ml-[11px]">|</span>
-                    <span class="text-neutral-800 label-3 font-semibold ml-[15px]">538 Ratings</span>
-                    <span class="text-black w-[1px] h-[21px] ml-[11px]">|</span>
-                    <span class="text-neutral-800 label-3 font-semibold ml-[15px]">2.2k Sold</span>
-                </div>
-                <!-- Horizontal Line -->
-                <hr class="border-neutral-500 w-[318px] h-[1px] mt-[8px] mb-[18px]" />
-
-                <div class="mb-4">
-                    <h6 class="text-red-500 font-semibold">₱256</h6>
-
-                    <label class="text-neutral-300 label-3 font-medium ml-2">₱699</label>
-                    <label class="text-neutral-300 label-3 font-medium ml-2">-57%</label>
-                </div>
-                <!-- Horizontal Line -->
-                <hr class="border-neutral-500 w-[318px] h-[1px] mt-[21px] mb-[21px]" />
-
-                <div class="mb-4 flex items-center justify-between mb-[148px]">
-                    <label class="text-neutral-500 label-2 font-semibold">Specifications</label>
-
-                    <button
-                        class="flex items-center justify-center mr-[66px] w-[138px] h-[32px] bg-neutral-300 label-4 font-semibold text-black px-33 py-3 gap-2"
-                        @click="openFilterModal"
-                    >
-                        Compare Me <i class="bx bx-git-compare"></i>
-                    </button>
-                </div>
-
-                <!-- Inline styling for quantity and availability -->
-                <div class="flex items-center gap-4 mb-4 mb-[38px]">
-                    <label
-                        for="quantity"
-                        class="text-neutral-400 label-4 font-semibold"
-                        >Quantity</label
-                    >
-
-                    <InputSpinner
-                        :quantity="quantity"
-                        @update:quantity="updateQuantity"
-                        class="flex-shrink-0"
-                    />
-
-                    <label
-                        for="quantity"
-                        class="text-neutral-400 label-4 font-semibold"
-                        >936 Pieces Available</label
-                    >
-                </div>
-
-                <div class="flex space-x-4">
-                    <button class="bg-neutral-300 text-black label-4 font-semibold px-6 py-2 w-[138px] h-[32px]">
-                        Buy Now
-                    </button>
-                    <button class="bg-neutral-300 text-black label-4 font-semibold px-6 py-2 w-[138px] h-[32px]">
-                        Add to Cart
-                        <i class="bx bx-cart w-[12px] h-[12]px"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
+        </section>
     </section>
 </template>
 
 <script>
-import ProductImageThumbnail from '../components/ui/ProductImageThumbnail.vue';
-import InputSpinner from '../components/ui/InputSpinner.vue';
+import ProductImage from '../components/ui/ProductImage.vue';
+import ProductDetails from '../components/ui/ProductDetails.vue';
+import ProductSpecifications from '../components/ui/ProductSpecifications.vue';
+import ProductRatingsReviews from '../components/ui/ProductRatingsReviews.vue';
 
 export default {
     name: 'ProductPage',
     components: {
-        ProductImageThumbnail,
-        InputSpinner,
+        ProductImage,
+        ProductDetails,
+        ProductSpecifications,
+        ProductRatingsReviews,
     },
     data() {
         return {
-            quantity: 2,
+            mainImage: '/assets/productMain.jpg',
             thumbnailImages: [
-                { src: '/assets/image_placeholder.jpg', alt: 'Thumbnail 1' },
-                { src: '/assets/image_placeholder.jpg', alt: 'Thumbnail 2' },
-                { src: '/assets/image_placeholder.jpg', alt: 'Thumbnail 3' },
-                { src: '/assets/image_placeholder.jpg', alt: 'Thumbnail 4' },
-                { src: '/assets/image_placeholder.jpg', alt: 'Thumbnail 5' },
-                { src: '/assets/image_placeholder.jpg', alt: 'Thumbnail 6' },
+                { src: '/assets/productMain.jpg', alt: 'Main Image' },
+                { src: '/assets/productImage1.jpg', alt: 'Thumbnail 1' },
+                { src: '/assets/productImage2.jpg', alt: 'Thumbnail 2' },
+                { src: '/assets/productImage3.jpg', alt: 'Thumbnail 3' },
+                { src: '/assets/productImage4.jpg', alt: 'Thumbnail 4' },
+                { src: '/assets/productImage5.jpg', alt: 'Thumbnail 5' },
+            ],
+            product: {
+                name: 'Apple iPhone 15 Pro Max',
+                price: '₱70,990.00',
+                originalPrice: '₱84,990.00',
+                discount: '-16%',
+                specifications: [
+                    {
+                        label: 'Color Family',
+                        values: ['White Titanium', 'Black Titanium', 'Blue Titanium', 'Natural Titanium'],
+                    },
+                    { label: 'Storage Capacity', values: ['256GB', '512GB', '1TB', '1000TB'] },
+                ],
+                availableQuantity: '936',
+            },
+            productSpecifications: [
+                { label: 'Brand', value: 'Apple' },
+                { label: 'SKU', value: '4554863725_PH-26135897734' },
+                { label: 'Operating System', value: 'IOS' },
+                { label: 'Battery Capacity', value: '4441 mAh' },
+                { label: 'Model', value: '431915018985' },
+                { label: 'Resolution', value: '2796x1290' },
+                { label: 'Warranty Type', value: 'International Manufacturer Warranty' },
+                { label: 'Warranty', value: '1 Year' },
+                { label: 'Delivery Option Instant', value: 'Yes' },
+                { label: "What's in the box", value: 'Device, USB-C Charge Cable' },
+            ],
+            averageRating: '4.0',
+            totalRatings: 15,
+            totalSold: '2.2k',
+            reviews: [
+                {
+                    id: 1,
+                    name: 'Diego Hargreeves',
+                    rating: 4,
+                    date: '2024-08-03',
+                    variation: 'Natural Titanium, 256 GB',
+                    quality: 'Legit Brand New and Sealed',
+                    feature: 'Camera',
+                    performance: 'Fast',
+                    description: `I've been using the iPhone 15 Pro Max for a couple of weeks now, and it’s simply amazing. The performance is top-notch, thanks to the new A17 Bionic chip. Everything runs so smoothly, whether I'm switching between apps or playing high-demand games.The camera is where this phone really shines. The photos are incredibly detailed, even in low light, and the zoom is much better than before. The 8K video recording is a nice touch too. The design feels premium, and the titanium frame makes it both light and sturdy. The battery life has also been great; I can easily get through a full day with heavy use.`,
+                },
+                {
+                    id: 1,
+                    name: 'Jane',
+                    rating: 5,
+                    date: '2024-09-07',
+                    variation: 'Blue Titanium, 256 GB',
+                    quality: 'Legit',
+                    feature: 'Camera',
+                    performance: 'Smooth',
+                    description: `Fast Delivery.`,
+                },
+                {
+                    id: 1,
+                    name: 'Rey',
+                    rating: 5,
+                    date: '2024-09-07',
+                    variation: 'Blue Titanium, 256 GB',
+                    quality: 'Legit',
+                    feature: 'Camera',
+                    performance: 'Smooth',
+                    description: `Fast Delivery.`,
+                },
+                {
+                    id: 1,
+                    name: 'Diego Hargreeves',
+                    rating: 4,
+                    date: '2024-08-03',
+                    variation: 'Natural Titanium, 256 GB',
+                    quality: 'Legit Brand New and Sealed',
+                    feature: 'Camera',
+                    performance: 'Fast',
+                    description: `I've been using the iPhone 15 Pro Max for a couple of weeks now, and it’s simply amazing. The performance is top-notch, thanks to the new A17 Bionic chip. Everything runs so smoothly, whether I'm switching between apps or playing high-demand games.The camera is where this phone really shines. The photos are incredibly detailed, even in low light, and the zoom is much better than before. The 8K video recording is a nice touch too. The design feels premium, and the titanium frame makes it both light and sturdy. The battery life has also been great; I can easily get through a full day with heavy use.`,
+                },
             ],
         };
     },
     methods: {
-        updateQuantity(newQuantity) {
-            this.quantity = newQuantity;
+        updateMainImage(image) {
+            this.mainImage = image;
         },
-        openFilterModal() {},
     },
 };
 </script>
-
-<style scoped>
-/* Add Styles Here */
-</style>
