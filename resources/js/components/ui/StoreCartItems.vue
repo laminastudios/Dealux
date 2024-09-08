@@ -1,29 +1,28 @@
 <template>
-    <div class="flex flex-col leading-4">
-        <div class="p-4 flex gap-5 items-center bg-neutral-100 border-b-neutral-700 border-b-[1.2px]">
-            <div class="flex gap-5 flex-1">
+    <div class="flex flex-col custom-shadow text-black">
+        <div class="px-6 py-4 flex gap-5 items-center bg-white border-b-neutral-500 border-b-[1px]">
+            <div class="flex gap-3 flex-1 items-center">
                 <input
                     type="checkbox"
-                    :checked="selectedStores.has(storeId) || selectedStoreItems.size === items.length"
+                    v-if="items.length > 1"
+                    :checked="allStoreItemsSelected"
                     @change="
                         addAllStoreItems($event);
                         $emit('selectItemsByStore', { $event, storeItemsId });
                         $emit('selectStore', { isChecked: $event.target.checked, storeId });
                     "
-                    class="accent-neutral-300 bg-neutral-300"
+                    class="checked:bg-primary-500 bg-white border border-primary-500 rounded w-6 h-6"
                 />
-                <div class="font-semibold w-full">
+                <div class="font-semibold w-full label-4">
                     {{ storeName }}
                 </div>
             </div>
 
             <custom-button
-                variant="filled"
-                color="neutral-600"
-                hover-color="neutral-400"
+                color="green"
                 size="xs"
             >
-                <div class="font-semibold flex items-center gap-2">
+                <div class="font-semibold flex items-center gap-2 label-4">
                     <i class="bx bxs-crown"></i>
                     <a :href="storeURL">Visit Store</a>
                 </div>
@@ -103,6 +102,9 @@ export default {
                 return store.items;
             }
             return new Set();
+        },
+        allStoreItemsSelected() {
+            return this.selectedStores.has(this.storeId);
         },
     },
     components: {
