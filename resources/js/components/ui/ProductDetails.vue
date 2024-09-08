@@ -3,11 +3,14 @@
         <!-- Product Name and Visit Store Button -->
         <div class="flex justify-between items-center mb-4">
             <h6 class="font-semibold text-neutral-800 mr-[11px]">{{ product.name }}</h6>
-            <button
-                class="flex items-center justify-center w-[151px] h-[28px] bg-green-100 rounded-[5px] label-4 font-semibold text-black px-33 py-3 gap-2 ml-[5px]"
+            <custom-button
+                variant="filled"
+                color="green"
+                size="xs"
+                class="gap-2 ml-[5px]"
             >
-                <i class="bx bxs-crown w-[12px] h-[12px]"></i> Visit Store
-            </button>
+                <i class="bx bxs-crown"></i> Visit Store
+            </custom-button>
         </div>
 
         <!-- Ratings and Reviews -->
@@ -108,14 +111,23 @@
 
         <!-- Buy and Add to Cart Buttons -->
         <div class="flex space-x-4 mb-[38px]">
-            <button class="bg-yellow-400 rounded-[5px] text-white label-4 font-semibold px-6 py-2 w-[138px] h-[32px]">
+            <custom-button
+                variant="filled"
+                color="yellow"
+                size="xs"
+                class="font-semibold px-6 py-2 w-[137px]"
+            >
                 Buy Now
-            </button>
-            <button
-                class="bg-white rounded-[5px] border border-yellow-400 text-yellow-400 label-4 font-semibold px-6 py-2 w-[138px] h-[32px]"
+            </custom-button>
+
+            <custom-button
+                variant="outline"
+                color="yellow"
+                size="xs"
+                class="font-semibold px-6 py-2"
             >
                 Add to Cart
-            </button>
+            </custom-button>
         </div>
     </div>
 </template>
@@ -123,12 +135,14 @@
 <script>
 import InputSpinner from './InputSpinner.vue';
 import ComparePopup from './ComparePopup.vue';
+import CustomButton from './Button.vue';
 
 export default {
     name: 'ProductDetails',
     components: {
         ComparePopup,
         InputSpinner,
+        CustomButton,
     },
     props: {
         product: {
