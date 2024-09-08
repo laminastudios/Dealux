@@ -1,6 +1,8 @@
 // Importing Vue
 import { createApp } from 'vue';
-
+import Toast from 'vue-toastification';
+// Import the CSS or use your own!
+import 'vue-toastification/dist/index.css';
 // Importing the Vue-router
 import router from './router';
 
@@ -64,6 +66,7 @@ app.component('footerbar', Footer);
 
 // Using the Vue Router
 app.use(router);
+app.use(Toast);
 
 // Mounting the Vue application to the DOM element with id="app"
 app.mount('#app');
