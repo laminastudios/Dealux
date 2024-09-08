@@ -50,9 +50,9 @@
                 <ComparePopup
                     :initialProduct="initialProduct"
                     :remainingProducts="remainingProducts"
-                    class="bg-blue-100 rounded-[5px] flex items-center justify-center w-[170px] h-[28px] px-4 py-2 gap-2 mt-8"
+                    class="bg-blue-100 rounded-[5px] flex items-center justify-center w-[170px] h-[28px] gap-2 mt-8"
                 >
-                    <p class="label-3 font-semibold">Compare Me</p>
+                    <p class="label-4 font-semibold">Compare Me</p>
                     <i class="bx bx-git-compare text-[18px]"></i>
                 </ComparePopup>
             </div>

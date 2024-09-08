@@ -59,15 +59,15 @@
             </div>
 
             <!-- "Products" section -->
-            <div class="mt-[83px] w-full">
-                <div class="flex gap-[23px]">
+            <div class="mt-[83px]">
+                <div class="flex gap-[23px] items-center">
                     <h3 class="font-semibold">Products</h3>
                     <ComparePopup
                         :initialProduct="initialProduct"
                         :remainingProducts="remainingProducts"
-                        class="bg-blue-100 rounded-[5px]"
+                        class="bg-blue-100 rounded-[5px] flex items-center justify-center w-[170px] gap-2 mt-8"
                     >
-                        <p class="label-3 font-semibold">Compare Me</p>
+                        <p class="label-4 font-semibold">Compare Me</p>
                         <i class="bx bx-git-compare text-[18px]"></i>
                     </ComparePopup>
                 </div>
