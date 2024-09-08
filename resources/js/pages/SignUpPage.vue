@@ -116,7 +116,6 @@
 import axios from 'axios';
 import FloatingLabelInput from '../components/ui/Input.vue';
 import Button from '../components/ui/Button.vue';
-import { useToast } from 'vue-toastification';
 
 export default {
     name: 'SignUpPage',
@@ -133,13 +132,6 @@ export default {
             showPassword: false, // Toggle password visibility
         };
     },
-    setup() {
-        // Get toast interface
-        const toast = useToast();
-        return {
-            toast,
-        };
-    },
     methods: {
         async signUp() {
             try {
@@ -148,11 +140,9 @@ export default {
                     email: this.email,
                     password: this.password,
                 });
-                this.toast.success('Verification link has been sent to your email');
                 this.$router.push('/login'); // Redirect after successful sign-up
             } catch (error) {
-                // this.errorMessage = error.response?.data?.message || 'An error occurred during registration.';
-                this.toast.error('An error occurred during registration.');
+                this.errorMessage = error.response?.data?.message || 'An error occurred during registration.';
             }
         },
         redirectToLogin() {
