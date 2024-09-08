@@ -3,7 +3,7 @@
         <button
             ref="dropDownButton"
             @click="openDropDown"
-            class="flex items-center justify-between gap-[10px] cursor-pointer w-full h-full transition-colors rounded-[5px]"
+            class="flex items-center justify-between gap-[10px] cursor-pointer w-full h-full transition-colors rounded-[5px] py-1 px-8"
             :class="variantClassesContainer"
         >
             <slot>{{ selected }}</slot>
