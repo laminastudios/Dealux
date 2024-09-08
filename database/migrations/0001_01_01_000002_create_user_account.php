@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('email', 30)->unique()->notNullable();
             $table->char('password', 60)->notNullable();
 
-            $table->timestamp('created_at')->useCurrent()->nullable();
-            $table->timestamp('modified_at')->useCurrent()->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('modified_at')->nullable();
         });
     }
 
