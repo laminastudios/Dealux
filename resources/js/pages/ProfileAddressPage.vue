@@ -3,7 +3,7 @@
         <div class="container mx-auto py-20">
             <div class="flex">
                 <!-- Sidebar -->
-                <Sidebar></Sidebar>
+                <ProfileSidebar></ProfileSidebar>
 
                 <!-- Main Content -->
                 <div class="w-3/4 ml-6 px-[38px] py-[36px] bg-white rounded-xl shadow-lg">
@@ -170,8 +170,7 @@
                             id="street"
                             type="textarea"
                             label="Street Name, Building No. House No."
-                            class="w-full bg-primary-50 shadow-md"
-                            :style="{ height: '100px' }"
+                            class="w-full bg-primary-50 shadow-md h-28"
                             :isTextarea="true"
                             required
                         />
@@ -215,7 +214,7 @@
 
 <script>
 import Button from '../components/ui/Button.vue';
-import Sidebar from '../components/ui/Sidebar.vue';
+import ProfileSidebar from '../components/ui/ProfileSidebar.vue';
 import FloatingLabelInput from '../components/ui/Input.vue';
 
 export default {
@@ -292,7 +291,7 @@ export default {
         },
     },
     components: {
-        Sidebar,
+        ProfileSidebar,
         'custom-button': Button,
         'float-input': FloatingLabelInput,
     },

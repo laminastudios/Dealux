@@ -84,7 +84,7 @@
 
 <script>
 export default {
-    name: 'Sidebar',
+    name: 'ProfileSidebar',
     methods: {
         isActive(route) {
             return this.$route.path === route;
