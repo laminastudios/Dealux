@@ -23,7 +23,7 @@
                             id="firstName"
                             type="text"
                             placeholder="First Name"
-                            class="w-full bg-white rounded-[5px] border-neutral-100 p-3 text-neutral-900 label-1 font-medium custom-shadow"
+                            class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-900 label-1 font-medium custom-shadow"
                         />
                     </div>
                     <div>
@@ -38,7 +38,7 @@
                             id="lastName"
                             type="text"
                             placeholder="Last Name"
-                            class="w-full bg-white rounded-[5px] border-neutral-100 p-3 text-neutral-900 label-1 font-medium mb-[30px] custom-shadow"
+                            class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-900 label-1 font-medium mb-[30px] custom-shadow"
                         />
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                         id="email"
                         type="email"
                         placeholder="E-mail Address"
-                        class="w-full bg-white rounded-[5px] border-neutral-100 p-3 text-neutral-900 label-1 font-medium mb-[30px] custom-shadow"
+                        class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-900 label-1 font-medium mb-[30px] custom-shadow"
                     />
                 </div>
                 <div class="mb-6">
@@ -72,7 +72,7 @@
                         id="summary"
                         type="text"
                         placeholder="Summary"
-                        class="w-full bg-white rounded-[5px] border-neutral-100 p-3 text-neutral-900 label-1 font-medium mb-[30px] custom-shadow"
+                        class="w-full bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-900 label-1 font-medium mb-[30px] custom-shadow"
                     />
                 </div>
 
@@ -90,7 +90,7 @@
                         v-model="form.details"
                         id="details"
                         placeholder="Details related to your problem or concern"
-                        class="w-full h-[245px] bg-white rounded-[5px] border-neutral-100 p-3 text-neutral-900 label-1 font-medium mb-[5px] custom-shadow"
+                        class="w-full h-[245px] bg-white rounded-[5px] border-neutral-100 rounded p-3 text-neutral-900 label-1 font-medium mb-[5px] custom-shadow"
                     ></textarea>
                 </div>
                 <!-- Submit Button -->
@@ -118,7 +118,6 @@
 import axios from 'axios';
 import FAQAccordion from '../components/ui/FAQAccordion.vue'; // Import the FAQAccordion component
 import CustomButton from '../components/ui/Button.vue';
-import { useToast } from 'vue-toastification';
 
 export default {
     components: {
@@ -151,13 +150,7 @@ export default {
             ],
         };
     },
-    setup() {
-        // Get toast interface
-        const toast = useToast();
-        return {
-            toast,
-        };
-    },
+
     methods: {
         async submitForm() {
             await this.sendEmail();
@@ -165,7 +158,7 @@ export default {
         async sendEmail() {
             try {
                 await axios.post('api/post/support', this.form);
-                this.toast.success('Report sent successfully');
+                alert('Your message has been sent!');
                 this.form.firstName = ''; // Update these fields according to your form fields
                 this.form.lastName = '';
                 this.form.email = '';
@@ -173,7 +166,7 @@ export default {
                 this.form.details = '';
             } catch (error) {
                 console.error('Error sending message:', error);
-                this.toast.error('Report Sent Failed. Try Again Another Time');
+                alert('There was an error sending your message. Please try again.');
             }
         },
     },
