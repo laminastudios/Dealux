@@ -170,8 +170,7 @@
                             id="street"
                             type="textarea"
                             label="Street Name, Building No. House No."
-                            class="w-full bg-primary-50 shadow-md"
-                            :style="{ height: '100px' }"
+                            class="w-full bg-primary-50 shadow-md h-28"
                             :isTextarea="true"
                             required
                         />
