@@ -15,6 +15,7 @@ import SupportPage from './pages/SupportPage.vue';
 import SubscriptionPage from './pages/SubscriptionPage.vue';
 import ProfilePage from './pages/ProfilePage.vue';
 import ProfileAddressPage from './pages/ProfileAddressPage.vue';
+import ProfileBanksPage from './pages/ProfileBanksPage.vue';
 import CheckoutPage from './pages/CheckoutPage.vue';
 import HomePage from './pages/HomePage.vue';
 import SearchProductPage from './pages/SearchProductPage.vue';
@@ -23,6 +24,7 @@ import Navbar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';
 import RegisterInformationPage from './pages/RegisterInformationPage.vue';
 import OrderDetailPage from './pages/OrderDetailPage.vue';
+import PageNotFound from './pages/PageNotFound.vue';
 
 // Creating a new Vue application instance
 const app = createApp({});
@@ -47,6 +49,7 @@ app.component('subscription-page', SubscriptionPage); // Registers SubscriptionP
 app.component('profile-page', ProfilePage); // Registers ProfilePage component
 
 app.component('profileaddress-page', ProfileAddressPage); // Registers ProfileAddressPage component
+app.component('profilebanks-page', ProfileBanksPage); // Registers ProfileBanksPage component
 
 app.component('home-page', HomePage); // Registers HomePage component
 
@@ -55,6 +58,8 @@ app.component('searchproduct-page', SearchProductPage); // Registers SearchProdu
 app.component('product-page', ProductPage); // Registers Product component
 
 app.component('registerinfo-page', RegisterInformationPage); // Registers Register User Information component
+
+app.component('page-notfound', PageNotFound); // Registers PageNotFound component
 
 // Register the individual component here
 
