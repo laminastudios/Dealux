@@ -3,7 +3,7 @@
     <div class="form-wrapper" style="width: 1096px; height: 517px; margin: 20px; border: 1px solid #A6A6A6; padding: 30px;">
       <h2 class="text-center">User Registration</h2>
 
-      <!-- Step Indicator -->
+      <!--  Step Indicator -->
       <div class="step-indicator flex justify-around my-4">
         <div :class="{'active-step': currentStep === 1}">
           <span class="step-circle">1</span>
