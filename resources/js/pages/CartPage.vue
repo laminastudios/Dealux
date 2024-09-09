@@ -1,47 +1,52 @@
 <template>
-    <section class="min-h-screen mx-auto">
-        <div class="flex gap-5 justify-center container my-20">
-            <div class="flex-1 h-full flex flex-col gap-5">
-                <div class="bg-neutral-100 px-4 py-2 flex justify-between">
-                    <div class="flex items-center gap-2 text-sm">
+    <section class="min-h-screen mx-auto bg-background text-black">
+        <div
+            class="flex gap-8 justify-center container py-20"
+            v-show="stores.length > 0"
+        >
+            <div class="flex-1 h-full flex flex-col gap-8">
+                <div class="bg-white px-6 py-2 flex justify-between custom-shadow">
+                    <div class="flex items-center gap-3">
                         <input
                             type="checkbox"
-                            :checked="selectedStores.size === stores.length || selectedItems.size === allItems.length"
+                            :checked="allItemsChecked"
+                            class="checked:bg-primary-500 bg-white border border-primary-500 rounded w-5 h-5"
                             @change="
                                 selectAllStores($event);
                                 selectAllItems($event);
                             "
-                            class="accent-neutral-300 bg-neutral-300"
                         />
-                        <span class="font-medium leading-4">
+                        <span class="font-semibold label-4">
                             Select All ({{ allItems.length }} item{{ allItems.length > 1 ? 's' : '' }})
                         </span>
                     </div>
-                    <Button
-                        variant="filled"
-                        class="gap-1 px-0"
+                    <button
+                        class="px-0 label-4 flex gap-1 items-center hover:text-red-600"
+                        @click="clearCartItems"
                     >
-                        <i class="bx bx-trash font-semibold text-neutral-700 text-sm"></i>
-                        <span class="font-semibold leading-4 text-sm text-neutral-700">Delete</span>
-                    </Button>
+                        <i class="bx bx-trash font-semibold"></i>
+                        <span class="font-semibold leading-4">Delete</span>
+                    </button>
                 </div>
 
-                <StoreCartItems
-                    v-for="store in stores"
-                    v-show="store.items.length > 0"
-                    :key="store.id"
-                    :storeId="store.id"
-                    :storeName="store.name"
-                    :storeURL="store.link"
-                    :items="store.items"
-                    :selectedStores="selectedStores"
-                    :selectedItems="selectedItems"
-                    :selectedItemsGroupByStore="selectedItemsGroupByStore"
-                    @selectStore="selectStore"
-                    @selectItem="selectItem"
-                    @selectItemsByStore="selectItemsByStore"
-                    @selectStoreByItems="selectStoreByItems"
-                />
+                <div class="flex flex-col gap-2">
+                    <StoreCartItems
+                        v-for="store in stores"
+                        v-show="store.items.length > 0"
+                        :key="store.id"
+                        :storeId="store.id"
+                        :storeName="store.name"
+                        :storeURL="store.link"
+                        :items="store.items"
+                        :selectedStores="selectedStores"
+                        :selectedItems="selectedItems"
+                        :selectedItemsGroupByStore="selectedItemsGroupByStore"
+                        @selectStore="selectStore"
+                        @selectItem="selectItem"
+                        @selectItemsByStore="selectItemsByStore"
+                        @selectStoreByItems="selectStoreByItems"
+                    />
+                </div>
             </div>
 
             <OrderSummary
@@ -113,7 +118,21 @@ export default {
     },
 
     methods: {
-        selectStore({ isChecked, storeId, selectedStoreItems }) {
+        clearCartItems() {
+            if (this.allItemsChecked) {
+                this.stores = [];
+            } else if (this.selectedItems.size > 0) {
+                this.stores.forEach((_, idx) => {
+                    this.stores[idx].items = this.stores[idx].items.filter((item) => !this.selectedItems.has(item.id));
+                });
+            } else if (this.selectedStores.size > 0) {
+                this.stores = this.stores.filter((store) => !this.selectedStores.has(store.id));
+            }
+            this.selectedStores.clear();
+            this.selectedItems.clear();
+            this.selectedItemsGroupByStore.clear();
+        },
+        selectStore({ isChecked, storeId }) {
             if (isChecked) {
                 this.selectedStores.add(storeId);
                 return;
@@ -175,7 +194,11 @@ export default {
         allItems() {
             return Array.from(this.stores, (store) => store.items).flat();
         },
+        allItemsChecked() {
+            return this.selectedItems.size === this.allItems.length;
+        },
     },
+
     components: {
         StoreCartItems,
         OrderSummary,

@@ -3,7 +3,7 @@
         <div class="container mx-auto py-20">
             <div class="flex">
                 <!-- Sidebar-->
-                <Sidebar></Sidebar>
+                <ProfileSidebar></ProfileSidebar>
 
                 <!-- Main Content -->
                 <div class="w-3/4 ml-6 px-[38px] py-[36px] bg-white rounded-xl shadow-lg">
@@ -279,7 +279,7 @@
 
 <script>
 import Button from '../components/ui/Button.vue';
-import Sidebar from '../components/ui/Sidebar.vue';
+import ProfileSidebar from '../components/ui/ProfileSidebar.vue';
 import FloatingLabelInput from '../components/ui/Input.vue';
 
 export default {
@@ -362,7 +362,7 @@ export default {
         },
     },
     components: {
-        Sidebar,
+        ProfileSidebar,
         'custom-button': Button,
         'float-input': FloatingLabelInput,
     },
