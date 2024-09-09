@@ -1,9 +1,9 @@
 <template>
-    <div class="inline-flex relative">
+    <div class="relative">
         <button
             ref="dropDownButton"
             @click="openDropDown"
-            class="flex items-center justify-between gap-[10px] cursor-pointer w-full h-full transition-colors rounded-[5px]"
+            class="flex items-center justify-between gap-[10px] cursor-pointer transition-colors rounded-[5px] h-[28px] py-1 px-8"
             :class="variantClassesContainer"
         >
             <slot>{{ selected }}</slot>
@@ -15,9 +15,9 @@
                 :class="variantClassesDropDown"
             >
                 <div class="h-[33px] w-full flex items-center justify-center">
-                    <p class="label-3 font-semibold text-white">{{ items.length }} Items Found</p>
+                    <p class="label-4 font-semibold text-white">{{ items.length }} Items Found</p>
                 </div>
-                <ul class="flex flex-col bg-blue-100 label-3 font-semibold">
+                <ul class="flex flex-col bg-blue-100 label-4 font-semibold">
                     <li
                         v-for="(item, index) in items"
                         :key="index"
