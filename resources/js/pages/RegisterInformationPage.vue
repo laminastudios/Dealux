@@ -1,96 +1,88 @@
 <template>
-  <div class="container" style="border: 1px solid var(--Primary-Color-Neutral-300, #A6A6A6);">
-    <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl mx-auto">
+  <div class="container">
+    <div class="form-wrapper" style="width: 1096px; height: 517px; margin: 20px; border: 1px solid #A6A6A6; padding: 30px;">
+      <h2 class="text-center">User Registration</h2>
+
+      <!-- Step Indicator -->
+      <div class="step-indicator flex justify-around my-4">
+        <div :class="{'active-step': currentStep === 1}">
+          <span class="step-circle">1</span>
+          <span>Personal Information</span>
+        </div>
+        <div :class="{'active-step': currentStep === 2}">
+          <span class="step-circle">2</span>
+          <span>Address</span>
+        </div>
+        <div :class="{'active-step': currentStep === 3}">
+          <span class="step-circle">3</span>
+          <span>Payment Setup</span>
+        </div>
+      </div>
+
+      <!-- Step 1: Personal Information -->
+      <div v-if="currentStep === 1" class="form-step">
+        <div class="grid grid-cols-3 gap-2">
+          <Input label="First Name" v-model="firstName" />
+          <Input label="Middle Name" v-model="midName" />
+          <Input label="Last Name" v-model="lastName" />
+        </div>
+        <div class="grid grid-cols-3 gap-2 mt-4">
+          <Input label="Gender" v-model="gender" />
+          <DatePicker label="Date of Birth" v-model="birthDate" />
+          <Input label="Phone Number" v-model="phoneNumber" />
+        </div>
+      </div>
+
+      <!-- Step 2: Address -->
+      <div v-if="currentStep === 2" class="form-step">
+        <div class="grid grid-cols-3 gap-2">
+          <Input label="House Number" v-model="houseNumber" />
+          <Input label="Subdivision/Blk" v-model="subdivision" />
+          <Input label="Street" v-model="street" />
+          <Input label="Barangay" v-model="barangay" />
+          <Input label="City" v-model="city" />
+          <Input label="Region" v-model="region" />
+        </div>
+      </div>
+
+      <!-- Step 3: Payment Setup -->
+      <div v-if="currentStep === 3" class="form-step">
+        <div class="grid grid-cols-3 gap-2">
+          <Input label="Card Type" v-model="cardType" />
+          <Input label="Name on Card" v-model="nameOnCard" />
+          <Input label="Card Number" v-model="cardNumber" />
+        </div>
+        <div class="grid grid-cols-3 gap-2 mt-4">
+          <DatePicker label="Expiry Date" v-model="expiryDate" />
+          <Input label="CVV" v-model="cvv" />
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex justify-end mt-6">
+        <!-- Previous button -->
+        <button v-if="currentStep > 1" @click="prevStep" class="btn btn-secondary">
+          Previous
+        </button>
         
-        <div v-if="currentStep === 1">
-          <!-- Step 1: Personal Information -->
-          <h2>Personal Information</h2>
-          <div class="grid grid-cols-3 gap-4">
-            <div>
-              <Input label="First Name" v-model="firstName" />
-            </div>
-            <div>
-              <Input label="Middle Name" v-model="midName" />
-            </div>
-            <div>
-              <Input label="Last Name" v-model="lastName" />
-            </div>
-            <div>
-              <Input label="Gender" v-model="gender" />
-            </div>
-            <div>
-              <DatePicker label="Birth Date" v-model="birthDate" />
-            </div>
-            <div>
-              <Input label="Phone Number" v-model="phoneNumber" />
-            </div>
-          </div>
-        </div>
-
-        <div v-if="currentStep === 2">
-          <!-- Step 2: Address -->
-          <h2>Address</h2>
-          <div class="grid grid-cols-3 gap-4">
-            <div>
-              <Input label="House Number" v-model="houseNumber" />
-            </div>
-            <div>
-              <Input label="Subdivision/Blk" v-model="subdivision" />
-            </div>
-            <div>
-              <Input label="Street" v-model="street" />
-            </div>
-            <div>
-              <Input label="Barangay" v-model="barangay" />
-            </div>
-            <div>
-              <Input label="City" v-model="city" />
-            </div>
-            <div>
-              <Input label="Region" v-model="region" />
-            </div>
-          </div>
-        </div>
-
-        <div v-if="currentStep === 3">
-          <!-- Step 3: Payment Setup -->
-          <h2>Payment Setup</h2>
-          <div class="grid grid-cols-3 gap-4">
-            <div>
-              <Input label="Card Type" v-model="cardType" />
-            </div>
-            <div>
-              <Input label="Name on Card" v-model="nameOnCard" />
-            </div>
-            <div>
-              <Input label="Card Number" v-model="cardNumber" />
-            </div>
-            <div>
-              <DatePicker label="Expiry Date" v-model="expiryDate" />
-            </div>
-            <div>
-              <Input label="CVV" v-model="cvv" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Navigation Buttons -->
-        <div class="flex justify-between mt-4">
-          <Button v-if="currentStep > 1" :label="'Previous'" @click="prevStep" />
-          <Button v-if="currentStep < 3" :label="'Next'" @click="nextStep" />
-          <Button v-if="currentStep === 3" :label="'Submit'" @click="submitForm" />
-        </div>
-
+        <!-- Next button -->
+        <button v-if="currentStep < 3" @click="nextStep" class="btn btn-primary ml-2">
+          Next
+        </button>
+        
+        <!-- Submit button -->
+        <button v-if="currentStep === 3" @click="submitForm" class="btn btn-success ml-2">
+          Submit
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Input from './Input.vue';
-import DatePicker from './DatePicker.vue';
-import Button from './Button.vue';
+import Input from '../components/ui/Input.vue';
+import DatePicker from '../components/ui/DatePicker.vue';
+import Button from '../components/ui/Button.vue';
 import axios from 'axios';
 
 export default {
@@ -102,6 +94,7 @@ export default {
   },
     data() {
         return {
+            currentStep: 1,
             firstName: '',
             midName: '',
             lastName: '',
@@ -132,6 +125,18 @@ export default {
                     console.error('Error fetching user data:', error);
                 });
         },
+        // Move to next step
+    nextStep() {
+      if (this.currentStep < 3) {
+        this.currentStep += 1;
+      }
+    },
+    // Move to previous step
+    prevStep() {
+      if (this.currentStep > 1) {
+        this.currentStep -= 1;
+      }
+    },
         submitForm() {
             const formData = {
                 user_id: this.userId,
