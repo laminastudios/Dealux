@@ -36,7 +36,7 @@ const routes = [
     { path: '/home', name: 'home', component: HomePage },
     { path: '/search/:keyword', name: 'searchproduct', component: SearchProductPage },
     { path: '/product/:productName', name: 'product', component: ProductPage },
-    { path: '/pagenotfound', name: 'page-notfound', component: PageNotFound },
+    { path: '/notfound', name: 'page-notfound', component: PageNotFound },
 ];
 
 const router = createRouter({

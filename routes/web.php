@@ -49,7 +49,12 @@ Route::controller(VerificationController::class)->group(function () {
         ->name('verification.resend');
 });
 
-Route::get('/pagenotfound', [PageNotFoundController::class, 'index'])->name('pagenotfound');
+Route::get('/notfound', [PageNotFoundController::class, 'index'])->name('notfound');
+
+// Fallback route for any undefined routes
+Route::fallback(function () {
+    return redirect()->route('notfound');
+});
 
 // Authenticated and verified routes
 Route::middleware(['auth', 'verified'])->group(function () {
