@@ -1,16 +1,20 @@
 <template>
-    <div class="w-fit py-1 flex h-fit justify-center text-center">
+    <div class="w-fit py-1 flex h-fit justify-center text-center font-bold label-4 text-black">
         <button
-            class="px-2 py-0 font-semibold text-xl bg-neutral-400 text-neutral-600 flex-2 hover:bg-neutral-500 hover:text-neutral-50"
+            class="px-2 py-0 text-xl bg-primary-100 flex-2 hover:bg-primary-200"
             @click="decrementQuantity"
         >
             -
         </button>
-        <span class="bg-neutral-300 text-neutral-50 flex items-center px-3">
-            {{ itemQuantity }}
-        </span>
+        <input
+            class="bg-primary-50 flex items-center px-2 text-center font-bold label-4 w-20 border-transparent focus:border-transparent focus:ring-0"
+            type="number"
+            :min="0"
+            :placeholder="0"
+            v-model="itemQuantity"
+        />
         <button
-            class="bg-neutral-400 text-neutral-600 px-2 py-0 font-semibold text-xl hover:bg-neutral-500 hover:text-neutral-50"
+            class="bg-primary-100 px-2 py-0 hover:bg-primary-200"
             @click="incrementQuantity"
         >
             +
@@ -43,4 +47,14 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+</style>

@@ -1,15 +1,17 @@
 <template>
-    <section class="min-h-screen">
-        <div class="container flex gap-5 justify-center my-20">
-            <div class="flex flex-col gap-5 flex-1">
+    <section class="min-h-screen bg-background">
+        <div class="container flex gap-8 justify-center py-20">
+            <div class="flex flex-col gap-8 flex-1">
                 <ShippingInfoSection />
-                <CheckoutItems
-                    v-for="store in stores"
-                    :key="store.id"
-                    :storeName="store.name"
-                    :storeLink="store.link"
-                    :items="store.items"
-                />
+                <div class="flex flex-col gap-2">
+                    <CheckoutItems
+                        v-for="store in stores"
+                        :key="store.id"
+                        :storeName="store.name"
+                        :storeLink="store.link"
+                        :items="store.items"
+                    />
+                </div>
             </div>
             <BillingInfoSection
                 :priceSubtotal="priceSubtotal"
