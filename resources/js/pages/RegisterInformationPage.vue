@@ -1,149 +1,131 @@
 <template>
-    <section class="min-h-screen">
-        <div class="container border border-blue-500 h-full">
-            <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-                <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-                    <h1 class="text-2xl font-bold text-center mb-6">Register Information</h1>
-                    <h2
-                        class="text-xl font-semibold text-gray-600 bg-gray-100 p-4 border border-gray-200 rounded-lg shadow-sm mb-6"
-                    >
-                        The actual page is not yet started to develop. The page here is just a tester for the user
-                        information registration logic
-                    </h2>
-                    <form @submit.prevent="submitForm">
-                        <!-- User Information -->
-                        <div class="mb-4">
-                            <label class="block text-gray-700">First Name</label>
-                            <input
-                                v-model="firstName"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="First Name"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Middle Name</label>
-                            <input
-                                v-model="midName"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="Middle Name"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Last Name</label>
-                            <input
-                                v-model="lastName"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="Last Name"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Gender</label>
-                            <select
-                                v-model="gender"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                            >
-                                <option value="M">Male</option>
-                                <option value="F">Female</option>
-                                <option value="P">Prefer not to say</option>
-                                <option value="O">Other</option>
-                            </select>
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Birth Date</label>
-                            <input
-                                v-model="birthDate"
-                                type="date"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Phone Number</label>
-                            <input
-                                v-model="phoneNumber"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="Phone Number"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Subscription Status</label>
-                            <select
-                                v-model="subsStatus"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                            >
-                                <option value="B">Basic</option>
-                                <option value="P">Premium</option>
-                            </select>
-                        </div>
-                        <!-- Payment Information -->
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Delivery Address</label>
-                            <input
-                                v-model="deliveryAddress"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="Delivery Address"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Card Type</label>
-                            <select
-                                v-model="cardType"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                            >
-                                <option value="cc">Credit Card</option>
-                                <option value="dc">Debit Card</option>
-                            </select>
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Name on Card</label>
-                            <input
-                                v-model="nameOnCard"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="Name on Card"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Card Number</label>
-                            <input
-                                v-model="cardNumber"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="Card Number"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Expiry Date</label>
-                            <input
-                                v-model="expiryDate"
-                                type="date"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                            />
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">CVV</label>
-                            <input
-                                v-model="cvv"
-                                type="text"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md"
-                                placeholder="CVV"
-                            />
-                        </div>
-                        <button
-                            type="submit"
-                            class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
-                        >
-                            Submit
-                        </button>
-                    </form>
-                </div>
-            </div>
+  <div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-white shadow-lg rounded-lg p-8 w-[1096px]">
+      <!-- User Registration Heading -->
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-blue-600">User Registration</h1>
+      </div>
+
+      <!-- Step Indicators -->
+      <div class="flex items-center justify-between mb-8">
+      <div class="flex-1 text-center">
+      <div :class="['step-circle w-12 h-12 rounded-full flex items-center justify-center font-semibold text-lg mx-auto', 
+       currentStep === 1 ? 'bg-[#fba42c] text-white' : 'bg-gray-300 text-gray-500']">
+       1
+      </div>
+      <p class="mt-2 text-lg font-semibold">Personal Information</p>
+      </div>
+      <!-- Line after Step 1 -->
+      <div :class="['flex-grow h-px mx-4', 
+       currentStep >= 2 ? 'bg-[#fba42c]' : 'bg-gray-300']"></div>
+      <div class="flex-1 text-center">
+      <div :class="['step-circle w-12 h-12 rounded-full flex items-center justify-center font-semibold text-lg mx-auto', 
+       currentStep === 2 ? 'bg-[#fba42c] text-white' : 'bg-gray-300 text-gray-500']">
+       2
+      </div>
+      <p class="mt-2 text-lg font-semibold">Address</p>
+      </div>
+      <!-- Line after Step 2 -->
+      <div :class="['flex-grow h-px mx-4', 
+       currentStep === 3 ? 'bg-[#fba42c]' : 'bg-gray-300']"></div>
+      <div class="flex-1 text-center">
+      <div :class="['step-circle w-12 h-12 rounded-full flex items-center justify-center font-semibold text-lg mx-auto', 
+       currentStep === 3 ? 'bg-[#fba42c] text-white' : 'bg-gray-300 text-gray-500']">
+       3
+      </div>
+      <p class="mt-2 text-lg font-semibold">Payment Setup</p>
+      </div>
+      </div>
+
+
+      <!-- Form Step 1: Personal Information -->
+      <div v-if="currentStep === 1" class="grid grid-cols-3 gap-5 mb-10">
+        <div class="flex flex-col">
+          <input v-model="firstName" type="text" placeholder="First Name" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
         </div>
-    </section>
+        <div class="flex flex-col">
+          <input v-model="midName" type="text" placeholder="Middle Name" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+        <div class="flex flex-col">
+          <input v-model="lastName" type="text" placeholder="Last Name" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+        <div class="flex flex-col">
+          <select v-model="gender" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+            <option disabled value="">Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+        <div class="flex flex-col">
+          <input v-model="birthDate" type="date" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+        <div class="flex flex-col">
+          <input v-model="phoneNumber" type="text" placeholder="Phone Number" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+      </div>
+
+      <!-- Form Step 2: Address -->
+      <div v-if="currentStep === 2" class="grid grid-cols-3 gap-5 mb-10">
+        <div class="flex flex-col">
+          <input v-model="houseNumber" type="text" placeholder="House Number" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+        <div class="flex flex-col">
+          <input v-model="subdivision" type="text" placeholder="Subdivision" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+        <div class="flex flex-col">
+          <input v-model="street" type="text" placeholder="Street" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+        <div class="flex flex-col">
+          <input v-model="barangay" type="text" placeholder="Barangay" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+        <div class="flex flex-col">
+          <input v-model="city" type="text" placeholder="City" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+        <div class="flex flex-col">
+          <input v-model="region" type="text" placeholder="Region" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+      </div>
+
+      <!-- Form Step 3: Payment Setup -->
+      <div v-if="currentStep === 3" class="grid grid-cols-3 gap-5 mb-10">
+        <div class="relative flex flex-col">
+      <select v-model="cardType" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-700">
+         <option value="" disabled>Select Card Type</option>
+         <option value="cc">Credit Card</option>
+         <option value="dc">Debit Card</option>
+         <option value="pp">PayPal</option>
+         </select>
+        </div>
+        <div class="flex flex-col">
+          <input v-model="cardNumber" type="text" placeholder="Credit Card Number" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+        <div class="flex flex-col">
+          <input v-model="expiryDate" type="text" placeholder="Expiry Date" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+        <div class="flex flex-col">
+          <input v-model="cvv" type="text" placeholder="CVV" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+        <div class="flex flex-col">
+          <input v-model="nameOnCard" type="text" placeholder="Name on Card" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+        </div>
+      </div>
+
+      <!-- Next/Previous Buttons -->
+      <div class="flex justify-end gap-2 mt-20">
+        <button v-if="currentStep > 1" @click="prevStep" class="px-6 py-2 bg-[#fba42c] text-white font-semibold shadow-lg hover:bg-gray-500 transition duration-300">
+          Back
+        </button>
+        <div class="flex gap-1 ml-2">
+          <button v-if="currentStep < 3" @click="nextStep" class="px-6 py-2 bg-[#fba42c] text-white font-semibold shadow-lg hover:bg-orange-600 transition duration-300">
+            Next
+          </button>
+          <button v-if="currentStep === 3" @click="submitForm" class="px-6 py-2 bg-[#fba42c] text-white font-semibold shadow-lg hover:bg-green-600 transition duration-300">
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -153,6 +135,7 @@ export default {
     name: 'RegisterInformationPage',
     data() {
         return {
+            currentStep: 1,
             firstName: '',
             midName: '',
             lastName: '',
@@ -173,6 +156,12 @@ export default {
         this.fetchUserData();
     },
     methods: {
+         nextStep() {
+      if (this.currentStep < 3) this.currentStep++;
+    },
+    prevStep() {
+      if (this.currentStep > 1) this.currentStep--;
+    },
         fetchUserData() {
             axios
                 .get('/user')
