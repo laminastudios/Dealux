@@ -25,6 +25,7 @@ import Footer from './components/Footer.vue';
 import RegisterInformationPage from './pages/RegisterInformationPage.vue';
 import OrderDetailPage from './pages/OrderDetailPage.vue';
 import PageNotFound from './pages/PageNotFound.vue';
+import RefundPage from './pages/RefundPage.vue';
 
 // Creating a new Vue application instance
 const app = createApp({});
@@ -43,6 +44,7 @@ app.component('checkout-page', CheckoutPage); // Registers CheckoutPage componen
 app.component('activeorder-page', ActiveOrderPage); // Registers ActiveOrderPage component
 app.component('orderdetail-page', OrderDetailPage); // Registers ActiveOrderPage component
 app.component('purchasehistory-page', PurchaseHistoryPage); // Registers PurchaseHistoryPage component
+app.component('refund-page', RefundPage); // Registers PurchaseHistoryPage component
 
 app.component('support-page', SupportPage); // Registers SupportPage component
 app.component('subscription-page', SubscriptionPage); // Registers SubscriptionPage component
