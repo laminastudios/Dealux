@@ -8,6 +8,11 @@
         >
             <slot v-if="!selected">{{ selected }}</slot>
             <span v-else>{{ selected }}</span>
+            <i
+                v-if="variant === 'refund'"
+                :class="open ? 'bx bxs-up-arrow' : 'bx bxs-down-arrow'"
+                class="ml-2"
+            ></i>
         </button>
         <input
             type="hidden"
@@ -27,10 +32,17 @@
                         :key="index"
                         href="#"
                         @click.prevent="selectOption(item.text, item.value)"
-                        class="transition-colors p-2 whitespace-nowrap cursor-default"
-                        :class="variantClassesItems"
+                        class="transition-colors p-2 whitespace-nowrap cursor-default flex justify-between items-center"
+                        :class="[
+                            variantClassesItems,
+                            { 'label-1 font-medium text-black': item.value === selectedValue && variant === 'refund' },
+                        ]"
                     >
-                        {{ item.text }}
+                        <span>{{ item.text }}</span>
+                        <i
+                            v-if="item.value === selectedValue && variant === 'refund'"
+                            class="bx bx-check text-yellow-600 text-2xl font-extrabold ml-2"
+                        ></i>
                     </li>
                 </ul>
             </div>
@@ -93,6 +105,7 @@ export default {
             const variants = {
                 variant1: 'bg-yellow-400 hover:bg-yellow-600 text-white justify-center gap-2.5',
                 variant2: 'bg-neutral-50 hover:bg-neutral-100 text-neutral-400 justify-between',
+                refund: 'label-1 font-semibold bg-white hover:bg-neutral-100 text-neutral-600 justify-between px-[10px]',
                 navbar: 'hover:text-yellow-400 p-2',
             };
             return variants[this.variant] || variants['light'];
@@ -101,6 +114,7 @@ export default {
             const variants = {
                 variant1: 'bg-background text-primary-600 min-w-full label-4 border border-yellow-200',
                 variant2: 'bg-background text-primary-600 min-w-full label-4 border border-neutral-100',
+                refund: 'label-1 font-medium bg-white border text-neutral-600 min-w-full',
                 navbar: 'bg-primary-700 text-white min-w-full label-3 font-semibold',
             };
             return variants[this.variant] || variants['light'];
@@ -109,6 +123,7 @@ export default {
             const variants = {
                 variant1: 'hover:bg-neutral-100',
                 variant2: 'hover:bg-neutral-100',
+                refund: 'hover:bg-neutral-100',
                 navbar: 'hover:text-yellow-400',
             };
             return variants[this.variant] || variants['light'];

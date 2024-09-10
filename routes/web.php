@@ -15,6 +15,7 @@ use App\Http\Controllers\ProfileAddressController;
 use App\Http\Controllers\ProfileBanksController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseHistoryController;
+use App\Http\Controllers\RefundController;
 use App\Http\Controllers\RegisterInformationController;
 use App\Http\Controllers\SearchProductController;
 use App\Http\Controllers\SubscriptionController;
@@ -73,6 +74,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/active', [ActiveOrderController::class, 'index'])->name('activeorder');
         Route::get('/active/{orderNumber}', [OrderDetailController::class, 'index'])->name('orderdetail');
         Route::get('/history', [PurchaseHistoryController::class, 'history'])->name('purchasehistory');
+        Route::get('/refund', [RefundController::class, 'index'])->name('refund');
     });
 
     Route::get('/search/{keyword}', [SearchProductController::class, 'index'])->name('search');
