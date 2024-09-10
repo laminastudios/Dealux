@@ -1,5 +1,6 @@
 <template>
     <section class="min-h-screen mx-auto bg-background text-black">
+        <EmptyCartView v-show="stores.length === 0" />
         <div
             class="flex gap-8 justify-center container py-20"
             v-show="stores.length > 0"
@@ -62,12 +63,14 @@
 import StoreCartItems from '../components/ui/StoreCartItems.vue';
 import OrderSummary from '../components/ui/OrderSummary.vue';
 import Button from '../components/ui/Button.vue';
+import EmptyCartView from '../components/ui/EmptyCartView.vue';
 
 export default {
     name: 'CartPage',
 
     data() {
         return {
+            tite: false,
             selectedItemsGroupByStore: [], // [{ storeID: ..., items: Set([...itemIDs]) }, ...]
             selectedStores: new Set(),
             selectedItems: new Set(), // assume that all items have unique ID
@@ -203,6 +206,7 @@ export default {
         StoreCartItems,
         OrderSummary,
         Button,
+        EmptyCartView,
     },
 };
 </script>
