@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -16,9 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     // Specify the primary key
     protected $primaryKey = 'user_id';
-
     public $incrementing = false;
-
     // Specify the type of the primary key
     protected $keyType = 'string';
 
@@ -55,12 +53,12 @@ class User extends Authenticatable implements MustVerifyEmail
     public function markEmailAsVerified()
     {
         $this->created_at = now();
-        $this->modified_at = now();
         $this->save();
     }
 
     public function hasVerifiedEmail()
     {
-        return ! is_null($this->created_at) && ! is_null($this->modified_at);
+        return !is_null($this->created_at);
     }
+
 }
