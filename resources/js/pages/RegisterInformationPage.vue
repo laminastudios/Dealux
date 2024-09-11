@@ -41,85 +41,84 @@
       <!-- Form Step 1: Personal Information -->
       <div v-if="currentStep === 1" class="grid grid-cols-3 gap-5 mb-10">
         <div class="flex flex-col">
-          <input v-model="firstName" type="text" placeholder="First Name" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <Input v-model="firstName" type="text" placeholder="First Name" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer"/>
         </div>
         <div class="flex flex-col">
-          <input v-model="midName" type="text" placeholder="Middle Name" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <Input v-model="midName" type="text" placeholder="Middle Name" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer"/>
         </div>
         <div class="flex flex-col">
-          <input v-model="lastName" type="text" placeholder="Last Name" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <Input v-model="lastName" type="text" placeholder="Last Name" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer"/>
         </div>
         <div class="flex flex-col">
-          <select v-model="gender" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <select v-model="gender" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer">
             <option disabled value="">Gender</option>
             <option>Male</option>
             <option>Female</option>
           </select>
         </div>
         <div class="flex flex-col">
-          <input v-model="birthDate" type="date" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <input v-model="birthDate" type="date" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer">
         </div>
         <div class="flex flex-col">
-          <input v-model="phoneNumber" type="text" placeholder="Phone Number" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <input v-model="phoneNumber" type="text" placeholder="Phone Number" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer">
         </div>
       </div>
 
       <!-- Form Step 2: Address -->
       <div v-if="currentStep === 2" class="grid grid-cols-3 gap-5 mb-10">
         <div class="flex flex-col">
-          <input v-model="houseNumber" type="text" placeholder="House Number" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <input v-model="houseNumber" type="text" placeholder="House Number" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer">
         </div>
         <div class="flex flex-col">
-          <input v-model="subdivision" type="text" placeholder="Subdivision" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <input v-model="subdivision" type="text" placeholder="Subdivision" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer">
         </div>
         <div class="flex flex-col">
-          <input v-model="street" type="text" placeholder="Street" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <input v-model="street" type="text" placeholder="Street" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer">
         </div>
         <div class="flex flex-col">
-          <input v-model="barangay" type="text" placeholder="Barangay" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <input v-model="barangay" type="text" placeholder="Barangay" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer">
         </div>
         <div class="flex flex-col">
-          <input v-model="city" type="text" placeholder="City" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <input v-model="city" type="text" placeholder="City" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer">
         </div>
         <div class="flex flex-col">
-          <input v-model="region" type="text" placeholder="Region" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <input v-model="region" type="text" placeholder="Region" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer">
         </div>
       </div>
 
       <!-- Form Step 3: Payment Setup -->
       <div v-if="currentStep === 3" class="grid grid-cols-3 gap-5 mb-10">
         <div class="relative flex flex-col">
-      <select v-model="cardType" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500 text-gray-700">
+      <select v-model="cardType" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer">
          <option value="" disabled>Select Card Type</option>
          <option value="cc">Credit Card</option>
          <option value="dc">Debit Card</option>
-         <option value="pp">PayPal</option>
          </select>
         </div>
         <div class="flex flex-col">
-          <input v-model="cardNumber" type="text" placeholder="Credit Card Number" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <input v-model="cardNumber" type="text" placeholder="Credit Card Number" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer">
         </div>
         <div class="flex flex-col">
-          <input v-model="expiryDate" type="text" placeholder="Expiry Date" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <input v-model="expiryDate" type="text" placeholder="Expiry Date" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer">
         </div>
         <div class="flex flex-col">
-          <input v-model="cvv" type="text" placeholder="CVV" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <input v-model="cvv" type="text" placeholder="CVV" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer">
         </div>
         <div class="flex flex-col">
-          <input v-model="nameOnCard" type="text" placeholder="Name on Card" class="p-3 border-none bg-gray-100 shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+          <input v-model="nameOnCard" type="text" placeholder="Name on Card" class="h-[48px] block px-[24px] py-[13px] shadow-lg font-medium label-3 text-neutral-700 bg-neutral-50 border-0 border-b-2 border-neutral-50 appearance-none focus:outline-none focus:ring-0 focus:border-b-2 focus:border-neutral-600 peer">
         </div>
       </div>
 
       <!-- Next/Previous Buttons -->
       <div class="flex justify-end gap-2 mt-20">
-        <button v-if="currentStep > 1" @click="prevStep" class="px-6 py-2 bg-[#fba42c] text-white font-semibold shadow-lg hover:bg-gray-500 transition duration-300">
+        <button v-if="currentStep > 1" @click="prevStep" class="px-[33px] py-[15px] bg-[#fba42c] text-white hover:bg-orange-600 transition duration-300 font-semibold label-4 rounded-[5px] cursor-pointer">
           Back
         </button>
         <div class="flex gap-1 ml-2">
-          <button v-if="currentStep < 3" @click="nextStep" class="px-6 py-2 bg-[#fba42c] text-white font-semibold shadow-lg hover:bg-orange-600 transition duration-300">
+          <button v-if="currentStep < 3" @click="nextStep" class="px-[33px] py-[15px] bg-[#fba42c] text-white hover:bg-orange-600 transition duration-300 font-semibold label-4 rounded-[5px] cursor-pointer">
             Next
           </button>
-          <button v-if="currentStep === 3" @click="submitForm" class="px-6 py-2 bg-[#fba42c] text-white font-semibold shadow-lg hover:bg-green-600 transition duration-300">
+          <button v-if="currentStep === 3" @click="submitForm" class="px-[33px] py-[15px] bg-[#fba42c] text-white hover:bg-orange-600 transition duration-300 font-semibold label-4 rounded-[5px] cursor-pointer">
             Submit
           </button>
         </div>
@@ -156,7 +155,7 @@ export default {
         this.fetchUserData();
     },
     methods: {
-         nextStep() {
+        nextStep() {
       if (this.currentStep < 3) this.currentStep++;
     },
     prevStep() {
