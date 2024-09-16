@@ -40,31 +40,31 @@
 
       <!-- Form Step 1: Personal Information -->
       <div v-if="currentStep === 1" class="grid grid-cols-3 gap-4 mb-10">
-          <FloatingLabelInput v-model="firstName" type="text" label="First Name" class="w-full"/>
-          <FloatingLabelInput v-model="midName" type="text" label="Middle Name" class="w-full"/>
-          <FloatingLabelInput v-model="lastName" type="text" label="Last Name" class="w-full"/>
-          <DropDownLink v-model="gender" label="Gender":items="genderOptions" variant="variant2" @change="handleGenderChange"  class="w-full"/>
-          <DatePicker v-model="birthDate" type="text" aria-label="Select date" :id="birthDate" :placeholder="birthDate" class="w-full"/>
-          <FloatingLabelInput v-model="phoneNumber" type="text" label="Phone Number" class="w-full"/>
+          <FloatingLabelInput v-model="firstName" :id="firstName" type="text" label="First Name" class="w-full"/>
+          <FloatingLabelInput v-model="midName" :id="midName" type="text" label="Middle Name" class="w-full"/>
+          <FloatingLabelInput v-model="lastName" :id="lastName" type="text" label="Last Name" class="w-full"/>
+          <DropDownInput v-model="gender" :name="gender" label="Gender":items="genderOptions" variant="variant2" @change="handleGenderChange"  class="w-full"/>
+          <DatePicker v-model="birthDate" :id="birthDate" type="text" aria-label="Select date"  :placeholder="birthDate" class="w-full"/>
+          <FloatingLabelInput v-model="phoneNumber" :id="phoneNumber" type="text" label="Phone Number" class="w-full"/>
       </div>
 
       <!-- Form Step 2: Address -->
       <div v-if="currentStep === 2" class="grid grid-cols-3 gap-5 mb-10">
-          <FloatingLabelInput v-model="houseNumber" type="text" label="House Number" class="w-full"/>
-          <FloatingLabelInput v-model="subdivision" type="text" label="Subdivision" class="w-full"/>
-          <FloatingLabelInput v-model="street" type="text" label="Street" class="w-full"/>
-          <FloatingLabelInput v-model="barangay" type="text" label="Barangay" class="w-full"/>
-          <FloatingLabelInput v-model="city" type="text" label="City" class="w-full"/>
-          <FloatingLabelInput v-model="region" type="text" label="Region" class="w-full"/>
+          <FloatingLabelInput v-model="houseNumber" :id="houseNumber" type="text" label="House Number" class="w-full"/>
+          <FloatingLabelInput v-model="subdivision" :id="subdivision" type="text" label="Subdivision" class="w-full"/>
+          <FloatingLabelInput v-model="street" :id="street" type="text" label="Street" class="w-full"/>
+          <FloatingLabelInput v-model="barangay" :id="barangay" type="text" label="Barangay" class="w-full"/>
+          <FloatingLabelInput v-model="city" :id="city" type="text" label="City" class="w-full"/>
+          <FloatingLabelInput v-model="region" :id="region" type="text" label="Region" class="w-full"/>
       </div>
 
       <!-- Form Step 3: Payment Setup -->
       <div v-if="currentStep === 3" class="grid grid-cols-3 gap-5 mb-10">
-          <FloatingLabelInput v-model="cardNumber" type="text" label="Card Number" class="w-full"/>
-          <FloatingLabelInput v-model="expiryDate" type="text" label="Expiry Date" class="w-full"/>
-          <DropDownLink v-model="cardType" label="Card Type" :items="cardOptions" variant="variant2" @change="handleCardTypeChange" class="w-full"/>
-          <FloatingLabelInput v-model="cvv" type="text" label="CVV" class="w-full"/>
-          <FloatingLabelInput v-model="nameOnCard" type="text" label="Name on Card" class="w-full"/>
+          <FloatingLabelInput v-model="cardNumber" :id="cardNumber" type="text" label="Card Number" class="w-full"/>
+          <FloatingLabelInput v-model="expiryDate" :id="expiryDate" type="text" label="Expiry Date" class="w-full"/>
+          <DropDownInput v-model="cardType" :name="cardType" label="Card Type" :items="cardOptions" variant="variant2" @change="handleCardTypeChange" class="w-full"/>
+          <FloatingLabelInput v-model="cvv" :id="cvv" type="text" label="CVV" class="w-full"/>
+          <FloatingLabelInput v-model="nameOnCard" :id="nameOnCard" type="text" label="Name on Card" class="w-full"/>
       </div>
 
       <!-- Next/Previous Buttons -->
@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import DropDownLink from '../components/ui/DropDownInput.vue'
+import DropDownInput from '../components/ui/DropDownInput.vue'
 import FloatingLabelInput from '../components/ui/Input.vue';
 import Button from '../components/ui/Button.vue';
 import DatePicker from '../components/ui/DatePicker.vue';
@@ -98,7 +98,7 @@ export default {
     FloatingLabelInput,
     DatePicker,
     Button,
-    DropDownLink
+    DropDownInput
   },
 
     data() {
@@ -132,15 +132,16 @@ export default {
         };
     },
     mounted() {
+        
+        this.fetchUserData();
+    },
+    methods: {
         nextStep() {
       if (this.currentStep < 3) this.currentStep++;
     },
     prevStep() {
       if (this.currentStep > 1) this.currentStep--;
     },
-        this.fetchUserData();
-    },
-    methods: {
         fetchUserData() {
             axios
                 .get('/user')
