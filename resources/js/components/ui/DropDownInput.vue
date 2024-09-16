@@ -52,7 +52,7 @@
 
 <script>
 export default {
-    name: 'DropDownLink',
+    name: 'DropDownInput',
     data() {
         return {
             open: false,
