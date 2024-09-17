@@ -27,34 +27,39 @@ This repository follows a structured branching strategy to manage development an
 - Node.js
 - Vue.js 
 - Laravel
-- Composer 
+- Composer
+- PostgreSQL Database (Local or Remote)
 - API Keys from supported e-commerce platforms 
 
 ### Setup
 1. Clone the Repository:
 ```bash
-   git clone https://github.com/jewelldmnt/Dealux.git
-   cd Dealux
+git clone https://github.com/jewelldmnt/Dealux.git
+cd Dealux
 ```
 
 2. Install Dependencies:
 ```bash
-   npm install
-   composer install
+npm install
+composer install
 ```
 3. Prepare the Environment Variables:
-- Rename the provided env file to .env:
 ```bash
-   mv env .env
+# Duplicate the provided env file to .env:
+cp env .env
 ```
 
-4. Run Database Migration:
+4. Start your PostgreSQL Database Service (if you haven't already)
+
+5. Configure your PostgreSQL Database Credentials in `.env`
+
+6. Run Database Migration:
 ```bash
-   php artisan migrate
+php artisan migrate
 ```
 
-5. Run the Project
+7. Run the Project (each line is their own terminal window)
 ```bash
-   npm run dev
-   php artisan serve 
+npm run dev
+php artisan serve 
 ```
