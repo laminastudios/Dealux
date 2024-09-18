@@ -27,6 +27,7 @@ import RegisterInformationPage from './pages/RegisterInformationPage.vue';
 import OrderDetailPage from './pages/OrderDetailPage.vue';
 import PageNotFound from './pages/PageNotFound.vue';
 import RefundPage from './pages/RefundPage.vue';
+import DatePicker from './components/ui/DatePicker.vue';
 
 // Creating a new Vue application instance
 const app = createApp({});
