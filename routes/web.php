@@ -68,6 +68,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/address', [ProfileAddressController::class, 'index'])->name('profileaddress');
         Route::get('/banks', [ProfileBanksController::class, 'index'])->name('profilebanks');
         Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription');
+        Route::get('subscription/monthly', [SubscriptionMonthlyController::class, 'index'])->name('subscriptionmonthly');
+        Route::get('subscription/monthly', [SubscriptionMonthlyController::class, 'index'])->name('subscriptionyearly');
     });
 
     Route::prefix('purchase')->group(function () {
