@@ -27,6 +27,8 @@ import RegisterInformationPage from './pages/RegisterInformationPage.vue';
 import OrderDetailPage from './pages/OrderDetailPage.vue';
 import PageNotFound from './pages/PageNotFound.vue';
 import RefundPage from './pages/RefundPage.vue';
+import SubscriptionMonthly from './pages/SubscriptionMonthly.vue';
+import SubscriptionYearly from './pages/SubscriptionYearly.vue';
 
 // Creating a new Vue application instance
 const app = createApp({});

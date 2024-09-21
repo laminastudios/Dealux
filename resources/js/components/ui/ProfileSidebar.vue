@@ -69,13 +69,18 @@
                     </router-link>
                 </li>
                 <li class="py-2 mt-2">
-                    <a
-                        href="#"
+                    <router-link
+                        to="/account/subscription"
                         class="label-1 font-bold text-black flex hover:text-warning-600 items-center"
+                        :class="
+                            isActive('/account/subscription')
+                                ? 'text-yellow-400'
+                                : 'text-neutral-500 hover:text-warning-600'
+                        "
                     >
                         <i class="bx bx-crown w-6"></i>
                         <span class="ml-2">Subscription</span>
-                    </a>
+                    </router-link>
                 </li>
             </ul>
         </nav>
