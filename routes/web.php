@@ -19,6 +19,7 @@ use App\Http\Controllers\RefundController;
 use App\Http\Controllers\RegisterInformationController;
 use App\Http\Controllers\SearchProductController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\SubscriptionMonthlyController;
 use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -68,6 +69,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/address', [ProfileAddressController::class, 'index'])->name('profileaddress');
         Route::get('/banks', [ProfileBanksController::class, 'index'])->name('profilebanks');
         Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription');
+        Route::get('/subscription/monthly', [SubscriptionMonthlyController::class, 'index'])->name('subscriptionmonthly');
+        Route::get('/subscription/yearly', [SubscriptionYearlyController::class, 'index'])->name('subscriptionyearly');
     });
 
     Route::prefix('purchase')->group(function () {

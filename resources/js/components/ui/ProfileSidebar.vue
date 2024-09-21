@@ -72,6 +72,11 @@
                     <a
                         href="#"
                         class="label-1 font-bold text-black flex hover:text-warning-600 items-center"
+                        :class="
+                            isActive('/account/subscription')
+                                ? 'text-yellow-400'
+                                : 'text-neutral-500 hover:text-warning-600'
+                        "
                     >
                         <i class="bx bx-crown w-6"></i>
                         <span class="ml-2">Subscription</span>

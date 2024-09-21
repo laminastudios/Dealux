@@ -18,6 +18,8 @@ import RegisterInformationPage from '../pages/RegisterInformationPage.vue';
 import OrderDetailPage from '../pages/OrderDetailPage.vue';
 import PageNotFound from '../pages/PageNotFound.vue';
 import RefundPage from '../pages/RefundPage.vue';
+import SubscriptionMonthly from '../pages/SubscriptionMonthly.vue';
+import SubscriptionYearly from '../pages/SubscriptionYearly.vue';
 
 const routes = [
     { path: '/', name: 'landing', component: LandingPage },
@@ -39,6 +41,8 @@ const routes = [
     { path: '/search/:keyword', name: 'searchproduct', component: SearchProductPage },
     { path: '/product/:productName', name: 'product', component: ProductPage },
     { path: '/notfound', name: 'page-notfound', component: PageNotFound },
+    { path: '/account/subscription/monthly', name: 'subscriptionmonthly', component: SubscriptionMonthly },
+    { path: '/account/subscription/yearly', name: 'subscriptionyearly', component: SubscriptionYearly },
 ];
 
 const router = createRouter({
